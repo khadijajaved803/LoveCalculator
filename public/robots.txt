@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow parameterized dynamic result URLs to prevent crawl waste and duplicate content
+Disallow: /*?*
+
+# Sitemap location
+Sitemap: https://milanmeter.com/sitemap.xml
