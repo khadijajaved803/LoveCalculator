@@ -1,5 +1,5 @@
 {
-  "name": "MilanMeter - Love & Compatibility Calculator",
+  "name": "CalculateLove - Love & Compatibility Calculator",
   "description": "Free, private love calculator by name, FLAMES test, friendship percentage, and compatibility calculators for fun, deterministic relationship matching.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

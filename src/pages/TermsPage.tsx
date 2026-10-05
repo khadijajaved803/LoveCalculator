@@ -10,8 +10,8 @@ export const TermsPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700 leading-relaxed text-sm">
       <SEOHead
-        title="Terms of Service - MilanMeter"
-        description="Review the terms and conditions governing the use of the MilanMeter relationship calculators and educational content."
+        title="Terms of Service - CalculateLove"
+        description="Review the terms and conditions governing the use of the CalculateLove relationship calculators and educational content."
         canonicalPath="/terms/"
       />
 
@@ -34,28 +34,28 @@ export const TermsPage: React.FC<Props> = ({ onNavigate }) => {
         <section>
           <h2 className="text-base font-bold text-slate-900 mb-2">1. Acceptance of Terms</h2>
           <p>
-            By accessing or using MilanMeter (milanmeter.com), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+            By accessing or using CalculateLove (calculatelove.online), you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
           </p>
         </section>
 
         <section>
           <h2 className="text-base font-bold text-slate-900 mb-2">2. Use License & Entertainment Nature</h2>
           <p>
-            All tools, tests, calculators, and articles on MilanMeter are provided strictly for recreational, entertainment, and educational purposes. You agree not to use the service for any unlawful purpose or to harass or defame any individual.
+            All tools, tests, calculators, and articles on CalculateLove are provided strictly for recreational, entertainment, and educational purposes. You agree not to use the service for any unlawful purpose or to harass or defame any individual.
           </p>
         </section>
 
         <section>
           <h2 className="text-base font-bold text-slate-900 mb-2">3. Intellectual Property</h2>
           <p>
-            The software architecture, original articles, brand assets, and custom styling of MilanMeter are protected by applicable copyright and trademark law.
+            The software architecture, original articles, brand assets, and custom styling of CalculateLove are protected by applicable copyright and trademark law.
           </p>
         </section>
 
         <section>
           <h2 className="text-base font-bold text-slate-900 mb-2">4. Limitation of Liability</h2>
           <p>
-            MilanMeter and its operators shall not be held liable for any decisions, interpersonal conflicts, or emotional outcomes resulting from the use of its calculators or content.
+            CalculateLove and its operators shall not be held liable for any decisions, interpersonal conflicts, or emotional outcomes resulting from the use of its calculators or content.
           </p>
         </section>
       </div>

@@ -11,8 +11,8 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700">
       <SEOHead
-        title="About MilanMeter - India's Trusted Relationship Tools Platform"
-        description="Learn about MilanMeter, our commitment to privacy, deterministic algorithms, and positive relationship reflections for couples and friends across India."
+        title="About CalculateLove - India's Trusted Relationship Tools Platform"
+        description="Learn about CalculateLove, our commitment to privacy, deterministic algorithms, and positive relationship reflections for couples and friends across India."
         canonicalPath="/about/"
       />
 
@@ -26,7 +26,7 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
 
       <header className="mb-10 text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3">
-          About MilanMeter
+          About CalculateLove
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
           Building fast, private, and deterministic relationship compatibility calculators tailored for Indian and global audiences.
@@ -39,7 +39,7 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
             Our Mission: Clean, Honest & Private Calculators
           </h2>
           <p className="mb-3">
-            Most online love calculators on the internet are plagued with intrusive ads, layout jumps, volatile random number generators, and deceptive claims. MilanMeter was created to offer an alternative: a clean, lightning-fast, and trustworthy suite of relationship tools.
+            Most online love calculators on the internet are plagued with intrusive ads, layout jumps, volatile random number generators, and deceptive claims. CalculateLove was created to offer an alternative: a clean, lightning-fast, and trustworthy suite of relationship tools.
           </p>
           <p>
             Whether you want to revisit the classic school nostalgia of the FLAMES game or explore the phonetic resonance of two names, our calculators are built to bring warmth, laughter, and thoughtful reflection into your connections.

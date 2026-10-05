@@ -18,7 +18,7 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
         'In classical numerology, single-digit root numbers (1 to 9) represent energetic temperaments. For example, numbers in the same triad (such as the creative 3-6-9 triad) share intuitive resonance and similar emotional pacing.',
     },
     {
-      question: 'Which numerology system does MilanMeter reference?',
+      question: 'Which numerology system does CalculateLove reference?',
       answer:
         'We reference the Pythagorean Life Path system (reducing birth dates to single root digits) for our date-of-birth tools, and are preparing Chaldean sound vibration charts for upcoming name numerology expansions.',
     },
@@ -40,15 +40,15 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     'name': 'Numerology & Relationship Compatibility Hub',
-    'url': 'https://milanmeter.com/numerology/',
-    'description': 'Discover numerology love compatibility, Life Path number resonance, and Pythagorean name vibration principles on MilanMeter.',
+    'url': 'https://calculatelove.online/numerology/',
+    'description': 'Discover numerology love compatibility, Life Path number resonance, and Pythagorean name vibration principles on CalculateLove.',
   };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Numerology Love Calculator - Life Path Compatibility Hub | MilanMeter"
-        description="Explore numerology love compatibility, Life Path numbers 1-9, and name vibration principles with MilanMeter. Mathematical, grounded, and fun relationship tools."
+        title="Numerology Love Calculator - Life Path Compatibility Hub | CalculateLove"
+        description="Explore numerology love compatibility, Life Path numbers 1-9, and name vibration principles with CalculateLove. Mathematical, grounded, and fun relationship tools."
         canonicalPath="/numerology/"
         schemaJson={schemaJson}
       />

@@ -160,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('/about/')}
                   className="hover:text-rose-600 transition-colors"
                 >
-                  About MilanMeter
+                  About CalculateLove
                 </button>
               </li>
               <li>
@@ -206,7 +206,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Disclaimer summary statement */}
         <div className="py-6 border-b border-slate-100 text-[11px] text-slate-500 leading-relaxed">
           <p>
-            <strong>Disclaimer:</strong> MilanMeter provides compatibility tests, FLAMES games, and numerological calculations strictly for fun, entertainment, and playful self-reflection. These tools do not provide clinical psychological diagnostics, scientific relationship predictions, or binding matrimonial advice. True relationships flourish through mutual respect, kindness, and honest communication.
+            <strong>Disclaimer:</strong> CalculateLove provides compatibility tests, FLAMES games, and numerological calculations strictly for fun, entertainment, and playful self-reflection. These tools do not provide clinical psychological diagnostics, scientific relationship predictions, or binding matrimonial advice. True relationships flourish through mutual respect, kindness, and honest communication.
           </p>
         </div>
 

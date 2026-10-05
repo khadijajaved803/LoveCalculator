@@ -26,16 +26,16 @@ export const BlogIndexPage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    'name': 'MilanMeter Relationship & Compatibility Blog',
-    'url': 'https://milanmeter.com/blog/',
+    'name': 'CalculateLove Relationship & Compatibility Blog',
+    'url': 'https://calculatelove.online/blog/',
     'description': 'Helpful guides on love calculators, FLAMES game rules, life path compatibility, and healthy modern relationships.',
   };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Relationship Guides & Compatibility Blog | MilanMeter"
-        description="Explore in-depth guides on how love calculators work, FLAMES rules, life path numerology, and modern relationship compatibility on MilanMeter."
+        title="Relationship Guides & Compatibility Blog | CalculateLove"
+        description="Explore in-depth guides on how love calculators work, FLAMES rules, life path numerology, and modern relationship compatibility on CalculateLove."
         canonicalPath="/blog/"
         schemaJson={schemaJson}
       />

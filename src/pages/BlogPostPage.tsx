@@ -47,19 +47,19 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
     'dateModified': post.updated,
     'publisher': {
       '@type': 'Organization',
-      'name': 'MilanMeter',
-      'url': 'https://milanmeter.com/',
+      'name': 'CalculateLove',
+      'url': 'https://calculatelove.online/',
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://milanmeter.com/blog/${post.slug}/`,
+      '@id': `https://calculatelove.online/blog/${post.slug}/`,
     },
   };
 
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title={`${post.title} | MilanMeter`}
+        title={`${post.title} | CalculateLove`}
         description={post.description}
         canonicalPath={`/blog/${post.slug}/`}
         schemaJson={schemaJson}

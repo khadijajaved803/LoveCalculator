@@ -21,7 +21,7 @@ export const BLOG_POSTS: BlogPost[] = [
       `2. **Character Overlap**: Shared letters represent common sound roots, creating a sense of phonetic familiarity.`,
       `3. **Deterministic Hash Invariance**: Crucially, entering "Rahul" and "Pooja" must yield the exact same score as entering "Pooja" and "Rahul". True algorithms ensure symmetric calculations.`,
       `### Why Determinism Matters`,
-      `A frustrating flaw on low-quality websites is volatility. If you test your crush's name in the morning and get 88%, but refresh at noon and get 34%, the tool has broken the user’s trust. MilanMeter implements a deterministic hashing engine so your result remains solid, predictable, and shareable.`,
+      `A frustrating flaw on low-quality websites is volatility. If you test your crush's name in the morning and get 88%, but refresh at noon and get 34%, the tool has broken the user’s trust. CalculateLove implements a deterministic hashing engine so your result remains solid, predictable, and shareable.`,
       `### Entertainment vs. Genuine Emotional Connection`,
       `While calculating your love percentage is a wonderful way to spark conversations and share laughs with your partner, real-life relationship success rests on open communication, mutual respect, and intentional effort. Use love calculators to break the ice and celebrate your bond, but measure your actual relationship through everyday kindness.`,
     ],
@@ -108,7 +108,7 @@ export const BLOG_POSTS: BlogPost[] = [
       `3. **Count the remaining letters**: Let this number be $N$.`,
       `4. **Circular Elimination**: Starting at 'F', count $N$ positions along F-L-A-M-E-S. Strike out the letter landed upon. Count the next $N$ steps starting from the letter immediately following the eliminated one.`,
       `5. **Final Outcome**: Repeat this cyclic strikeout until exactly one single letter survives.`,
-      `Unlike human errors made with a pen in the middle of a lecture, MilanMeter’s automated FLAMES tool executes the circular elimination with absolute precision and displays each step visually!`,
+      `Unlike human errors made with a pen in the middle of a lecture, CalculateLove’s automated FLAMES tool executes the circular elimination with absolute precision and displays each step visually!`,
     ],
   },
   {

@@ -18,7 +18,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
         'Western astrology relies predominantly on the Sun sign (based on the solar month of birth). Vedic astrology (Jyotish) prioritizes the Moon sign (Chandra Rashi), birth star (Nakshatra), and Ashta Kuta (the 36 Guna matching system).',
     },
     {
-      question: 'Will MilanMeter add Kundli and Rashi compatibility tools?',
+      question: 'Will CalculateLove add Kundli and Rashi compatibility tools?',
       answer:
         'Yes. We are currently architecting vetted astrological formulas based on classic texts so that future tools provide transparent, authentic calculations without fabricated assertions.',
     },
@@ -43,15 +43,15 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     'name': 'Astrology & Zodiac Relationship Compatibility Hub',
-    'url': 'https://milanmeter.com/astrology/',
-    'description': 'Explore astrology love calculators, zodiac compatibility concepts, and Rashi relationship dynamics on MilanMeter.',
+    'url': 'https://calculatelove.online/astrology/',
+    'description': 'Explore astrology love calculators, zodiac compatibility concepts, and Rashi relationship dynamics on CalculateLove.',
   };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Astrology Love Calculator & Zodiac Compatibility Hub | MilanMeter"
-        description="Explore astrology love compatibility, zodiac elements, and Rashi relationship dynamics with MilanMeter. Grounded, authentic, and educational insights."
+        title="Astrology Love Calculator & Zodiac Compatibility Hub | CalculateLove"
+        description="Explore astrology love compatibility, zodiac elements, and Rashi relationship dynamics with CalculateLove. Grounded, authentic, and educational insights."
         canonicalPath="/astrology/"
         schemaJson={schemaJson}
       />
@@ -136,7 +136,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Our Commitment to Astrological Transparency</span>
         </h3>
         <p>
-          MilanMeter respects the cultural heritage of Vedic and Western astrological traditions. We do not invent arbitrary astrological rules to claim that couples are &quot;destined&quot; to divorce or fail. Astrological reflections should inspire mutual understanding, emotional maturity, and compassion.
+          CalculateLove respects the cultural heritage of Vedic and Western astrological traditions. We do not invent arbitrary astrological rules to claim that couples are &quot;destined&quot; to divorce or fail. Astrological reflections should inspire mutual understanding, emotional maturity, and compassion.
         </p>
       </div>
 

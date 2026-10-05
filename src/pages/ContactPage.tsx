@@ -23,8 +23,8 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Contact MilanMeter - Editorial Feedback & Suggestions"
-        description="Get in touch with the MilanMeter team for editorial questions, feature suggestions, calculator feedback, or partnership inquiries."
+        title="Contact CalculateLove - Editorial Feedback & Suggestions"
+        description="Get in touch with the CalculateLove team for editorial questions, feature suggestions, calculator feedback, or partnership inquiries."
         canonicalPath="/contact/"
       />
 
@@ -38,7 +38,7 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
 
       <div className="text-center max-w-xl mx-auto mb-10">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3">
-          Contact the MilanMeter Team
+          Contact the CalculateLove Team
         </h1>
         <p className="text-sm text-slate-600 leading-relaxed">
           We welcome your feedback, calculator feature suggestions, or mathematical inquiries.
@@ -116,7 +116,7 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="How can we make MilanMeter better for you?"
+                placeholder="How can we make CalculateLove better for you?"
                 className="w-full px-3.5 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100"
                 required
               />

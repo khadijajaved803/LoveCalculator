@@ -11,8 +11,8 @@ export const PrivacyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700 leading-relaxed text-sm">
       <SEOHead
-        title="Privacy Policy - MilanMeter"
-        description="Learn how MilanMeter protects user privacy with 100% client-side calculations and zero name storage."
+        title="Privacy Policy - CalculateLove"
+        description="Learn how CalculateLove protects user privacy with 100% client-side calculations and zero name storage."
         canonicalPath="/privacy-policy/"
       />
 
@@ -42,7 +42,7 @@ export const PrivacyPage: React.FC<Props> = ({ onNavigate }) => {
         <section>
           <h2 className="text-base font-bold text-slate-900 mb-2">1. Information We Do Not Collect</h2>
           <p>
-            When you enter your name, your partner&apos;s name, or dates of birth into MilanMeter, this information is processed locally via client-side JavaScript. We do not maintain any database of user names, match histories, or personal identities.
+            When you enter your name, your partner&apos;s name, or dates of birth into CalculateLove, this information is processed locally via client-side JavaScript. We do not maintain any database of user names, match histories, or personal identities.
           </p>
         </section>
 
