@@ -18,8 +18,10 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   const fullCanonicalUrl = `https://milanmeter.com${canonicalPath}`;
 
   useEffect(() => {
-    // 1. Update Title
+    // 1. Update Title and HTML Lang
     document.title = title;
+    document.documentElement.lang = 'en-IN';
+    document.documentElement.setAttribute('lang', 'en-IN');
 
     // 2. Update Meta Description
     let metaDesc = document.querySelector('meta[name="description"]');
