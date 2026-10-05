@@ -7,6 +7,7 @@ import { FAQSection } from '../components/FAQSection';
 import { calculateFlames } from '../lib/calculatorEngine';
 import { FlamesResult } from '../types';
 import { generateCardImageBlob } from '../lib/cardImageGenerator';
+import { CalculateLoveLogo } from '../components/CalculateLoveLogo';
 import {
   Flame,
   RotateCcw,
@@ -333,8 +334,8 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-amber-500 to-pink-500" />
 
             <div className="flex items-center justify-between border-b border-rose-100 pb-3 mb-5">
-              <div className="flex items-center gap-1.5 text-[11px] font-bold text-rose-600 uppercase tracking-widest font-mono">
-                <Flame className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+              <div className="flex items-center gap-2 text-xs font-bold text-rose-600 uppercase tracking-widest font-mono">
+                <CalculateLoveLogo size={22} />
                 <span>calculatelove.online</span>
               </div>
               <span className="text-[10px] bg-amber-100 text-amber-800 font-semibold px-2.5 py-0.5 rounded-full">

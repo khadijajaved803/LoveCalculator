@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, ShieldCheck, Sparkles } from 'lucide-react';
+import { CalculateLoveLogo } from './CalculateLoveLogo';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -15,12 +16,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => onNavigate('/')}
-              className="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900 font-display"
+              className="text-left group"
             >
-              <span className="w-7 h-7 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600">
-                <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-              </span>
-              <span>CalculateLove</span>
+              <CalculateLoveLogo size={32} showWordmark={true} />
             </button>
             <p className="text-xs text-slate-500 leading-relaxed">
               India&apos;s clean, lightweight compatibility calculator platform at calculatelove.online. Dedicated to private, deterministic name matching, classic FLAMES games, and positive relationship reflections.

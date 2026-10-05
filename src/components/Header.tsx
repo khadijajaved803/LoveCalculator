@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Heart, Sparkles, Flame, Users, BookOpen, Compass } from 'lucide-react';
+import { CalculateLoveLogo } from './CalculateLoveLogo';
 
 interface HeaderProps {
   currentPath: string;
@@ -47,17 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           onClick={() => handleLinkClick('/')}
           className="flex items-center gap-2.5 text-left group min-w-0"
         >
-          <span className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform shrink-0">
-            <Heart className="w-4 h-4 fill-white animate-pulse" />
-          </span>
-          <div className="flex flex-col">
-            <span className="text-base sm:text-lg font-extrabold tracking-tight text-slate-900 font-display leading-none group-hover:text-rose-600 transition-colors">
-              CalculateLove
-            </span>
-            <span className="text-[10px] text-rose-500 font-medium tracking-wider uppercase font-mono">
-              calculatelove.online
-            </span>
-          </div>
+          <CalculateLoveLogo size={38} showWordmark={true} />
         </button>
 
         {/* Desktop Navigation Links */}

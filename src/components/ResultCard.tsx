@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { CompatibilityResult } from '../types';
 import { generateCardImageBlob } from '../lib/cardImageGenerator';
+import { CalculateLoveLogo } from './CalculateLoveLogo';
 
 interface ResultCardProps {
   result: CompatibilityResult;
@@ -149,8 +150,8 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
 
       {/* Brand Header Tag */}
       <div className="flex items-center justify-between border-b border-rose-100 pb-3 mb-5">
-        <div className="flex items-center gap-1.5 text-[11px] font-bold text-rose-600 uppercase tracking-widest font-mono">
-          <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+        <div className="flex items-center gap-2 text-xs font-bold text-rose-600 uppercase tracking-widest font-mono">
+          <CalculateLoveLogo size={22} />
           <span>calculatelove.online</span>
         </div>
         <span className="text-[10px] bg-rose-100 text-rose-700 font-semibold px-2.5 py-0.5 rounded-full">
