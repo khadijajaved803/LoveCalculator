@@ -15,7 +15,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   schemaJson,
   type = 'website',
 }) => {
-  const fullCanonicalUrl = `https://milanmeter.com${canonicalPath}`;
+  const fullCanonicalUrl = `https://calculatelove.online${canonicalPath}`;
 
   useEffect(() => {
     // 1. Update Title and HTML Lang

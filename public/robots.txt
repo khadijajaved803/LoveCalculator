@@ -5,4 +5,4 @@ Allow: /
 Disallow: /*?*
 
 # Sitemap location
-Sitemap: https://milanmeter.com/sitemap.xml
+Sitemap: https://calculatelove.online/sitemap.xml

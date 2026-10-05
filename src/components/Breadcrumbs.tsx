@@ -14,7 +14,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, onNavigate }) =
       '@type': 'ListItem',
       'position': idx + 1,
       'name': item.label,
-      'item': item.href ? `https://milanmeter.com${item.href}` : undefined,
+      'item': item.href ? `https://calculatelove.online${item.href}` : undefined,
     })),
   };
 

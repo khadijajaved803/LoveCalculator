@@ -20,10 +20,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="w-7 h-7 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600">
                 <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
               </span>
-              <span>MilanMeter</span>
+              <span>CalculateLove</span>
             </button>
             <p className="text-xs text-slate-500 leading-relaxed">
-              India&apos;s clean, lightweight compatibility calculator platform. Dedicated to private, deterministic name matching, classic FLAMES games, and positive relationship reflections.
+              India&apos;s clean, lightweight compatibility calculator platform at calculatelove.online. Dedicated to private, deterministic name matching, classic FLAMES games, and positive relationship reflections.
             </p>
             <div className="flex items-center gap-2 text-xs text-emerald-700 font-medium bg-emerald-50/60 p-2.5 rounded-xl border border-emerald-100/80">
               <ShieldCheck className="w-4 h-4 shrink-0 text-emerald-600" />
@@ -213,7 +213,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
           <div className="flex items-center gap-1.5">
-            <span>© 2026 MilanMeter. All rights reserved.</span>
+            <span>© 2026 CalculateLove (calculatelove.online). All rights reserved.</span>
             <span aria-hidden="true">·</span>
             <span>Crafted for India</span>
           </div>

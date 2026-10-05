@@ -6,9 +6,10 @@ import { ShareModal } from '../components/ShareModal';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import { EngagementInputs } from '../components/EngagementInputs';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { CompatibilityResult } from '../types';
-import { Heart, Sparkles, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Heart, Sparkles, ShieldCheck, SlidersHorizontal } from 'lucide-react';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -17,6 +18,12 @@ interface Props {
 export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   const [name1, setName1] = useState('');
   const [name2, setName2] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('Dating');
+  const [vibe, setVibe] = useState('Chai & Late Night Talks');
+  const [showAdvanced, setShowAdvanced] = useState(true);
+
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [error, setError] = useState('');
@@ -28,13 +35,20 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setError('');
-    const res = calculateLoveScore(name1, name2, 'general');
+    const res = calculateLoveScore(name1, name2, 'general', {
+      age1,
+      age2,
+      bondType,
+      vibe,
+    });
     setResult(res);
   };
 
   const handleReset = () => {
     setName1('');
     setName2('');
+    setAge1('');
+    setAge2('');
     setResult(null);
     setError('');
   };
@@ -43,22 +57,17 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'How does the online love calculator compute the score?',
       answer:
-        'Our love calculator uses deterministic character harmonic analysis. It analyzes letter frequency, vowel structure, and phonetic synergy between both names. Most importantly, it is symmetric: testing "Rahul" and "Priya" produces the exact same score as "Priya" and "Rahul".',
+        'Our love calculator uses deterministic character harmonic analysis. It analyzes letter frequency, vowel structure, and phonetic synergy between both names. It also factors in your optional ages and couple vibe for personalized Hinglish relationship reflections.',
     },
     {
       question: 'Is this love test private?',
       answer:
-        'Yes, 100% private. Calculations take place instantly inside your browser. We never store, transmit, or share your names.',
+        'Yes, 100% private. Calculations take place instantly inside your browser. We never store, transmit, or share your names or ages.',
     },
     {
       question: 'Can a love calculator predict if a relationship will succeed?',
       answer:
         'No. Love calculators are fun entertainment tools designed to spark romantic conversation and playful reflection. Real, lasting relationships depend on mutual trust, emotional maturity, open communication, and shared values.',
-    },
-    {
-      question: 'What is considered a good love percentage score?',
-      answer:
-        'Scores above 75% indicate strong natural resonance. However, even couples with scores in the 60s often make wonderful partners because complementary differences bring fresh perspective and balance.',
     },
   ];
 
@@ -66,7 +75,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'Love Calculator - Test Compatibility Score Online',
-    'url': 'https://milanmeter.com/love-calculator/',
+    'url': 'https://calculatelove.online/love-calculator/',
     'description': 'Free online love calculator to test real compatibility percentage and relationship chemistry between two names.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
@@ -75,8 +84,8 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Calculator - Test True Love Percentage by Name | MilanMeter"
-        description="Calculate love compatibility percentage between two names instantly with MilanMeter. Fun, private, deterministic love score with deep relationship insights."
+        title="Love Calculator - Test True Love Percentage by Name | CalculateLove"
+        description="Calculate love compatibility percentage between two names instantly with CalculateLove. Fun, private, deterministic love score with Hinglish relationship insights."
         canonicalPath="/love-calculator/"
         schemaJson={schemaJson}
       />
@@ -96,7 +105,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           Free Online Love Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Test love percentage, mutual chemistry, and emotional harmony between two names. Fast, private, and deterministic.
+          Test love percentage, mutual chemistry, and emotional harmony between two names with custom age & relationship vibe analysis.
         </p>
       </div>
 
@@ -124,7 +133,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
-              <div className="flex items-center justify-center my-2">
+              <div className="flex items-center justify-center my-1">
                 <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500">
                   <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
                 </span>
@@ -149,6 +158,20 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
+              {/* Engaging Inputs: Age, Bond Type, Vibe */}
+              <EngagementInputs
+                age1={age1}
+                setAge1={setAge1}
+                age2={age2}
+                setAge2={setAge2}
+                bondType={bondType}
+                setBondType={setBondType}
+                vibe={vibe}
+                setVibe={setVibe}
+                person1Label="Your"
+                person2Label="Partner's"
+              />
+
               {error && (
                 <p className="text-xs text-rose-600 font-medium">{error}</p>
               )}
@@ -161,7 +184,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 <Heart className="w-4 h-4 fill-white" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-500">
+              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Deterministic match · Zero data logged</span>
               </div>
@@ -176,28 +199,24 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         )}
       </div>
 
-      {/* Share Modal */}
       {result && (
         <ShareModal
           isOpen={shareOpen}
           onClose={() => setShareOpen(false)}
-          title="MilanMeter Love Score"
-          shareText={`💖 ${result.names.person1} & ${result.names.person2} have a ${result.score}% Love Compatibility score on MilanMeter! (${result.verdict})`}
-          url="https://milanmeter.com/love-calculator/"
+          title="CalculateLove Compatibility Score"
+          shareText={`💖 *${result.names.person1}* & *${result.names.person2}* Love Score: *${result.score}%*!\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"`}
+          url="https://calculatelove.online/love-calculator/"
         />
       )}
 
-      {/* Editorial Content / How it Works / Search Intent */}
+      {/* Editorial Content */}
       <section className="mt-16 pt-12 border-t border-slate-200 space-y-10 text-slate-700">
         <div>
           <h2 className="text-xl font-bold text-slate-900 font-display mb-3">
-            How Does the MilanMeter Love Calculator Work?
+            How Does the Love Calculator Work?
           </h2>
           <p className="text-sm leading-relaxed mb-4">
-            Unlike superficial tools that generate random percentages, the MilanMeter love calculator uses deterministic character harmonization. Every letter in your name carries a phonetic vibration and structural position. Our algorithm normalizes both names, calculates letter overlap ratios, balances vowel-to-consonant harmony, and applies a symmetric mathematical hash.
-          </p>
-          <p className="text-sm leading-relaxed">
-            This guarantees that whether you enter your name first or your partner&apos;s name first, your result remains completely consistent.
+            Unlike superficial tools that generate random percentages, CalculateLove uses deterministic character harmonization and phonetic vibrations. Every letter carries structural resonance, and when paired with your age dynamic and couple vibe, generates custom Hinglish reflections.
           </p>
         </div>
 
@@ -207,46 +226,26 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-1">85% to 98% · Deep Resonance</h3>
+              <h3 className="font-bold text-slate-900 mb-1">85% to 98% · Rab Ne Bana Di Jodi</h3>
               <p className="text-slate-600">
-                Natural comfort, mutual trust, and shared humor. Conversations feel effortless and emotional safety is naturally present.
+                Deep natural chemistry, effortless conversations, and emotional security. You understand each other without saying much.
               </p>
             </div>
             <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-1">70% to 84% · Harmonious Affinity</h3>
+              <h3 className="font-bold text-slate-900 mb-1">70% to 84% · Harmonious Sukoon</h3>
               <p className="text-slate-600">
-                A strong, loving foundation with healthy individuality. Both partners support each other&apos;s personal dreams and aspirations.
-              </p>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-1">55% to 69% · Complementary Dynamics</h3>
-              <p className="text-slate-600">
-                Opposites attract! Differences provide healthy spark and room for mutual growth when approached with curiosity and respect.
-              </p>
-            </div>
-            <div className="p-4 rounded-2xl bg-white border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-1">Core Reflection</h3>
-              <p className="text-slate-600">
-                Every score is an opportunity to reflect on your relationship strengths. Real love is built through continuous care, patience, and affection.
+                Solid foundation with mutual respect and care. Both partners uplift and support each other&apos;s individuality.
               </p>
             </div>
           </div>
         </div>
-
-        {/* Disclaimer Callout */}
-        <div className="p-5 rounded-2xl bg-slate-100 border border-slate-200 text-xs text-slate-600 leading-relaxed">
-          <strong className="text-slate-900">Note on Love Testing:</strong> This calculator is created for entertainment, romantic curiosity, and fun social sharing. True romantic compatibility cannot be reduced to a mechanical algorithm alone; it is cultivated through daily acts of kindness, active listening, and unwavering loyalty.
-        </div>
       </section>
 
-      {/* Internal Linking: Related Tools & Articles */}
       <RelatedTools currentToolId="love-calculator" onNavigate={onNavigate} />
       <RelatedArticles
         onNavigate={onNavigate}
         preferredSlugs={['how-love-calculator-works', 'what-does-love-percentage-mean']}
       />
-
-      {/* FAQs */}
       <FAQSection faqs={faqs} />
     </div>
   );

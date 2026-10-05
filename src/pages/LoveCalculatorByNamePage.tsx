@@ -6,9 +6,10 @@ import { ShareModal } from '../components/ShareModal';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import { EngagementInputs } from '../components/EngagementInputs';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { CompatibilityResult } from '../types';
-import { Heart, Sparkles, User, ShieldCheck } from 'lucide-react';
+import { Heart, User, ShieldCheck } from 'lucide-react';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -17,6 +18,11 @@ interface Props {
 export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
   const [personA, setPersonA] = useState('');
   const [personB, setPersonB] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('In Love');
+  const [vibe, setVibe] = useState('Chai & Late Night Talks');
+
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [error, setError] = useState('');
@@ -28,13 +34,20 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setError('');
-    const res = calculateLoveScore(personA, personB, 'name');
+    const res = calculateLoveScore(personA, personB, 'name', {
+      age1,
+      age2,
+      bondType,
+      vibe,
+    });
     setResult(res);
   };
 
   const handleReset = () => {
     setPersonA('');
     setPersonB('');
+    setAge1('');
+    setAge2('');
     setResult(null);
     setError('');
   };
@@ -48,12 +61,7 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'Does the order of names change the love test score?',
       answer:
-        'No. MilanMeter enforces symmetric matching. Entering Person A first and Person B second produces the identical percentage as reversing the order.',
-    },
-    {
-      question: 'Why do names influence relationship compatibility in folklore?',
-      answer:
-        'In Indian cultural traditions and Western onomastics, names are closely tied to sound vibration (Naam Akshar in Vedic astrology, or Pythagorean vibration in numerology). While this calculator is designed for fun and entertainment, name resonance has been celebrated for centuries as a symbol of romantic destiny.',
+        'No. CalculateLove enforces symmetric matching. Entering Person A first and Person B second produces the identical percentage as reversing the order.',
     },
   ];
 
@@ -61,7 +69,7 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'Love Calculator by Name',
-    'url': 'https://milanmeter.com/love-calculator-by-name/',
+    'url': 'https://calculatelove.online/love-calculator-by-name/',
     'description': 'Calculate love score and romantic resonance by full name or first name with instant deterministic matching.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
@@ -70,8 +78,8 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Calculator by Name - Test Compatibility by Name | MilanMeter"
-        description="Enter two names into MilanMeter's Love Calculator by Name to test romantic affinity, sound resonance, and compatibility percentage instantly."
+        title="Love Calculator by Name - Test Compatibility by Name | CalculateLove"
+        description="Enter two names into CalculateLove's Love Calculator by Name to test romantic affinity, sound resonance, and compatibility percentage instantly."
         canonicalPath="/love-calculator-by-name/"
         schemaJson={schemaJson}
       />
@@ -90,7 +98,7 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
           Love Calculator by Name
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Discover the romantic chemistry and name vibration between you and your partner. Works with first names or full names.
+          Discover the romantic chemistry and name vibration between you and your partner with optional age & bond customization.
         </p>
       </div>
 
@@ -120,7 +128,7 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center my-2">
+              <div className="flex items-center justify-center my-1">
                 <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500">
                   <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
                 </span>
@@ -148,6 +156,19 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
                 </div>
               </div>
 
+              <EngagementInputs
+                age1={age1}
+                setAge1={setAge1}
+                age2={age2}
+                setAge2={setAge2}
+                bondType={bondType}
+                setBondType={setBondType}
+                vibe={vibe}
+                setVibe={setVibe}
+                person1Label="Person A"
+                person2Label="Person B"
+              />
+
               {error && (
                 <p className="text-xs text-rose-600 font-medium">{error}</p>
               )}
@@ -160,7 +181,7 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
                 <Heart className="w-4 h-4 fill-white" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-500">
+              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Deterministic algorithm · Symmetrical calculation</span>
               </div>
@@ -179,35 +200,11 @@ export const LoveCalculatorByNamePage: React.FC<Props> = ({ onNavigate }) => {
         <ShareModal
           isOpen={shareOpen}
           onClose={() => setShareOpen(false)}
-          title="MilanMeter Name Compatibility"
-          shareText={`✨ Name Love Compatibility: ${result.names.person1} & ${result.names.person2} scored ${result.score}% (${result.verdict}) on MilanMeter!`}
-          url="https://milanmeter.com/love-calculator-by-name/"
+          title="CalculateLove Name Compatibility"
+          shareText={`✨ *${result.names.person1}* & *${result.names.person2}* Name Match: *${result.score}%*!\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"`}
+          url="https://calculatelove.online/love-calculator-by-name/"
         />
       )}
-
-      {/* Deep Content */}
-      <section className="mt-16 pt-12 border-t border-slate-200 space-y-8 text-slate-700">
-        <div>
-          <h2 className="text-xl font-bold text-slate-900 font-display mb-3">
-            Why Test Love Compatibility by Name?
-          </h2>
-          <p className="text-sm leading-relaxed mb-4">
-            Names are not merely labels; they are sound frequencies we hear hundreds of times every month. In Indian onomastics and relationship folklore, names that blend melodiously create a feeling of familiarity and warmth.
-          </p>
-          <p className="text-sm leading-relaxed">
-            Our Love Calculator by Name calculates the cross-resonance of vowels, consonant structures, and letter symmetry to output a fun, deterministic compatibility metric.
-          </p>
-        </div>
-
-        <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs space-y-2">
-          <h3 className="font-bold text-slate-900">Tips for Best Results:</h3>
-          <ul className="list-disc pl-5 space-y-1 text-slate-600">
-            <li>Try testing both full legal names and affectionate everyday nicknames.</li>
-            <li>Compare with our <button type="button" onClick={() => onNavigate('/flames-calculator/')} className="text-rose-600 underline">FLAMES game</button> for another playful perspective.</li>
-            <li>Remember that real-life relationships are forged through compassion, trust, and shared values.</li>
-          </ul>
-        </div>
-      </section>
 
       <RelatedTools currentToolId="love-calculator-by-name" onNavigate={onNavigate} />
       <RelatedArticles

@@ -15,6 +15,9 @@ export interface CompatibilityResult {
   grade: string;
   verdict: string;
   summary: string;
+  hinglishTagline: string;
+  hinglishSuggestion: string;
+  hinglishTip: string;
   breakdown: {
     communication: number;
     emotionalHarmony: number;
@@ -25,6 +28,14 @@ export interface CompatibilityResult {
   names: {
     person1: string;
     person2: string;
+  };
+  details?: {
+    age1?: string | number;
+    age2?: string | number;
+    bondType?: string;
+    vibe?: string;
+    zodiac1?: string;
+    zodiac2?: string;
   };
 }
 
@@ -47,7 +58,15 @@ export interface FlamesResult {
   resultLetter: 'F' | 'L' | 'A' | 'M' | 'E' | 'S';
   resultWord: string;
   meaning: string;
+  hinglishTagline: string;
+  hinglishSuggestion: string;
+  hinglishTip: string;
   steps: FlamesStep;
+  details?: {
+    age1?: string | number;
+    age2?: string | number;
+    bondType?: string;
+  };
 }
 
 export interface BlogPost {

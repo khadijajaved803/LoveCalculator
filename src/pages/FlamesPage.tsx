@@ -7,7 +7,18 @@ import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { calculateFlames } from '../lib/calculatorEngine';
 import { FlamesResult } from '../types';
-import { Flame, RotateCcw, Share2, Sparkles, Check, ShieldCheck } from 'lucide-react';
+import {
+  Flame,
+  RotateCcw,
+  Share2,
+  Sparkles,
+  MessageCircle,
+  Copy,
+  Check,
+  ShieldCheck,
+  Lightbulb,
+  Heart,
+} from 'lucide-react';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -16,9 +27,16 @@ interface Props {
 export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   const [name1, setName1] = useState('');
   const [name2, setName2] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('Crush');
+
   const [result, setResult] = useState<FlamesResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [error, setError] = useState('');
+
+  const websiteUrl = 'https://calculatelove.online';
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +46,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     }
     try {
       setError('');
-      const res = calculateFlames(name1, name2);
+      const res = calculateFlames(name1, name2, { age1, age2, bondType });
       setResult(res);
     } catch (err: any) {
       setError(err.message || 'Please enter valid alphabetic names.');
@@ -38,8 +56,35 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   const handleReset = () => {
     setName1('');
     setName2('');
+    setAge1('');
+    setAge2('');
     setResult(null);
     setError('');
+  };
+
+  const getShareText = () => {
+    if (!result) return '';
+    return `🔥 *FLAMES Result* for *${result.person1}* & *${result.person2}*!\n🏆 Outcome: *[${result.resultLetter}] - ${result.resultWord}*\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"\n\n👉 Play FLAMES free at: ${websiteUrl}`;
+  };
+
+  const handleWhatsApp = () => {
+    const encoded = encodeURIComponent(getShareText());
+    window.location.href = `https://api.whatsapp.com/send?text=${encoded}`;
+  };
+
+  const handleFacebook = () => {
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}&quote=${encodeURIComponent(getShareText())}`;
+    window.open(shareUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(getShareText());
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      // fallback
+    }
   };
 
   const faqs = [
@@ -52,11 +97,6 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       question: 'How are letters cancelled in the FLAMES test?',
       answer:
         'All matching letters between both names are eliminated on a 1-to-1 basis. For example, if both names contain the letter "a", one "a" from each name is struck out. The total count of all remaining uncancelled letters is then used to cyclically count through F-L-A-M-E-S until only one letter survives.',
-    },
-    {
-      question: 'Does the MilanMeter FLAMES calculator use random results?',
-      answer:
-        'Never! Our calculator executes the exact authentic mathematical elimination steps that students have played on pen and paper for decades across Indian schools and colleges.',
     },
   ];
 
@@ -73,7 +113,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'FLAMES Calculator Game Online',
-    'url': 'https://milanmeter.com/flames-calculator/',
+    'url': 'https://calculatelove.online/flames-calculator/',
     'description': 'Play the authentic FLAMES relationship game online with step-by-step letter cancellation and cyclic elimination.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
@@ -82,8 +122,8 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="FLAMES Calculator - Play FLAMES Love Game Online | MilanMeter"
-        description="Play the authentic FLAMES love calculator game online with MilanMeter. Real step-by-step letter cancellation for Friends, Lovers, Affection, Marriage, Enemies, Siblings."
+        title="FLAMES Calculator - Play FLAMES Love Game Online | CalculateLove"
+        description="Play the authentic FLAMES love calculator game online with CalculateLove. Real step-by-step letter cancellation for Friends, Lovers, Affection, Marriage, Enemies, Siblings."
         canonicalPath="/flames-calculator/"
         schemaJson={schemaJson}
       />
@@ -102,7 +142,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
           FLAMES Love Calculator Game
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          The nostalgic Indian school & college game! Test your relationship fate: Friends, Lovers, Affectionate, Marriage, Enemies, or Siblings.
+          The nostalgic Indian school & college game! Discover your outcome with letter cancellation and authentic Hinglish predictions.
         </p>
       </div>
 
@@ -129,7 +169,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
-              <div className="flex items-center justify-center my-2">
+              <div className="flex items-center justify-center my-1">
                 <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500 font-bold text-xs">
                   VS
                 </span>
@@ -154,6 +194,33 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
+              {/* Engaging Age Inputs */}
+              <div className="pt-2 border-t border-slate-100">
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
+                  Ages (Optional)
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  <input
+                    type="number"
+                    min="10"
+                    max="99"
+                    value={age1}
+                    onChange={(e) => setAge1(e.target.value)}
+                    placeholder="Your Age (e.g. 21)"
+                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs min-h-[42px]"
+                  />
+                  <input
+                    type="number"
+                    min="10"
+                    max="99"
+                    value={age2}
+                    onChange={(e) => setAge2(e.target.value)}
+                    placeholder="Crush Age (e.g. 21)"
+                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs min-h-[42px]"
+                  />
+                </div>
+              </div>
+
               {error && (
                 <p className="text-xs text-rose-600 font-medium">{error}</p>
               )}
@@ -166,45 +233,72 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <span>Play FLAMES Now</span>
               </button>
 
-              <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-500">
+              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>100% Authentic elimination algorithm</span>
               </div>
             </form>
           </div>
         ) : (
-          <div className="bg-white rounded-3xl border border-rose-200 shadow-sm p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-3 duration-300">
+          <div className="relative bg-gradient-to-b from-white via-amber-50/20 to-white rounded-3xl border-2 border-rose-200 shadow-xl overflow-hidden p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-3 duration-300">
+            {/* Top accent */}
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-amber-500 to-pink-500" />
+
+            <div className="flex items-center justify-between border-b border-rose-100 pb-3 mb-5">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold text-rose-600 uppercase tracking-widest font-mono">
+                <Flame className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+                <span>calculatelove.online</span>
+              </div>
+              <span className="text-[10px] bg-amber-100 text-amber-800 font-semibold px-2.5 py-0.5 rounded-full">
+                FLAMES Result
+              </span>
+            </div>
+
             {/* Outcome Display */}
             <div className="text-center mb-6">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-semibold mb-2">
-                <Flame className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-                <span>FLAMES Verdict</span>
-              </span>
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">
                 {result.person1} & {result.person2}
               </h3>
+              <p className="text-xs font-semibold text-rose-600 mt-1">
+                {result.hinglishTagline}
+              </p>
             </div>
 
-            {/* Letter Showcase */}
-            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-b from-rose-50/80 to-amber-50/40 rounded-2xl border border-rose-100 mb-6">
-              <div className="w-20 h-20 rounded-2xl bg-white border border-rose-200 shadow-sm flex items-center justify-center text-4xl font-extrabold text-rose-600 font-display mb-2">
+            {/* Letter Showcase Hero */}
+            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-b from-rose-50/90 to-amber-50/50 rounded-3xl border border-rose-200/80 mb-6 shadow-inner">
+              <div className="w-20 h-20 rounded-2xl bg-white border-2 border-rose-300 shadow-md flex items-center justify-center text-4xl font-extrabold text-rose-600 font-display mb-2">
                 {result.resultLetter}
               </div>
-              <span className="text-2xl font-bold text-slate-900 font-display">
+              <span className="text-2xl font-extrabold text-slate-900 font-display">
                 {result.resultWord}
               </span>
-              <p className="text-xs text-center text-slate-600 max-w-sm mt-3 leading-relaxed">
+              <p className="text-xs text-center text-slate-600 max-w-sm mt-2 leading-relaxed">
                 {result.meaning}
               </p>
             </div>
 
+            {/* Dil Ki Baat - Hinglish Reflection */}
+            <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50/50 border border-amber-200/80 mb-6 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 uppercase tracking-wider">
+                <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500" />
+                <span>FLAMES Ki Bhavishyavani · Hinglish</span>
+              </div>
+              <p className="text-xs text-slate-800 leading-relaxed font-medium">
+                {result.hinglishSuggestion}
+              </p>
+              <div className="pt-2 border-t border-amber-200/60 flex items-start gap-1.5 text-[11px] text-amber-950 font-medium">
+                <Lightbulb className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                <span>{result.hinglishTip}</span>
+              </div>
+            </div>
+
             {/* Step-by-Step Calculation Breakdown */}
-            <div className="space-y-4 mb-6 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs">
+            <div className="space-y-3 mb-6 p-4 rounded-2xl bg-white border border-slate-200 text-xs">
               <h4 className="font-bold text-slate-900 uppercase tracking-wider">
                 FLAMES Mathematical Step Breakdown
               </h4>
 
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="text-slate-500">Letters Cancelled:</span>
                   <span className="font-mono font-medium text-slate-800">
@@ -214,15 +308,14 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Unmatched Remainder Count:</span>
+                  <span className="text-slate-500">Unmatched Letters:</span>
                   <span className="font-mono font-bold text-rose-600">
                     {result.remainingCount} letters
                   </span>
                 </div>
               </div>
 
-              {/* Elimination order */}
-              <div className="pt-2 border-t border-slate-200">
+              <div className="pt-2 border-t border-slate-100">
                 <span className="text-slate-500 block mb-1">
                   Cyclic Elimination Rounds:
                 </span>
@@ -230,7 +323,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                   {result.steps.eliminationRounds.map((round, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-1 rounded-md bg-white border border-slate-200 text-slate-700 font-mono text-[11px]"
+                      className="px-2 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-700 font-mono text-[10px]"
                     >
                       Round {idx + 1}: Struck <strong>{round.letterEliminated}</strong>
                     </span>
@@ -239,87 +332,58 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setShareOpen(true)}
-                className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.99] text-white font-semibold text-xs flex items-center justify-center gap-2 transition-all shadow-sm min-h-[44px]"
-              >
-                <Share2 className="w-4 h-4" />
-                <span>Share FLAMES Result</span>
-              </button>
+            {/* Social Sharing Actions */}
+            <div className="space-y-2 mb-4">
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={handleWhatsApp}
+                  className="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[44px]"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>WhatsApp</span>
+                </button>
 
-              <button
-                type="button"
-                onClick={handleReset}
-                className="w-full sm:w-auto py-3 px-5 rounded-xl border border-slate-200 hover:bg-slate-50 active:scale-[0.99] text-slate-700 font-semibold text-xs flex items-center justify-center gap-2 transition-all min-h-[44px]"
-              >
-                <RotateCcw className="w-4 h-4 text-slate-500" />
-                <span>Play Again</span>
-              </button>
+                <button
+                  type="button"
+                  onClick={handleFacebook}
+                  className="py-3 px-3 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[44px]"
+                >
+                  <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  <span>Facebook</span>
+                </button>
+              </div>
+
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="flex-1 py-2.5 px-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                  <span>{copied ? 'Copied FLAMES Card!' : 'Copy FLAMES Text'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
+                >
+                  <RotateCcw className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Play Again</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-rose-100 flex items-center justify-between text-[10px] text-slate-400">
+              <span>Tested on calculatelove.online</span>
+              <span>100% Free & Private</span>
             </div>
           </div>
         )}
       </div>
-
-      {result && (
-        <ShareModal
-          isOpen={shareOpen}
-          onClose={() => setShareOpen(false)}
-          title="MilanMeter FLAMES Game"
-          shareText={`🔥 FLAMES Result: ${result.person1} & ${result.person2} got [${result.resultLetter} - ${result.resultWord}] on MilanMeter!`}
-          url="https://milanmeter.com/flames-calculator/"
-        />
-      )}
-
-      {/* Nostalgic Guide & Letter Definitions */}
-      <section className="mt-16 pt-12 border-t border-slate-200 space-y-8 text-slate-700">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <div>
-            <h2 className="text-xl font-bold text-slate-900 font-display mb-3">
-              The History of FLAMES in India
-            </h2>
-            <p className="text-sm leading-relaxed mb-3">
-              The FLAMES game is an inseparable part of school and college nostalgia across India. From quiet backbenches to lively hostel corridors, generations of friends have struck through letters with pencils to discover romantic fates.
-            </p>
-            <p className="text-sm leading-relaxed">
-              Our digital FLAMES tool eliminates the human counting mistakes that frequently occurred in busy classrooms, providing the true cyclic mathematical outcome every single time!
-            </p>
-          </div>
-          <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-4/3 bg-slate-100">
-            <img
-              src="/src/assets/images/flames_notebook_game_1790774216847.jpg"
-              alt="FLAMES game notebook nostalgia"
-              className="w-full h-full object-cover"
-              loading="lazy"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-lg font-bold text-slate-900 font-display mb-4">
-            What Every Letter in F.L.A.M.E.S. Means:
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {flamesFullList.map((item) => (
-              <div
-                key={item.letter}
-                className="p-3.5 rounded-xl bg-white border border-slate-200 flex items-start gap-3"
-              >
-                <span className="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 font-bold font-display flex items-center justify-center shrink-0">
-                  {item.letter}
-                </span>
-                <div>
-                  <h3 className="text-xs font-bold text-slate-900">{item.word}</h3>
-                  <p className="text-[11px] text-slate-500 mt-0.5">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <RelatedTools currentToolId="flames-calculator" onNavigate={onNavigate} />
       <RelatedArticles

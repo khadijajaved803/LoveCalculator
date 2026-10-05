@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           <span className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600">
             <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
           </span>
-          <span>MilanMeter</span>
+          <span>CalculateLove</span>
         </button>
 
         {/* Zone 2: 4-6 clean text navigation links */}

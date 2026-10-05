@@ -6,6 +6,7 @@ import { ShareModal } from '../components/ShareModal';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import { EngagementInputs } from '../components/EngagementInputs';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { CompatibilityResult } from '../types';
 import { Sparkles, Heart, ShieldCheck } from 'lucide-react';
@@ -17,6 +18,11 @@ interface Props {
 export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
   const [name1, setName1] = useState('');
   const [name2, setName2] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('Crush');
+  const [vibe, setVibe] = useState('Chai & Late Night Talks');
+
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [error, setError] = useState('');
@@ -28,13 +34,20 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setError('');
-    const res = calculateLoveScore(name1, name2, 'soulmate');
+    const res = calculateLoveScore(name1, name2, 'soulmate', {
+      age1,
+      age2,
+      bondType,
+      vibe,
+    });
     setResult(res);
   };
 
   const handleReset = () => {
     setName1('');
     setName2('');
+    setAge1('');
+    setAge2('');
     setResult(null);
     setError('');
   };
@@ -56,7 +69,7 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'True Love & Soulmate Calculator',
-    'url': 'https://milanmeter.com/true-love-calculator/',
+    'url': 'https://calculatelove.online/true-love-calculator/',
     'description': 'Explore soulmate affinity and true love connection with intuitive name vibration analysis and romantic insights.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
@@ -65,8 +78,8 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="True Love Calculator - Soulmate Compatibility Test | MilanMeter"
-        description="Discover your soulmate connection and true love affinity with MilanMeter. Test crush compatibility and romantic chemistry with deterministic name analysis."
+        title="True Love Calculator - Soulmate Compatibility Test | CalculateLove"
+        description="Discover your soulmate connection and true love affinity with CalculateLove. Test crush compatibility and romantic chemistry with deterministic name analysis."
         canonicalPath="/true-love-calculator/"
         schemaJson={schemaJson}
       />
@@ -85,7 +98,7 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
           True Love & Soulmate Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Explore soulmate affinity and heartfelt emotional resonance. A thoughtful, fun test for couples and crushes.
+          Explore soulmate affinity and heartfelt emotional resonance with custom age and couple bond traits.
         </p>
       </div>
 
@@ -112,7 +125,7 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
-              <div className="flex items-center justify-center my-2">
+              <div className="flex items-center justify-center my-1">
                 <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500">
                   <Sparkles className="w-4 h-4 text-rose-500" />
                 </span>
@@ -137,6 +150,19 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
+              <EngagementInputs
+                age1={age1}
+                setAge1={setAge1}
+                age2={age2}
+                setAge2={setAge2}
+                bondType={bondType}
+                setBondType={setBondType}
+                vibe={vibe}
+                setVibe={setVibe}
+                person1Label="Your"
+                person2Label="Crush / Partner"
+              />
+
               {error && (
                 <p className="text-xs text-rose-600 font-medium">{error}</p>
               )}
@@ -149,7 +175,7 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
                 <Sparkles className="w-4 h-4 text-white" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-500">
+              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Deterministic match · Zero data logged</span>
               </div>
@@ -168,23 +194,11 @@ export const TrueLovePage: React.FC<Props> = ({ onNavigate }) => {
         <ShareModal
           isOpen={shareOpen}
           onClose={() => setShareOpen(false)}
-          title="MilanMeter Soulmate Test"
-          shareText={`💫 True Love Test: ${result.names.person1} & ${result.names.person2} scored ${result.score}% Soulmate Harmony on MilanMeter!`}
-          url="https://milanmeter.com/true-love-calculator/"
+          title="CalculateLove Soulmate Test"
+          shareText={`💫 True Love Test: *${result.names.person1}* & *${result.names.person2}* scored *${result.score}%* Soulmate Harmony!\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"`}
+          url="https://calculatelove.online/true-love-calculator/"
         />
       )}
-
-      {/* Editorial Reflection */}
-      <section className="mt-16 pt-12 border-t border-slate-200 space-y-6 text-slate-700">
-        <div>
-          <h2 className="text-xl font-bold text-slate-900 font-display mb-3">
-            What Defines True Love?
-          </h2>
-          <p className="text-sm leading-relaxed mb-4">
-            True love is not the absence of disagreement or flaw; it is the presence of unconditional respect, active listening, and somatic peace. When two people resonate, they don&apos;t just complete each other—they empower each other to become their fullest, happiest selves.
-          </p>
-        </div>
-      </section>
 
       <RelatedTools currentToolId="true-love-calculator" onNavigate={onNavigate} />
       <RelatedArticles

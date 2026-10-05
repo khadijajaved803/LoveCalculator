@@ -3,6 +3,7 @@ import { SEOHead } from '../components/SEOHead';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { ResultCard } from '../components/ResultCard';
 import { ShareModal } from '../components/ShareModal';
+import { EngagementInputs } from '../components/EngagementInputs';
 import { TOOLS } from '../data/toolsData';
 import { BLOG_POSTS } from '../data/blogData';
 import {
@@ -25,6 +26,11 @@ interface Props {
 export const HomePage: React.FC<Props> = ({ onNavigate }) => {
   const [quickName1, setQuickName1] = useState('');
   const [quickName2, setQuickName2] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('Dating');
+  const [vibe, setVibe] = useState('Chai & Late Night Talks');
+
   const [quickResult, setQuickResult] = useState<ReturnType<typeof calculateLoveScore> | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [quickError, setQuickError] = useState('');
@@ -36,7 +42,12 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setQuickError('');
-    const res = calculateLoveScore(quickName1, quickName2, 'general');
+    const res = calculateLoveScore(quickName1, quickName2, 'general', {
+      age1,
+      age2,
+      bondType,
+      vibe,
+    });
     setQuickResult(res);
   };
 
@@ -127,12 +138,12 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'name': 'MilanMeter',
-    'url': 'https://milanmeter.com/',
+    'name': 'CalculateLove',
+    'url': 'https://calculatelove.online/',
     'description': 'Free love, friendship, and relationship compatibility calculators for India.',
     'potentialAction': {
       '@type': 'SearchAction',
-      'target': 'https://milanmeter.com/blog/?q={search_term_string}',
+      'target': 'https://calculatelove.online/blog/?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };
@@ -140,7 +151,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="MilanMeter - Free Love & Compatibility Calculators"
+        title="CalculateLove - Free Love & Compatibility Calculators"
         description="Check love, friendship and relationship compatibility with simple online calculators. Fast, private, deterministic name matching and FLAMES game."
         canonicalPath="/"
         schemaJson={schemaJson}
@@ -189,7 +200,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 Instant Love Compatibility Test
               </h2>
               <p className="text-xs text-slate-500 mt-1">
-                Enter two names to calculate their deterministic love percentage
+                Enter two names to calculate their deterministic love percentage & Hinglish tips
               </p>
             </div>
 
@@ -219,6 +230,20 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 </div>
               </div>
 
+              {/* Engaging Inputs */}
+              <EngagementInputs
+                age1={age1}
+                setAge1={setAge1}
+                age2={age2}
+                setAge2={setAge2}
+                bondType={bondType}
+                setBondType={setBondType}
+                vibe={vibe}
+                setVibe={setVibe}
+                person1Label="Your"
+                person2Label="Partner's"
+              />
+
               {quickError && (
                 <p className="text-xs text-rose-600 font-medium">{quickError}</p>
               )}
@@ -243,6 +268,8 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             onReset={() => {
               setQuickName1('');
               setQuickName2('');
+              setAge1('');
+              setAge2('');
               setQuickResult(null);
             }}
             onShare={() => setShareOpen(true)}
@@ -254,9 +281,9 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
         <ShareModal
           isOpen={shareOpen}
           onClose={() => setShareOpen(false)}
-          title="MilanMeter Love Score"
-          shareText={`💖 ${quickResult.names.person1} & ${quickResult.names.person2} scored ${quickResult.score}% Compatibility on MilanMeter!`}
-          url="https://milanmeter.com/"
+          title="CalculateLove Love Score"
+          shareText={`💖 *${quickResult.names.person1}* & *${quickResult.names.person2}* scored *${quickResult.score}%* Compatibility on CalculateLove!\n✨ *${quickResult.hinglishTagline}*\n💬 "${quickResult.hinglishSuggestion}"`}
+          url="https://calculatelove.online"
         />
       )}
 
@@ -310,13 +337,13 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       <section className="mb-16 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
         <div className="max-w-3xl">
           <span className="text-[11px] font-bold text-rose-600 uppercase tracking-wider block mb-2">
-            Why MilanMeter
+            Why CalculateLove
           </span>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-display mb-4">
             A Better, Faster, and Private Way to Test Compatibility
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed mb-4">
-            MilanMeter was built to replace chaotic, ad-choked calculator websites with a clean, mobile-first experience. Whether calculating a lighthearted crush score or exploring marriage alignment, our platform provides stable, symmetric calculations.
+            CalculateLove replaces slow, ad-choked calculator websites with a clean, mobile-first experience. Whether calculating a lighthearted crush score or exploring marriage alignment, our platform provides stable, symmetric calculations with friendly Hinglish reflections.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             <div className="space-y-1">
@@ -332,9 +359,9 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               </p>
             </div>
             <div className="space-y-1">
-              <h3 className="text-xs font-bold text-slate-900">Healthy Wisdom</h3>
+              <h3 className="text-xs font-bold text-slate-900">Relatable Hinglish Wisdom</h3>
               <p className="text-xs text-slate-500">
-                Transparent disclaimers reminding users that true love is built on active daily kindness.
+                Warm suggestions celebrating Indian couple culture, chai moments, and healthy communication.
               </p>
             </div>
           </div>

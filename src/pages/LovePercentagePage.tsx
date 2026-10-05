@@ -6,6 +6,7 @@ import { ShareModal } from '../components/ShareModal';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import { EngagementInputs } from '../components/EngagementInputs';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { CompatibilityResult } from '../types';
 import { Heart, Percent, ShieldCheck } from 'lucide-react';
@@ -17,6 +18,11 @@ interface Props {
 export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
   const [partner1, setPartner1] = useState('');
   const [partner2, setPartner2] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('In Love');
+  const [vibe, setVibe] = useState('Chai & Late Night Talks');
+
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [error, setError] = useState('');
@@ -28,13 +34,20 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setError('');
-    const res = calculateLoveScore(partner1, partner2, 'percentage');
+    const res = calculateLoveScore(partner1, partner2, 'percentage', {
+      age1,
+      age2,
+      bondType,
+      vibe,
+    });
     setResult(res);
   };
 
   const handleReset = () => {
     setPartner1('');
     setPartner2('');
+    setAge1('');
+    setAge2('');
     setResult(null);
     setError('');
   };
@@ -50,18 +63,13 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
       answer:
         'In genuine mathematics and realistic relationships, perfection is a myth! Our tool caps maximum scores at 98% because healthy partnerships always leave room for personal growth, individuality, and discovery.',
     },
-    {
-      question: 'Does a lower percentage mean a couple should separate?',
-      answer:
-        'Absolutely not! A digital calculator is an entertainment utility. Real love is determined by loyalty, shared memories, how you handle stress together, and daily commitments—not an online score.',
-    },
   ];
 
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'Love Percentage Calculator',
-    'url': 'https://milanmeter.com/love-percentage-calculator/',
+    'url': 'https://calculatelove.online/love-percentage-calculator/',
     'description': 'Calculate your exact love percentage score with dimensional breakdowns for communication, emotional harmony, and passion.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
@@ -70,8 +78,8 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Percentage Calculator - Check Love Score Online | MilanMeter"
-        description="Calculate your exact love percentage score with MilanMeter. Detailed compatibility metrics for communication, emotional harmony, and relationship longevity."
+        title="Love Percentage Calculator - Check Love Score Online | CalculateLove"
+        description="Calculate your exact love percentage score with CalculateLove. Detailed compatibility metrics for communication, emotional harmony, and relationship longevity."
         canonicalPath="/love-percentage-calculator/"
         schemaJson={schemaJson}
       />
@@ -90,7 +98,7 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
           Love Percentage Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Get an exact love percentage metric with multi-dimensional breakdowns for communication, care, chemistry, and longevity.
+          Get an exact love percentage metric with multi-dimensional breakdowns and authentic Hinglish suggestions.
         </p>
       </div>
 
@@ -117,7 +125,7 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
-              <div className="flex items-center justify-center my-2">
+              <div className="flex items-center justify-center my-1">
                 <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500">
                   <Percent className="w-4 h-4 text-rose-500" />
                 </span>
@@ -142,6 +150,19 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
+              <EngagementInputs
+                age1={age1}
+                setAge1={setAge1}
+                age2={age2}
+                setAge2={setAge2}
+                bondType={bondType}
+                setBondType={setBondType}
+                vibe={vibe}
+                setVibe={setVibe}
+                person1Label="Partner 1"
+                person2Label="Partner 2"
+              />
+
               {error && (
                 <p className="text-xs text-rose-600 font-medium">{error}</p>
               )}
@@ -154,7 +175,7 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
                 <Heart className="w-4 h-4 fill-white" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-500">
+              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Deterministic calculations · Safe & private</span>
               </div>
@@ -173,37 +194,11 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
         <ShareModal
           isOpen={shareOpen}
           onClose={() => setShareOpen(false)}
-          title="MilanMeter Love Percentage"
-          shareText={`📊 Love Percentage Result: ${result.names.person1} & ${result.names.person2} share a ${result.score}% compatibility score!`}
-          url="https://milanmeter.com/love-percentage-calculator/"
+          title="CalculateLove Percentage"
+          shareText={`📊 Love Percentage: *${result.names.person1}* & *${result.names.person2}* scored *${result.score}%*!\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"`}
+          url="https://calculatelove.online/love-percentage-calculator/"
         />
       )}
-
-      {/* Editorial Content */}
-      <section className="mt-16 pt-12 border-t border-slate-200 space-y-8 text-slate-700">
-        <div>
-          <h2 className="text-xl font-bold text-slate-900 font-display mb-3">
-            What Does a Love Percentage Truly Represent?
-          </h2>
-          <p className="text-sm leading-relaxed mb-4">
-            A love percentage score is a playful, engaging way to look at how different facets of personality fit together. In relationship psychology, compatibility is multi-faceted—comprising emotional safety, cognitive alignment, shared humor, and romantic chemistry.
-          </p>
-          <p className="text-sm leading-relaxed">
-            Our score breaks down these four dimensions so you and your partner can reflect on what makes your connection unique.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-          <div className="p-4 rounded-2xl bg-white border border-slate-200">
-            <h3 className="font-bold text-slate-900 mb-1">Communication Flow</h3>
-            <p className="text-slate-600">The ease of expressing vulnerability, sharing daily joys, and resolving disagreements with compassion.</p>
-          </div>
-          <div className="p-4 rounded-2xl bg-white border border-slate-200">
-            <h3 className="font-bold text-slate-900 mb-1">Emotional Security</h3>
-            <p className="text-slate-600">Knowing your partner has your back during stressful work days or personal challenges.</p>
-          </div>
-        </div>
-      </section>
 
       <RelatedTools currentToolId="love-percentage-calculator" onNavigate={onNavigate} />
       <RelatedArticles

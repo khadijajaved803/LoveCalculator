@@ -6,6 +6,7 @@ import { ShareModal } from '../components/ShareModal';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import { EngagementInputs } from '../components/EngagementInputs';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { CompatibilityResult } from '../types';
 import { HeartHandshake, ShieldCheck } from 'lucide-react';
@@ -17,6 +18,11 @@ interface Props {
 export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
   const [person1, setPerson1] = useState('');
   const [person2, setPerson2] = useState('');
+  const [age1, setAge1] = useState('');
+  const [age2, setAge2] = useState('');
+  const [bondType, setBondType] = useState('Planning Marriage');
+  const [vibe, setVibe] = useState('Chill & Sukoon');
+
   const [result, setResult] = useState<CompatibilityResult | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
   const [error, setError] = useState('');
@@ -28,13 +34,20 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setError('');
-    const res = calculateLoveScore(person1, person2, 'general');
+    const res = calculateLoveScore(person1, person2, 'general', {
+      age1,
+      age2,
+      bondType,
+      vibe,
+    });
     setResult(res);
   };
 
   const handleReset = () => {
     setPerson1('');
     setPerson2('');
+    setAge1('');
+    setAge2('');
     setResult(null);
     setError('');
   };
@@ -43,7 +56,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'What distinguishes this compatibility test from a basic love score?',
       answer:
-        'Our Love Compatibility Calculator explores relationship sustainability, emotional safety, shared worldview, and conflict resolution capacity alongside chemistry.',
+        'Our Love Compatibility Calculator explores relationship sustainability, emotional safety, shared worldview, and conflict resolution capacity alongside chemistry, with tailored Hinglish advice.',
     },
     {
       question: 'Can two people with very different personalities be compatible?',
@@ -56,7 +69,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     'name': 'Love Compatibility Calculator',
-    'url': 'https://milanmeter.com/love-compatibility-calculator/',
+    'url': 'https://calculatelove.online/love-compatibility-calculator/',
     'description': 'In-depth relationship compatibility test evaluating communication, shared core values, and lasting commitment.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
@@ -65,8 +78,8 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Compatibility Calculator - Relationship Harmony Test | MilanMeter"
-        description="Test deep relationship compatibility and emotional harmony with MilanMeter. In-depth name chemistry analysis for communication, trust, and shared longevity."
+        title="Love Compatibility Calculator - Relationship Harmony Test | CalculateLove"
+        description="Test deep relationship compatibility and emotional harmony with CalculateLove. In-depth name chemistry analysis for communication, trust, and shared longevity."
         canonicalPath="/love-compatibility-calculator/"
         schemaJson={schemaJson}
       />
@@ -85,7 +98,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           Love Compatibility Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Comprehensive compatibility analysis evaluating conversational harmony, mutual trust, and long-term partnership potential.
+          Comprehensive compatibility analysis evaluating conversational harmony, mutual trust, and long-term partnership potential with Hinglish suggestions.
         </p>
       </div>
 
@@ -112,7 +125,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
-              <div className="flex items-center justify-center my-2">
+              <div className="flex items-center justify-center my-1">
                 <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500">
                   <HeartHandshake className="w-4 h-4 text-rose-500" />
                 </span>
@@ -137,6 +150,19 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
                 />
               </div>
 
+              <EngagementInputs
+                age1={age1}
+                setAge1={setAge1}
+                age2={age2}
+                setAge2={setAge2}
+                bondType={bondType}
+                setBondType={setBondType}
+                vibe={vibe}
+                setVibe={setVibe}
+                person1Label="Partner 1"
+                person2Label="Partner 2"
+              />
+
               {error && (
                 <p className="text-xs text-rose-600 font-medium">{error}</p>
               )}
@@ -149,7 +175,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
                 <HeartHandshake className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-slate-500">
+              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Private & deterministic · Symmetric matching</span>
               </div>
@@ -168,9 +194,9 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
         <ShareModal
           isOpen={shareOpen}
           onClose={() => setShareOpen(false)}
-          title="MilanMeter Compatibility"
-          shareText={`💞 Relationship Compatibility: ${result.names.person1} & ${result.names.person2} scored ${result.score}% on MilanMeter!`}
-          url="https://milanmeter.com/love-compatibility-calculator/"
+          title="CalculateLove Compatibility"
+          shareText={`💞 Compatibility: *${result.names.person1}* & *${result.names.person2}* scored *${result.score}%*!\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"`}
+          url="https://calculatelove.online/love-compatibility-calculator/"
         />
       )}
 
