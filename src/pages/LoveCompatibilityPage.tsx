@@ -56,7 +56,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'What distinguishes this compatibility test from a basic love score?',
       answer:
-        'Our Love Compatibility Calculator explores relationship sustainability, emotional safety, shared worldview, and conflict resolution capacity alongside chemistry, with tailored Hinglish advice.',
+        'Our Love Compatibility Calculator explores relationship sustainability, emotional safety, shared worldview, and conflict resolution capacity alongside chemistry, with tailored relationship advice.',
     },
     {
       question: 'Can two people with very different personalities be compatible?',
@@ -98,7 +98,7 @@ export const LoveCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           Love Compatibility Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Comprehensive compatibility analysis evaluating conversational harmony, mutual trust, and long-term partnership potential with Hinglish suggestions.
+          Comprehensive compatibility analysis evaluating conversational harmony, mutual trust, and long-term partnership potential with personalized relationship suggestions.
         </p>
       </div>
 

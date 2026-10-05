@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { SEOHead } from '../components/SEOHead';
 import { Breadcrumbs } from '../components/Breadcrumbs';
-import { ShareModal } from '../components/ShareModal';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { calculateDobCompatibility } from '../lib/calculatorEngine';
+import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import {
   Calendar,
   RotateCcw,
@@ -14,7 +14,9 @@ import {
   MessageCircle,
   Copy,
   Check,
+  Download,
   Lightbulb,
+  Image as ImageIcon,
 } from 'lucide-react';
 
 interface Props {
@@ -26,8 +28,11 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   const [dob1, setDob1] = useState('');
   const [name2, setName2] = useState('');
   const [dob2, setDob2] = useState('');
+
   const [result, setResult] = useState<ReturnType<typeof calculateDobCompatibility> | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [copiedImage, setCopiedImage] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState('');
 
   const websiteUrl = 'https://calculatelove.online';
@@ -52,28 +57,118 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     setError('');
   };
 
-  const getShareText = () => {
-    if (!result) return '';
-    return `📅 *Date of Birth Compatibility* for *${name1}* & *${name2}*!\n🔢 Score: *${result.score}%* (Life Path ${result.lp1} & ${result.lp2})\n✨ *${result.hinglishTagline}*\n💬 "${result.hinglishSuggestion}"\n\n👉 Test birthdate compatibility at: ${websiteUrl}`;
+  const getDobCardOptions = () => {
+    if (!result) throw new Error('No result');
+    return {
+      type: 'dob' as const,
+      names: { person1: name1, person2: name2 },
+      score: result.score,
+      tagline: result.hinglishTagline,
+      suggestion: result.hinglishSuggestion,
+      tip: result.hinglishTip,
+      details: `Life Path ${result.lp1} & Life Path ${result.lp2} · ${result.harmonyStatus}`,
+    };
   };
 
-  const handleWhatsApp = () => {
-    const encoded = encodeURIComponent(getShareText());
-    window.location.href = `https://api.whatsapp.com/send?text=${encoded}`;
+  const triggerDownload = (blob: Blob) => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `DOB-Compatibility-${name1}-${name2}.png`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
-  const handleFacebook = () => {
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}&quote=${encodeURIComponent(getShareText())}`;
-    window.open(shareUrl, '_blank', 'noopener,noreferrer');
+  const tryCopyImageBlob = async (blob: Blob) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard && typeof ClipboardItem !== 'undefined') {
+      const item = new ClipboardItem({ 'image/png': blob });
+      await navigator.clipboard.write([item]);
+    }
   };
 
-  const handleCopy = async () => {
+  const handleWhatsAppImageShare = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
     try {
-      await navigator.clipboard.writeText(getShareText());
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+      const blob = await generateCardImageBlob(getDobCardOptions());
+      const file = new File([blob], `${name1}-${name2}-dob-card.png`, {
+        type: 'image/png',
+      });
+
+      if (typeof navigator !== 'undefined' && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: `${name1} & ${name2} Birth Date Compatibility`,
+          text: `Check out our DOB compatibility card! Test yours free at: ${websiteUrl}`,
+        });
+      } else {
+        triggerDownload(blob);
+        tryCopyImageBlob(blob);
+        setNotice('DOB card downloaded & copied! Paste (Ctrl+V) directly in your WhatsApp chat.');
+        setTimeout(() => {
+          window.location.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(`Check out our DOB compatibility card! Test free at: ${websiteUrl}`)}`;
+        }, 1500);
+      }
+    } catch (err: any) {
+      if (err.name !== 'AbortError') {
+        setNotice('Sharing error. Downloading card image instead.');
+      }
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleFacebookImageShare = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob(getDobCardOptions());
+      triggerDownload(blob);
+      tryCopyImageBlob(blob);
+      setNotice('DOB card downloaded & copied! Attach it to your Facebook post.');
+      setTimeout(() => {
+        const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}&quote=${encodeURIComponent(`Check out our DOB Card from ${websiteUrl}`)}`;
+        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      }, 1200);
     } catch {
       // fallback
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleDownloadImage = async () => {
+    if (!result) return;
+    setDownloading(true);
+    try {
+      const blob = await generateCardImageBlob(getDobCardOptions());
+      triggerDownload(blob);
+      setNotice('Card saved to your device!');
+      setTimeout(() => setNotice(null), 3000);
+    } catch {
+      setNotice('Failed to download image');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleCopyImage = async () => {
+    if (!result) return;
+    try {
+      const blob = await generateCardImageBlob(getDobCardOptions());
+      await tryCopyImageBlob(blob);
+      setCopiedImage(true);
+      setNotice('DOB card copied to clipboard! Paste it directly in any chat.');
+      setTimeout(() => {
+        setCopiedImage(false);
+        setNotice(null);
+      }, 3500);
+    } catch {
+      handleDownloadImage();
     }
   };
 
@@ -123,7 +218,7 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           Love Calculator by Date of Birth
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Explore your Life Path number alignment and birth date compatibility with authentic Hinglish relationship predictions.
+          Explore your Life Path number alignment and birth date compatibility with personalized relationship predictions.
         </p>
       </div>
 
@@ -242,13 +337,13 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
               </span>
             </div>
 
-            {/* Hinglish Reflection */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50/50 border border-amber-200/80 mb-6 space-y-2">
+            {/* Numerology Reflection */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50/50 border border-amber-200/80 mb-6 space-y-2">
               <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 uppercase tracking-wider">
-                <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500" />
-                <span>Numerology Ki Baat · Hinglish Reflection</span>
+                <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500 shrink-0" />
+                <span>Numerology Ki Baat · Birth Harmony</span>
               </div>
-              <p className="text-xs text-slate-800 leading-relaxed font-medium">
+              <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
                 {result.hinglishSuggestion}
               </p>
               <div className="pt-2 border-t border-amber-200/60 flex items-start gap-1.5 text-[11px] text-amber-950 font-medium">
@@ -259,66 +354,91 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
             {/* Life Path Details */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
                 <span className="text-[11px] text-slate-500 block">{name1}</span>
                 <span className="font-bold text-slate-900 text-sm">Life Path {result.lp1}</span>
                 <p className="text-slate-600 mt-1 text-[11px]">{result.meaning1}</p>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
                 <span className="text-[11px] text-slate-500 block">{name2}</span>
                 <span className="font-bold text-slate-900 text-sm">Life Path {result.lp2}</span>
                 <p className="text-slate-600 mt-1 text-[11px]">{result.meaning2}</p>
               </div>
             </div>
 
-            {/* Sharing actions */}
+            {/* Notice banner */}
+            {notice && (
+              <div className="mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 text-center font-medium animate-in fade-in duration-200">
+                {notice}
+              </div>
+            )}
+
+            {/* Share Card Image Affordances */}
             <div className="space-y-2 mb-4">
+              <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider text-center flex items-center justify-center gap-1.5">
+                <ImageIcon className="w-3.5 h-3.5 text-rose-500" />
+                <span>Share Beautiful Card Image</span>
+              </div>
+
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
-                  onClick={handleWhatsApp}
-                  className="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[44px]"
+                  disabled={downloading}
+                  onClick={handleWhatsAppImageShare}
+                  className="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[46px] disabled:opacity-75"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>WhatsApp</span>
+                  <span>{downloading ? 'Preparing Image...' : 'WhatsApp Card'}</span>
                 </button>
 
                 <button
                   type="button"
-                  onClick={handleFacebook}
-                  className="py-3 px-3 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[44px]"
+                  disabled={downloading}
+                  onClick={handleFacebookImageShare}
+                  className="py-3 px-3 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[46px] disabled:opacity-75"
                 >
                   <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
-                  <span>Facebook</span>
+                  <span>Facebook Card</span>
                 </button>
               </div>
 
-              <div className="flex gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
-                  onClick={handleCopy}
-                  className="flex-1 py-2.5 px-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
+                  onClick={handleDownloadImage}
+                  className="py-2.5 px-3 rounded-xl border border-rose-200 bg-rose-50/70 hover:bg-rose-100 text-rose-800 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
                 >
-                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
-                  <span>{copied ? 'Copied DOB Card!' : 'Copy Share Text'}</span>
+                  <Download className="w-3.5 h-3.5 text-rose-600" />
+                  <span>Download Card PNG</span>
                 </button>
 
                 <button
                   type="button"
-                  onClick={handleReset}
-                  className="py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
+                  onClick={handleCopyImage}
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
                 >
-                  <RotateCcw className="w-3.5 h-3.5 text-slate-500" />
+                  {copiedImage ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                  <span>{copiedImage ? 'Image Copied!' : 'Copy Card Image'}</span>
+                </button>
+              </div>
+
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="w-full py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[40px]"
+                >
+                  <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
                   <span>Test Again</span>
                 </button>
               </div>
             </div>
 
             <div className="pt-3 border-t border-rose-100 flex items-center justify-between text-[10px] text-slate-400">
-              <span>Tested on calculatelove.online</span>
+              <span>Generated on https://calculatelove.online</span>
               <span>100% Free & Private</span>
             </div>
           </div>

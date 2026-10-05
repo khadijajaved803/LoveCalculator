@@ -98,7 +98,7 @@ export const LovePercentagePage: React.FC<Props> = ({ onNavigate }) => {
           Love Percentage Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-          Get an exact love percentage metric with multi-dimensional breakdowns and authentic Hinglish suggestions.
+          Get an exact love percentage metric with multi-dimensional breakdowns and authentic relationship suggestions.
         </p>
       </div>
 

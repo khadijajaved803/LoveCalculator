@@ -57,7 +57,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'How does the online love calculator compute the score?',
       answer:
-        'Our love calculator uses deterministic character harmonic analysis. It analyzes letter frequency, vowel structure, and phonetic synergy between both names. It also factors in your optional ages and couple vibe for personalized Hinglish relationship reflections.',
+        'Our love calculator uses deterministic character harmonic analysis. It analyzes letter frequency, vowel structure, and phonetic synergy between both names. It also factors in your optional ages and couple vibe for personalized relationship reflections.',
     },
     {
       question: 'Is this love test private?',
@@ -85,7 +85,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Love Calculator - Test True Love Percentage by Name | CalculateLove"
-        description="Calculate love compatibility percentage between two names instantly with CalculateLove. Fun, private, deterministic love score with Hinglish relationship insights."
+        description="Calculate love compatibility percentage between two names instantly with CalculateLove. Fun, private, deterministic love score with personalized relationship insights."
         canonicalPath="/love-calculator/"
         schemaJson={schemaJson}
       />
@@ -216,7 +216,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             How Does the Love Calculator Work?
           </h2>
           <p className="text-sm leading-relaxed mb-4">
-            Unlike superficial tools that generate random percentages, CalculateLove uses deterministic character harmonization and phonetic vibrations. Every letter carries structural resonance, and when paired with your age dynamic and couple vibe, generates custom Hinglish reflections.
+            Unlike superficial tools that generate random percentages, CalculateLove uses deterministic character harmonization and phonetic vibrations. Every letter carries structural resonance, and when paired with your age dynamic and couple vibe, generates custom relationship reflections.
           </p>
         </div>
 
