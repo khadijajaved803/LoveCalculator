@@ -11,7 +11,7 @@ interface RelatedArticlesProps {
 export const RelatedArticles: React.FC<RelatedArticlesProps> = ({
   onNavigate,
   preferredSlugs,
-  maxItems = 2,
+  maxItems = 3,
 }) => {
   let posts = BLOG_POSTS;
   if (preferredSlugs && preferredSlugs.length > 0) {
@@ -34,7 +34,7 @@ export const RelatedArticles: React.FC<RelatedArticlesProps> = ({
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {displayPosts.map((post) => (
           <article
             key={post.slug}

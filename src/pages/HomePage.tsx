@@ -3,6 +3,7 @@ import { SEOHead } from '../components/SEOHead';
 import { calculateLoveScore } from '../lib/calculatorEngine';
 import { ResultCard } from '../components/ResultCard';
 import { EngagementInputs } from '../components/EngagementInputs';
+import { CalculationLoader } from '../components/CalculationLoader';
 import { TOOLS } from '../data/toolsData';
 import { BLOG_POSTS } from '../data/blogData';
 import {
@@ -37,6 +38,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
   const [vibe, setVibe] = useState('Chai & Late Night Talks');
 
   const [quickResult, setQuickResult] = useState<ReturnType<typeof calculateLoveScore> | null>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
   const [quickError, setQuickError] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -47,21 +49,15 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       return;
     }
     setQuickError('');
-    const res = calculateLoveScore(quickName1, quickName2, 'general', {
-      age1,
-      age2,
-      bondType,
-      vibe,
-    });
-    setQuickResult(res);
+    setIsCalculating(true);
   };
 
   const secondaryTools = [
     {
-      title: 'Love Calculator by Name',
+      title: 'Master Love Calculator',
       sub: 'Naam Se Love Match',
-      path: '/love-calculator-by-name/',
-      desc: 'Test sound harmony, letter frequency, and romantic vibrations.',
+      path: '/love-calculator/',
+      desc: 'Test sound harmony, letter frequency, and romantic vibrations with our core Love Calculator.',
       icon: Heart,
       color: 'text-rose-600 bg-rose-50 border-rose-200',
     },
@@ -74,50 +70,50 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       color: 'text-amber-600 bg-amber-50 border-amber-200',
     },
     {
-      title: 'Love Percentage Calculator',
-      sub: 'Asli Pyaar Percentage Test',
-      path: '/love-percentage-calculator/',
-      desc: 'Check detailed 4-pillar scores for communication, care, and chemistry.',
-      icon: Percent,
-      color: 'text-rose-600 bg-rose-50 border-rose-200',
-    },
-    {
-      title: 'Friendship Calculator',
-      sub: 'Dosti & Bestie Meter',
+      title: 'Friendship & Bestie Meter',
+      sub: 'Dosti & Bestie Test',
       path: '/friendship-calculator/',
-      desc: 'Check best-friend loyalty, spontaneous banter, and mutual support.',
+      desc: 'Check best-friend loyalty, secret-keeping quotient, and mutual support.',
       icon: Users,
       color: 'text-amber-600 bg-amber-50 border-amber-200',
-    },
-    {
-      title: 'True Love & Soulmate Test',
-      sub: 'Dil Se Dil Ka Connection',
-      path: '/true-love-calculator/',
-      desc: 'Explore deep emotional resonance, crush affinity, and soulmate harmony.',
-      icon: Sparkles,
-      color: 'text-rose-600 bg-rose-50 border-rose-200',
     },
     {
       title: 'Love vs. Arranged Marriage',
       sub: 'Shaadi Ki Sambhavna',
       path: '/love-or-arranged-marriage-calculator/',
-      desc: 'Balancing modern personal courtship with traditional family blessing.',
+      desc: 'Balancing modern personal courtship with traditional family blessing using our marriage Love Calculator.',
       icon: Gem,
       color: 'text-purple-600 bg-purple-50 border-purple-200',
+    },
+    {
+      title: 'Date of Birth Love Calculator',
+      sub: 'Numerology DOB Check',
+      path: '/love-calculator-by-date-of-birth/',
+      desc: 'Discover Pythagorean Life Path triads and birth elemental synergy.',
+      icon: Sparkles,
+      color: 'text-rose-600 bg-rose-50 border-rose-200',
+    },
+    {
+      title: 'Astrology & Zodiac Hub',
+      sub: 'Rashi & Sun Sign Harmony',
+      path: '/astrology/',
+      desc: 'Explore Western sun signs and Vedic Moon Rashi relationship principles.',
+      icon: Compass,
+      color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
     },
   ];
 
   const highVolumeFaqs = [
     {
-      q: 'Kya online love calculator ka score accurate hota hai?',
-      a: 'CalculateLove ka algorithm fully deterministic hai—iska matlab agar aap same naam enter karenge toh hamesha same score aayega. Yeh tool phonetic vibrations, letter matching aur bond preferences ka scientific-style entertainment model use karta hai. Asli relationship trust, respect aur open communication se grow karti hai.',
+      q: 'Kya online Love Calculator ka score accurate hota hai?',
+      a: 'CalculateLove ka Love Calculator algorithm fully deterministic hai—iska matlab agar aap same naam enter karenge toh hamesha same score aayega. Yeh tool phonetic vibrations, letter matching aur bond preferences ka scientific-style entertainment model use karta hai. Asli relationship trust, respect aur open communication se grow karti hai.',
     },
     {
       q: 'How does the Love Calculator by Name calculate true love percentage?',
-      a: 'The calculator analyzes symmetrical letter frequency, vowel-to-consonant ratios, and name harmony. By factoring in your couple vibe and age dynamic, it evaluates communication compatibility, emotional warmth, and relationship longevity.',
+      a: 'The Love Calculator analyzes symmetrical letter frequency, vowel-to-consonant ratios, and name harmony. By factoring in your couple vibe and age dynamic, this Love Calculator evaluates communication compatibility, emotional warmth, and relationship longevity.',
     },
     {
-      q: 'Kya CalculateLove par mera data safe aur private hai?',
+      q: 'Kya is Love Calculator par mera data safe aur private hai?',
       a: 'Haan, 100% private! Aapka enter kiya hua koi bhi naam, age ya date of birth hamare server par store nahi hota. Saari calculations seedha aapke device browser mein hoti hain.',
     },
     {
@@ -129,7 +125,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       a: 'Yes! Simply click "WhatsApp Card" or "Download Card PNG" on your result. It instantly downloads a high-resolution 1080×1350 certificate image that fits WhatsApp Status, Instagram Stories, and Facebook posts perfectly.',
     },
     {
-      q: 'Love Marriage ya Arranged Marriage Calculator kis basis par result deta hai?',
+      q: 'Love Marriage ya Arranged Marriage Love Calculator kis basis par result deta hai?',
       a: 'Yeh tool aapke lifestyle priorities—jaise family involvement, dating autonomy, aur communication openness—ko evaluate karke batata hai ki aapka inclination modern love courtship ki taraf zyada hai ya traditional family-guided alliance ki taraf.',
     },
   ];
@@ -139,7 +135,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
     '@type': 'WebSite',
     'name': 'CalculateLove',
     'url': 'https://calculatelove.online/',
-    'description': 'Free love, friendship, and relationship compatibility calculators with authentic card sharing for India.',
+    'description': 'Free Love Calculator, FLAMES game, and relationship compatibility platform with authentic card sharing for India.',
     'potentialAction': {
       '@type': 'SearchAction',
       'target': 'https://calculatelove.online/blog/?q={search_term_string}',
@@ -151,7 +147,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
     <div className="w-full overflow-x-hidden">
       <SEOHead
         title="CalculateLove - Real Love Calculator by Name & Compatibility Test"
-        description="Check real love percentage, test name compatibility, play authentic FLAMES game online, and get relationship advice at CalculateLove. 100% free and private."
+        description="Free online Love Calculator to test true love percentage between two names. Use our accurate Love Calculator for instant compatibility, FLAMES, and couple analysis."
         canonicalPath="/"
         schemaJson={schemaJson}
       />
@@ -163,7 +159,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
 
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-4 border border-rose-200/80 shadow-2xs">
           <Sparkles className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-          <span>India&apos;s #1 Free & Private Relationship Platform</span>
+          <span>India&apos;s #1 Free & Private Love Calculator Platform</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-display mb-4 text-balance">
@@ -171,7 +167,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 text-balance">
-          Discover your true love percentage, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
+          Discover your true love percentage with our deterministic Love Calculator, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
         </p>
 
         {/* Action Buttons - Fully responsive without truncation */}
@@ -182,7 +178,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             className="w-full xs:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm shadow-md shadow-rose-600/15 transition-all flex items-center justify-center gap-2 min-h-[46px]"
           >
             <Heart className="w-4 h-4 fill-white" />
-            <span>Test Love Percentage</span>
+            <span>Test Love Calculator</span>
           </button>
 
           <button
@@ -197,83 +193,228 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       </section>
 
       {/* Interactive Quick Calculator Hero Card */}
-      <section className="px-4 sm:px-6 max-w-xl mx-auto mb-16 sm:mb-20">
-        {!quickResult ? (
-          <div className="bg-white rounded-3xl border border-rose-200/90 shadow-xl p-5 sm:p-7 md:p-8 relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400" />
+      <section className="px-4 sm:px-6 max-w-5xl mx-auto mb-10 sm:mb-12">
+        {isCalculating ? (
+          <CalculationLoader
+            name1={quickName1}
+            name2={quickName2}
+            type="love"
+            onComplete={() => {
+              const res = calculateLoveScore(quickName1, quickName2, 'general', {
+                age1,
+                age2,
+                bondType,
+                vibe,
+              });
+              setQuickResult(res);
+              setIsCalculating(false);
+            }}
+          />
+        ) : !quickResult ? (
+          <div className="bg-white rounded-3xl border border-rose-200/90 shadow-xl p-4 sm:p-6 md:p-7 pb-5 sm:pb-6 relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400" />
 
-            <div className="text-center mb-5">
+            <div className="text-center max-w-xl mx-auto mb-4">
               <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 font-display">
-                Instant Love Compatibility Check
+                Instant Love Calculator: Check True Compatibility
               </h2>
-              <p className="text-xs text-slate-500 mt-1">
-                Enter two names to calculate love percentage & relationship advice
+              <p className="text-xs text-slate-500 mt-0.5">
+                Enter two names into our free Love Calculator to calculate love percentage & relationship advice
               </p>
             </div>
 
-            <form onSubmit={handleQuickCalculate} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="min-w-0">
-                  <label htmlFor="hpName1" className="block text-[11px] font-semibold text-slate-700 mb-1">
-                    Your Name
-                  </label>
-                  <input
-                    id="hpName1"
-                    type="text"
-                    value={quickName1}
-                    onChange={(e) => setQuickName1(e.target.value)}
-                    placeholder="e.g. Rahul"
-                    maxLength={40}
-                    className="w-full px-3.5 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[44px] box-border"
-                    required
-                  />
-                </div>
-                <div className="min-w-0">
-                  <label htmlFor="hpName2" className="block text-[11px] font-semibold text-slate-700 mb-1">
-                    Partner / Crush Name
-                  </label>
-                  <input
-                    id="hpName2"
-                    type="text"
-                    value={quickName2}
-                    onChange={(e) => setQuickName2(e.target.value)}
-                    placeholder="e.g. Pooja"
-                    maxLength={40}
-                    className="w-full px-3.5 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[44px] box-border"
-                    required
-                  />
+            <form onSubmit={handleQuickCalculate} className="space-y-4 sm:space-y-5">
+              {/* Row 1: Names & Ages spread across width on desktop (4 columns on lg) */}
+              <div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  <div className="min-w-0">
+                    <label htmlFor="hpName1" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Your Name
+                    </label>
+                    <input
+                      id="hpName1"
+                      type="text"
+                      value={quickName1}
+                      onChange={(e) => setQuickName1(e.target.value)}
+                      placeholder="e.g. Rahul"
+                      maxLength={40}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[42px] box-border"
+                      required
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <label htmlFor="hpName2" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Partner / Crush Name
+                    </label>
+                    <input
+                      id="hpName2"
+                      type="text"
+                      value={quickName2}
+                      onChange={(e) => setQuickName2(e.target.value)}
+                      placeholder="e.g. Pooja"
+                      maxLength={40}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[42px] box-border"
+                      required
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <label htmlFor="hpAge1" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Your Age (Optional)
+                    </label>
+                    <input
+                      id="hpAge1"
+                      type="number"
+                      min="13"
+                      max="99"
+                      value={age1}
+                      onChange={(e) => setAge1(e.target.value)}
+                      placeholder="e.g. 23"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[42px] box-border"
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <label htmlFor="hpAge2" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Partner Age (Optional)
+                    </label>
+                    <input
+                      id="hpAge2"
+                      type="number"
+                      min="13"
+                      max="99"
+                      value={age2}
+                      onChange={(e) => setAge2(e.target.value)}
+                      placeholder="e.g. 24"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[42px] box-border"
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Engaging Inputs */}
-              <EngagementInputs
-                age1={age1}
-                setAge1={setAge1}
-                age2={age2}
-                setAge2={setAge2}
-                bondType={bondType}
-                setBondType={setBondType}
-                vibe={vibe}
-                setVibe={setVibe}
-                person1Label="Your"
-                person2Label="Partner's"
-              />
+              {/* Row 2: Dynamics & Personalization (Stage & Vibe in 2 columns across width) */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-rose-50/40 border border-rose-100">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Current Stage */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label htmlFor="hpMobileBondSelect" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                        Current Bond Stage
+                      </label>
+                      <span className="text-[10px] text-slate-400 hidden sm:inline">Select stage</span>
+                    </div>
+
+                    {/* Mobile Dropdown (space-saving) */}
+                    <div className="block sm:hidden">
+                      <select
+                        id="hpMobileBondSelect"
+                        value={bondType}
+                        onChange={(e) => setBondType(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-medium text-slate-800 focus:border-rose-500 min-h-[42px]"
+                      >
+                        <option value="Crush">Crush 🤫</option>
+                        <option value="Dating">Dating 💖</option>
+                        <option value="Best Friends">Besties 🥰</option>
+                        <option value="Planning Marriage">Engaged 💍</option>
+                        <option value="Married">Married 🏠</option>
+                      </select>
+                    </div>
+
+                    {/* Desktop Pills */}
+                    <div className="hidden sm:flex flex-wrap gap-1.5">
+                      {[
+                        { id: 'Crush', label: 'Crush 🤫' },
+                        { id: 'Dating', label: 'Dating 💖' },
+                        { id: 'Best Friends', label: 'Besties 🥰' },
+                        { id: 'Planning Marriage', label: 'Engaged 💍' },
+                        { id: 'Married', label: 'Married 🏠' },
+                      ].map((b) => (
+                        <button
+                          key={b.id}
+                          type="button"
+                          onClick={() => setBondType(b.id)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all min-h-[34px] ${
+                            bondType === b.id
+                              ? 'bg-rose-600 text-white font-bold shadow-xs'
+                              : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                          }`}
+                        >
+                          {b.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Couple Vibe */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label htmlFor="hpMobileVibeSelect" className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider">
+                        Favourite Couple Vibe
+                      </label>
+                      <span className="text-[10px] text-slate-400 hidden sm:inline">Select vibe</span>
+                    </div>
+
+                    {/* Mobile Dropdown (space-saving) */}
+                    <div className="block sm:hidden">
+                      <select
+                        id="hpMobileVibeSelect"
+                        value={vibe}
+                        onChange={(e) => setVibe(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-xs font-medium text-slate-800 focus:border-rose-500 min-h-[42px]"
+                      >
+                        <option value="Chai & Late Night Talks">Chai & Late Night Talks ☕</option>
+                        <option value="Spontaneous Long Drives">Spontaneous Long Drives 🚗</option>
+                        <option value="Movie & Food Marathons">Food & Movie Marathons 🍕</option>
+                        <option value="Chill & Sukoon">Quiet Sukoon & Peace ✨</option>
+                      </select>
+                    </div>
+
+                    {/* Desktop Segmented Buttons */}
+                    <div className="hidden sm:grid grid-cols-2 gap-1.5">
+                      {[
+                        { id: 'Chai & Late Night Talks', label: 'Chai & Talks ☕', desc: 'Deep talks' },
+                        { id: 'Spontaneous Long Drives', label: 'Long Drives 🚗', desc: 'Road trips' },
+                        { id: 'Movie & Food Marathons', label: 'Food & Movies 🍕', desc: 'Cozy dates' },
+                        { id: 'Chill & Sukoon', label: 'Quiet Sukoon ✨', desc: 'Peace & trust' },
+                      ].map((v) => (
+                        <button
+                          key={v.id}
+                          type="button"
+                          onClick={() => setVibe(v.id)}
+                          className={`p-2 rounded-xl text-left border transition-all text-xs ${
+                            vibe === v.id
+                              ? 'border-rose-500 bg-white text-rose-900 shadow-xs ring-1 ring-rose-300 font-semibold'
+                              : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          <span className="font-semibold block truncate text-[11px]">{v.label}</span>
+                          <span className="text-[10px] text-slate-400 block truncate">{v.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {quickError && (
-                <p className="text-xs text-rose-600 font-medium">{quickError}</p>
+                <p className="text-xs text-rose-600 font-medium text-center">{quickError}</p>
               )}
 
-              <button
-                type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-rose-600/10 min-h-[46px]"
-              >
-                <span>Calculate Compatibility</span>
-                <Heart className="w-4 h-4 fill-white" />
-              </button>
+              {/* Row 3: Action Button at the end of the system with snug spacing */}
+              <div className="pt-2 flex flex-col items-center">
+                <button
+                  type="submit"
+                  className="w-full max-w-md py-3.5 px-8 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all shadow-md shadow-rose-600/20 min-h-[48px]"
+                >
+                  <span>Calculate with Love Calculator</span>
+                  <Heart className="w-4 h-4 fill-white animate-pulse" />
+                </button>
 
-              <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Deterministic match · Zero data logged · 100% Private</span>
+                <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 mt-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Deterministic Love Calculator · Zero data logged · 100% Private</span>
+                </div>
               </div>
             </form>
           </div>
@@ -299,10 +440,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             Choose Your Match Intent
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
-            Popular Relationship Calculators
+            Popular Relationship & Love Calculator Tools
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Each calculator is specifically calibrated for different relationship questions and stages.
+            Each Love Calculator is specifically calibrated for different relationship questions, friendship meters, and compatibility stages.
           </p>
         </div>
 
@@ -350,18 +491,18 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-3 border border-rose-100">
-                Trending Search: Naam Se Love Match
+                Trending Search: Naam Se Love Calculator Match
               </span>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-                True Love Percentage by Name (Naam Se Love Match Check Karein)
+                True Love Calculator by Name (Naam Se Love Match Check Karein)
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                Kya aap janna chahte hain ki aapke aur aapke partner ke naam mein kitni compatibility hai? CalculateLove offers a deterministic phonetic vibration analysis that analyzes letter frequency, vowel structure, and sound rhythm between two names.
+                Kya aap janna chahte hain ki aapke aur aapke partner ke naam mein kitni compatibility hai? CalculateLove offers a deterministic Love Calculator based on phonetic vibration analysis that evaluates letter frequency, vowel structure, and sound rhythm between two names.
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-slate-700 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Symmetrical Harmony:</strong> Person A + Person B ka result hamesha identical hota hai chahe kisi ka bhi naam pehle daalein.</span>
+                  <span><strong>Symmetrical Harmony:</strong> Person A + Person B ka Love Calculator result hamesha identical hota hai chahe kisi ka bhi naam pehle daalein.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -377,7 +518,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 onClick={() => onNavigate('/love-calculator-by-name/')}
                 className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
               >
-                <span>Check Name Match Now</span>
+                <span>Check Name Match with Love Calculator</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -422,10 +563,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Real vs Infatuation
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display mb-4 text-balance">
-              Real Love Meter vs Fake Clickbait Calculators (Asli Pyaar Test)
+              Real Love Calculator vs Fake Clickbait Meters (Asli Pyaar Test)
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-              Bohot si websites par har baar page refresh karne par alag percentage dikhata hai ya user ka data track karti hain. CalculateLove eliminates random number generators with deterministic algorithms that guarantee the same result every single time.
+              Bohot si websites par har baar page refresh karne par alag percentage dikhata hai ya user ka data track karti hain. CalculateLove provides an authentic Love Calculator that eliminates random number generators with deterministic algorithms that guarantee the same result every single time.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
@@ -438,7 +579,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                 <Sparkles className="w-5 h-5 text-amber-400 mb-2" />
                 <h3 className="font-bold text-xs text-white mb-1">Deterministic Formula</h3>
-                <p className="text-[11px] text-slate-400">Standard character hashing guarantees that the love score does not fluctuate randomly.</p>
+                <p className="text-[11px] text-slate-400">Standard character hashing guarantees that your Love Calculator score does not fluctuate randomly.</p>
               </div>
 
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
@@ -460,10 +601,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 Nostalgic School Game
               </span>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-                Play Authentic FLAMES Game Online (FLAMES Test in Hindi / English)
+                Play Authentic FLAMES Game Online: Classic Love Calculator Nostalgia
               </h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4">
-                School aur college ke dino ki sabse popular game—FLAMES! Ab notebook par kaatne ki zaroorat nahi hai. Hamara automated tool 1-on-1 letters cancel karke cyclic countdown ke saath authentic outcome batata hai:
+                School aur college ke dino ki sabse popular Love Calculator game—FLAMES! Ab notebook par kaatne ki zaroorat nahi hai. Hamara automated tool 1-on-1 letters cancel karke cyclic countdown ke saath authentic outcome batata hai:
               </p>
               <div className="grid grid-cols-2 gap-2 text-xs font-semibold mb-6">
                 <div className="p-2.5 rounded-xl bg-white border border-amber-200">F = Friends (Dosti)</div>
@@ -507,13 +648,13 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Tradition & Modern Science
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-              Kundli Milan vs. Name Compatibility (Naam Milan Aur Guna)
+              Kundli Milan vs. Love Calculator Name Compatibility (Naam Milan Aur Guna)
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
               Traditional Indian astrology mein Kundli Milan ke Ashta Kuta (36 Gunas)—jaise Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot, aur Nadi—ka evaluation hota hai.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-              Hamara tool numerology aur conversational name harmonics par based ek accessible, fun compatibility check provide karta hai. Yeh kisi bhi traditional Kundli astrologer ya matrimonial pandit ka replacement nahi hai, balki couples ke liye ek safe, uplifting aur playful reflection tool hai.
+              Hamara Love Calculator numerology aur conversational name harmonics par based ek accessible, fun compatibility check provide karta hai. Yeh kisi bhi traditional Kundli astrologer ya matrimonial pandit ka replacement nahi hai, balki couples ke liye ek safe, uplifting aur playful reflection tool hai.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -547,10 +688,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Why CalculateLove
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-              A Better, Faster, and Private Way to Test Compatibility
+              A Better, Faster, and Private Love Calculator Experience
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-              CalculateLove replaces slow, ad-choked calculator websites with a clean, mobile-first experience. Whether calculating a lighthearted crush score or exploring marriage alignment, our platform provides stable, symmetric calculations with friendly relationship reflections.
+              CalculateLove replaces slow, ad-choked calculator websites with a clean, mobile-first Love Calculator experience. Whether calculating a lighthearted crush score or exploring marriage alignment, our platform provides stable, symmetric calculations with friendly relationship reflections.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -598,7 +739,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             Frequently Asked Questions (Aksar Pooche Jaane Wale Sawaal)
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Clear answers about formulas, relationship psychology, and privacy.
+            Clear answers about our Love Calculator, relationship formulas, and privacy.
           </p>
         </div>
 
@@ -641,7 +782,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Latest Relationship Guides
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-              Read editorial breakdowns on formulas, dating advice, and compatibility.
+              Read editorial breakdowns on how our Love Calculator works, dating advice, and compatibility.
             </p>
           </div>
           <button

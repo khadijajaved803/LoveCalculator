@@ -5,12 +5,8 @@ import { Footer } from './components/Footer';
 // Pages
 import { HomePage } from './pages/HomePage';
 import { LoveCalculatorPage } from './pages/LoveCalculatorPage';
-import { LoveCalculatorByNamePage } from './pages/LoveCalculatorByNamePage';
-import { LovePercentagePage } from './pages/LovePercentagePage';
-import { TrueLovePage } from './pages/TrueLovePage';
 import { FlamesPage } from './pages/FlamesPage';
 import { FriendshipPage } from './pages/FriendshipPage';
-import { LoveCompatibilityPage } from './pages/LoveCompatibilityPage';
 import { DobCalculatorPage } from './pages/DobCalculatorPage';
 import { MarriageCalculatorPage } from './pages/MarriageCalculatorPage';
 import { AstrologyPage } from './pages/AstrologyPage';
@@ -68,19 +64,15 @@ export default function App() {
       case '/':
         return <HomePage onNavigate={handleNavigate} />;
       case '/love-calculator/':
-        return <LoveCalculatorPage onNavigate={handleNavigate} />;
       case '/love-calculator-by-name/':
-        return <LoveCalculatorByNamePage onNavigate={handleNavigate} />;
       case '/love-percentage-calculator/':
-        return <LovePercentagePage onNavigate={handleNavigate} />;
       case '/true-love-calculator/':
-        return <TrueLovePage onNavigate={handleNavigate} />;
+      case '/love-compatibility-calculator/':
+        return <LoveCalculatorPage onNavigate={handleNavigate} />;
       case '/flames-calculator/':
         return <FlamesPage onNavigate={handleNavigate} />;
       case '/friendship-calculator/':
         return <FriendshipPage onNavigate={handleNavigate} />;
-      case '/love-compatibility-calculator/':
-        return <LoveCompatibilityPage onNavigate={handleNavigate} />;
       case '/love-calculator-by-date-of-birth/':
         return <DobCalculatorPage onNavigate={handleNavigate} />;
       case '/love-or-arranged-marriage-calculator/':

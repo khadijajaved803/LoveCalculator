@@ -32,7 +32,7 @@ export const BlogIndexPage: React.FC<Props> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Relationship Guides & Compatibility Blog | CalculateLove"
         description="Explore in-depth guides on how love calculators work, FLAMES rules, life path numerology, and modern relationship compatibility on CalculateLove."
@@ -89,8 +89,8 @@ export const BlogIndexPage: React.FC<Props> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Articles Grid - 3 guides in a row on desktop/tablet */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
         {filteredPosts.map((post) => (
           <article
             key={post.slug}

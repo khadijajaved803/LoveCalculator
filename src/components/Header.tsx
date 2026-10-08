@@ -21,11 +21,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
 
   const navLinks = [
     { label: 'Love Test', path: '/love-calculator/' },
-    { label: 'Name Match', path: '/love-calculator-by-name/' },
     { label: 'FLAMES Game', path: '/flames-calculator/' },
     { label: 'Friendship', path: '/friendship-calculator/' },
     { label: 'Marriage Match', path: '/love-or-arranged-marriage-calculator/' },
-    { label: 'Articles', path: '/blog/' },
+    { label: 'DOB Match', path: '/love-calculator-by-date-of-birth/' },
+    { label: 'Guides', path: '/blog/' },
   ];
 
   const handleLinkClick = (path: string) => {

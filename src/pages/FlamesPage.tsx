@@ -8,17 +8,19 @@ import { calculateFlames } from '../lib/calculatorEngine';
 import { FlamesResult } from '../types';
 import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import { CalculateLoveLogo } from '../components/CalculateLoveLogo';
+import { CalculationLoader } from '../components/CalculationLoader';
 import {
   Flame,
   RotateCcw,
   Sparkles,
+  ShieldCheck,
   MessageCircle,
   Copy,
   Check,
   Download,
-  ShieldCheck,
   Lightbulb,
-  Image as ImageIcon,
+  Heart,
+  CheckCircle2,
 } from 'lucide-react';
 
 interface Props {
@@ -30,9 +32,9 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   const [name2, setName2] = useState('');
   const [age1, setAge1] = useState('');
   const [age2, setAge2] = useState('');
-  const [bondType, setBondType] = useState('Crush');
 
   const [result, setResult] = useState<FlamesResult | null>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
   const [copiedImage, setCopiedImage] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
@@ -43,16 +45,11 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name1.trim() || !name2.trim()) {
-      setError('Please enter both names to play FLAMES.');
+      setError('Please provide names for both individuals.');
       return;
     }
-    try {
-      setError('');
-      const res = calculateFlames(name1, name2, { age1, age2, bondType });
-      setResult(res);
-    } catch (err: any) {
-      setError(err.message || 'Please enter valid alphabetic names.');
-    }
+    setError('');
+    setIsCalculating(true);
   };
 
   const handleReset = () => {
@@ -61,6 +58,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     setAge1('');
     setAge2('');
     setResult(null);
+    setIsCalculating(false);
     setError('');
   };
 
@@ -70,11 +68,11 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       type: 'flames' as const,
       names: { person1: result.person1, person2: result.person2 },
       letter: result.resultLetter,
-      word: result.resultWord,
+      outcome: result.resultWord,
       tagline: result.hinglishTagline,
       suggestion: result.hinglishSuggestion,
       tip: result.hinglishTip,
-      details: `FLAMES Outcome · ${result.remainingCount} Unmatched Letters`,
+      details: `${result.resultWord} · ${result.remainingCount} Remaining Letters`,
     };
   };
 
@@ -90,14 +88,19 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
-  const tryCopyImageBlob = async (blob: Blob) => {
+  const tryCopyImageBlob = async (blob: Blob): Promise<boolean> => {
     if (typeof navigator !== 'undefined' && navigator.clipboard && typeof ClipboardItem !== 'undefined') {
-      const item = new ClipboardItem({ 'image/png': blob });
-      await navigator.clipboard.write([item]);
+      try {
+        const item = new ClipboardItem({ 'image/png': blob });
+        await navigator.clipboard.write([item]);
+        return true;
+      } catch {
+        return false;
+      }
     }
+    return false;
   };
 
-  // WhatsApp Card Image Share
   const handleWhatsAppImageShare = async () => {
     if (!result) return;
     setDownloading(true);
@@ -111,15 +114,15 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       if (typeof navigator !== 'undefined' && navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           files: [file],
-          title: `${result.person1} & ${result.person2} FLAMES Result`,
-          text: `Check out our FLAMES outcome! Play yours free at: ${websiteUrl}`,
+          title: `${result.person1} & ${result.person2} FLAMES Match: ${result.resultWord}`,
+          text: `Check out our FLAMES card! Play free at: ${websiteUrl}`,
         });
       } else {
         triggerDownload(blob);
         tryCopyImageBlob(blob);
         setNotice('FLAMES card downloaded & copied! Paste (Ctrl+V) directly in your WhatsApp chat.');
         setTimeout(() => {
-          window.location.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(`Check out our FLAMES card! Play free at: ${websiteUrl}`)}`;
+          window.location.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(`Check out our FLAMES Result! Test free at: ${websiteUrl}`)}`;
         }, 1500);
       }
     } catch (err: any) {
@@ -131,88 +134,74 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     }
   };
 
-  // Facebook Card Image Share
-  const handleFacebookImageShare = async () => {
-    if (!result) return;
-    setDownloading(true);
-    setNotice(null);
-    try {
-      const blob = await generateCardImageBlob(getFlamesCardOptions());
-      triggerDownload(blob);
-      tryCopyImageBlob(blob);
-      setNotice('FLAMES card downloaded & copied! Attach it to your Facebook post.');
-      setTimeout(() => {
-        const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}&quote=${encodeURIComponent(`Check out our FLAMES card from ${websiteUrl}`)}`;
-        window.open(shareUrl, '_blank', 'noopener,noreferrer');
-      }, 1200);
-    } catch {
-      // fallback
-    } finally {
-      setDownloading(false);
-    }
-  };
-
-  // Direct Download Image
   const handleDownloadImage = async () => {
     if (!result) return;
     setDownloading(true);
     try {
       const blob = await generateCardImageBlob(getFlamesCardOptions());
       triggerDownload(blob);
-      setNotice('Card saved to your device!');
-      setTimeout(() => setNotice(null), 3000);
+      setNotice('FLAMES certificate card downloaded!');
     } catch {
-      setNotice('Failed to download image');
+      setNotice('Could not download image.');
     } finally {
       setDownloading(false);
     }
   };
 
-  // Copy Image binary
-  const handleCopyImage = async () => {
+  const handleCopyCardImage = async () => {
     if (!result) return;
+    setDownloading(true);
     try {
       const blob = await generateCardImageBlob(getFlamesCardOptions());
-      await tryCopyImageBlob(blob);
-      setCopiedImage(true);
-      setNotice('FLAMES card copied to clipboard! Paste it directly in any chat.');
-      setTimeout(() => {
-        setCopiedImage(false);
-        setNotice(null);
-      }, 3500);
+      const ok = await tryCopyImageBlob(blob);
+      if (ok) {
+        setCopiedImage(true);
+        setNotice('Card image copied to clipboard!');
+        setTimeout(() => setCopiedImage(false), 3000);
+      } else {
+        triggerDownload(blob);
+        setNotice('Card downloaded to device!');
+      }
     } catch {
-      handleDownloadImage();
+      setNotice('Could not copy image.');
+    } finally {
+      setDownloading(false);
     }
   };
 
   const faqs = [
     {
-      question: 'What does FLAMES stand for?',
+      question: 'What is the full form of FLAMES?',
       answer:
-        'FLAMES is an acronym representing six relationship possibilities: F = Friends, L = Lovers (Love), A = Affectionate (Attraction), M = Marriage, E = Enemies, and S = Siblings (Sister).',
+        'FLAMES stands for Friends, Lovers, Affectionate, Marriage, Enemies, and Siblings.',
     },
     {
-      question: 'How are letters cancelled in the FLAMES test?',
+      question: 'How does the letter cancellation work?',
       answer:
-        'All matching letters between both names are eliminated on a 1-to-1 basis. For example, if both names contain the letter "a", one "a" from each name is struck out. The total count of all remaining uncancelled letters is then used to cyclically count through F-L-A-M-E-S until only one letter survives.',
+        'All matching letters in both names are crossed out 1-on-1. The total count of uncancelled letters is then used to cyclically count through F-L-A-M-E-S until only one letter survives.',
+    },
+    {
+      question: 'Is the FLAMES result symmetric?',
+      answer:
+        'Yes. Because common letters cancel out identically regardless of which name is entered first, the final count and surviving letter are identical.',
     },
   ];
 
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'FLAMES Calculator Game Online',
+    'name': 'FLAMES Love Calculator Game Online',
     'url': 'https://calculatelove.online/flames-calculator/',
-    'description': 'Play the authentic FLAMES relationship game online with step-by-step letter cancellation and cyclic elimination.',
+    'description': 'Play the authentic FLAMES relationship game online with step-by-step letter elimination and shareable cards.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="FLAMES Calculator - Play FLAMES Love Game Online | CalculateLove"
-        description="Play the authentic FLAMES love calculator game online with CalculateLove. Real step-by-step letter cancellation for Friends, Lovers, Affection, Marriage, Enemies, Siblings."
+        title="FLAMES Calculator Online - Authentic Crush Matching Game"
+        description="Play the authentic FLAMES game online at CalculateLove. Step-by-step letter elimination, transparent strike-outs, and downloadable certificate cards."
         canonicalPath="/flames-calculator/"
         schemaJson={schemaJson}
       />
@@ -220,290 +209,328 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Calculators', href: '/love-calculator/' },
-          { label: 'FLAMES Calculator' },
+          { label: 'FLAMES Game' },
         ]}
         onNavigate={onNavigate}
       />
 
-      <div className="text-center max-w-2xl mx-auto mb-10">
+      {/* Header Section */}
+      <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
+          <Flame className="w-3.5 h-3.5 text-amber-600" />
+          <span>Nostalgic School & College Game</span>
+        </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
           FLAMES Love Calculator Game
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+        <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
           The nostalgic Indian school & college game! Discover your outcome with letter cancellation, beautiful shareable cards, and personalized relationship predictions.
         </p>
       </div>
 
-      <div className="max-w-xl mx-auto">
-        {!result ? (
-          <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-8">
-            <form onSubmit={handleCalculate} className="space-y-5">
-              <div>
-                <label
-                  htmlFor="flameName1"
-                  className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mb-2"
-                >
-                  Your Name
-                </label>
-                <input
-                  id="flameName1"
-                  type="text"
-                  value={name1}
-                  onChange={(e) => setName1(e.target.value)}
-                  placeholder="e.g. Aryan"
-                  maxLength={40}
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 text-sm text-slate-900 placeholder:text-slate-400 min-h-[48px] transition-all"
-                  required
-                />
-              </div>
+      {/* Wide Calculator Dashboard */}
+      <div className="w-full mb-16">
+        {isCalculating ? (
+          <CalculationLoader
+            name1={name1}
+            name2={name2}
+            type="flames"
+            onComplete={() => {
+              const res = calculateFlames(name1, name2, { age1, age2 });
+              setResult(res);
+              setIsCalculating(false);
+            }}
+          />
+        ) : !result ? (
+          <div className="bg-white rounded-3xl border border-rose-200/90 shadow-lg p-5 sm:p-7 md:p-8 relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-amber-500 to-pink-500" />
 
-              <div className="flex items-center justify-center my-1">
-                <span className="w-9 h-9 rounded-full bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500 font-bold text-xs">
-                  VS
-                </span>
-              </div>
+            <form onSubmit={handleCalculate}>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+                {/* Left Column: Names, Ages, Submit */}
+                <div className="lg:col-span-7 space-y-4">
+                  <div className="border-b border-slate-100 pb-3">
+                    <h2 className="text-base font-extrabold text-slate-900 font-display">
+                      Enter Names for FLAMES
+                    </h2>
+                    <p className="text-xs text-slate-500">
+                      Automated 1-to-1 letter strikeout and circular countdown
+                    </p>
+                  </div>
 
-              <div>
-                <label
-                  htmlFor="flameName2"
-                  className="block text-xs font-semibold text-slate-800 uppercase tracking-wider mb-2"
-                >
-                  Crush / Partner Name
-                </label>
-                <input
-                  id="flameName2"
-                  type="text"
-                  value={name2}
-                  onChange={(e) => setName2(e.target.value)}
-                  placeholder="e.g. Diya"
-                  maxLength={40}
-                  className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 text-sm text-slate-900 placeholder:text-slate-400 min-h-[48px] transition-all"
-                  required
-                />
-              </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="min-w-0">
+                      <label htmlFor="flameName1" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Your Name
+                      </label>
+                      <input
+                        id="flameName1"
+                        type="text"
+                        value={name1}
+                        onChange={(e) => setName1(e.target.value)}
+                        placeholder="e.g. Aryan"
+                        maxLength={40}
+                        className="w-full px-3.5 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[44px] box-border"
+                        required
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <label htmlFor="flameName2" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Crush / Partner Name
+                      </label>
+                      <input
+                        id="flameName2"
+                        type="text"
+                        value={name2}
+                        onChange={(e) => setName2(e.target.value)}
+                        placeholder="e.g. Diya"
+                        maxLength={40}
+                        className="w-full px-3.5 py-3 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 min-h-[44px] box-border"
+                        required
+                      />
+                    </div>
+                  </div>
 
-              {/* Engaging Age Inputs */}
-              <div className="pt-2 border-t border-slate-100">
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
-                  Ages (Optional)
-                </label>
-                <div className="grid grid-cols-2 gap-3">
-                  <input
-                    type="number"
-                    min="10"
-                    max="99"
-                    value={age1}
-                    onChange={(e) => setAge1(e.target.value)}
-                    placeholder="Your Age (e.g. 21)"
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs min-h-[42px]"
-                  />
-                  <input
-                    type="number"
-                    min="10"
-                    max="99"
-                    value={age2}
-                    onChange={(e) => setAge2(e.target.value)}
-                    placeholder="Crush Age (e.g. 21)"
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs min-h-[42px]"
-                  />
+                  {/* Ages */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="min-w-0">
+                      <label htmlFor="flAge1" className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
+                        Your Age (Optional)
+                      </label>
+                      <input
+                        id="flAge1"
+                        type="number"
+                        min="10"
+                        max="99"
+                        value={age1}
+                        onChange={(e) => setAge1(e.target.value)}
+                        placeholder="e.g. 21"
+                        className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:border-rose-500 min-h-[42px]"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <label htmlFor="flAge2" className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
+                        Crush Age (Optional)
+                      </label>
+                      <input
+                        id="flAge2"
+                        type="number"
+                        min="10"
+                        max="99"
+                        value={age2}
+                        onChange={(e) => setAge2(e.target.value)}
+                        placeholder="e.g. 21"
+                        className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:border-rose-500 min-h-[42px]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Informative Micro-card on Desktop to eliminate empty space */}
+                  <div className="hidden lg:flex items-center gap-3 p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-xs text-amber-950">
+                    <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                    <p className="text-[11px] leading-relaxed">
+                      <strong>Zero Guesswork:</strong> Identical letters cancel out 1-by-1 symmetrically, running circular elimination until exactly 1 letter survives.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Column: FLAMES Legend */}
+                <div className="lg:col-span-5 bg-amber-50/50 p-4 sm:p-5 rounded-2xl border border-amber-200 space-y-3">
+                  <div className="border-b border-amber-200/80 pb-2">
+                    <h3 className="text-xs font-bold text-amber-950 uppercase tracking-wider">
+                      The FLAMES Meaning Guide
+                    </h3>
+                    <p className="text-[11px] text-amber-800">
+                      6 Classic childhood friendship and relationship outcomes
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs font-semibold">
+                    <div className="p-2.5 rounded-xl bg-white border border-amber-100 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center font-bold">F</span>
+                      <span>Friends</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white border border-amber-100 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-rose-50 text-rose-700 flex items-center justify-center font-bold">L</span>
+                      <span>Lovers</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white border border-amber-100 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-pink-50 text-pink-700 flex items-center justify-center font-bold">A</span>
+                      <span>Affection</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white border border-amber-100 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center font-bold">M</span>
+                      <span>Marriage</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white border border-amber-100 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center font-bold">E</span>
+                      <span>Enemies</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white border border-amber-100 flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">S</span>
+                      <span>Siblings</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {error && (
-                <p className="text-xs text-rose-600 font-medium">{error}</p>
-              )}
+              {error && <p className="text-xs text-rose-600 font-medium text-center">{error}</p>}
 
-              <button
-                type="submit"
-                className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-700 hover:to-amber-700 active:scale-[0.99] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md min-h-[48px]"
-              >
-                <Flame className="w-4 h-4 fill-white" />
-                <span>Play FLAMES Now</span>
-              </button>
+              {/* Bottom Centered Button across the entire card */}
+              <div className="pt-4 border-t border-slate-100 flex flex-col items-center">
+                <button
+                  type="submit"
+                  className="w-full max-w-md py-4 px-8 rounded-2xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-700 hover:to-amber-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-lg shadow-rose-600/15 min-h-[50px]"
+                >
+                  <span>Play FLAMES Match</span>
+                  <Flame className="w-4 h-4 fill-white" />
+                </button>
 
-              <div className="flex items-center justify-center gap-2 pt-1 text-[11px] text-slate-500">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>100% Authentic elimination algorithm</span>
+                <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 mt-2.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Exact cyclic countdown elimination · 100% Private in browser</span>
+                </div>
               </div>
             </form>
           </div>
         ) : (
-          <div className="relative bg-gradient-to-b from-white via-amber-50/20 to-white rounded-3xl border-2 border-rose-200 shadow-xl overflow-hidden p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-3 duration-300">
-            {/* Top accent */}
+          /* Wide Result Card */
+          <div className="relative bg-gradient-to-b from-white via-amber-50/20 to-white rounded-3xl border-2 border-rose-200 shadow-xl overflow-hidden p-5 sm:p-7 md:p-8 animate-in fade-in slide-in-from-bottom-3 duration-300">
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-amber-500 to-pink-500" />
 
-            <div className="flex items-center justify-between border-b border-rose-100 pb-3 mb-5">
+            <div className="flex items-center justify-between border-b border-rose-100 pb-3 mb-6">
               <div className="flex items-center gap-2 text-xs font-bold text-rose-600 uppercase tracking-widest font-mono">
                 <CalculateLoveLogo size={22} />
                 <span>calculatelove.online</span>
               </div>
-              <span className="text-[10px] bg-amber-100 text-amber-800 font-semibold px-2.5 py-0.5 rounded-full">
-                FLAMES Result
+              <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">
+                FLAMES Result Certificate
               </span>
             </div>
 
-            {/* Outcome Display */}
-            <div className="text-center mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">
-                {result.person1} & {result.person2}
-              </h3>
-              <p className="text-xs font-semibold text-rose-600 mt-1">
-                {result.hinglishTagline}
-              </p>
-            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+              {/* Left Column: Hero Outcome & Actions */}
+              <div className="lg:col-span-5 space-y-5">
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-900 text-xs font-semibold mb-2 shadow-xs">
+                    <span>{result.person1}</span>
+                    <Flame className="w-3.5 h-3.5 text-amber-500" />
+                    <span>{result.person2}</span>
+                  </div>
 
-            {/* Letter Showcase Hero */}
-            <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-b from-rose-50/90 to-amber-50/50 rounded-3xl border border-rose-200/80 mb-6 shadow-inner">
-              <div className="w-20 h-20 rounded-2xl bg-white border-2 border-rose-300 shadow-md flex items-center justify-center text-4xl font-extrabold text-rose-600 font-display mb-2">
-                {result.resultLetter}
-              </div>
-              <span className="text-2xl font-extrabold text-slate-900 font-display">
-                {result.resultWord}
-              </span>
-              <p className="text-xs text-center text-slate-600 max-w-sm mt-2 leading-relaxed">
-                {result.meaning}
-              </p>
-            </div>
-
-            {/* Dil Ki Baat - Relationship Advice */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50/50 border border-amber-200/80 mb-6 space-y-2">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 uppercase tracking-wider">
-                <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500 shrink-0" />
-                <span>FLAMES Prediction & Relationship Insights</span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
-                {result.hinglishSuggestion}
-              </p>
-              <div className="pt-2 border-t border-amber-200/60 flex items-start gap-1.5 text-[11px] text-amber-950 font-medium">
-                <Lightbulb className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                <span>{result.hinglishTip}</span>
-              </div>
-            </div>
-
-            {/* Step-by-Step Calculation Breakdown */}
-            <div className="space-y-3 mb-6 p-4 rounded-2xl bg-white border border-slate-200 text-xs">
-              <h4 className="font-bold text-slate-900 uppercase tracking-wider">
-                FLAMES Mathematical Step Breakdown
-              </h4>
-
-              <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Letters Cancelled:</span>
-                  <span className="font-mono font-medium text-slate-800">
-                    {result.steps.cancelledLetters.length > 0
-                      ? result.steps.cancelledLetters.join(', ')
-                      : 'None'}
-                  </span>
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display mt-1">
+                    {result.resultWord}
+                  </h3>
+                  <p className="text-xs text-rose-600 font-semibold mt-0.5">
+                    {result.hinglishTagline}
+                  </p>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-slate-500">Unmatched Letters:</span>
-                  <span className="font-mono font-bold text-rose-600">
-                    {result.remainingCount} letters
-                  </span>
-                </div>
-              </div>
 
-              <div className="pt-2 border-t border-slate-100">
-                <span className="text-slate-500 block mb-1">
-                  Cyclic Elimination Rounds:
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {result.steps.eliminationRounds.map((round, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 rounded-md bg-slate-50 border border-slate-200 text-slate-700 font-mono text-[10px]"
+                <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-b from-rose-50/90 to-amber-50/50 rounded-3xl border border-rose-200 shadow-inner">
+                  <div className="w-20 h-20 rounded-2xl bg-white border-2 border-rose-300 shadow-md flex items-center justify-center text-4xl font-extrabold text-rose-600 font-display mb-2">
+                    {result.resultLetter}
+                  </div>
+                  <span className="text-lg font-bold text-slate-900">{result.resultWord}</span>
+                  <p className="text-xs text-center text-slate-600 max-w-sm mt-2 leading-relaxed">
+                    {result.meaning}
+                  </p>
+                </div>
+
+                <div className="space-y-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={handleWhatsAppImageShare}
+                    disabled={downloading}
+                    className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm min-h-[44px]"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>Share FLAMES Card on WhatsApp</span>
+                  </button>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={handleDownloadImage}
+                      disabled={downloading}
+                      className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-all border border-rose-200 min-h-[40px]"
                     >
-                      Round {idx + 1}: Struck <strong>{round.letterEliminated}</strong>
-                    </span>
-                  ))}
+                      <Download className="w-3.5 h-3.5" />
+                      <span>Save PNG</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleCopyCardImage}
+                      disabled={downloading}
+                      className="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 transition-all border border-slate-200 min-h-[40px]"
+                    >
+                      {copiedImage ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span>{copiedImage ? 'Copied!' : 'Copy Card'}</span>
+                    </button>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="w-full py-2.5 px-4 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[40px]"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>Play Another FLAMES Round</span>
+                  </button>
+                </div>
+
+                {notice && (
+                  <div className="p-2.5 rounded-xl bg-slate-900 text-white text-[11px] text-center animate-in fade-in leading-relaxed">
+                    {notice}
+                  </div>
+                )}
+              </div>
+
+              {/* Right Column: Prediction, Steps Visualizer */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50/50 border border-amber-200/80 shadow-xs space-y-2.5">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500 shrink-0" />
+                    <span>FLAMES Prediction & Relationship Insights</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
+                    {result.hinglishSuggestion}
+                  </p>
+                  <div className="pt-2 border-t border-amber-200/60 flex items-start gap-1.5 text-[11px] text-amber-950 font-medium">
+                    <Lightbulb className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <span>{result.hinglishTip}</span>
+                  </div>
+                </div>
+
+                {/* Step-by-Step Elimination Table */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-3">
+                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">
+                    Step-by-Step Mathematical Elimination
+                  </h4>
+
+                  <div className="p-3 bg-slate-50 rounded-xl font-mono text-xs text-slate-700 leading-relaxed space-y-1">
+                    <div>1. Cancelled letters: <span className="font-bold text-rose-600">{result.steps.cancelledLetters.join(', ') || 'None'}</span></div>
+                    <div>2. Remaining letters count: <span className="font-bold text-amber-700">{result.remainingCount}</span></div>
+                    <div>3. Circular elimination count: <span className="font-bold text-indigo-700">{result.remainingCount}</span></div>
+                  </div>
+
+                  <div className="space-y-1 pt-1 text-xs">
+                    {result.steps.eliminationRounds.map((round, idx) => (
+                      <div key={idx} className="flex items-center justify-between p-2 rounded-lg bg-slate-50 border border-slate-100 text-[11px]">
+                        <span className="font-mono text-slate-600">Round {idx + 1}: Struck out &apos;{round.letterEliminated}&apos;</span>
+                        <span className="font-mono font-bold text-rose-600">[{round.remainingLetters.join(', ')}]</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Notice banner */}
-            {notice && (
-              <div className="mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 text-center font-medium animate-in fade-in duration-200">
-                {notice}
-              </div>
-            )}
-
-            {/* Share Beautiful Card Image Actions */}
-            <div className="space-y-2 mb-4">
-              <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider text-center flex items-center justify-center gap-1.5">
-                <ImageIcon className="w-3.5 h-3.5 text-rose-500" />
-                <span>Share Beautiful Card Image</span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  disabled={downloading}
-                  onClick={handleWhatsAppImageShare}
-                  className="py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[46px] disabled:opacity-75"
-                >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>{downloading ? 'Preparing Image...' : 'WhatsApp Card'}</span>
-                </button>
-
-                <button
-                  type="button"
-                  disabled={downloading}
-                  onClick={handleFacebookImageShare}
-                  className="py-3 px-3 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm min-h-[46px] disabled:opacity-75"
-                >
-                  <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                  <span>Facebook Card</span>
-                </button>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={handleDownloadImage}
-                  className="py-2.5 px-3 rounded-xl border border-rose-200 bg-rose-50/70 hover:bg-rose-100 text-rose-800 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
-                >
-                  <Download className="w-3.5 h-3.5 text-rose-600" />
-                  <span>Download Card PNG</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleCopyImage}
-                  className="py-2.5 px-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[42px]"
-                >
-                  {copiedImage ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
-                  <span>{copiedImage ? 'Image Copied!' : 'Copy Card Image'}</span>
-                </button>
-              </div>
-
-              <div className="pt-1">
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="w-full py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[40px]"
-                >
-                  <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
-                  <span>Play Again</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-rose-100 flex items-center justify-between text-[10px] text-slate-400">
-              <span>Generated on https://calculatelove.online</span>
-              <span>100% Free & Private</span>
             </div>
           </div>
         )}
       </div>
 
       <RelatedTools currentToolId="flames-calculator" onNavigate={onNavigate} />
-      <RelatedArticles
-        onNavigate={onNavigate}
-        preferredSlugs={['how-flames-calculator-works', 'friendship-compatibility-guide']}
-      />
+      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculators-work', 'what-does-love-percentage-mean']} />
       <FAQSection faqs={faqs} />
     </div>
   );
