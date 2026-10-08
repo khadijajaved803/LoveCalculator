@@ -533,7 +533,7 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       <RelatedTools currentToolId="love-calculator-by-date-of-birth" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['love-compatibility-by-date-of-birth', 'how-love-calculators-work']} />
+      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['love-compatibility-by-date-of-birth', 'how-love-calculator-works']} />
       <FAQSection faqs={faqs} />
     </div>
   );

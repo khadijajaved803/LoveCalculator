@@ -651,7 +651,7 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       <RelatedTools currentToolId="love-or-arranged-marriage-calculator" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculators-work', 'love-compatibility-by-date-of-birth']} />
+      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculator-works', 'love-compatibility-by-date-of-birth']} />
       <FAQSection faqs={faqs} />
     </div>
   );

@@ -530,7 +530,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       <RelatedTools currentToolId="flames-calculator" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculators-work', 'what-does-love-percentage-mean']} />
+      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculator-works', 'what-does-love-percentage-mean']} />
       <FAQSection faqs={faqs} />
     </div>
   );

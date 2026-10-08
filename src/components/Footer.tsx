@@ -216,20 +216,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="/blog/how-love-calculators-work/"
-                  onClick={(e) => handleLinkClick(e, '/blog/how-love-calculators-work/')}
+                  href="/blog/how-love-calculator-works/"
+                  onClick={(e) => handleLinkClick(e, '/blog/how-love-calculator-works/')}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="How Love Calculators Work"
+                  title="How Online Love Calculators Work"
                 >
                   How Love Calculators Work
                 </a>
               </li>
               <li>
                 <a
-                  href="/blog/psychology-of-flames-game/"
-                  onClick={(e) => handleLinkClick(e, '/blog/psychology-of-flames-game/')}
+                  href="/blog/how-flames-calculator-works/"
+                  onClick={(e) => handleLinkClick(e, '/blog/how-flames-calculator-works/')}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Psychology of FLAMES Game"
+                  title="How FLAMES Game Works"
                 >
                   The Psychology of FLAMES
                 </a>
