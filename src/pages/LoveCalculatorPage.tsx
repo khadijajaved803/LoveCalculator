@@ -20,7 +20,10 @@ import {
   Zap,
   ArrowRight,
   HelpCircle,
+  Award,
+  Download,
 } from 'lucide-react';
+import loveCertificateImage from '../assets/images/love_certificate_showcase_1792223212819.jpg';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -422,6 +425,93 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 </div>
                 <span className="text-[11px] bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Balanced</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Showcase: Official Love Compatibility Certificate Card */}
+      <section className="bg-gradient-to-br from-rose-50/60 via-white to-pink-50/50 rounded-3xl border border-rose-200/90 p-6 sm:p-8 md:p-10 mb-12 shadow-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Certificate Image Frame */}
+          <div className="lg:col-span-5 relative group">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-200/80 bg-slate-950">
+              <img
+                src={loveCertificateImage}
+                alt="Personalized Love Compatibility Certificate Card with official seals and calligraphy"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-amber-500/90 text-slate-950 text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center gap-1.5 backdrop-blur-xs">
+                <Award className="w-3.5 h-3.5" />
+                <span>Verified Certificate</span>
+              </div>
+            </div>
+            <p className="text-center text-[11px] text-slate-500 mt-2 font-medium italic">
+              Example of the free downloadable Love Compatibility Certificate
+            </p>
+          </div>
+
+          {/* Text & Features */}
+          <div className="lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100 text-rose-800 text-xs font-bold border border-rose-200">
+              <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+              <span>Free High-Resolution Photo Card</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display tracking-tight text-balance">
+              Generate & Download Your Love Compatibility Certificate Card
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              When you calculate your compatibility on CalculateLove, you get more than a basic score. You unlock a beautifully rendered <strong>Love Compatibility Certificate</strong> containing your names in romantic calligraphy, mutual love percentage, cosmic relationship verdict, and 4-pillar balance ratings.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-rose-100 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="text-xs">
+                  <strong className="text-slate-900 block font-semibold">Instant Social Status Card</strong>
+                  <span className="text-slate-500 text-[11px]">Formatted in 1080×1350 for WhatsApp Status, Snapchat, and Instagram Stories.</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-rose-100 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="text-xs">
+                  <strong className="text-slate-900 block font-semibold">100% Private & Deterministic</strong>
+                  <span className="text-slate-500 text-[11px]">Calculated directly in your browser. No names or results are stored on any server.</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-rose-100 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="text-xs">
+                  <strong className="text-slate-900 block font-semibold">Multi-Pillar Insights</strong>
+                  <span className="text-slate-500 text-[11px]">Individual scores for communication ease, emotional security, romantic passion, and longevity.</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-rose-100 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="text-xs">
+                  <strong className="text-slate-900 block font-semibold">One-Tap Direct Share</strong>
+                  <span className="text-slate-500 text-[11px]">Download as PNG image or directly share a secure link with your partner or friends.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  window.scrollTo({ top: 120, behavior: 'smooth' });
+                }}
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-md shadow-rose-600/20 min-h-[44px]"
+              >
+                <Heart className="w-4 h-4 fill-white" />
+                <span>Calculate Compatibility & Download Certificate</span>
+              </button>
             </div>
           </div>
         </div>

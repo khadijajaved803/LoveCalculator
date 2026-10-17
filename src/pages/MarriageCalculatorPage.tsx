@@ -20,7 +20,13 @@ import {
   Lightbulb,
   Heart,
   Users,
+  Calendar,
+  Scale,
+  CheckCircle2,
+  HeartHandshake,
+  BookOpen,
 } from 'lucide-react';
+import weddingImage from '../assets/images/wedding_hands_harmony_1792219742165.jpg';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -189,6 +195,21 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       question: 'Does this calculator replace traditional Kundli matching?',
       answer:
         'No. This is a lifestyle and relationship alignment model for entertainment. Traditional Vedic Kundli matching requires exact birth times, coordinates, and astrologer review.',
+    },
+    {
+      question: 'What is a "Semi-Arranged" or "Love-Cum-Arranged" marriage?',
+      answer:
+        'In modern urban India, over 65% of marriages fall into the love-cum-arranged spectrum. Couples meet independently or via matrimonial platforms, spend 6 to 18 months getting to know each other, and then actively involve both families to secure their blessings.',
+    },
+    {
+      question: 'How can we convince parents for a love marriage?',
+      answer:
+        'Effective communication, career stability, and patience are key. Introduce your partner gradually as a good friend, highlight shared cultural values, show financial preparedness, and address parental concerns with empathy rather than rebellion.',
+    },
+    {
+      question: 'What are the top factors in marriage compatibility?',
+      answer:
+        'Research shows the top five predictors of marital longevity are mutual respect during arguments, financial transparency, alignment on living arrangements (nuclear vs joint family), shared work-life priorities, and emotional intimacy.',
     },
   ];
 
@@ -650,9 +671,210 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         )}
       </div>
 
-      <RelatedTools currentToolId="love-or-arranged-marriage-calculator" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculator-works', 'love-compatibility-by-date-of-birth']} />
-      <FAQSection faqs={faqs} />
+      {/* Unique In-Depth Editorial Showcase & Guide Section */}
+      <div className="mt-12 space-y-12">
+        {/* Featured Editorial Banner with Generated Image */}
+        <div className="rounded-3xl overflow-hidden border border-purple-200 bg-slate-900 text-white shadow-lg relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+            <div className="p-8 sm:p-10 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-purple-300 font-semibold flex items-center gap-1.5">
+                <HeartHandshake className="w-3.5 h-3.5 text-purple-300" />
+                <span>Modern Romance Meets Traditional Matrimony</span>
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display leading-tight text-white">
+                Shaadi Ki Sambhavna: Balancing Love & Family Harmony
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                In India, a marriage is never just a union of two individuals; it is the blossoming alliance between two families, life philosophies, and shared dreams. Whether you found each other organically or through familial matchmaking, lasting marital joy stems from mutual respect, emotional transparency, and aligned expectations.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-2 text-xs">
+                <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 border border-purple-400/30">
+                  ✓ Courtship Duration
+                </span>
+                <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/30">
+                  ✓ Family Involvement
+                </span>
+                <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30">
+                  ✓ Vedic Guna Alignment
+                </span>
+              </div>
+            </div>
+            <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-950 flex items-center justify-center">
+              <img
+                src={weddingImage}
+                alt="Traditional Indian wedding ceremony showing couple hands united with marigold flowers and sacred ceremonial fire"
+                className="w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Section 1: The Modern Indian Marriage Spectrum */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-800 text-xs font-bold mb-3 border border-purple-200">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+              <span>Cultural Evolution</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              Love Marriage vs. Arranged Marriage: The &apos;Love-Cum-Arranged&apos; Era
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              The stark divide between &apos;pure love marriage&apos; and &apos;traditional blind arranged marriage&apos; has largely dissolved in modern society. Today, progressive Indian matrimonial alliances celebrate autonomy combined with family blessings:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+            <div className="p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 space-y-2">
+              <span className="text-xs font-bold text-purple-800 uppercase tracking-wider block">Option 1</span>
+              <h3 className="font-bold text-sm text-slate-900">Organic Love Marriage</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Born out of college dating, workplace camaraderie, or mutual friend circles. Partners develop strong emotional bonding and shared memories before bringing families into the discussion.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+              <span className="text-xs font-bold text-rose-800 uppercase tracking-wider block">Option 2</span>
+              <h3 className="font-bold text-sm text-slate-900">Love-Cum-Arranged (The Sweet Spot)</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Families initiate the introduction via matrimonial platforms or relatives, but the couple is granted 6 to 12 months of unmonitored courtship, coffee dates, and travel to evaluate romantic chemistry independently.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-2">
+              <span className="text-xs font-bold text-amber-800 uppercase tracking-wider block">Option 3</span>
+              <h3 className="font-bold text-sm text-slate-900">Traditional Family-Guided Alliance</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Prioritizes socio-cultural symmetry, astrological Kundli Milan (Ashtakoota), joint family harmony, and parental vetting, allowing romantic affection to blossom post-nuptials through dedication.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: The 5 Foundations of Lifelong Matrimonial Alignment */}
+        <section className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-purple-300 font-semibold block mb-2">
+              Matrimonial Science
+            </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display">
+              The 5 Pillars of Lifelong Marriage Compatibility & Readiness
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              Marriages thrive not on fairytale perfection, but on resilient everyday partnership across these key areas:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-2">
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <Heart className="w-5 h-5 text-rose-400" />
+              <h3 className="font-bold text-sm text-white">1. Romance & Intimacy</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Maintaining passion, flirtatious banter, and intentional date nights even amid busy work routines and household responsibilities.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <Users className="w-5 h-5 text-purple-400" />
+              <h3 className="font-bold text-sm text-white">2. In-Law Harmony</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Navigating parental expectations with grace, setting healthy boundaries, and ensuring both sets of parents feel cherished and respected.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <Scale className="w-5 h-5 text-amber-400" />
+              <h3 className="font-bold text-sm text-white">3. Financial Alignment</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Openness about savings, EMIs, investments, lifestyle expenditures, and mutual goals for purchasing a home or building family wealth.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <h3 className="font-bold text-sm text-white">4. Dual-Career Support</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Celebrating each other&apos;s professional milestones, equally sharing chores, and accommodating job relocations or late work hours.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <ShieldCheck className="w-5 h-5 text-indigo-400" />
+              <h3 className="font-bold text-sm text-white">5. Fair Conflict Rules</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Banning insults or silent treatment during disputes; focusing on solving the problem together rather than winning an argument.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: The Premarital Compatibility Checklist */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
+              The Premarital Checklist: 8 Crucial Discussions Before Tying the Knot
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2">
+              Before printing wedding invitations or conducting roka ceremonies, discuss these practical lifestyle questions with your partner:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            {[
+              {
+                title: 'Living Arrangements (Nuclear vs Joint Family)',
+                desc: 'Will you live with parents, near parents, or independently in a separate apartment? Clarify short-term vs long-term expectations.',
+              },
+              {
+                title: 'Financial Transparency & Joint Accounts',
+                desc: 'How will monthly household bills, rent, and discretionary personal allowances be split? Are there existing student loans or personal debts?',
+              },
+              {
+                title: 'Career Mobility & Ambition Pacing',
+                desc: 'If one partner receives an overseas promotion or transferable government posting, how will the couple adapt their professional lives?',
+              },
+              {
+                title: 'Children, Timing & Parenting Styles',
+                desc: 'Do you both wish to have children? What is the ideal timeline, and what role will grandparents play in daily childcare?',
+              },
+              {
+                title: 'Religious Beliefs & Festive Traditions',
+                desc: 'How will Diwali, Eid, Christmas, or regional festivals be celebrated between two diverse family traditions?',
+              },
+              {
+                title: 'Division of Daily Domestic Responsibilities',
+                desc: 'Who manages grocery runs, cooking, domestic helper coordination, and laundry on weekdays vs weekends?',
+              },
+              {
+                title: 'Personal Space & Social Freedom',
+                desc: 'How much individual alone time, friend-group nights, and personal hobby pursuits does each partner require to recharge?',
+              },
+              {
+                title: 'Crisis & Stress Coping Mechanisms',
+                desc: 'When faced with job loss, medical emergencies, or grief, how does each person react—by withdrawing or seeking immediate verbal comfort?',
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="p-4 rounded-2xl bg-purple-50/40 border border-purple-200/70 flex items-start gap-3">
+                <span className="w-6 h-6 rounded-full bg-purple-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                  {idx + 1}
+                </span>
+                <div>
+                  <h4 className="font-bold text-xs sm:text-sm text-slate-900">{item.title}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed mt-1">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="mt-12 space-y-10">
+        <RelatedTools currentToolId="love-or-arranged-marriage-calculator" onNavigate={onNavigate} />
+        <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculator-works', 'love-compatibility-by-date-of-birth']} />
+        <FAQSection faqs={faqs} />
+      </div>
     </div>
   );
 };

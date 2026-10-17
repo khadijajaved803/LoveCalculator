@@ -20,7 +20,14 @@ import {
   Lightbulb,
   Heart,
   Compass,
+  Moon,
+  Sun,
+  BookOpen,
+  CheckCircle2,
+  Layers,
+  Award,
 } from 'lucide-react';
+import dobImage from '../assets/images/birth_chart_calendar_1792219741407.jpg';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -181,6 +188,21 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       question: 'Can two people with incompatible Life Path numbers have a great relationship?',
       answer:
         'Absolutely! Numerology highlights contrasting energetic styles. Contrasting numbers frequently balance each other beautifully through complementary strengths and intentional empathy.',
+    },
+    {
+      question: 'What are Master Numbers in relationship numerology?',
+      answer:
+        'The numbers 11, 22, and 33 are considered Master Numbers. When present in a birth chart, they reflect heightened intuition, deep emotional sensitivity, and visionary life missions, requiring partners who offer patient emotional grounding.',
+    },
+    {
+      question: 'Is date of birth matching more accurate than name matching?',
+      answer:
+        'While name matching reveals phonetic attraction, cultural familiarity, and spoken chemistry, date of birth calculations reflect deeper psychological temperaments and core personality traits that remain consistent over a lifetime.',
+    },
+    {
+      question: 'Does birth time matter for this Life Path calculation?',
+      answer:
+        'No. Pythagorean numerology relies strictly on the solar calendar date (day, month, and year). Exact birth times are only required for advanced Vedic astrology (Kundli) Lagna and Moon Nakshatra charts.',
     },
   ];
 
@@ -532,9 +554,205 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         )}
       </div>
 
-      <RelatedTools currentToolId="love-calculator-by-date-of-birth" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['love-compatibility-by-date-of-birth', 'how-love-calculator-works']} />
-      <FAQSection faqs={faqs} />
+      {/* Unique In-Depth Editorial Showcase & Guide Section */}
+      <div className="mt-12 space-y-12">
+        {/* Featured Editorial Banner with Generated Image */}
+        <div className="rounded-3xl overflow-hidden border border-indigo-200 bg-slate-900 text-white shadow-lg relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+            <div className="p-8 sm:p-10 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-indigo-300 font-semibold flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5 text-indigo-300" />
+                <span>Cosmic Solar Pacing & Pythagorean Geometry</span>
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display leading-tight text-white">
+                Life Path Compatibility: The Soul Rhythm of Your Birth Date
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                While names represent outward social presentation, your date of birth is an immutable cosmic imprint. In classical Pythagorean numerology, the day you entered the world reveals your innate behavioral tendencies, emotional requirements, and instinctual reaction under pressure.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-2 text-xs">
+                <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-200 border border-indigo-400/30">
+                  ✓ Day + Month + Year Synthesis
+                </span>
+                <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 border border-purple-400/30">
+                  ✓ Harmonic Triads (3-6-9)
+                </span>
+                <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/30">
+                  ✓ Master Numbers (11 & 22)
+                </span>
+              </div>
+            </div>
+            <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-950 flex items-center justify-center">
+              <img
+                src={dobImage}
+                alt="Mystical celestial calendar wheel with astrological constellations and sacred geometry charts"
+                className="w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Section 1: The 1 to 9 Life Path Compatibility Matrix */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-800 text-xs font-bold mb-3 border border-indigo-200">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Life Path Archetypes (1 to 9)</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              Life Path Numbers in Love: How Your Birth Date Shapes Relationship Harmony
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              Every single-digit Life Path number (1 through 9) embodies distinct romantic inclinations, communication needs, and ideal partners:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            {[
+              {
+                num: 1,
+                title: 'The Pioneering Leader',
+                trait: 'Bold, autonomous, goal-oriented',
+                matches: 'Best with 3, 5, 7',
+                desc: 'Values personal freedom and hates being micromanaged. Thrives with a confident partner who pursues their own ambitions with equal passion.',
+              },
+              {
+                num: 2,
+                title: 'The Empathetic Diplomat',
+                trait: 'Gentle, intuitive, peacekeeper',
+                matches: 'Best with 2, 4, 6, 8',
+                desc: 'Craves emotional security and deep one-on-one devotion. Radiates kindness and seeks a steady, protective, and affectionate companion.',
+              },
+              {
+                num: 3,
+                title: 'The Expressive Romantic',
+                trait: 'Charismatic, playful, artistic',
+                matches: 'Best with 1, 3, 6, 9',
+                desc: 'Brings laughter, spontaneous road trips, and social sparkle to relationships. Needs verbal appreciation and lively banter every single day.',
+              },
+              {
+                num: 4,
+                title: 'The Structured Anchor',
+                trait: 'Loyal, grounded, dependable',
+                matches: 'Best with 2, 4, 7, 8',
+                desc: 'The bedrock of lasting marriage. Highly practical, values financial stability, and shows affection through steadfast acts of service.',
+              },
+              {
+                num: 5,
+                title: 'The Free-Spirited Explorer',
+                trait: 'Curious, versatile, adventurous',
+                matches: 'Best with 1, 3, 5, 7',
+                desc: 'Despises monotony and predictable routines. Loves traveling, learning new skills, and requires an open-minded, adaptable partner.',
+              },
+              {
+                num: 6,
+                title: 'The Loving Caregiver',
+                trait: 'Nurturing, protective, harmonious',
+                matches: 'Best with 2, 3, 6, 9',
+                desc: 'The domestic heart of relationships. Dedicated to family well-being, creating a warm hospitable home, and providing steady emotional solace.',
+              },
+              {
+                num: 7,
+                title: 'The Spiritual Thinker',
+                trait: 'Analytical, introspective, perceptive',
+                matches: 'Best with 1, 4, 5, 7',
+                desc: 'Needs intellectual depth and comfortable quiet solitude. Connects through profound philosophical debates, books, and shared values.',
+              },
+              {
+                num: 8,
+                title: 'The Visionary Manifestor',
+                trait: 'Ambitious, resilient, strategic',
+                matches: 'Best with 2, 4, 6, 8',
+                desc: 'Driven by legacy and material accomplishments. Highly generous and protective, seeking an equally capable, encouraging partner.',
+              },
+              {
+                num: 9,
+                title: 'The Universal Humanitarian',
+                trait: 'Compassionate, idealistic, wise',
+                matches: 'Best with 3, 6, 9',
+                desc: 'Deeply empathetic with a global perspective. Believes in unconditional love, artistic beauty, and mutual self-transcendence.',
+              },
+            ].map((lp) => (
+              <div key={lp.num} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-2 hover:border-indigo-300 transition-colors">
+                <div className="flex items-center justify-between">
+                  <span className="w-7 h-7 rounded-full bg-indigo-600 text-white font-extrabold text-xs flex items-center justify-center">
+                    {lp.num}
+                  </span>
+                  <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
+                    {lp.matches}
+                  </span>
+                </div>
+                <h4 className="font-bold text-sm text-slate-900">{lp.title}</h4>
+                <p className="text-[11px] text-indigo-900/80 font-medium">{lp.trait}</p>
+                <p className="text-xs text-slate-600 leading-relaxed">{lp.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 2: The 3 Harmonic Triads */}
+        <section className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-indigo-300 font-semibold block mb-2">
+              Pythagorean Triads
+            </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display">
+              The 3 Cosmic Triads of Relationship Harmony
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              In numerological philosophy, numbers that share the same triad possess natural vibrational resonance, reducing misunderstandings:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+            <div className="p-5 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">Triad 1 (1 - 5 - 7)</span>
+              <h3 className="font-bold text-base text-white">The Intellectual & Freedom Triad</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                United by visionary thinking, mental curiosity, and personal independence. Partners in this triad give each other breathing room and connect deeply through ideas.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider block">Triad 2 (2 - 4 - 8)</span>
+              <h3 className="font-bold text-base text-white">The Grounded Manifestation Triad</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                The pillars of real-world stability. They excel in building financial security, managing long-term household responsibilities, and creating dependable routines.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-rose-300 uppercase tracking-wider block">Triad 3 (3 - 6 - 9)</span>
+              <h3 className="font-bold text-base text-white">The Creative & Heart Triad</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                The emotional heart center. Connected through warm empathy, artistic pursuits, hospitality, caring for children and elders, and celebrating every small joy in life.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: Master Numbers 11 & 22 */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold text-purple-800 uppercase tracking-wider">
+            <Award className="w-4 h-4 text-purple-600" />
+            <span>Advanced Numerology</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display">
+            Master Numbers 11 & 22 in Romantic Relationships
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            When birth dates reduce to 11 or 22 before single-digit reduction, they carry heightened spiritual and energetic potential. Master Number 11 individuals possess profound intuitive empathy, often sensing their partner&apos;s moods before a single word is spoken. Master Number 22 individuals are master architects of long-term security, turning visionary marital dreams into practical realities. Both numbers require partners who provide grounded emotional calm and unconditional loyalty.
+          </p>
+        </section>
+      </div>
+
+      <div className="mt-12 space-y-10">
+        <RelatedTools currentToolId="love-calculator-by-date-of-birth" onNavigate={onNavigate} />
+        <RelatedArticles onNavigate={onNavigate} preferredSlugs={['love-compatibility-by-date-of-birth', 'how-love-calculator-works']} />
+        <FAQSection faqs={faqs} />
+      </div>
     </div>
   );
 };

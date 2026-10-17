@@ -21,7 +21,13 @@ import {
   Lightbulb,
   Heart,
   CheckCircle2,
+  BookOpen,
+  Smile,
+  Users,
+  Gem,
+  Award,
 } from 'lucide-react';
+import flamesImage from '../assets/images/flames_notebook_game_1790774216847.jpg';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -176,14 +182,29 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
         'FLAMES stands for Friends, Lovers, Affectionate, Marriage, Enemies, and Siblings.',
     },
     {
-      question: 'How does the letter cancellation work?',
+      question: 'How does the letter cancellation work in the FLAMES calculator?',
       answer:
         'All matching letters in both names are crossed out 1-on-1. The total count of uncancelled letters is then used to cyclically count through F-L-A-M-E-S until only one letter survives.',
     },
     {
-      question: 'Is the FLAMES result symmetric?',
+      question: 'Is the FLAMES calculator result symmetric?',
       answer:
         'Yes. Because common letters cancel out identically regardless of which name is entered first, the final count and surviving letter are identical.',
+    },
+    {
+      question: 'What does "Enemies" or "Siblings" mean in a FLAMES test with your crush?',
+      answer:
+        'FLAMES is a nostalgic, lighthearted school game. An "Enemies" result often represents fiery banter, spirited friction, or clashing egos that can mask intense unspoken chemistry. A "Siblings" result simply reflects fierce protective loyalty!',
+    },
+    {
+      question: 'Can you play FLAMES with nicknames or full names?',
+      answer:
+        'You can play with either! In school notebooks, people frequently tested both full names and pet nicknames to see if their FLAMES destiny changed. Testing pet names adds an extra layer of playful fun.',
+    },
+    {
+      question: 'Why is CalculateLove’s online FLAMES tool better than other sites?',
+      answer:
+        'Unlike websites that show random letters without proof, CalculateLove provides an authentic step-by-step breakdown showing every single cancelled character, remaining count, and elimination round, plus an instant downloadable WhatsApp card.',
     },
   ];
 
@@ -529,9 +550,185 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
         )}
       </div>
 
-      <RelatedTools currentToolId="flames-calculator" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculator-works', 'what-does-love-percentage-mean']} />
-      <FAQSection faqs={faqs} />
+      {/* Unique In-Depth Editorial Showcase & Guide Section */}
+      <div className="mt-12 space-y-12">
+        {/* Featured Editorial Banner with Generated Image */}
+        <div className="rounded-3xl overflow-hidden border border-amber-200 bg-slate-900 text-white shadow-lg relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+            <div className="p-8 sm:p-10 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5 text-amber-300" />
+                <span>The Legendary Back-Page Notebook Game</span>
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display leading-tight text-white">
+                FLAMES Game Online: Relive School &amp; College Romance
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Remember tearing out the last page of your rough notebook during boring math lectures to test your crush&apos;s name? The FLAMES game has entertained generations of students across India, turning simple letter cancellation into an exciting rite of passage and playful playground suspense.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-2 text-xs">
+                <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30">
+                  ✓ Friends, Lovers, Affection
+                </span>
+                <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 border border-purple-400/30">
+                  ✓ Marriage, Enemies, Siblings
+                </span>
+                <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/30">
+                  ✓ 1-on-1 Strike-Out Verification
+                </span>
+              </div>
+            </div>
+            <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-950 flex items-center justify-center">
+              <img
+                src={flamesImage}
+                alt="Nostalgic school notebook open with pen doodles hearts and hand-drawn FLAMES game letters"
+                className="w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Section 1: The 6 Letters of FLAMES Explained */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>The Six Destinies</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              What Each Letter in F-L-A-M-E-S Truly Signifies
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              Every final remaining letter in the cyclic elimination carries a unique symbolic dynamic between two personalities:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+            <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-amber-600 text-white font-black text-sm flex items-center justify-center">F</span>
+                <h3 className="font-bold text-sm text-slate-900">Friends (Dosti)</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                The most resilient of all bonds. Zero pressure, pure laughter, comfortable silences, and an unshakable vault for life&apos;s deepest secrets.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-rose-600 text-white font-black text-sm flex items-center justify-center">L</span>
+                <h3 className="font-bold text-sm text-slate-900">Lovers (Pyaar)</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Magnetic attraction, electric butterflies, and intense romantic yearning. You cannot stop thinking about each other from morning to night.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-pink-50/50 border border-pink-200/80 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-pink-600 text-white font-black text-sm flex items-center justify-center">A</span>
+                <h3 className="font-bold text-sm text-slate-900">Affection (Sneha)</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Gentle emotional tenderness, warmth, and care without demanding expectations. A soothing connection that calms life&apos;s daily anxieties.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-purple-600 text-white font-black text-sm flex items-center justify-center">M</span>
+                <h3 className="font-bold text-sm text-slate-900">Marriage (Shaadi)</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                The ultimate long-term companion jackpot. Complete compatibility in future dreams, domestic harmony, and building a blessed life together.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-red-50/50 border border-red-200/80 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-red-600 text-white font-black text-sm flex items-center justify-center">E</span>
+                <h3 className="font-bold text-sm text-slate-900">Enemies (Nok-Jhok)</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Fiery banter and clashing egos! While it sounds dramatic, enemy friction in Indian pop culture is frequently the thin line masking unspoken romantic chemistry.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-indigo-50/50 border border-indigo-200/80 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-8 h-8 rounded-full bg-indigo-600 text-white font-black text-sm flex items-center justify-center">S</span>
+                <h3 className="font-bold text-sm text-slate-900">Siblings (Parivaar)</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Fierce protective loyalty and playful childhood teasing. A bond rooted in looking out for one another against the rest of the world.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: The Mathematics Behind Circular Elimination */}
+        <section className="bg-gradient-to-br from-slate-900 via-amber-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold block mb-2">
+              Combinatorial Mathematics
+            </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display">
+              The Algorithm: Circular Permutations &amp; Letter Cancellation
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              Behind the classroom entertainment lies an authentic combinatorial elimination principle closely related to the famous mathematical Josephus Problem:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+            <div className="p-5 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">Step 1: Clean &amp; Sanitize</span>
+              <h3 className="font-bold text-base text-white">Character Normalization</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                All spaces, special symbols, and capitalization are stripped away. Names are converted to lowercase ASCII characters to ensure symmetric matching.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-rose-300 uppercase tracking-wider block">Step 2: 1-on-1 Cancellation</span>
+              <h3 className="font-bold text-base text-white">Symmetric Strike-Out</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                If Name 1 has two &apos;a&apos;s and Name 2 has one &apos;a&apos;, only one &apos;a&apos; from each is cancelled. The remaining uncancelled letters are counted together as count <strong>N</strong>.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-purple-300 uppercase tracking-wider block">Step 3: Cyclic Countdown</span>
+              <h3 className="font-bold text-base text-white">Modular Elimination</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Starting from index 0 of &apos;FLAMES&apos;, the countdown advances by <strong>N</strong>. The letter hit on the Nth count is removed, and counting resumes from the next letter until 1 survivor remains.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: School Nostalgia */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
+            <Award className="w-4 h-4 text-amber-600" />
+            <span>Childhood Memories</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display">
+            The School Notebook Legacy Across India
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            In an era before smartphones, dating apps, and social media reels, FLAMES was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling uncontrollably whenever a classmate’s crush ended on &apos;M&apos; (Marriage) or teasing them endlessly when it landed on &apos;S&apos; (Siblings). CalculateLove honors that innocent nostalgia with authentic transparent mechanics and instant shareable status cards.
+          </p>
+        </section>
+      </div>
+
+      <div className="mt-12 space-y-10">
+        <RelatedTools currentToolId="flames-calculator" onNavigate={onNavigate} />
+        <RelatedArticles onNavigate={onNavigate} preferredSlugs={['how-love-calculator-works', 'what-does-love-percentage-mean']} />
+        <FAQSection faqs={faqs} />
+      </div>
     </div>
   );
 };

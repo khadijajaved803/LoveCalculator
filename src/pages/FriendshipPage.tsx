@@ -21,7 +21,13 @@ import {
   CheckCircle2,
   Heart,
   Smile,
+  Coffee,
+  Award,
+  BookOpen,
+  HelpCircle,
+  ArrowRight,
 } from 'lucide-react';
+import bestFriendsImage from '../assets/images/best_friends_chai_1792219741237.jpg';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -192,6 +198,21 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
       question: 'Can you use nicknames for friendship testing?',
       answer:
         'Yes! Since close friends often call each other by nicknames, entering your everyday nicknames reflects your unique playful banter.',
+    },
+    {
+      question: 'Can friendship compatibility evolve into romantic love?',
+      answer:
+        'Absolutely. Strong friendships form the most resilient foundation for romantic relationships (often known as the "friends-to-lovers" dynamic). When mutual trust and respect already exist, emotional intimacy transitions smoothly into romantic love.',
+    },
+    {
+      question: 'How accurate is the Friendship Calculator by name?',
+      answer:
+        'Our Friendship Calculator uses a 100% deterministic algorithm that pairs name character resonance with dynamic friendship variables (origin of meeting and shared vibe). Entering the same names and parameters will consistently produce the exact same score.',
+    },
+    {
+      question: 'Can I share the generated Friendship Card on WhatsApp and Instagram?',
+      answer:
+        'Yes! With a single click on "Save PNG" or "WhatsApp Card", you get a beautiful 1080×1350 vertical high-resolution Dosti Pact certificate designed specifically for Instagram Stories and WhatsApp Status updates.',
     },
   ];
 
@@ -637,9 +658,233 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
         )}
       </div>
 
-      <RelatedTools currentToolId="friendship-calculator" onNavigate={onNavigate} />
-      <RelatedArticles onNavigate={onNavigate} preferredSlugs={['friendship-compatibility-guide', 'how-love-calculator-works', 'what-does-love-percentage-mean']} />
-      <FAQSection faqs={faqs} />
+      {/* Unique In-Depth Editorial Showcase & Guide Section */}
+      <div className="mt-12 space-y-12">
+        {/* Featured Editorial Banner with Generated Image */}
+        <div className="rounded-3xl overflow-hidden border border-amber-200 bg-slate-900 text-white shadow-lg relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+            <div className="p-8 sm:p-10 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold flex items-center gap-1.5">
+                <Coffee className="w-3.5 h-3.5 text-amber-300" />
+                <span>The Tapri Chai Bond & Lifelong Camaraderie</span>
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display leading-tight text-white">
+                Best Friend Compatibility: Beyond Mere Small Talk
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                True friendship is measured in comfortable silences, spontaneous road trips, and 3 AM emergency calls. Our Friendship Calculator explores how two individuals foster unspoken loyalty, shared humor, and emotional security that stands the test of time and distance.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-2 text-xs">
+                <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30">
+                  ✓ Unspoken Telepathy
+                </span>
+                <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 border border-purple-400/30">
+                  ✓ Zero Judgment Zone
+                </span>
+                <span className="px-3 py-1 rounded-full bg-rose-500/20 text-rose-200 border border-rose-400/30">
+                  ✓ 100% Private Matching
+                </span>
+              </div>
+            </div>
+            <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-950 flex items-center justify-center">
+              <img
+                src={bestFriendsImage}
+                alt="Two best friends laughing joyfully over tea at an outdoor cafe showcasing authentic friendship chemistry"
+                className="w-full h-full object-cover opacity-90 transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Section 1: The Psychology of Lifelong Friendships */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Dosti Ke Chaar Sutra</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              The 4 Core Pillars of Friendship Compatibility & Mutual Loyalty
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              Why do you connect effortlessly with certain people while struggling to keep conversations going with others? Psychologists identify four fundamental pillars that distinguish casual acquaintances from genuine, lifelong soul besties:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+            <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-2">
+              <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
+                <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
+                <h3>1. Psychological Safety & Emotional Vault</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Can you confess your deepest insecurities, awkward mistakes, and career fears without the fear of mockery or gossip? A top-tier friendship score reflects a sealed mutual vault where secrets remain completely safeguarded.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+              <div className="flex items-center gap-2 text-rose-900 font-bold text-sm">
+                <Smile className="w-4 h-4 text-rose-600 shrink-0" />
+                <h3>2. Shared Humor & Unfiltered Banter</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                From hilarious inside jokes to laughing uncontrollably in solemn rooms, shared comedic frequency is the glue of youthful energy. If both names share high phonetic rhythm, playful teasing flows without hurt feelings.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 space-y-2">
+              <div className="flex items-center gap-2 text-purple-900 font-bold text-sm">
+                <RotateCcw className="w-4 h-4 text-purple-600 shrink-0" />
+                <h3>3. Time & Distance Invariance</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                The truest hallmark of an Indian best friendship: you might move to separate cities for jobs or higher education, yet when you reunite months later, it feels like zero seconds have elapsed. There is no awkwardness or need to restart.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
+              <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <h3>4. Ego-Free Apologies & Conflict Resolution</h3>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Every long friendship faces disagreements. In toxic bonds, people hold grudges or play silent treatment. In authentic friendships, an honest conversation or a simple cup of cutting chai washes away disputes instantly.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 2: Friendship Scoring Spectrum Breakdown */}
+        <section className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold block mb-2">
+              Friendship Compatibility Scale
+            </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display">
+              How to Interpret Your Friendship Calculator Percentage Score
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              Every compatibility bracket provides a different flavor of mutual companionship. Here is how relationship experts categorize friendship percentages:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">90% - 100%</span>
+              <h3 className="font-bold text-sm text-white">Jai & Veeru (Soul Bestie)</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Unshakable mutual devotion. You know what the other is thinking with just a glance across the room. The gold standard of lifelong dosti.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">75% - 89%</span>
+              <h3 className="font-bold text-sm text-white">Ride-or-Die Companions</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Your reliable inner circle. Always ready for impromptu plans, deep heart-to-hearts, and honest feedback when you need a reality check.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-purple-400 uppercase tracking-wider block">60% - 74%</span>
+              <h3 className="font-bold text-sm text-white">Fun Explorers & Squad</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Great companions for concerts, college festivals, gym sessions, and weekend dinners. Thrives on common activities and active hobbies.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm space-y-2">
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider block">Under 60%</span>
+              <h3 className="font-bold text-sm text-white">Budding Connection</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Different temperaments or newer friends who haven&apos;t yet discovered their shared passions. Often transforms with time and mutual effort.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3: Green Flags vs Red Flags Checklist */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
+              Friendship Health Checklist: Green Flags vs. Red Flags
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-2">
+              Healthy friendships energize your soul. Evaluate where your dynamic stands with these behavioral benchmarks:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            {/* Green Flags */}
+            <div className="p-6 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                <h3>5 Green Flags of a Lifelong Friend</h3>
+              </div>
+              <ul className="space-y-2 text-xs text-slate-700 leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Celebrates Your Wins:</strong> Genuinely thrilled when you land a job, fall in love, or achieve personal milestones without hidden jealousy.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Defends Your Honor:</strong> Speaks up on your behalf when you are not present in the room to defend yourself.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Respects Your Boundaries:</strong> Doesn&apos;t take offense when you need personal recharge time or family weekends.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Calls Out Mistakes Lovingly:</strong> Tells you the harsh truth in private to save you from public embarrassment.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Zero Scorekeeping:</strong> Never reminds you of past favors or who paid for coffee last week.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Red Flags */}
+            <div className="p-6 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+              <div className="flex items-center gap-2 text-rose-900 font-bold text-sm">
+                <ShieldCheck className="w-5 h-5 text-rose-600 shrink-0" />
+                <h3>5 Red Flags in a Toxic Friendship</h3>
+              </div>
+              <ul className="space-y-2 text-xs text-slate-700 leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-600 font-bold">✕</span>
+                  <span><strong>Subtle Competitive Digs:</strong> Disguises insult humor as &quot;just a joke&quot; to demean your achievements in front of mutual peers.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-600 font-bold">✕</span>
+                  <span><strong>One-Sided Venting:</strong> Reaches out only when they need a shoulder to cry on, but disappears when you need emotional support.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-600 font-bold">✕</span>
+                  <span><strong>Leaking Private Information:</strong> Treats your vulnerable confessions as gossip currency at social gatherings.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-600 font-bold">✕</span>
+                  <span><strong>Possessive &amp; Controlling:</strong> Gets angry or passive-aggressive when you hang out with other friend groups.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-rose-600 font-bold">✕</span>
+                  <span><strong>Exhaustion After Meetings:</strong> Leaving conversations feeling emotionally depleted, criticized, or anxious.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className="mt-12 space-y-10">
+        <RelatedTools currentToolId="friendship-calculator" onNavigate={onNavigate} />
+        <RelatedArticles onNavigate={onNavigate} preferredSlugs={['friendship-compatibility-guide', 'how-love-calculator-works', 'what-does-love-percentage-mean']} />
+        <FAQSection faqs={faqs} />
+      </div>
     </div>
   );
 };

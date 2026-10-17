@@ -115,10 +115,10 @@ export const CalculationLoader: React.FC<CalculationLoaderProps> = ({
   name2,
   type = 'love',
   onComplete,
-  minDuration = 4500,
+  minDuration = 5000,
   maxDuration = 10000,
 }) => {
-  // Random duration between 4.5s and 10s (up to 10 seconds)
+  // Random duration between 5s and 10s (up to 10 seconds)
   const duration = useMemo(() => {
     return Math.floor(Math.random() * (maxDuration - minDuration + 1)) + minDuration;
   }, [minDuration, maxDuration]);

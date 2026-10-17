@@ -5,6 +5,7 @@ import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { Sparkles, Moon, Sun, ArrowRight, ShieldCheck } from 'lucide-react';
+import astrologyImage from '../assets/images/astrology_zodiac_harmony_1790774231196.jpg';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -100,7 +101,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
           <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-800">
             <img
-              src="/src/assets/images/astrology_zodiac_harmony_1790774231196.jpg"
+              src={astrologyImage}
               alt="Astrological constellation harmony"
               className="w-full h-full object-cover opacity-90"
               loading="lazy"
