@@ -4,8 +4,6 @@
  * or 1080x1080 square shareable image card with zero server dependencies.
  */
 
-import { SupportedLocale } from '../i18n/routes';
-
 export interface CardRenderOptions {
   type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage';
   names: { person1: string; person2: string };
@@ -16,11 +14,9 @@ export interface CardRenderOptions {
   suggestion: string;
   tip?: string;
   details?: string;
-  locale?: SupportedLocale;
 }
 
 export async function generateCardImageBlob(options: CardRenderOptions): Promise<Blob> {
-  const locale = options.locale || 'en';
   const canvas = document.createElement('canvas');
   const width = 1080;
   const height = 1350; // Perfect vertical story/status ratio
@@ -83,17 +79,10 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
   ctx.textAlign = 'left';
   ctx.fillText('♥ calculatelove.online', 100, 140);
 
-  const certBadgeText =
-    locale === 'es'
-      ? 'CERTIFICADO OFICIAL DE AMOR'
-      : locale === 'pt-BR'
-      ? 'CERTIFICADO OFICIAL DE CASAL'
-      : 'OFFICIAL LOVE CERTIFICATE';
-
   ctx.fillStyle = '#f43f5e';
   ctx.font = '600 24px system-ui, sans-serif';
   ctx.textAlign = 'right';
-  ctx.fillText(certBadgeText, width - 100, 140);
+  ctx.fillText('OFFICIAL LOVE CERTIFICATE', width - 100, 140);
 
   // Divider line
   ctx.strokeStyle = '#ffe4e6';
@@ -178,16 +167,9 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ctx.textAlign = 'center';
     ctx.fillText(`${scoreVal}%`, centerX, centerY + 25);
 
-    const compatLabel =
-      locale === 'es'
-        ? 'COMPATIBILIDAD'
-        : locale === 'pt-BR'
-        ? 'COMPATIBILIDADE'
-        : 'COMPATIBILITY';
-
     ctx.fillStyle = '#e11d48';
     ctx.font = 'bold 24px system-ui, sans-serif';
-    ctx.fillText(compatLabel, centerX, centerY + 65);
+    ctx.fillText('COMPATIBILITY', centerX, centerY + 65);
   }
 
   // 6. Tagline
@@ -196,7 +178,7 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
   ctx.font = 'bold 40px "Outfit", system-ui, sans-serif';
   ctx.fillText(options.tagline, width / 2, 690);
 
-  // 7. Dil Ki Baat - Reflection Box
+  // 7. Dil Ki Baat - Hinglish Reflection Box
   const boxTop = 750;
   const boxLeft = 100;
   const boxWidth = width - 200;
@@ -212,17 +194,10 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
   ctx.restore();
 
   // Box Title
-  const boxTitle =
-    locale === 'es'
-      ? '✨ Consejo Romántico · Guía de Pareja'
-      : locale === 'pt-BR'
-      ? '✨ Conselho Afetivo · Dicas de Casal'
-      : '✨ Dil Ki Baat · Relationship Advice';
-
   ctx.textAlign = 'left';
   ctx.fillStyle = '#92400e';
   ctx.font = 'bold 28px "Outfit", system-ui, sans-serif';
-  ctx.fillText(boxTitle, boxLeft + 40, boxTop + 60);
+  ctx.fillText('✨ Dil Ki Baat · Relationship Advice', boxLeft + 40, boxTop + 60);
 
   // Suggestion Text (Wrapped)
   ctx.fillStyle = '#1e293b';
@@ -244,28 +219,14 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
   }
 
   // 8. Footer Watermark
-  const watermark1 =
-    locale === 'es'
-      ? 'Calculado en https://calculatelove.online · 100% Gratis y Privado'
-      : locale === 'pt-BR'
-      ? 'Testado em https://calculatelove.online · 100% Grátis e Privado'
-      : 'Tested on https://calculatelove.online · 100% Free & Private';
-
-  const watermark2 =
-    locale === 'es'
-      ? '¡Visita calculatelove.online para calcular el tuyo!'
-      : locale === 'pt-BR'
-      ? 'Acesse calculatelove.online para testar o seu!'
-      : 'Scan or visit calculatelove.online to calculate yours!';
-
   ctx.textAlign = 'center';
   ctx.fillStyle = '#64748b';
   ctx.font = '600 26px "Outfit", system-ui, sans-serif';
-  ctx.fillText(watermark1, width / 2, height - 110);
+  ctx.fillText('Tested on https://calculatelove.online · 100% Free & Private', width / 2, height - 110);
 
   ctx.fillStyle = '#e11d48';
   ctx.font = '500 20px system-ui, sans-serif';
-  ctx.fillText(watermark2, width / 2, height - 75);
+  ctx.fillText('Scan or visit calculatelove.online to calculate yours!', width / 2, height - 75);
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {

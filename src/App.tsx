@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { getLocaleFromPath, findRouteMapping, normalizePath, getEquivalentPath } from './i18n/routes';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -19,6 +18,15 @@ import { ContactPage } from './pages/ContactPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { TermsPage } from './pages/TermsPage';
 import { DisclaimerPage } from './pages/DisclaimerPage';
+
+function normalizePath(path: string): string {
+  if (!path || path === '/') return '/';
+  // Ensure starts with / and ends with /
+  let clean = path.trim();
+  if (!clean.startsWith('/')) clean = `/${clean}`;
+  if (!clean.endsWith('/')) clean = `${clean}/`;
+  return clean;
+}
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => {
@@ -43,111 +51,64 @@ export default function App() {
     }
   };
 
-  // Route Resolver supporting English (en-IN), Spanish (es), and Brazilian Portuguese (pt-BR)
+  // Route Resolver
   const renderPage = () => {
-    const locale = getLocaleFromPath(currentPath);
-
-    // Blog Post route check: /blog/:slug/, /es/blog/:slug/, /pt-br/blog/:slug/
-    const blogMatch =
-      currentPath.match(/^\/blog\/([^/]+)\/$/) ||
-      currentPath.match(/^\/es\/blog\/([^/]+)\/$/) ||
-      currentPath.match(/^\/pt-br\/blog\/([^/]+)\/$/);
-
+    // Blog Post route check: /blog/:slug/
+    const blogMatch = currentPath.match(/^\/blog\/([^/]+)\/$/);
     if (blogMatch) {
       const slug = blogMatch[1];
-      return <BlogPostPage slug={slug} onNavigate={handleNavigate} locale={locale} />;
+      return <BlogPostPage slug={slug} onNavigate={handleNavigate} />;
     }
 
-    const route = findRouteMapping(currentPath);
-    const routeId = route ? route.id : null;
-
-    if (routeId) {
-      switch (routeId) {
-        case 'home':
-          return <HomePage onNavigate={handleNavigate} locale={locale} />;
-        case 'love-calculator':
-          return <LoveCalculatorPage onNavigate={handleNavigate} locale={locale} />;
-        case 'flames':
-          return <FlamesPage onNavigate={handleNavigate} locale={locale} />;
-        case 'friendship':
-          return <FriendshipPage onNavigate={handleNavigate} locale={locale} />;
-        case 'dob':
-          return <DobCalculatorPage onNavigate={handleNavigate} locale={locale} />;
-        case 'marriage':
-          return <MarriageCalculatorPage onNavigate={handleNavigate} locale={locale} />;
-        case 'astrology':
-          return <AstrologyPage onNavigate={handleNavigate} locale={locale} />;
-        case 'numerology':
-          return <NumerologyPage onNavigate={handleNavigate} locale={locale} />;
-        case 'blog':
-          return <BlogIndexPage onNavigate={handleNavigate} locale={locale} />;
-        case 'about':
-          return <AboutPage onNavigate={handleNavigate} locale={locale} />;
-        case 'contact':
-          return <ContactPage onNavigate={handleNavigate} locale={locale} />;
-        case 'privacy':
-          return <PrivacyPage onNavigate={handleNavigate} locale={locale} />;
-        case 'terms':
-          return <TermsPage onNavigate={handleNavigate} locale={locale} />;
-        case 'disclaimer':
-          return <DisclaimerPage onNavigate={handleNavigate} locale={locale} />;
-      }
-    }
-
-    // Direct legacy path fallbacks for English
     switch (currentPath) {
       case '/':
-        return <HomePage onNavigate={handleNavigate} locale="en" />;
+        return <HomePage onNavigate={handleNavigate} />;
       case '/love-calculator/':
       case '/love-calculator-by-name/':
       case '/love-percentage-calculator/':
       case '/true-love-calculator/':
       case '/love-compatibility-calculator/':
-        return <LoveCalculatorPage onNavigate={handleNavigate} locale="en" />;
+        return <LoveCalculatorPage onNavigate={handleNavigate} />;
       case '/flames-calculator/':
-        return <FlamesPage onNavigate={handleNavigate} locale="en" />;
+        return <FlamesPage onNavigate={handleNavigate} />;
       case '/friendship-calculator/':
-        return <FriendshipPage onNavigate={handleNavigate} locale="en" />;
+        return <FriendshipPage onNavigate={handleNavigate} />;
       case '/love-calculator-by-date-of-birth/':
-        return <DobCalculatorPage onNavigate={handleNavigate} locale="en" />;
+        return <DobCalculatorPage onNavigate={handleNavigate} />;
       case '/love-or-arranged-marriage-calculator/':
-        return <MarriageCalculatorPage onNavigate={handleNavigate} locale="en" />;
+        return <MarriageCalculatorPage onNavigate={handleNavigate} />;
       case '/astrology/':
-        return <AstrologyPage onNavigate={handleNavigate} locale="en" />;
+        return <AstrologyPage onNavigate={handleNavigate} />;
       case '/numerology/':
-        return <NumerologyPage onNavigate={handleNavigate} locale="en" />;
+        return <NumerologyPage onNavigate={handleNavigate} />;
       case '/blog/':
-        return <BlogIndexPage onNavigate={handleNavigate} locale="en" />;
+        return <BlogIndexPage onNavigate={handleNavigate} />;
       case '/about/':
-        return <AboutPage onNavigate={handleNavigate} locale="en" />;
+        return <AboutPage onNavigate={handleNavigate} />;
       case '/contact/':
-        return <ContactPage onNavigate={handleNavigate} locale="en" />;
+        return <ContactPage onNavigate={handleNavigate} />;
       case '/privacy-policy/':
-        return <PrivacyPage onNavigate={handleNavigate} locale="en" />;
+        return <PrivacyPage onNavigate={handleNavigate} />;
       case '/terms/':
-        return <TermsPage onNavigate={handleNavigate} locale="en" />;
+        return <TermsPage onNavigate={handleNavigate} />;
       case '/disclaimer/':
-        return <DisclaimerPage onNavigate={handleNavigate} locale="en" />;
+        return <DisclaimerPage onNavigate={handleNavigate} />;
       default:
-        const homeTarget = getEquivalentPath('/', locale);
+        // Fallback to Home or 404
         return (
           <div className="max-w-md mx-auto px-4 py-24 text-center">
             <h1 className="text-3xl font-extrabold text-slate-900 font-display mb-3">
-              {locale === 'es' ? 'Página no encontrada' : locale === 'pt-BR' ? 'Página não encontrada' : 'Page Not Found'}
+              Page Not Found
             </h1>
             <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-              {locale === 'es'
-                ? 'No pudimos encontrar la calculadora o guía en esta dirección.'
-                : locale === 'pt-BR'
-                ? 'Não encontramos o teste ou artigo correspondente a esta página.'
-                : 'We couldn’t find the calculator or guide at this URL.'}
+              We couldn&apos;t find the calculator or guide at this URL.
             </p>
             <button
               type="button"
-              onClick={() => handleNavigate(homeTarget)}
+              onClick={() => handleNavigate('/')}
               className="px-6 py-3 rounded-xl bg-rose-600 text-white font-semibold text-xs shadow-sm hover:bg-rose-700 transition-colors"
             >
-              {locale === 'es' ? 'Volver al Inicio' : locale === 'pt-BR' ? 'Voltar ao Início' : 'Back to Home'}
+              Back to Home
             </button>
           </div>
         );
@@ -160,7 +121,7 @@ export default function App() {
       <main className="flex-1">
         {renderPage()}
       </main>
-      <Footer currentPath={currentPath} onNavigate={handleNavigate} />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

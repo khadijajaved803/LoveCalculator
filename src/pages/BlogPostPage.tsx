@@ -5,47 +5,34 @@ import { RelatedArticles } from '../components/RelatedArticles';
 import { RelatedTools } from '../components/RelatedTools';
 import { BLOG_POSTS } from '../data/blogData';
 import { Calendar, User, ArrowRight, Sparkles, BookOpen } from 'lucide-react';
-import { SupportedLocale, getEquivalentPath } from '../i18n/routes';
 
 interface Props {
   slug: string;
   onNavigate: (path: string) => void;
-  locale?: SupportedLocale;
 }
 
-export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate, locale = 'en' }) => {
+export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
   const post = BLOG_POSTS.find((p) => p.slug === slug);
-  const homePath = getEquivalentPath('/', locale);
-  const blogPath = getEquivalentPath('/blog/', locale);
-
-  const canonicalPath =
-    locale === 'es' ? `/es/blog/${slug}/` : locale === 'pt-BR' ? `/pt-br/blog/${slug}/` : `/blog/${slug}/`;
 
   if (!post) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
         <h1 className="text-2xl font-bold text-slate-900 mb-3 font-display">
-          {locale === 'es' ? 'Artículo no encontrado' : locale === 'pt-BR' ? 'Artigo não encontrado' : 'Article Not Found'}
+          Article Not Found
         </h1>
         <p className="text-sm text-slate-600 mb-6">
-          {locale === 'es'
-            ? 'La guía que buscas no se encuentra o ha sido reubicada.'
-            : locale === 'pt-BR'
-            ? 'O artigo que você procura pode ter sido alterado ou atualizado.'
-            : 'The guide you are looking for may have been moved or updated.'}
+          The guide you are looking for may have been moved or updated.
         </p>
         <button
           type="button"
-          onClick={() => onNavigate(blogPath)}
+          onClick={() => onNavigate('/blog/')}
           className="px-5 py-2.5 rounded-xl bg-rose-600 text-white font-semibold text-xs"
         >
-          {locale === 'es' ? 'Volver al Blog' : locale === 'pt-BR' ? 'Voltar ao Blog' : 'Return to Blog Index'}
+          Return to Blog Index
         </button>
       </div>
     );
   }
-
-  const relatedCalculatorUrl = getEquivalentPath(post.relatedCalculatorUrl, locale);
 
   const schemaJson = {
     '@context': 'https://schema.org',
@@ -65,9 +52,8 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate, locale = 'en' 
     },
     'mainEntityOfPage': {
       '@type': 'WebPage',
-      '@id': `https://calculatelove.online${canonicalPath}`,
+      '@id': `https://calculatelove.online/blog/${post.slug}/`,
     },
-    'inLanguage': locale === 'es' ? 'es' : locale === 'pt-BR' ? 'pt-BR' : 'en-IN',
   };
 
   return (
@@ -75,16 +61,15 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate, locale = 'en' 
       <SEOHead
         title={`${post.title} | CalculateLove`}
         description={post.description}
-        canonicalPath={canonicalPath}
+        canonicalPath={`/blog/${post.slug}/`}
         schemaJson={schemaJson}
         type="article"
-        locale={locale}
       />
 
       <Breadcrumbs
         items={[
-          { label: locale === 'es' ? 'Inicio' : locale === 'pt-BR' ? 'Início' : 'Home', href: homePath },
-          { label: 'Blog', href: blogPath },
+          { label: 'Home', href: '/' },
+          { label: 'Blog', href: '/blog/' },
           { label: post.title },
         ]}
         onNavigate={onNavigate}
@@ -119,44 +104,47 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate, locale = 'en' 
       <div className="p-4 sm:p-5 rounded-2xl bg-rose-50/80 border border-rose-200/80 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="space-y-1 text-center sm:text-left">
           <span className="text-[11px] font-bold text-rose-700 uppercase tracking-wider block">
-            {locale === 'es' ? 'Calculadora Relacionada' : locale === 'pt-BR' ? 'Calculadora Relacionada' : 'Interactive Calculator'}
+            Interactive Calculator
           </span>
           <p className="text-xs text-slate-700">
-            {locale === 'es'
-              ? '¿Quieres probar esto ahora mismo? Calcula tu porcentaje gratis.'
-              : locale === 'pt-BR'
-              ? 'Quer ver como isso funciona na prática? Teste agora seu casal.'
-              : 'Want to test this directly? Calculate your score with our free tool.'}
+            Want to test this directly? Calculate your score with our free tool.
           </p>
         </div>
         <button
           type="button"
-          onClick={() => onNavigate(relatedCalculatorUrl)}
+          onClick={() => onNavigate(post.relatedCalculatorUrl)}
           className="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.99] text-white font-semibold text-xs transition-colors shrink-0 flex items-center gap-1.5"
         >
-          <span>{locale === 'es' ? 'Abrir Calculadora' : locale === 'pt-BR' ? 'Abrir Teste' : 'Open Calculator'}</span>
+          <span>Open Calculator</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
 
-      {/* Content */}
-      <div className="space-y-6 text-sm sm:text-base text-slate-700 leading-relaxed">
+      {/* Article Body */}
+      <div className="prose prose-slate max-w-none text-sm text-slate-700 leading-relaxed space-y-4">
         {post.content.map((paragraph, idx) => {
           if (paragraph.startsWith('### ')) {
             return (
-              <h2
+              <h3
                 key={idx}
-                className="text-lg sm:text-xl font-bold text-slate-900 font-display pt-4 mb-2"
+                className="text-lg font-bold text-slate-900 font-display pt-4 pb-1"
               >
                 {paragraph.replace('### ', '')}
-              </h2>
+              </h3>
             );
           }
           if (paragraph.startsWith('- ')) {
             return (
-              <li key={idx} className="list-disc ml-5 pl-1 my-1">
+              <li key={idx} className="ml-5 list-disc text-slate-700">
                 {paragraph.replace('- ', '')}
               </li>
+            );
+          }
+          if (/^\d+\.\s/.test(paragraph)) {
+            return (
+              <p key={idx} className="font-medium text-slate-800">
+                {paragraph}
+              </p>
             );
           }
           return (
@@ -167,15 +155,14 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate, locale = 'en' 
         })}
       </div>
 
-      <hr className="my-10 border-slate-200" />
-
-      {/* Related Section */}
-      <RelatedTools currentToolId="blog" onNavigate={onNavigate} locale={locale} />
+      {/* Contextual links & Related */}
       <RelatedArticles
         onNavigate={onNavigate}
         preferredSlugs={BLOG_POSTS.filter((p) => p.slug !== post.slug).map((p) => p.slug)}
-        locale={locale}
+        maxItems={2}
       />
+
+      <RelatedTools currentToolId="" onNavigate={onNavigate} maxItems={3} />
     </article>
   );
 };

@@ -209,9 +209,9 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'Love Calculator by Date of Birth - Life Path Compatibility Test',
+    'name': 'Date of Birth Love Calculator & Life Path Compatibility Test',
     'url': 'https://calculatelove.online/love-calculator-by-date-of-birth/',
-    'description': 'Free date of birth love calculator and Life Path numerology compatibility test between two partners with personalized relationship predictions.',
+    'description': 'Free birth date compatibility calculator and numerology Life Path matching engine.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -220,7 +220,7 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Love Calculator by Date of Birth - Life Path Compatibility Test"
-        description="Calculate love compatibility by date of birth and Life Path numerology match (1-9) with CalculateLove. Discover your shared destiny and cosmic connection."
+        description="Calculate birth date compatibility and Life Path numerology match (1-9) between two partners at CalculateLove. Free, deterministic, and instant."
         canonicalPath="/love-calculator-by-date-of-birth/"
         schemaJson={schemaJson}
       />
@@ -240,10 +240,10 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Numerology & Life Path Match</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          Love Calculator by Date of Birth & Life Path Compatibility
+          Love Calculator by Date of Birth
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Discover your romantic compatibility through birth dates and Life Path numerology (1 to 9). Check cosmic harmony, emotional synergy, and personalized relationship forecasts.
+          Explore your Life Path number alignment and birth date compatibility with personalized relationship predictions.
         </p>
       </div>
 

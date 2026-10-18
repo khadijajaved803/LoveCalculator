@@ -211,9 +211,9 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'FLAMES Calculator Online - Authentic Crush Matching & Love Game',
+    'name': 'FLAMES Love Calculator Game Online',
     'url': 'https://calculatelove.online/flames-calculator/',
-    'description': 'Play the authentic FLAMES game online. Test crush compatibility with step-by-step letter elimination, discover your relationship outcome, and download custom cards.',
+    'description': 'Play the authentic FLAMES relationship game online with step-by-step letter elimination and shareable cards.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -221,8 +221,8 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="FLAMES Calculator Online - Authentic Crush Matching & Love Game"
-        description="Play the authentic FLAMES game online. Test crush compatibility with step-by-step letter elimination, discover your relationship outcome, and download custom cards."
+        title="FLAMES Calculator Online - Authentic Crush Matching Game"
+        description="Play the authentic FLAMES game online at CalculateLove. Step-by-step letter elimination, transparent strike-outs, and downloadable certificate cards."
         canonicalPath="/flames-calculator/"
         schemaJson={schemaJson}
       />
@@ -242,10 +242,10 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Nostalgic School & College Game</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          FLAMES Calculator & Crush Compatibility Game
+          FLAMES Love Calculator Game
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Discover your relationship destiny with the classic FLAMES game! Featuring transparent letter cancellation, nostalgic predictions, and shareable result cards.
+          The nostalgic Indian school & college game! Discover your outcome with letter cancellation, beautiful shareable cards, and personalized relationship predictions.
         </p>
       </div>
 

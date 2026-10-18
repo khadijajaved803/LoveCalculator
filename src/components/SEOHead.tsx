@@ -56,14 +56,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     const ogType = document.querySelector('meta[property="og:type"]');
     if (ogType) ogType.setAttribute('content', type);
 
-    // 5. Update Twitter Cards
-    const twTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twTitle) twTitle.setAttribute('content', title);
-
-    const twDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twDesc) twDesc.setAttribute('content', description);
-
-    // 6. Inject Structured Data if provided
+    // 5. Inject Structured Data if provided
     let scriptTag = document.getElementById('page-structured-data');
     if (schemaJson) {
       if (!scriptTag) {

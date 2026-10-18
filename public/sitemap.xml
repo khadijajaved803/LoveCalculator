@@ -1,197 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Homepage -->
   <url>
     <loc>https://calculatelove.online/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/" />
-  </url>
-
-  <!-- Love Calculator by Name -->
+  
+  <!-- Primary Calculators -->
   <url>
     <loc>https://calculatelove.online/love-calculator/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-del-amor/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-do-amor/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-calculator/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/calculadora-del-amor/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-del-amor/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-do-amor/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-calculator/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/calculadora-do-amor/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-del-amor/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-do-amor/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-calculator/" />
-  </url>
-
-  <!-- FLAMES Game -->
   <url>
     <loc>https://calculatelove.online/flames-calculator/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/flames-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-flames/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-flames/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/flames-calculator/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/calculadora-flames/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/flames-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-flames/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-flames/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/flames-calculator/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/calculadora-flames/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/flames-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-flames/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-flames/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/flames-calculator/" />
-  </url>
-
-  <!-- Friendship Calculator -->
   <url>
     <loc>https://calculatelove.online/friendship-calculator/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/friendship-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-amistad/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-da-amizade/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/friendship-calculator/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/calculadora-de-amistad/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/friendship-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-amistad/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-da-amizade/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/friendship-calculator/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/calculadora-da-amizade/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/friendship-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-amistad/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-da-amizade/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/friendship-calculator/" />
-  </url>
-
-  <!-- Marriage Calculator -->
   <url>
     <loc>https://calculatelove.online/love-or-arranged-marriage-calculator/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-or-arranged-marriage-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-matrimonio/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-de-casamento/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-or-arranged-marriage-calculator/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/calculadora-de-matrimonio/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-or-arranged-marriage-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-matrimonio/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-de-casamento/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-or-arranged-marriage-calculator/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/calculadora-de-casamento/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-or-arranged-marriage-calculator/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-matrimonio/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-de-casamento/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-or-arranged-marriage-calculator/" />
-  </url>
-
-  <!-- Date of Birth Calculator -->
   <url>
     <loc>https://calculatelove.online/love-calculator-by-date-of-birth/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-calculator-by-date-of-birth/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-amor-por-fecha-de-nacimiento/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-do-amor-por-data-de-nascimento/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-calculator-by-date-of-birth/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/es/calculadora-de-amor-por-fecha-de-nacimiento/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-calculator-by-date-of-birth/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-amor-por-fecha-de-nacimiento/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-do-amor-por-data-de-nascimento/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-calculator-by-date-of-birth/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/calculadora-do-amor-por-data-de-nascimento/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/love-calculator-by-date-of-birth/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/calculadora-de-amor-por-fecha-de-nacimiento/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/calculadora-do-amor-por-data-de-nascimento/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/love-calculator-by-date-of-birth/" />
   </url>
 
   <!-- Categories & Deep Hubs -->
@@ -200,196 +46,95 @@
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/astrology/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/astrologia/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/astrologia/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/astrology/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/astrologia/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/astrology/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/astrologia/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/astrologia/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/astrology/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/astrologia/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/astrology/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/astrologia/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/astrologia/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/astrology/" />
-  </url>
-
   <url>
     <loc>https://calculatelove.online/numerology/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/numerology/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/numerologia/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/numerologia/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/numerology/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/es/numerologia/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/numerology/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/numerologia/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/numerologia/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/numerology/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/numerologia/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/numerology/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/numerologia/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/numerologia/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/numerology/" />
   </url>
 
   <!-- Blog Index Hub -->
   <url>
     <loc>https://calculatelove.online/blog/</loc>
     <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/" />
   </url>
-  <url>
-    <loc>https://calculatelove.online/es/blog/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/pt-br/blog/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/" />
-  </url>
-
-  <!-- Legal & Trust Pages -->
-  <url>
-    <loc>https://calculatelove.online/about/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/about/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/sobre-nosotros/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/sobre-nos/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/about/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/contact/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/contact/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/contacto/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/contato/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/contact/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/privacy-policy/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/privacy-policy/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/politica-de-privacidad/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/politica-de-privacidade/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/privacy-policy/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/terms/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/terms/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/terminos/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/termos/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/terms/" />
-  </url>
-  <url>
-    <loc>https://calculatelove.online/disclaimer/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/disclaimer/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/descargo-de-responsabilidad/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/aviso-legal/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/disclaimer/" />
-  </url>
-
-  <!-- Deep Blog Articles -->
+  
+  <!-- Relationship Articles & Editorial Guides -->
   <url>
     <loc>https://calculatelove.online/blog/how-love-calculator-works/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/how-love-calculator-works/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/how-love-calculator-works/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/how-love-calculator-works/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/how-love-calculator-works/" />
   </url>
   <url>
     <loc>https://calculatelove.online/blog/what-does-love-percentage-mean/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/what-does-love-percentage-mean/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/what-does-love-percentage-mean/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/what-does-love-percentage-mean/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/what-does-love-percentage-mean/" />
   </url>
   <url>
     <loc>https://calculatelove.online/blog/love-vs-arranged-marriage/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/love-vs-arranged-marriage/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/love-vs-arranged-marriage/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/love-vs-arranged-marriage/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/love-vs-arranged-marriage/" />
   </url>
   <url>
-    <loc>https://calculatelove.online/blog/flames-game-rules-and-meaning/</loc>
+    <loc>https://calculatelove.online/blog/how-flames-calculator-works/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/flames-game-rules-and-meaning/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/flames-game-rules-and-meaning/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/flames-game-rules-and-meaning/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/flames-game-rules-and-meaning/" />
   </url>
   <url>
     <loc>https://calculatelove.online/blog/love-compatibility-by-date-of-birth/</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calculatelove.online/blog/love-compatibility-by-date-of-birth/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculatelove.online/es/blog/love-compatibility-by-date-of-birth/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://calculatelove.online/pt-br/blog/love-compatibility-by-date-of-birth/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculatelove.online/blog/love-compatibility-by-date-of-birth/" />
+  </url>
+  <url>
+    <loc>https://calculatelove.online/blog/what-is-a-soulmate/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://calculatelove.online/blog/friendship-compatibility-guide/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal, Company & Trust Pages -->
+  <url>
+    <loc>https://calculatelove.online/about/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://calculatelove.online/contact/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://calculatelove.online/privacy-policy/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://calculatelove.online/terms/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://calculatelove.online/disclaimer/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

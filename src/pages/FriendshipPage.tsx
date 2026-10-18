@@ -219,9 +219,9 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'Friendship Calculator - Best Friend Percentage & Loyalty Test',
+    'name': 'Friendship & Bestie Compatibility Calculator',
     'url': 'https://calculatelove.online/friendship-calculator/',
-    'description': 'Calculate true friendship percentage and test bestie loyalty with CalculateLove. Check secret-keeping quotients, mutual banter, and download official Dosti Pact cards.',
+    'description': 'Free friendship compatibility calculator and bestie loyalty meter with authentic card sharing.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -229,8 +229,8 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Friendship Calculator - Best Friend Percentage & Loyalty Test"
-        description="Calculate true friendship percentage and test bestie loyalty with CalculateLove. Check secret-keeping quotients, mutual banter, and download official Dosti Pact cards."
+        title="Friendship Calculator - Best Friend & Loyalty Compatibility Test"
+        description="Test friendship percentage and bestie loyalty with CalculateLove. Check secret-keeping quotients, mutual banter, and download official Dosti Pact cards."
         canonicalPath="/friendship-calculator/"
         schemaJson={schemaJson}
       />
@@ -250,7 +250,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Dosti & Best Friend Meter</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          Friendship Calculator & Bestie Loyalty Test
+          Friendship & Bestie Loyalty Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
           Celebrate your closest bonds! Check friendship percentage, loyalty resonance, secret-keeping quotient, and download official shareable Bestie cards.
