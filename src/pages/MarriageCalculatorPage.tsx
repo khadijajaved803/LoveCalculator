@@ -216,9 +216,9 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'Love vs Arranged Marriage Compatibility Calculator',
+    'name': 'Love or Arranged Marriage Calculator - Shaadi Compatibility Test',
     'url': 'https://calculatelove.online/love-or-arranged-marriage-calculator/',
-    'description': 'Free love vs arranged marriage alignment test evaluating personal romance, family blessing, and matrimonial harmony.',
+    'description': 'Free love or arranged marriage compatibility test analyzing matrimonial balance, partner romance, family blessing, and shaadi alignment.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -226,8 +226,8 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love or Arranged Marriage Calculator - Marriage Compatibility Test"
-        description="Will your future be a love marriage or arranged alliance? Test marriage alignment, family blessing balance, and Shaadi compatibility at CalculateLove."
+        title="Love or Arranged Marriage Calculator - Shaadi Compatibility Test"
+        description="Will you have a love marriage or arranged marriage? Test your matrimonial alignment, family blessing harmony, and partner compatibility with CalculateLove."
         canonicalPath="/love-or-arranged-marriage-calculator/"
         schemaJson={schemaJson}
       />
@@ -247,10 +247,10 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Shaadi & Marriage Alignment Test</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          Love vs. Arranged Marriage Calculator
+          Love or Arranged Marriage Calculator & Shaadi Match Test
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Will your path be a self-discovered love marriage or a traditional family-guided alliance? Explore your alignment with custom relationship advice.
+          Will your future be a self-discovered love marriage or a family-guided arranged alliance? Test your marriage alignment, family harmony, and partner compatibility.
         </p>
       </div>
 

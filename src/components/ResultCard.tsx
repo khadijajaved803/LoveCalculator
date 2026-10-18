@@ -15,18 +15,22 @@ import {
 import { CompatibilityResult } from '../types';
 import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import { CalculateLoveLogo } from './CalculateLoveLogo';
+import { SupportedLocale } from '../i18n/routes';
+import { getTranslations } from '../i18n/translations';
 
 interface ResultCardProps {
   result: CompatibilityResult;
   onReset: () => void;
   onShare: () => void;
+  locale?: SupportedLocale;
 }
 
-export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
+export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset, locale = 'en' }) => {
   const [copiedImage, setCopiedImage] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
 
+  const t = getTranslations(locale);
   const websiteUrl = 'https://calculatelove.online';
 
   const getCardOptions = () => ({
@@ -37,6 +41,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
     suggestion: result.hinglishSuggestion,
     tip: result.hinglishTip,
     details: result.details?.bondType ? `Bond: ${result.details.bondType} · ${result.grade}` : undefined,
+    locale,
   });
 
   // 1. Share Real Card Image to WhatsApp
@@ -58,14 +63,26 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
       } else {
         triggerDownload(blob);
         tryCopyImageBlob(blob);
-        setNotice('Card image downloaded & copied! Paste (Ctrl+V) directly in your WhatsApp chat.');
+        setNotice(
+          locale === 'es'
+            ? '¡Tarjeta descargada y copiada! Pégala en tu chat de WhatsApp.'
+            : locale === 'pt-BR'
+            ? 'Cartão baixado e copiado! Cole no seu WhatsApp.'
+            : 'Card image downloaded & copied! Paste (Ctrl+V) directly in your WhatsApp chat.'
+        );
         setTimeout(() => {
           window.location.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(`Check out our Love Compatibility Card! Test yours free at: ${websiteUrl}`)}`;
         }, 1500);
       }
     } catch (err: any) {
       if (err.name !== 'AbortError') {
-        setNotice('Sharing error. Downloading card image instead.');
+        setNotice(
+          locale === 'es'
+            ? 'Descargando tarjeta...'
+            : locale === 'pt-BR'
+            ? 'Baixando imagem do cartão...'
+            : 'Sharing error. Downloading card image instead.'
+        );
       }
     } finally {
       setDownloading(false);
@@ -80,7 +97,13 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
       const blob = await generateCardImageBlob(getCardOptions());
       triggerDownload(blob);
       tryCopyImageBlob(blob);
-      setNotice('Card image downloaded & copied! Attach it to your Facebook post.');
+      setNotice(
+        locale === 'es'
+          ? '¡Tarjeta descargada y copiada! Adjúntala en Facebook.'
+          : locale === 'pt-BR'
+          ? 'Cartão baixado e copiado! Anexe na sua publicação do Facebook.'
+          : 'Card image downloaded & copied! Attach it to your Facebook post.'
+      );
       setTimeout(() => {
         const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}&quote=${encodeURIComponent(`Check out our Love Card from ${websiteUrl}`)}`;
         window.open(shareUrl, '_blank', 'noopener,noreferrer');
@@ -98,27 +121,45 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
     try {
       const blob = await generateCardImageBlob(getCardOptions());
       triggerDownload(blob);
-      setNotice('High-res 1080×1350 Card downloaded successfully!');
+      setNotice(
+        locale === 'es'
+          ? '¡Tarjeta descargada con éxito!'
+          : locale === 'pt-BR'
+          ? 'Cartão baixado com sucesso!'
+          : 'Card downloaded successfully!'
+      );
     } catch {
-      setNotice('Could not download image. Please try again.');
+      setNotice('Could not generate download.');
     } finally {
       setDownloading(false);
     }
   };
 
-  // 4. Copy Card Image to Clipboard
-  const handleCopyCardImage = async () => {
+  // 4. Copy Image to Clipboard
+  const handleCopyImageToClipboard = async () => {
     setDownloading(true);
     try {
       const blob = await generateCardImageBlob(getCardOptions());
       const success = await tryCopyImageBlob(blob);
       if (success) {
         setCopiedImage(true);
-        setNotice('Card image copied to clipboard! Paste it directly in any chat.');
-        setTimeout(() => setCopiedImage(false), 3000);
+        setNotice(
+          locale === 'es'
+            ? '¡Imagen copiada al portapapeles! Pégala directamente.'
+            : locale === 'pt-BR'
+            ? 'Imagem copiada! Cole direto na conversa.'
+            : 'Image copied to clipboard! Paste directly in any chat.'
+        );
+        setTimeout(() => setCopiedImage(false), 2500);
       } else {
         triggerDownload(blob);
-        setNotice('Clipboard copy not supported by your browser. Image downloaded instead!');
+        setNotice(
+          locale === 'es'
+            ? 'Copiado no soportado; tarjeta descargada en su lugar.'
+            : locale === 'pt-BR'
+            ? 'Cópia não suportada; imagem baixada em seu dispositivo.'
+            : 'Clipboard copy not supported by your browser. Image downloaded instead!'
+        );
       }
     } catch {
       setNotice('Could not copy image.');
@@ -151,6 +192,10 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
     return false;
   };
 
+  const certificateTag = locale === 'es' ? 'Certificado Oficial de Pareja' : locale === 'pt-BR' ? 'Certificado Oficial de Casal' : 'Official Love Certificate';
+  const pillarsTitle = locale === 'es' ? 'Pilares de Compatibilidad de la Pareja' : locale === 'pt-BR' ? 'Pilares de Compatibilidade do Casal' : 'Relationship Compatibility Pillars';
+  const adviceBoxTitle = t.loveCalc.cardBoxTitle;
+
   return (
     <div className="relative bg-gradient-to-b from-white via-rose-50/20 to-white rounded-3xl border-2 border-rose-200/90 shadow-xl overflow-hidden p-5 sm:p-7 md:p-8 animate-in fade-in slide-in-from-bottom-3 duration-300 w-full">
       {/* Decorative top accent */}
@@ -163,7 +208,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
           <span>calculatelove.online</span>
         </div>
         <span className="text-[10px] bg-rose-100 text-rose-700 font-semibold px-2.5 py-0.5 rounded-full">
-          Official Love Certificate
+          {certificateTag}
         </span>
       </div>
 
@@ -221,52 +266,78 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
                   className="transition-all duration-1000 ease-out"
                 />
               </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-4xl sm:text-5xl font-extrabold text-slate-900 font-display tabular-nums">
+
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span className="text-4xl sm:text-5xl font-black text-slate-900 font-display tracking-tight tabular-nums">
                   {result.score}%
                 </span>
-                <span className="text-[10px] text-rose-600 font-bold uppercase tracking-widest mt-0.5">
-                  Compatibility
+                <span className="text-[11px] font-bold text-rose-600 uppercase tracking-wider mt-0.5">
+                  {locale === 'es' ? 'Compatibilidad' : locale === 'pt-BR' ? 'Compatibilidade' : 'Compatibility'}
                 </span>
               </div>
             </div>
 
-            <p className="text-xs text-center text-slate-600 max-w-sm mt-3 leading-relaxed font-medium">
-              {result.summary}
-            </p>
+            <div className="mt-4 text-center">
+              <span className="inline-block text-xs font-bold text-slate-800 bg-white px-3 py-1 rounded-full border border-rose-200 shadow-2xs">
+                {result.grade}
+              </span>
+              <p className="text-xs text-slate-600 mt-2 max-w-xs leading-relaxed">
+                {result.summary}
+              </p>
+            </div>
           </div>
 
-          {/* Action Buttons: WhatsApp, Download PNG, Reset */}
-          <div className="space-y-2 pt-1">
-            <button
-              type="button"
-              onClick={handleWhatsAppImageShare}
-              disabled={downloading}
-              className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-sm min-h-[44px]"
-            >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Share Card on WhatsApp</span>
-            </button>
+          {/* Real Card Sharing & Download Bar */}
+          <div className="space-y-2.5">
+            <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">
+              {locale === 'es' ? 'Compartir Certificado HD' : locale === 'pt-BR' ? 'Compartilhar Certificado HD' : 'Share Real Card Image'}
+            </div>
 
             <div className="grid grid-cols-2 gap-2">
+              {/* WhatsApp Share */}
+              <button
+                type="button"
+                onClick={handleWhatsAppImageShare}
+                disabled={downloading}
+                className="py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs disabled:opacity-50 min-h-[42px]"
+              >
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                <span className="truncate">WhatsApp</span>
+              </button>
+
+              {/* Facebook Share */}
+              <button
+                type="button"
+                onClick={handleFacebookImageShare}
+                disabled={downloading}
+                className="py-2.5 px-3 rounded-xl bg-[#1877F2] hover:bg-[#166fe5] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs disabled:opacity-50 min-h-[42px]"
+              >
+                <Share2 className="w-4 h-4 shrink-0" />
+                <span className="truncate">Facebook</span>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              {/* Copy Image Blob */}
+              <button
+                type="button"
+                onClick={handleCopyImageToClipboard}
+                disabled={downloading}
+                className="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center gap-1.5 transition-all disabled:opacity-50 min-h-[40px]"
+              >
+                {copiedImage ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span className="truncate">{copiedImage ? t.common.copied : (locale === 'es' ? 'Copiar Imagen' : locale === 'pt-BR' ? 'Copiar Imagem' : 'Copy Image')}</span>
+              </button>
+
+              {/* Download PNG */}
               <button
                 type="button"
                 onClick={handleDownloadImage}
                 disabled={downloading}
-                className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-all border border-rose-200 min-h-[40px]"
+                className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-xs flex items-center justify-center gap-1.5 border border-rose-200 transition-all disabled:opacity-50 min-h-[40px]"
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>Save PNG</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={handleCopyCardImage}
-                disabled={downloading}
-                className="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 transition-all border border-slate-200 min-h-[40px]"
-              >
-                {copiedImage ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedImage ? 'Copied!' : 'Copy Card'}</span>
+                <span className="truncate">{locale === 'es' ? 'Guardar PNG' : locale === 'pt-BR' ? 'Baixar PNG' : 'Save PNG'}</span>
               </button>
             </div>
 
@@ -276,7 +347,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
               className="w-full py-2.5 px-4 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors min-h-[40px]"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Test Another Couple</span>
+              <span>{t.common.reset}</span>
             </button>
           </div>
 
@@ -287,13 +358,13 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
           )}
         </div>
 
-        {/* Right Column: Detailed Pillars, Dil Ki Baat & Phonetic Harmony */}
+        {/* Right Column: Detailed Pillars, Relationship Advice & Phonetic Harmony */}
         <div className="lg:col-span-7 flex flex-col space-y-4">
-          {/* Dil Ki Baat - Relationship Advice */}
+          {/* Advice Box */}
           <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-50 via-rose-50/50 to-amber-50/70 border border-amber-200/80 shadow-xs space-y-2.5">
             <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 uppercase tracking-wider">
               <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500 shrink-0" />
-              <span>Dil Ki Baat · Relationship Advice</span>
+              <span>{adviceBoxTitle}</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-sans font-medium">
               {result.hinglishSuggestion}
@@ -308,14 +379,16 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
           <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
             <div className="flex items-center justify-between border-b border-slate-100 pb-2">
               <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                Relationship Compatibility Pillars
+                {pillarsTitle}
               </h4>
               <span className="text-[10px] text-slate-400 font-mono">Deterministic Match</span>
             </div>
 
             <div>
               <div className="flex justify-between text-xs mb-1">
-                <span className="text-slate-600 font-medium">💬 Communication & Banter</span>
+                <span className="text-slate-600 font-medium">
+                  💬 {t.loveCalc.communication}
+                </span>
                 <span className="font-bold text-slate-900 tabular-nums">
                   {result.breakdown.communication}%
                 </span>
@@ -330,7 +403,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
 
             <div>
               <div className="flex justify-between text-xs mb-1">
-                <span className="text-slate-600 font-medium">🛡️ Emotional Safety & Sukoon</span>
+                <span className="text-slate-600 font-medium">
+                  🛡️ {t.loveCalc.emotionalHarmony}
+                </span>
                 <span className="font-bold text-slate-900 tabular-nums">
                   {result.breakdown.emotionalHarmony}%
                 </span>
@@ -345,7 +420,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
 
             <div>
               <div className="flex justify-between text-xs mb-1">
-                <span className="text-slate-600 font-medium">🔥 Chemistry & Passion</span>
+                <span className="text-slate-600 font-medium">
+                  🔥 {t.loveCalc.passion}
+                </span>
                 <span className="font-bold text-slate-900 tabular-nums">
                   {result.breakdown.passion}%
                 </span>
@@ -360,7 +437,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
 
             <div>
               <div className="flex justify-between text-xs mb-1">
-                <span className="text-slate-600 font-medium">🤝 Long-Term Companionship</span>
+                <span className="text-slate-600 font-medium">
+                  🤝 {t.loveCalc.longevity}
+                </span>
                 <span className="font-bold text-slate-900 tabular-nums">
                   {result.breakdown.longevity}%
                 </span>
@@ -378,10 +457,20 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result, onReset }) => {
           <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2">
             <div className="flex items-center gap-1.5 font-bold text-slate-900">
               <ShieldCheck className="w-3.5 h-3.5 text-rose-500" />
-              <span>Deterministic Phonetic Harmony</span>
+              <span>
+                {locale === 'es'
+                  ? 'Armonía Fonética Determinista'
+                  : locale === 'pt-BR'
+                  ? 'Harmonia Fonética Determinística'
+                  : 'Deterministic Phonetic Harmony'}
+              </span>
             </div>
             <p className="text-[11px] text-slate-500 leading-relaxed">
-              This score was generated by evaluating mutual character frequencies, vowel-to-consonant resonance, and sound energy between <strong>{result.names.person1}</strong> and <strong>{result.names.person2}</strong>. The result is 100% symmetric and private.
+              {locale === 'es'
+                ? `Esta puntuación se generó evaluando la frecuencia de letras mutuas, resonancia vocal y energía acústica entre ${result.names.person1} y ${result.names.person2}. Resultado 100% simétrico y privado.`
+                : locale === 'pt-BR'
+                ? `Esta pontuação foi gerada avaliando a frequência das letras, ressonância sonora e harmonia entre ${result.names.person1} e ${result.names.person2}. Cálculo 100% simétrico e privado.`
+                : `This score was generated by evaluating mutual character frequencies, vowel-to-consonant resonance, and sound energy between ${result.names.person1} and ${result.names.person2}. The result is 100% symmetric and private.`}
             </p>
           </div>
         </div>

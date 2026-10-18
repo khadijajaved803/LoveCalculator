@@ -6,12 +6,14 @@ import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { Hash, ArrowRight, ShieldCheck, Compass, Sparkles, BookOpen, Layers, CheckCircle2 } from 'lucide-react';
 import numerologyImage from '../assets/images/numerology_sacred_path_1792219943804.jpg';
+import { SupportedLocale, getEquivalentPath } from '../i18n/routes';
 
 interface Props {
   onNavigate: (path: string) => void;
+  locale?: SupportedLocale;
 }
 
-export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
+export const NumerologyPage: React.FC<Props> = ({ onNavigate, locale = 'en' }) => {
   const faqs = [
     {
       question: 'How do numbers influence relationship harmony in a Numerology Love Calculator?',
@@ -125,27 +127,46 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const canonicalPath = getEquivalentPath('/numerology/', locale);
+  const homePath = getEquivalentPath('/', locale);
+  const dobPath = getEquivalentPath('/love-calculator-by-date-of-birth/', locale);
+
+  const title =
+    locale === 'es'
+      ? 'Numerología del Amor y Senderos de Vida en Pareja | CalculateLove'
+      : locale === 'pt-BR'
+      ? 'Numerologia do Amor e Caminhos de Vida do Casal | CalculateLove'
+      : 'Numerology Love Calculator - Life Path Compatibility Hub | CalculateLove';
+
+  const description =
+    locale === 'es'
+      ? 'Explora la numerología pitagórica del amor, números de Sendero de Vida del 1 al 9 y armonía de fechas de nacimiento con CalculateLove.'
+      : locale === 'pt-BR'
+      ? 'Descubra a compatibilidade do casal pela numerologia, caminhos de vida de 1 a 9 e sintonia de datas de nascimento no CalculateLove.'
+      : 'Explore numerology love compatibility, Life Path numbers 1-9, and birth date vibration principles with CalculateLove. Calculate your relationship numbers.';
+
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Numerology Love Calculator & Life Path Compatibility Hub',
-    url: 'https://calculatelove.online/numerology/',
-    description: 'Explore numerology love compatibility, Life Path number resonance, and Pythagorean name vibration principles on CalculateLove.',
+    name: title,
+    url: `https://calculatelove.online${canonicalPath}`,
+    description: description,
   };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Numerology Love Calculator - Life Path Compatibility Hub | CalculateLove"
-        description="Explore numerology love compatibility, Life Path numbers 1-9, and birth date vibration principles with CalculateLove. Calculate your relationship numbers."
-        canonicalPath="/numerology/"
+        title={title}
+        description={description}
+        canonicalPath={canonicalPath}
         schemaJson={schemaJson}
+        locale={locale}
       />
 
       <Breadcrumbs
         items={[
-          { label: 'Home', href: '/' },
-          { label: 'Numerology Hub' },
+          { label: locale === 'es' ? 'Inicio' : locale === 'pt-BR' ? 'Início' : 'Home', href: homePath },
+          { label: locale === 'es' ? 'Numerología' : locale === 'pt-BR' ? 'Numerologia' : 'Numerology Hub' },
         ]}
         onNavigate={onNavigate}
       />
@@ -153,13 +174,21 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-bold mb-3 border border-purple-200">
           <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-          <span>Pythagorean Relationship Mathematics</span>
+          <span>{locale === 'es' ? 'Matemática Pitagórica de Pareja' : locale === 'pt-BR' ? 'Matemática Pitagórica do Amor' : 'Pythagorean Relationship Mathematics'}</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          Numerology & Life Path Compatibility Hub
+          {locale === 'es'
+            ? 'Guía de Numerología y Sendero de Vida en el Amor'
+            : locale === 'pt-BR'
+            ? 'Guia de Numerologia e Caminho de Vida a Dois'
+            : 'Numerology & Life Path Compatibility Hub'}
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          The mathematical language of dates and names. Discover how birth date numbers, numerical archetypes, and harmonic triads align in romantic relationships.
+          {locale === 'es'
+            ? 'El lenguaje matemático de los nombres y las fechas. Descubre cómo vibran los números cósmicos y las tríadas armónicas en tu relación.'
+            : locale === 'pt-BR'
+            ? 'A linguagem dos números no relacionamento. Veja como as datas de nascimento e os arquétipos pitagóricos se conectam no amor.'
+            : 'The mathematical language of dates and names. Discover how birth date numbers, numerical archetypes, and harmonic triads align in romantic relationships.'}
         </p>
       </div>
 
@@ -169,21 +198,29 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
           <div className="p-8 sm:p-10 space-y-4">
             <span className="text-xs uppercase tracking-widest text-purple-300 font-semibold flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-purple-300" />
-              <span>Sacred Geometry & Vibration</span>
+              <span>{locale === 'es' ? 'Geometría Sagrada y Vibración' : locale === 'pt-BR' ? 'Geometria Sagrada e Vibração' : 'Sacred Geometry & Vibration'}</span>
             </span>
             <h2 className="text-xl sm:text-2xl font-bold font-display leading-tight">
-              Life Path Numbers: The Sacred Geometry of Love
+              {locale === 'es'
+                ? 'Senderos de Vida: La Geometría Sagrada del Amor'
+                : locale === 'pt-BR'
+                ? 'Caminhos de Vida: A Sintonia dos Números a Dois'
+                : 'Life Path Numbers: The Sacred Geometry of Love'}
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Every date of birth contains a numerical signature. By reducing birthdays to single root digits (1 to 9), numerology reveals emotional temperament, instinctive communication styles, and natural romantic chemistry.
+              {locale === 'es'
+                ? 'Cada fecha natal posee una firma numérica única. Al reducir el día, mes y año a un solo dígito (1 al 9), la numerología revela afinidades de temperamento y química afectiva.'
+                : locale === 'pt-BR'
+                ? 'Cada data de nascimento carrega uma vibração própria. Ao somar dia, mês e ano até um único dígito (1 a 9), descobrimos traços de personalidade e empatia recíproca.'
+                : 'Every date of birth contains a numerical signature. By reducing birthdays to single root digits (1 to 9), numerology reveals emotional temperament, instinctive communication styles, and natural romantic chemistry.'}
             </p>
             <div className="pt-2">
               <button
                 type="button"
-                onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+                onClick={() => onNavigate(dobPath)}
                 className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs transition-colors inline-flex items-center gap-2 shadow-sm"
               >
-                <span>Calculate Your Life Path Match</span>
+                <span>{locale === 'es' ? 'Calcular por Fecha de Nacimiento' : locale === 'pt-BR' ? 'Calcular por Data de Nascimento' : 'Calculate Your Life Path Match'}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>

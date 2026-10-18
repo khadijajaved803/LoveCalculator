@@ -1,12 +1,18 @@
 import React from 'react';
-import { Heart, Sparkles, ArrowUp } from 'lucide-react';
+import { Heart, Sparkles, ArrowUp, Globe } from 'lucide-react';
 import { CalculateLoveLogo } from './CalculateLoveLogo';
+import { getLocaleFromPath, getEquivalentPath, SupportedLocale } from '../i18n/routes';
+import { getTranslations } from '../i18n/translations';
 
 interface FooterProps {
+  currentPath?: string;
   onNavigate: (path: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ currentPath = '/', onNavigate }) => {
+  const locale = getLocaleFromPath(currentPath);
+  const t = getTranslations(locale);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -14,6 +20,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     onNavigate(path);
+  };
+
+  const homePath = getEquivalentPath('/', locale);
+  const lovePath = getEquivalentPath('/love-calculator/', locale);
+  const flamesPath = getEquivalentPath('/flames-calculator/', locale);
+  const friendPath = getEquivalentPath('/friendship-calculator/', locale);
+  const marriagePath = getEquivalentPath('/love-or-arranged-marriage-calculator/', locale);
+  const dobPath = getEquivalentPath('/love-calculator-by-date-of-birth/', locale);
+  const astroPath = getEquivalentPath('/astrology/', locale);
+  const numPath = getEquivalentPath('/numerology/', locale);
+  const blogPath = getEquivalentPath('/blog/', locale);
+  const aboutPath = getEquivalentPath('/about/', locale);
+  const contactPath = getEquivalentPath('/contact/', locale);
+  const privacyPath = getEquivalentPath('/privacy-policy/', locale);
+  const termsPath = getEquivalentPath('/terms/', locale);
+  const disclaimerPath = getEquivalentPath('/disclaimer/', locale);
+
+  const switchLanguage = (targetLocale: SupportedLocale) => {
+    const eq = getEquivalentPath(currentPath, targetLocale);
+    onNavigate(eq);
   };
 
   return (
@@ -27,8 +53,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Brand & Social Column */}
           <div className="space-y-4">
             <a
-              href="/"
-              onClick={(e) => handleLinkClick(e, '/')}
+              href={homePath}
+              onClick={(e) => handleLinkClick(e, homePath)}
               className="inline-block group focus:outline-none focus:ring-2 focus:ring-rose-400 rounded-lg"
               title="CalculateLove - Free Compatibility Calculator"
             >
@@ -36,13 +62,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
 
             <p className="text-xs text-slate-500 leading-relaxed">
-              Discover romantic chemistry, celebrate unbreakable friendships, and test cosmic alignment with instant shareable result cards.
+              {t.footer.aboutDesc}
             </p>
 
             {/* Social Media Links: Instagram, Facebook, X */}
             <div className="pt-2">
               <span className="block text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2.5">
-                Join Our Community
+                {t.footer.joinCommunity}
               </span>
               <div className="flex items-center gap-2.5">
                 {/* Instagram */}
@@ -113,188 +139,209 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500" />
               </span>
-              <span>100K+ Matches & Cards Generated</span>
+              <span>{t.footer.matchesGenerated}</span>
             </div>
           </div>
 
           {/* Popular Calculators Column */}
-          <nav aria-label="Popular Calculators">
+          <nav aria-label={t.footer.popularCalculators}>
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-1.5">
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-              <span>Popular Calculators</span>
+              <span>{t.footer.popularCalculators}</span>
             </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
-                  href="/love-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/love-calculator/')}
+                  href={lovePath}
+                  onClick={(e) => handleLinkClick(e, lovePath)}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-medium"
-                  title="True Love Calculator by Name"
+                  title={t.loveCalc.h1}
                 >
-                  True Love Calculator
+                  {t.nav.loveTest}
                 </a>
               </li>
               <li>
                 <a
-                  href="/flames-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/flames-calculator/')}
+                  href={flamesPath}
+                  onClick={(e) => handleLinkClick(e, flamesPath)}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="FLAMES Game Online"
+                  title={t.flames.h1}
                 >
-                  FLAMES Game Online
+                  {t.nav.flames}
                 </a>
               </li>
               <li>
                 <a
-                  href="/friendship-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/friendship-calculator/')}
+                  href={friendPath}
+                  onClick={(e) => handleLinkClick(e, friendPath)}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Friendship & Bestie Meter"
+                  title={t.friendship.h1}
                 >
-                  Friendship & Bestie Meter
+                  {t.nav.friendship}
                 </a>
               </li>
               <li>
                 <a
-                  href="/love-or-arranged-marriage-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/love-or-arranged-marriage-calculator/')}
+                  href={marriagePath}
+                  onClick={(e) => handleLinkClick(e, marriagePath)}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Love vs. Arranged Marriage Calculator"
+                  title={t.marriage.h1}
                 >
-                  Love vs. Arranged Marriage
+                  {t.nav.marriage}
                 </a>
               </li>
               <li>
                 <a
-                  href="/love-calculator-by-date-of-birth/"
-                  onClick={(e) => handleLinkClick(e, '/love-calculator-by-date-of-birth/')}
+                  href={dobPath}
+                  onClick={(e) => handleLinkClick(e, dobPath)}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Date of Birth & Life Path Compatibility"
+                  title={t.dob.h1}
                 >
-                  Date of Birth & Life Path Match
+                  {t.nav.dobMatch}
                 </a>
               </li>
             </ul>
           </nav>
 
           {/* Cosmic & Astrology Hub */}
-          <nav aria-label="Cosmic and Guides">
+          <nav aria-label={t.footer.astrologyNumerology}>
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-              <span>Cosmic & Guides</span>
+              <span>{t.footer.astrologyNumerology}</span>
             </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
-                  href="/astrology/"
-                  onClick={(e) => handleLinkClick(e, '/astrology/')}
+                  href={astroPath}
+                  onClick={(e) => handleLinkClick(e, astroPath)}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Zodiac & Astrology Compatibility"
+                  title="Astrology & Zodiac Hub"
                 >
-                  Zodiac & Astrology Hub
+                  {locale === 'es' ? 'Astrología y Signos' : locale === 'pt-BR' ? 'Astrologia e Signos' : 'Zodiac & Astrology Hub'}
                 </a>
               </li>
               <li>
                 <a
-                  href="/numerology/"
-                  onClick={(e) => handleLinkClick(e, '/numerology/')}
+                  href={numPath}
+                  onClick={(e) => handleLinkClick(e, numPath)}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Numerology & Life Path Calculator"
+                  title="Numerology & Life Path"
                 >
-                  Numerology & Life Paths
+                  {locale === 'es' ? 'Numerología y Senderos de Vida' : locale === 'pt-BR' ? 'Numerologia e Caminho de Vida' : 'Numerology & Life Paths'}
                 </a>
               </li>
               <li>
                 <a
-                  href="/blog/"
-                  onClick={(e) => handleLinkClick(e, '/blog/')}
+                  href={blogPath}
+                  onClick={(e) => handleLinkClick(e, blogPath)}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Relationship Advice & Dating Guides"
+                  title="Guides & Articles"
                 >
-                  Relationship Articles & Guides
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blog/how-love-calculator-works/"
-                  onClick={(e) => handleLinkClick(e, '/blog/how-love-calculator-works/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="How Online Love Calculators Work"
-                >
-                  How Love Calculators Work
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blog/how-flames-calculator-works/"
-                  onClick={(e) => handleLinkClick(e, '/blog/how-flames-calculator-works/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="How FLAMES Game Works"
-                >
-                  The Psychology of FLAMES
+                  {t.nav.guides}
                 </a>
               </li>
             </ul>
           </nav>
 
           {/* About & Trust */}
-          <nav aria-label="About and Legal">
+          <nav aria-label={t.footer.legalTrust}>
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4">
-              About & Trust
+              {t.footer.legalTrust}
             </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
-                  href="/about/"
-                  onClick={(e) => handleLinkClick(e, '/about/')}
+                  href={aboutPath}
+                  onClick={(e) => handleLinkClick(e, aboutPath)}
                   className="hover:text-slate-900 hover:translate-x-0.5 inline-block transition-all"
-                  title="About CalculateLove"
                 >
-                  About CalculateLove
+                  {locale === 'es' ? 'Sobre Nosotros' : locale === 'pt-BR' ? 'Sobre Nós' : 'About CalculateLove'}
                 </a>
               </li>
               <li>
                 <a
-                  href="/contact/"
-                  onClick={(e) => handleLinkClick(e, '/contact/')}
+                  href={contactPath}
+                  onClick={(e) => handleLinkClick(e, contactPath)}
                   className="hover:text-slate-900 hover:translate-x-0.5 inline-block transition-all"
-                  title="Contact & Feedback"
                 >
-                  Contact & Feedback
+                  {locale === 'es' ? 'Contacto' : locale === 'pt-BR' ? 'Contato' : 'Contact & Feedback'}
                 </a>
               </li>
               <li>
                 <a
-                  href="/privacy-policy/"
-                  onClick={(e) => handleLinkClick(e, '/privacy-policy/')}
+                  href={privacyPath}
+                  onClick={(e) => handleLinkClick(e, privacyPath)}
                   className="hover:text-slate-900 hover:translate-x-0.5 inline-block transition-all"
-                  title="Privacy Policy"
                 >
-                  Privacy Policy
+                  {locale === 'es' ? 'Política de Privacidad' : locale === 'pt-BR' ? 'Política de Privacidade' : 'Privacy Policy'}
                 </a>
               </li>
               <li>
                 <a
-                  href="/terms/"
-                  onClick={(e) => handleLinkClick(e, '/terms/')}
+                  href={termsPath}
+                  onClick={(e) => handleLinkClick(e, termsPath)}
                   className="hover:text-slate-900 hover:translate-x-0.5 inline-block transition-all"
-                  title="Terms of Service"
                 >
-                  Terms of Service
+                  {locale === 'es' ? 'Términos de Uso' : locale === 'pt-BR' ? 'Termos de Uso' : 'Terms of Service'}
                 </a>
               </li>
               <li>
                 <a
-                  href="/disclaimer/"
-                  onClick={(e) => handleLinkClick(e, '/disclaimer/')}
+                  href={disclaimerPath}
+                  onClick={(e) => handleLinkClick(e, disclaimerPath)}
                   className="hover:text-slate-900 hover:translate-x-0.5 inline-block transition-all"
-                  title="Legal Disclaimer"
                 >
-                  Disclaimer
+                  {locale === 'es' ? 'Aviso Legal' : locale === 'pt-BR' ? 'Aviso Legal' : 'Disclaimer'}
                 </a>
               </li>
             </ul>
           </nav>
+        </div>
+
+        {/* Multilingual Selector in Footer */}
+        <div className="py-4 border-b border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 text-slate-500">
+            <Globe className="w-4 h-4 text-rose-600" />
+            <span className="font-semibold text-slate-700">{t.footer.languageSelection}:</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => switchLanguage('en')}
+              className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 ${
+                locale === 'en'
+                  ? 'bg-rose-100 text-rose-800 font-bold'
+                  : 'text-slate-600 hover:text-rose-600 hover:bg-slate-100'
+              }`}
+            >
+              <span>🇮🇳</span>
+              <span>English (India)</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => switchLanguage('es')}
+              className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 ${
+                locale === 'es'
+                  ? 'bg-rose-100 text-rose-800 font-bold'
+                  : 'text-slate-600 hover:text-rose-600 hover:bg-slate-100'
+              }`}
+            >
+              <span>🇪🇸</span>
+              <span>Español</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => switchLanguage('pt-BR')}
+              className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 ${
+                locale === 'pt-BR'
+                  ? 'bg-rose-100 text-rose-800 font-bold'
+                  : 'text-slate-600 hover:text-rose-600 hover:bg-slate-100'
+              }`}
+            >
+              <span>🇧🇷</span>
+              <span>Português (Brasil)</span>
+            </button>
+          </div>
         </div>
 
         {/* Bottom Bar: Copyright & Back-to-Top Button */}
@@ -307,25 +354,25 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           <div className="flex items-center gap-4">
             <a
-              href="/privacy-policy/"
-              onClick={(e) => handleLinkClick(e, '/privacy-policy/')}
+              href={privacyPath}
+              onClick={(e) => handleLinkClick(e, privacyPath)}
               className="hover:text-slate-800 transition-colors"
             >
-              Privacy
+              {locale === 'es' ? 'Privacidad' : locale === 'pt-BR' ? 'Privacidade' : 'Privacy'}
             </a>
             <a
-              href="/terms/"
-              onClick={(e) => handleLinkClick(e, '/terms/')}
+              href={termsPath}
+              onClick={(e) => handleLinkClick(e, termsPath)}
               className="hover:text-slate-800 transition-colors"
             >
-              Terms
+              {locale === 'es' ? 'Términos' : locale === 'pt-BR' ? 'Termos' : 'Terms'}
             </a>
             <a
-              href="/disclaimer/"
-              onClick={(e) => handleLinkClick(e, '/disclaimer/')}
+              href={disclaimerPath}
+              onClick={(e) => handleLinkClick(e, disclaimerPath)}
               className="hover:text-slate-800 transition-colors"
             >
-              Disclaimer
+              {locale === 'es' ? 'Aviso' : locale === 'pt-BR' ? 'Aviso' : 'Disclaimer'}
             </a>
 
             <button
@@ -344,4 +391,3 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     </footer>
   );
 };
-
