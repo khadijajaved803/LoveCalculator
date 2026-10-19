@@ -26,6 +26,8 @@ import {
   Users,
   Gem,
   Award,
+  Calendar,
+  ArrowRight,
 } from 'lucide-react';
 import flamesImage from '../assets/images/flames_notebook_game_1790774216847.jpg';
 
@@ -47,6 +49,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   const [error, setError] = useState('');
 
   const websiteUrl = 'https://calculatelove.online';
+  const dobToolPath = '/love-calculator-by-date-of-birth/';
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -177,43 +180,48 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
 
   const faqs = [
     {
-      question: 'What is the full form of FLAMES?',
+      question: 'What is the FLAMES full form and flames name game meaning?',
       answer:
-        'FLAMES stands for Friends, Lovers, Affectionate, Marriage, Enemies, and Siblings.',
+        'The FLAMES full form stands for Friends, Lovers, Affectionate, Marriage, Enemies, and Siblings. In this classic flames name game, each letter carries a distinctive flames name game meaning that symbolizes the romantic or social destiny between two people based on letter compatibility.',
     },
     {
-      question: 'How does the letter cancellation work in the FLAMES calculator?',
+      question: 'How does the FLAMES calculator calculate the flames love calculator percentage?',
       answer:
-        'All matching letters in both names are crossed out 1-on-1. The total count of uncancelled letters is then used to cyclically count through F-L-A-M-E-S until only one letter survives.',
+        'Our flames calculator and flames love calculator percentage algorithm counts the uncancelled letters from both names and applies cyclic elimination across F-L-A-M-E-S. In addition to revealing your final relationship destiny, it calculates the mutual letter affinity and flames love score percentage so you get complete compatibility insights.',
     },
     {
-      question: 'Is the FLAMES calculator result symmetric?',
+      question: 'Should I enter my flames real name or a nickname in the FLAMES calculator?',
       answer:
-        'Yes. Because common letters cancel out identically regardless of which name is entered first, the final count and surviving letter are identical.',
+        'For the most authentic flames name matching, entering your flames real name (legal or commonly used first name) provides genuine phonetic balance. However, the flames name game is also fun to test with pet nicknames and affectionate abbreviations to see if your flames name compatibility outcome shifts!',
     },
     {
-      question: 'What does "Enemies" or "Siblings" mean in a FLAMES test with your crush?',
+      question: 'How does letter cancellation work in the FLAMES name calculator?',
       answer:
-        'FLAMES is a nostalgic, lighthearted school game. An "Enemies" result often represents fiery banter, spirited friction, or clashing egos that can mask intense unspoken chemistry. A "Siblings" result simply reflects fierce protective loyalty!',
+        'In the FLAMES name calculator, common letters between both names are struck out on a strict 1-to-1 basis. For example, if one name has two "A"s and the other has one "A", only one "A" is cancelled from each name. The total count of remaining uncancelled letters (N) is then used in modular countdown elimination across the acronym.',
     },
     {
-      question: 'Can you play FLAMES with nicknames or full names?',
+      question: 'Can you calculate love flames by date of birth?',
       answer:
-        'You can play with either! In school notebooks, people frequently tested both full names and pet nicknames to see if their FLAMES destiny changed. Testing pet names adds an extra layer of playful fun.',
+        'While the original FLAMES game is strictly a flames name matching method based on characters, you can easily evaluate love flames by date of birth using our companion Date of Birth Love Calculator. Comparing your flames name game result with your Pythagorean Life Path numbers gives you both name-based and astrological date-of-birth compatibility.',
     },
     {
-      question: 'Why is CalculateLove’s online FLAMES tool better than other sites?',
+      question: 'What does flames name compatibility say about "Enemies" or "Siblings"?',
       answer:
-        'Unlike websites that show random letters without proof, CalculateLove provides an authentic step-by-step breakdown showing every single cancelled character, remaining count, and elimination round, plus an instant downloadable WhatsApp card.',
+        'FLAMES is a nostalgic, lighthearted relationship game. An "Enemies" result often represents spirited banter, playful friction, or stubborn pride that frequently masks intense unspoken flames name love chemistry. A "Siblings" result simply reflects fierce protective loyalty and unconditional familial support.',
+    },
+    {
+      question: 'Why is CalculateLove’s online FLAMES calculator better than other sites?',
+      answer:
+        'Unlike basic websites that display arbitrary letters without proof, CalculateLove is an authentic flames name game calculator that provides a transparent, step-by-step breakdown of every cancelled character, remaining count, and elimination round, along with a high-definition shareable certificate card.',
     },
   ];
 
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'FLAMES Love Calculator Game Online',
+    'name': 'FLAMES Calculator – FLAMES Game Online',
     'url': 'https://calculatelove.online/flames-calculator/',
-    'description': 'Play the authentic FLAMES relationship game online with step-by-step letter elimination and shareable cards.',
+    'description': 'Play the authentic FLAMES calculator and FLAMES game online. Free flames name game with step-by-step letter elimination, flames love calculator percentage, and downloadable certificate cards.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -221,8 +229,8 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="FLAMES Calculator Online - Authentic Crush Matching Game"
-        description="Play the authentic FLAMES game online at CalculateLove. Step-by-step letter elimination, transparent strike-outs, and downloadable certificate cards."
+        title="FLAMES Calculator Online – FLAMES Game & Love Calculator by Name"
+        description="Play the authentic FLAMES calculator and FLAMES game online at CalculateLove. Free flames name game with 1-on-1 letter cancellation, FLAMES full form, flames love calculator percentage, and instant result cards."
         canonicalPath="/flames-calculator/"
         schemaJson={schemaJson}
       />
@@ -230,22 +238,22 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'FLAMES Game' },
+          { label: 'FLAMES Calculator' },
         ]}
         onNavigate={onNavigate}
       />
 
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
-          <Flame className="w-3.5 h-3.5 text-amber-600" />
-          <span>Nostalgic School & College Game</span>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200 shadow-2xs">
+          <Flame className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
+          <span>India&apos;s #1 Nostalgic FLAMES Calculator &amp; FLAMES Game Online</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          FLAMES Love Calculator Game
+          FLAMES Calculator – Free FLAMES Game &amp; Name Matching Online
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          The nostalgic Indian school & college game! Discover your outcome with letter cancellation, beautiful shareable cards, and personalized relationship predictions.
+          Welcome to the authentic online <strong>FLAMES calculator</strong> and legendary <strong>FLAMES game</strong>! Discover your true <strong>flames love</strong> connection with instant <strong>flames name matching</strong>, explore the complete <strong>FLAMES full form</strong>, calculate your <strong>flames love calculator percentage</strong>, and download high-resolution couple certificate cards.
         </p>
       </div>
 
@@ -272,17 +280,17 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <div className="lg:col-span-7 space-y-4">
                   <div className="border-b border-slate-100 pb-3">
                     <h2 className="text-base font-extrabold text-slate-900 font-display">
-                      Enter Names for FLAMES
+                      Enter Names for FLAMES Calculator
                     </h2>
                     <p className="text-xs text-slate-500">
-                      Automated 1-to-1 letter strikeout and circular countdown
+                      Automated 1-to-1 letter strikeout for accurate flames name matching &amp; compatibility
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="min-w-0">
                       <label htmlFor="flameName1" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Your Name
+                        Your Real Name / Nickname <span className="text-rose-500">*</span>
                       </label>
                       <input
                         id="flameName1"
@@ -297,7 +305,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                     </div>
                     <div className="min-w-0">
                       <label htmlFor="flameName2" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Crush / Partner Name
+                        Crush / Partner Name <span className="text-rose-500">*</span>
                       </label>
                       <input
                         id="flameName2"
@@ -350,7 +358,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                   <div className="hidden lg:flex items-center gap-3 p-3.5 rounded-2xl bg-amber-50/60 border border-amber-200/80 text-xs text-amber-950">
                     <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
                     <p className="text-[11px] leading-relaxed">
-                      <strong>Zero Guesswork:</strong> Identical letters cancel out 1-by-1 symmetrically, running circular elimination until exactly 1 letter survives.
+                      <strong>Deterministic FLAMES Name Matching:</strong> Our <strong>flames name calculator</strong> eliminates identical characters 1-by-1 symmetrically, running circular elimination until exactly 1 letter survives.
                     </p>
                   </div>
                 </div>
@@ -359,10 +367,10 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <div className="lg:col-span-5 bg-amber-50/50 p-4 sm:p-5 rounded-2xl border border-amber-200 space-y-3">
                   <div className="border-b border-amber-200/80 pb-2">
                     <h3 className="text-xs font-bold text-amber-950 uppercase tracking-wider">
-                      The FLAMES Meaning Guide
+                      FLAMES Full Form &amp; Meaning Guide
                     </h3>
                     <p className="text-[11px] text-amber-800">
-                      6 Classic childhood friendship and relationship outcomes
+                      Discover the authentic flames name game meaning behind each letter
                     </p>
                   </div>
 
@@ -403,13 +411,13 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                   type="submit"
                   className="w-full max-w-md py-4 px-8 rounded-2xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-700 hover:to-amber-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-lg shadow-rose-600/15 min-h-[50px]"
                 >
-                  <span>Play FLAMES Match</span>
+                  <span>Calculate FLAMES Love Match</span>
                   <Flame className="w-4 h-4 fill-white" />
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 mt-2.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Exact cyclic countdown elimination · 100% Private in browser</span>
+                  <span>Exact flames name game calculator with cyclic countdown · 100% Private in browser</span>
                 </div>
               </div>
             </form>
@@ -425,7 +433,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <span>calculatelove.online</span>
               </div>
               <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2.5 py-0.5 rounded-full">
-                FLAMES Result Certificate
+                FLAMES Calculator Result Certificate
               </span>
             </div>
 
@@ -512,7 +520,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-rose-50/50 border border-amber-200/80 shadow-xs space-y-2.5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 uppercase tracking-wider">
                     <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500 shrink-0" />
-                    <span>FLAMES Prediction & Relationship Insights</span>
+                    <span>FLAMES Love Calculator Percentage &amp; Relationship Insights</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
                     {result.hinglishSuggestion}
@@ -526,7 +534,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 {/* Step-by-Step Elimination Table */}
                 <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-3">
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">
-                    Step-by-Step Mathematical Elimination
+                    FLAMES Name Matching: Step-by-Step Mathematical Elimination
                   </h4>
 
                   <div className="p-3 bg-slate-50 rounded-xl font-mono text-xs text-slate-700 leading-relaxed space-y-1">
@@ -561,10 +569,10 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <span>The Legendary Back-Page Notebook Game</span>
               </span>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display leading-tight text-white">
-                FLAMES Game Online: Relive School &amp; College Romance
+                FLAMES Calculator &amp; FLAMES Game Online: Relive School Romance
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Remember tearing out the last page of your rough notebook during boring math lectures to test your crush&apos;s name? The FLAMES game has entertained generations of students across India, turning simple letter cancellation into an exciting rite of passage and playful playground suspense.
+                Remember tearing out the last page of your rough notebook during boring math lectures to test your crush&apos;s name? The <strong>FLAMES game</strong> and <strong>flames name game</strong> have entertained generations of students across India, turning simple letter cancellation into an exciting rite of passage and playful playground suspense to discover your <strong>flames love</strong> connection.
               </p>
               <div className="pt-2 flex flex-wrap gap-2 text-xs">
                 <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30">
@@ -598,10 +606,10 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
               <span>The Six Destinies</span>
             </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
-              What Each Letter in F-L-A-M-E-S Truly Signifies
+              FLAMES Full Form: What Each Letter in F-L-A-M-E-S Truly Signifies
             </h2>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-              Every final remaining letter in the cyclic elimination carries a unique symbolic dynamic between two personalities:
+              Wondering about the <strong>FLAMES full form</strong> and authentic <strong>flames name game meaning</strong>? Every remaining letter in the cyclic elimination carries a unique symbolic dynamic between two personalities, revealing your true <strong>flames name compatibility</strong>:
             </p>
           </div>
 
@@ -652,7 +660,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 <h3 className="font-bold text-sm text-slate-900">Enemies (Nok-Jhok)</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Fiery banter and clashing egos! While it sounds dramatic, enemy friction in Indian pop culture is frequently the thin line masking unspoken romantic chemistry.
+                Fiery banter and clashing egos! While it sounds dramatic, enemy friction in Indian pop culture is frequently the thin line masking unspoken <strong>flames name love</strong> chemistry.
               </p>
             </div>
 
@@ -675,10 +683,10 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
               Combinatorial Mathematics
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display">
-              The Algorithm: Circular Permutations &amp; Letter Cancellation
+              How the FLAMES Calculator Works: Combinatorial Circular Elimination &amp; Name Matching
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              Behind the classroom entertainment lies an authentic combinatorial elimination principle closely related to the famous mathematical Josephus Problem:
+              Behind the classroom entertainment lies an authentic combinatorial elimination principle closely related to the famous mathematical Josephus Problem. Here is how our <strong>flames name calculator</strong> and <strong>flames name game calculator</strong> executes exact <strong>flames name matching</strong>:
             </p>
           </div>
 
@@ -687,7 +695,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">Step 1: Clean &amp; Sanitize</span>
               <h3 className="font-bold text-base text-white">Character Normalization</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                All spaces, special symbols, and capitalization are stripped away. Names are converted to lowercase ASCII characters to ensure symmetric matching.
+                All spaces, special symbols, and capitalization are stripped away. Names are converted to lowercase ASCII characters to ensure symmetric <strong>flames name matching</strong>.
               </p>
             </div>
 
@@ -695,7 +703,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs font-bold text-rose-300 uppercase tracking-wider block">Step 2: 1-on-1 Cancellation</span>
               <h3 className="font-bold text-base text-white">Symmetric Strike-Out</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                If Name 1 has two &apos;a&apos;s and Name 2 has one &apos;a&apos;, only one &apos;a&apos; from each is cancelled. The remaining uncancelled letters are counted together as count <strong>N</strong>.
+                If Name 1 has two &apos;a&apos;s and Name 2 has one &apos;a&apos;, only one &apos;a&apos; from each is cancelled. The remaining uncancelled letters are counted together in the <strong>flames name game calculator</strong> as count <strong>N</strong>.
               </p>
             </div>
 
@@ -703,23 +711,83 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs font-bold text-purple-300 uppercase tracking-wider block">Step 3: Cyclic Countdown</span>
               <h3 className="font-bold text-base text-white">Modular Elimination</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Starting from index 0 of &apos;FLAMES&apos;, the countdown advances by <strong>N</strong>. The letter hit on the Nth count is removed, and counting resumes from the next letter until 1 survivor remains.
+                Starting from index 0 of &apos;FLAMES&apos;, the countdown advances by <strong>N</strong>. The letter hit on the Nth count is removed, and counting resumes from the next letter until 1 survivor remains to reveal your <strong>flames name meaning</strong>.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Section 3: School Nostalgia */}
+        {/* Section 3: FLAMES Real Name vs Nicknames & Name Generator */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold text-rose-700 uppercase tracking-wider">
+            <Users className="w-4 h-4 text-rose-600" />
+            <span>Name Rules &amp; Tips</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
+            FLAMES Real Name vs. Nicknames: How to Play the FLAMES Name Game
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Should you enter your <strong>flames real name</strong> or a playful nickname into the <strong>flames calculator</strong>? In Indian school classrooms and college canteens, friends frequently tested both formal names and pet nicknames to compare <strong>flames name compatibility</strong> and see if their <strong>flames love</strong> destiny changed. You can use our interactive tool as a <strong>flames name generator</strong> to test multiple spelling variations and see which combination yields your desired relationship outcome.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 space-y-1.5">
+              <h3 className="text-xs font-bold text-rose-950 uppercase tracking-wide">Using Your FLAMES Real Name</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Entering full, official names ensures stable, symmetrical letter frequencies. This is recommended when you want standard, reproducible <strong>flames name matching</strong>.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/40 border border-amber-100 space-y-1.5">
+              <h3 className="text-xs font-bold text-amber-950 uppercase tracking-wide">Testing Pet Names &amp; Nicknames</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Shortened nicknames (like Sonu, Chintu, or Priya) change the uncancelled letter count N, offering fun, diverse results for couples playing the <strong>flames name game</strong> together.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Love FLAMES by Date of Birth vs. FLAMES Name Matching */}
+        <section className="bg-gradient-to-br from-amber-50/40 via-white to-rose-50/30 rounded-3xl border border-amber-200/90 p-6 sm:p-10 shadow-sm space-y-4">
+          <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
+            <Calendar className="w-4 h-4 text-amber-600" />
+            <span>Alternative Compatibility Methods</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
+            Love FLAMES by Date of Birth vs. FLAMES Calculator by Name
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Many users frequently search for <strong>love flames by date of birth</strong>. While the traditional <strong>FLAMES game</strong> is strictly a <strong>flames name matching</strong> formula based on character cancellation, you can combine name harmonics with birth date numerology to get a 360-degree relationship assessment.
+          </p>
+          <div className="p-4 rounded-2xl bg-white border border-amber-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-xs font-bold text-slate-900">
+                Want to calculate compatibility by birth dates?
+              </h3>
+              <p className="text-xs text-slate-500">
+                Check Pythagorean Life Path alignment and cosmic harmony alongside your <strong>flames calculator</strong> result.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate(dobToolPath)}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-rose-600 text-white font-bold text-xs hover:from-amber-700 hover:to-rose-700 transition-all flex items-center gap-1.5 shrink-0 shadow-sm"
+            >
+              <span>Test DOB Love Calculator</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </section>
+
+        {/* Section 5: School Nostalgia */}
         <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
             <Award className="w-4 h-4 text-amber-600" />
             <span>Childhood Memories</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display">
-            The School Notebook Legacy Across India
+            The School Notebook Legacy: India&apos;s Favorite FLAMES Game
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            In an era before smartphones, dating apps, and social media reels, FLAMES was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling uncontrollably whenever a classmate’s crush ended on &apos;M&apos; (Marriage) or teasing them endlessly when it landed on &apos;S&apos; (Siblings). CalculateLove honors that innocent nostalgia with authentic transparent mechanics and instant shareable status cards.
+            In an era before smartphones, dating apps, and social media reels, the <strong>FLAMES calculator</strong> was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling uncontrollably whenever a classmate’s crush ended on &apos;M&apos; (Marriage) or teasing them endlessly when it landed on &apos;S&apos; (Siblings). CalculateLove honors that innocent nostalgia with authentic transparent mechanics, our deterministic <strong>flames love calculator percentage</strong>, and instant shareable status cards.
           </p>
         </section>
       </div>
