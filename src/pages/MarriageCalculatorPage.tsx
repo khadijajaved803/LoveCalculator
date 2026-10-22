@@ -211,14 +211,19 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       answer:
         'Research shows the top five predictors of marital longevity are mutual respect during arguments, financial transparency, alignment on living arrangements (nuclear vs joint family), shared work-life priorities, and emotional intimacy.',
     },
+    {
+      question: 'How is name matching for marriage evaluated alongside date of birth?',
+      answer:
+        'Name matching for marriage evaluates phonetic harmony and daily conversational flow between partners. Couples frequently pair name compatibility with date of birth Life Path calculations to assess emotional alignment before making matrimonial commitments.',
+    },
   ];
 
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'Love vs Arranged Marriage Compatibility Calculator',
+    'name': 'Love or Arranged Marriage Calculator & Marriage Compatibility Test',
     'url': 'https://calculatelove.online/love-or-arranged-marriage-calculator/',
-    'description': 'Free love vs arranged marriage alignment test evaluating personal romance, family blessing, and matrimonial harmony.',
+    'description': 'Free love vs arranged marriage alignment test evaluating personal romance, name matching for marriage, family blessing, and matrimonial harmony.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -227,7 +232,7 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Love or Arranged Marriage Calculator - Marriage Compatibility Test"
-        description="Will your future be a love marriage or arranged alliance? Test marriage alignment, family blessing balance, and Shaadi compatibility at CalculateLove."
+        description="Will your future be a love marriage or arranged alliance? Test marriage compatibility, name matching for marriage, and Shaadi harmony at CalculateLove."
         canonicalPath="/love-or-arranged-marriage-calculator/"
         schemaJson={schemaJson}
       />

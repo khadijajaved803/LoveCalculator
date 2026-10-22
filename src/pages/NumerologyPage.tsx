@@ -19,6 +19,16 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
         'In classical Pythagorean numerology, single-digit root numbers (1 to 9) represent energetic archetypes and behavioral temperaments. For example, numbers in the same triad (such as the creative 3-6-9 triad) share intuitive resonance, mutual communication ease, and complementary emotional pacing.',
     },
     {
+      question: 'How does name numerology work for relationship compatibility?',
+      answer:
+        'In name numerology, each letter of your full name is converted into a number from 1 to 9 according to the Pythagorean alphabet system (A=1, B=2, C=3, up to I=9). Summing these digits reveals your Destiny or Expression number, showing how your social communication and outer personality harmonize with your partner’s name vibration.',
+    },
+    {
+      question: 'What is the difference between Pythagorean numerology and Chaldean numerology?',
+      answer:
+        'Pythagorean numerology assigns numbers sequentially from 1 to 9 across the Latin alphabet and is the global standard for Western and modern name analysis. Chaldean numerology numbers letters from 1 to 8 based on phonetic sound energy, omitting the number 9 from direct letter assignment as a sacred vibration.',
+    },
+    {
       question: 'How do I calculate my Life Path Number for relationship compatibility?',
       answer:
         'To find your Life Path Number, add every individual digit of your full date of birth (Day + Month + Year) until reduced to a single digit (1-9) or a Master Number (11, 22, 33). For instance, 15 October 1998 reduces as 1+5 + 1+0 + 1+9+9+8 = 6 + 1 + 27 = 34 -> 3+4 = 7.',
@@ -136,8 +146,8 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Numerology Love Calculator - Life Path Compatibility Hub | CalculateLove"
-        description="Explore numerology love compatibility, Life Path numbers 1-9, and birth date vibration principles with CalculateLove. Calculate your relationship numbers."
+        title="Numerology Love Calculator - Name Numerology & Life Path Hub"
+        description="Explore numerology love compatibility, name numerology vibrations, Life Path numbers 1-9, and birth date harmony principles with CalculateLove."
         canonicalPath="/numerology/"
         schemaJson={schemaJson}
       />

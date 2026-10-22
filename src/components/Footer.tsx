@@ -206,6 +206,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
+                  href="/love-percentage-on-paper/"
+                  onClick={(e) => handleLinkClick(e, '/love-percentage-on-paper/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="How to Calculate Love Percentage on Paper"
+                >
+                  Love Percentage on Paper
+                </a>
+              </li>
+              <li>
+                <a
                   href="/blog/"
                   onClick={(e) => handleLinkClick(e, '/blog/')}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"

@@ -11,6 +11,7 @@ import { DobCalculatorPage } from './pages/DobCalculatorPage';
 import { MarriageCalculatorPage } from './pages/MarriageCalculatorPage';
 import { AstrologyPage } from './pages/AstrologyPage';
 import { NumerologyPage } from './pages/NumerologyPage';
+import { LovePercentageOnPaperPage } from './pages/LovePercentageOnPaperPage';
 import { BlogIndexPage } from './pages/BlogIndexPage';
 import { BlogPostPage } from './pages/BlogPostPage';
 import { AboutPage } from './pages/AboutPage';
@@ -68,18 +69,26 @@ export default function App() {
       case '/love-percentage-calculator/':
       case '/true-love-calculator/':
       case '/love-compatibility-calculator/':
+      case '/name-compatibility/':
+      case '/crush-calculator/':
         return <LoveCalculatorPage onNavigate={handleNavigate} />;
       case '/flames-calculator/':
         return <FlamesPage onNavigate={handleNavigate} />;
+      case '/love-percentage-on-paper/':
+      case '/how-to-calculate-love-percentage/':
+        return <LovePercentageOnPaperPage onNavigate={handleNavigate} />;
       case '/friendship-calculator/':
         return <FriendshipPage onNavigate={handleNavigate} />;
       case '/love-calculator-by-date-of-birth/':
+      case '/love-compatibility-by-date-of-birth/':
         return <DobCalculatorPage onNavigate={handleNavigate} />;
       case '/love-or-arranged-marriage-calculator/':
+      case '/marriage-prediction/':
         return <MarriageCalculatorPage onNavigate={handleNavigate} />;
       case '/astrology/':
         return <AstrologyPage onNavigate={handleNavigate} />;
       case '/numerology/':
+      case '/name-numerology/':
         return <NumerologyPage onNavigate={handleNavigate} />;
       case '/blog/':
         return <BlogIndexPage onNavigate={handleNavigate} />;

@@ -68,9 +68,19 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         'CalculateLove implements a deterministic character harmonic algorithm. It evaluates letter frequencies, consonant-to-vowel ratios, and phonetic sound energy between both names. Paired with your couple vibe and age dynamic, it provides a stable, reproducible compatibility score without random fluctuation.',
     },
     {
+      question: 'Can I use this tool as a crush love calculator or couple name compatibility test?',
+      answer:
+        'Yes. Whether you want to test compatibility with a secret crush, check boyfriend-girlfriend chemistry, or verify couple harmony with a partner, this name match calculator evaluates mutual phonetic resonance and relationship dynamics accurately.',
+    },
+    {
       question: 'What is the difference between Love Calculator by Name and Love Percentage Calculator?',
       answer:
         'They represent the same core mathematical evaluation! This master tool combines phonetic name harmonics with a 4-pillar dimensional percentage breakdown (Communication, Emotional Care, Passion, and Longevity) so you get the complete picture in one place.',
+    },
+    {
+      question: 'How does an online love test compare to calculating love percentage on paper?',
+      answer:
+        'Paper calculations rely on nostalgic pen-and-paper addition grids, whereas CalculateLove uses advanced phonetic character harmonics and multidimensional relationship factors. Both are fun ways to explore love matching between two names.',
     },
     {
       question: 'Kya online love calculator ka score 100% accurate hota hai?',

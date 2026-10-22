@@ -185,6 +185,11 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         'Numbers belonging to the same Pythagorean Triad often experience immediate harmony. For example, the 3-6-9 triad thrives on warmth, creativity, and family, while the 2-4-8 triad excels in security and practical foundations.',
     },
     {
+      question: 'Can a love calculator by name and date of birth indicate soulmate compatibility?',
+      answer:
+        'Date of birth and Life Path calculations evaluate energetic pacing, emotional temperaments, and long-term values. When combined with phonetic name resonance, it gives couples a deep, meaningful look into their potential as soulmates.',
+    },
+    {
       question: 'Can two people with incompatible Life Path numbers have a great relationship?',
       answer:
         'Absolutely! Numerology highlights contrasting energetic styles. Contrasting numbers frequently balance each other beautifully through complementary strengths and intentional empathy.',
@@ -219,8 +224,8 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Calculator by Date of Birth - Life Path Compatibility Test"
-        description="Calculate birth date compatibility and Life Path numerology match (1-9) between two partners at CalculateLove. Free, deterministic, and instant."
+        title="Love Calculator by Date of Birth - Life Path & Soulmate Compatibility"
+        description="Calculate love compatibility by date of birth and Life Path numerology match (1-9). Test true love soulmate alignment by name and birth date at CalculateLove."
         canonicalPath="/love-calculator-by-date-of-birth/"
         schemaJson={schemaJson}
       />
@@ -243,7 +248,7 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           Love Calculator by Date of Birth
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Explore your Life Path number alignment and birth date compatibility with personalized relationship predictions.
+          Explore love compatibility by date of birth, Life Path number harmony, and soulmate alignment with personalized relationship predictions.
         </p>
       </div>
 
