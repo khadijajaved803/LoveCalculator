@@ -12,6 +12,9 @@ import { MarriageCalculatorPage } from './pages/MarriageCalculatorPage';
 import { AstrologyPage } from './pages/AstrologyPage';
 import { NumerologyPage } from './pages/NumerologyPage';
 import { LovePercentageOnPaperPage } from './pages/LovePercentageOnPaperPage';
+import { CrushCalculatorPage } from './pages/CrushCalculatorPage';
+import { NameCompatibilityPage } from './pages/NameCompatibilityPage';
+import { NameNumerologyPage } from './pages/NameNumerologyPage';
 import { BlogIndexPage } from './pages/BlogIndexPage';
 import { BlogPostPage } from './pages/BlogPostPage';
 import { AboutPage } from './pages/AboutPage';
@@ -69,9 +72,11 @@ export default function App() {
       case '/love-percentage-calculator/':
       case '/true-love-calculator/':
       case '/love-compatibility-calculator/':
-      case '/name-compatibility/':
-      case '/crush-calculator/':
         return <LoveCalculatorPage onNavigate={handleNavigate} />;
+      case '/name-compatibility/':
+        return <NameCompatibilityPage onNavigate={handleNavigate} />;
+      case '/crush-calculator/':
+        return <CrushCalculatorPage onNavigate={handleNavigate} />;
       case '/flames-calculator/':
         return <FlamesPage onNavigate={handleNavigate} />;
       case '/love-percentage-on-paper/':
@@ -88,8 +93,9 @@ export default function App() {
       case '/astrology/':
         return <AstrologyPage onNavigate={handleNavigate} />;
       case '/numerology/':
-      case '/name-numerology/':
         return <NumerologyPage onNavigate={handleNavigate} />;
+      case '/name-numerology/':
+        return <NameNumerologyPage onNavigate={handleNavigate} />;
       case '/blog/':
         return <BlogIndexPage onNavigate={handleNavigate} />;
       case '/about/':

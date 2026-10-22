@@ -5,7 +5,7 @@ export interface ToolMeta {
   title: string;
   shortTitle: string;
   description: string;
-  category: 'love' | 'friendship' | 'flames' | 'marriage' | 'astrology' | 'numerology';
+  category: 'love' | 'friendship' | 'flames' | 'marriage' | 'astrology' | 'numerology' | 'crush' | 'compatibility' | 'guide';
   keywords: string[];
   badge?: string;
 }

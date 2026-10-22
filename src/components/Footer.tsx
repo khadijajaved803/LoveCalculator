@@ -216,6 +216,36 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
+                  href="/crush-calculator/"
+                  onClick={(e) => handleLinkClick(e, '/crush-calculator/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Crush Calculator - Check Crush Compatibility"
+                >
+                  Crush Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/name-compatibility/"
+                  onClick={(e) => handleLinkClick(e, '/name-compatibility/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Name Compatibility Test"
+                >
+                  Name Compatibility Test
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/name-numerology/"
+                  onClick={(e) => handleLinkClick(e, '/name-numerology/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Name Numerology Calculator"
+                >
+                  Name Numerology Calculator
+                </a>
+              </li>
+              <li>
+                <a
                   href="/blog/"
                   onClick={(e) => handleLinkClick(e, '/blog/')}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"

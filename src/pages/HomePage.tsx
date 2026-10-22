@@ -104,6 +104,38 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       icon: Compass,
       color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
     },
+    {
+      title: 'Crush Calculator',
+      sub: 'Secret Crush Chemistry',
+      path: '/crush-calculator/',
+      desc: 'Test secret crush compatibility, confession readiness, and conversational spark.',
+      icon: Heart,
+      color: 'text-pink-600 bg-pink-50 border-pink-200',
+    },
+    {
+      title: 'Name Compatibility Test',
+      sub: 'Phonetic Harmony Check',
+      path: '/name-compatibility/',
+      desc: 'Analyze letter resonance, vowel-consonant balance, and spoken melody between names.',
+      icon: Users,
+      color: 'text-rose-600 bg-rose-50 border-rose-200',
+    },
+    {
+      title: 'Name Numerology Calculator',
+      sub: 'Pythagorean & Chaldean',
+      path: '/name-numerology/',
+      desc: 'Convert name letters to destiny numbers and calculate numerical couple harmony.',
+      icon: Sparkles,
+      color: 'text-purple-600 bg-purple-50 border-purple-200',
+    },
+    {
+      title: 'Love Percentage on Paper',
+      sub: 'Classic Notebook Guide',
+      path: '/love-percentage-on-paper/',
+      desc: 'Learn how to calculate love percentage on paper with step-by-step addition rules.',
+      icon: Sparkles,
+      color: 'text-amber-600 bg-amber-50 border-amber-200',
+    },
   ];
 
   const highVolumeFaqs = [
