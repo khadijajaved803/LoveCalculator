@@ -202,15 +202,15 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 text-balance">
-          Discover your true love percentage with our deterministic Love Calculator, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
+          Discover your true love percentage with our deterministic Love Calculator, check your name compatibility test, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
         </p>
 
-        {/* Action Buttons - Fully responsive without truncation */}
-        <div className="flex flex-col xs:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        {/* Action Buttons - 3 horizontal buttons on tablet/desktop, stacked on small mobile */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-2xl mx-auto">
           <button
             type="button"
             onClick={() => onNavigate('/love-calculator/')}
-            className="w-full xs:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm shadow-md shadow-rose-600/15 transition-all flex items-center justify-center gap-2 min-h-[46px]"
+            className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm shadow-md shadow-rose-600/15 transition-all flex items-center justify-center gap-2 min-h-[46px]"
           >
             <Heart className="w-4 h-4 fill-white" />
             <span>Test Love Calculator</span>
@@ -218,8 +218,17 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
 
           <button
             type="button"
+            onClick={() => onNavigate('/name-compatibility/')}
+            className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white hover:bg-rose-50/50 border border-rose-200 text-rose-700 font-bold text-sm transition-all flex items-center justify-center gap-2 min-h-[46px] shadow-2xs"
+          >
+            <Users className="w-4 h-4 text-rose-600" />
+            <span>Name Compatibility</span>
+          </button>
+
+          <button
+            type="button"
             onClick={() => onNavigate('/flames-calculator/')}
-            className="w-full xs:w-auto px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-bold text-sm transition-all flex items-center justify-center gap-2 min-h-[46px] shadow-2xs"
+            className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-bold text-sm transition-all flex items-center justify-center gap-2 min-h-[46px] shadow-2xs"
           >
             <Flame className="w-4 h-4 text-amber-500" />
             <span>Play FLAMES Online</span>

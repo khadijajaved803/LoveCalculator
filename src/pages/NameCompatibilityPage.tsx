@@ -371,8 +371,8 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       {/* Authority Section: How Name Compatibility Works */}
-      <section className="bg-white rounded-3xl border border-rose-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
-        <div className="max-w-3xl mb-8">
+      <section className="bg-white rounded-3xl border border-rose-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12 space-y-8">
+        <div className="max-w-3xl">
           <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block mb-2">
             Linguistic &amp; Numerological Principles
           </span>
@@ -410,8 +410,92 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
         </div>
 
+        {/* Detailed Comprehensive Content Expansion */}
+        <div className="space-y-8 pt-6 border-t border-rose-100">
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              How to Do the Name Compatibility Test: Step-by-Step Guide
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Curious about how to do the name compatibility test with your partner or crush? Finding out your couple compatibility by name only takes a few simple steps:
+            </p>
+            <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed pl-1">
+              <li>
+                <strong className="text-slate-800 font-semibold">Enter Both First Names:</strong> Start with standard everyday first names. Running a first name compatibility test gives immediate clarity on daily conversational ease and natural phonetics.
+              </li>
+              <li>
+                <strong className="text-slate-800 font-semibold">Run the Compatibility Check by Name:</strong> Our compatibility calculator by name inspects letter count parity, vowel resonance, and shared phonemes to produce an exact harmonic match score.
+              </li>
+              <li>
+                <strong className="text-slate-800 font-semibold">Review Syllable Flow &amp; Vowel Balance:</strong> Examine how easily your names sound when spoken side-by-side, which indicates conversational flow.
+              </li>
+              <li>
+                <strong className="text-slate-800 font-semibold">Download Your Couple Match Card:</strong> Save your official Name Compatibility Certificate card for sharing on WhatsApp status or Instagram stories.
+              </li>
+            </ol>
+          </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              Name Compatibility for Marriage &amp; Finding Compatible Names
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Throughout history, matchmaking traditions across cultures have evaluated name matching compatibility for marriage. When couples search for compatible names for marriage or conduct a name match marriage test, they often assess how both partners' names blend with prospective family surnames:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+                <h4 className="font-bold text-slate-900">Marriage Name Compatibility &amp; Flow</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  In marriage name compatibility, having smooth transitions between first names and joint surnames avoids awkward verbal stumbling and creates a harmonious social identity for married life.
+                </p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+                <h4 className="font-bold text-slate-900">Matchmaker Names &amp; Long-Term Bonding</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  A couple name matcher helps identify compatible name pairs whose vocal sounds complement one another, fostering warmth during lifelong mutual conversations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              Name Compatibility by Numerology: Sound Vibrations &amp; Name Energy
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Beyond auditory phonetics, many people examine name compatibility by numerology. Each alphabet character holds a distinct numeric frequency according to Pythagorean and Chaldean traditions. The numerology of name compatibility evaluates these vibrational root numbers:
+            </p>
+            <ul className="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed pl-1">
+              <li>
+                <strong className="text-slate-800 font-semibold">Chaldean Name Vibrations:</strong> Focuses on the cosmic sound frequency of each spoken consonant and vowel.
+              </li>
+              <li>
+                <strong className="text-slate-800 font-semibold">Pythagorean Expression Numbers:</strong> Calculates the energetic destiny number that both partners project into their union.
+              </li>
+              <li>
+                <strong className="text-slate-800 font-semibold">Name Birthday Compatibility:</strong> Pairing your name root number with your life path birthday number provides deeper insight into personal relationship dynamics.
+              </li>
+            </ul>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+              Want to calculate your exact numerological expression number? Try our dedicated <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button> to see your Pythagorean and Chaldean number values.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              Online Name Compatibility Calculator vs. Name Compatibility Test on Paper
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Before modern digital tools, students and couples loved doing the name compatibility test on paper using the famous pen-and-paper letter crossing method. In that traditional technique, you write both names, tally letter occurrences with the word "LOVE", and sum adjacent digits until a two-digit percentage remains.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Our digital compatibility check by name automates these phonetic formulas with instantaneous mathematical precision, giving you both detailed linguistic breakdowns and an instant printable match certificate. If you enjoy the nostalgia of hand calculations, explore our step-by-step <button type="button" onClick={() => onNavigate('/love-percentage-on-paper/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper guide</button>.
+            </p>
+          </div>
+        </div>
+
         {/* Additional couple match guidance */}
-        <div className="mt-6 pt-6 border-t border-rose-100 text-xs text-slate-600 leading-relaxed">
+        <div className="pt-6 border-t border-rose-100 text-xs text-slate-600 leading-relaxed">
           <h4 className="font-bold text-slate-900 mb-2">Check Love Compatibility by Name: Practical Tips</h4>
           <p>
             When performing a compatibility check by name, consider both formal legal names and everyday nicknames. Looking for a traditional pen-and-paper experience? You can also try our classic <button type="button" onClick={() => onNavigate('/love-percentage-on-paper/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper method</button> or explore numerical vibration through our <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button>.
