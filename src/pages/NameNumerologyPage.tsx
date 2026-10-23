@@ -4,6 +4,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import { CalculationLoader } from '../components/CalculationLoader';
+import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import {
   Hash,
   Sparkles,
@@ -12,6 +14,8 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
+  Download,
+  MessageCircle,
 } from 'lucide-react';
 
 interface Props {
@@ -70,6 +74,70 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
     compatibility: number;
     verdict: string;
   } | null>(null);
+  const [downloading, setDownloading] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
+
+  const handleDownloadCard = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob({
+        type: 'numerology',
+        names: { person1: result.p1.name, person2: result.p2.name },
+        score: result.compatibility,
+        tagline: result.verdict,
+        suggestion: `Name Destiny Numbers: ${result.p1.name} (Number ${result.p1.root}) & ${result.p2.name} (Number ${result.p2.root})`,
+        tip: 'Numerological root vibration reflects conversational harmony and shared life expression.',
+        details: `${system === 'pythagorean' ? 'Pythagorean' : 'Chaldean'} Name Numerology · Destiny Compatibility`,
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Name-Numerology-Certificate-${result.p1.name}-${result.p2.name}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setNotice('Certificate downloaded successfully!');
+    } catch {
+      setNotice('Could not generate certificate card.');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleShareWhatsApp = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob({
+        type: 'numerology',
+        names: { person1: result.p1.name, person2: result.p2.name },
+        score: result.compatibility,
+        tagline: result.verdict,
+        suggestion: `Name Destiny Numbers: ${result.p1.name} (#${result.p1.root}) & ${result.p2.name} (#${result.p2.root})`,
+        tip: 'Numerological root vibration reflects conversational harmony.',
+        details: `${system === 'pythagorean' ? 'Pythagorean' : 'Chaldean'} Name Match`,
+      });
+      const file = new File([blob], `${result.p1.name}-${result.p2.name}-numerology.png`, { type: 'image/png' });
+      if (typeof navigator !== 'undefined' && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'Name Numerology Certificate',
+          text: `Check out our name numerology compatibility score on CalculateLove! https://calculatelove.online/numerology/name-numerology/`,
+        });
+      } else {
+        const text = encodeURIComponent(`We got a ${result.compatibility}% Name Numerology compatibility match on CalculateLove! Check yours: https://calculatelove.online/numerology/name-numerology/`);
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      }
+    } catch {
+      handleDownloadCard();
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,6 +178,16 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
         'A name numerology calculator translates each letter of a person’s name into a single numeric vibration according to an ancient numeric key (Pythagorean 1-9 or Chaldean 1-8). The numbers are summed recursively to reveal your Expression or Destiny root number.',
     },
     {
+      question: 'What is a Chaldean numerology calculator and how is it calculated?',
+      answer:
+        'A Chaldean numerology calculator assigns numbers 1 through 8 based on ancient acoustic sound vibrations. Unlike Pythagorean charts, Chaldean calculations do not assign letters to the number 9 because 9 was historically held as sacred. It reveals deep soul desires and subconscious partnership chemistry.',
+    },
+    {
+      question: 'How to calculate name number and numerology name value?',
+      answer:
+        'To calculate your name number, convert each letter of your first and full name to its corresponding digit using the numerology chart above. Sum all the digits together, and continue adding until a single digit (1 to 9) or Master Number (11, 22, 33) is reached.',
+    },
+    {
       question: 'What is the difference between Pythagorean and Chaldean numerology?',
       answer:
         'Pythagorean numerology assigns digits 1 through 9 sequentially across the Latin alphabet (A=1, B=2 ... I=9, J=1). Chaldean numerology assigns digits 1 through 8 based on phonetic vibrational frequency, omitting 9 as a sacred spiritual number.',
@@ -130,7 +208,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Name Numerology Calculator – Pythagorean & Chaldean Name Numbers',
-    url: 'https://calculatelove.online/name-numerology/',
+    url: 'https://calculatelove.online/numerology/name-numerology/',
     description:
       'Free name numerology calculator. Calculate Pythagorean and Chaldean name numbers, destiny root vibrations, and couple name compatibility.',
     applicationCategory: 'EntertainmentApplication',
@@ -142,7 +220,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
       <SEOHead
         title="Name Numerology Calculator – Pythagorean & Chaldean Name Numbers"
         description="Calculate your name numerology number with our free interactive tool. Compare Pythagorean vs Chaldean name vibrations and discover couple destiny compatibility."
-        canonicalPath="/name-numerology/"
+        canonicalPath="/numerology/name-numerology/"
         schemaJson={schemaJson}
       />
 
@@ -335,6 +413,46 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
                 {result.compatibility}%
               </div>
             </div>
+
+            {/* Certificate Download Card */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-purple-50/60 border border-purple-200 space-y-3">
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-900">
+                  Download Name Numerology Certificate Card
+                </h4>
+                <p className="text-[11px] text-slate-500">
+                  Save your official 1080×1350 name numerology match certificate for WhatsApp Status, Stories &amp; sharing
+                </p>
+              </div>
+
+              {notice && (
+                <p className="text-xs text-purple-700 font-semibold bg-purple-100/60 p-2 rounded-xl">
+                  {notice}
+                </p>
+              )}
+
+              <div className="flex flex-wrap gap-2.5">
+                <button
+                  type="button"
+                  onClick={handleDownloadCard}
+                  disabled={downloading}
+                  className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-sm transition-all"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>{downloading ? 'Generating...' : 'Download Certificate PNG'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  disabled={downloading}
+                  className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-sm transition-all"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Share on WhatsApp Status</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -346,16 +464,16 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             Historical Systems
           </span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
-            Pythagorean vs. Chaldean Name Numerology: What Is the Difference?
+            Pythagorean vs. Chaldean Name Numerology: Calculating Name Number Values
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Both systems translate names into cosmic numbers, but they originate from distinct historical and philosophical traditions.
+            Both systems translate names into cosmic numbers. Whether you want to calculate name numerology, find your numerology name value, or check name and numerology meaning, each system offers unique insights into couple dynamics.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
           <div className="p-5 rounded-2xl bg-purple-50/40 border border-purple-100 space-y-2">
-            <h3 className="font-bold text-slate-900 text-sm">Pythagorean Numerology (Modern Western)</h3>
+            <h3 className="font-bold text-slate-900 text-sm">Pythagorean Numerology Calculator (Modern Western)</h3>
             <ul className="text-slate-600 space-y-1.5 list-disc list-inside leading-relaxed">
               <li>Created by the ancient Greek philosopher Pythagoras.</li>
               <li>Numbers are assigned sequentially 1 through 9.</li>
@@ -365,7 +483,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
 
           <div className="p-5 rounded-2xl bg-indigo-50/40 border border-indigo-100 space-y-2">
-            <h3 className="font-bold text-slate-900 text-sm">Chaldean Numerology (Ancient Babylonian)</h3>
+            <h3 className="font-bold text-slate-900 text-sm">Chaldean Numerology Name Calculator (Ancient Babylonian)</h3>
             <ul className="text-slate-600 space-y-1.5 list-disc list-inside leading-relaxed">
               <li>One of the oldest documented metaphysical systems.</li>
               <li>Numbers are assigned 1 through 8 based on phonetic acoustic vibration.</li>

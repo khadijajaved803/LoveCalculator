@@ -6,6 +6,7 @@ import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { CalculationLoader } from '../components/CalculationLoader';
 import { calculateLoveScore } from '../lib/calculatorEngine';
+import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import {
   Heart,
   Sparkles,
@@ -17,6 +18,9 @@ import {
   ArrowRight,
   ShieldCheck,
   Zap,
+  Download,
+  Copy,
+  Check,
 } from 'lucide-react';
 
 interface Props {
@@ -31,7 +35,72 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
   const [result, setResult] = useState<ReturnType<typeof calculateLoveScore> | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [copiedImage, setCopiedImage] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState('');
+
+  const handleDownloadCard = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob({
+        type: 'crush',
+        names: { person1: yourName, person2: crushName },
+        score: result.score,
+        tagline: result.hinglishTagline || 'Secret Crush Connection',
+        suggestion: result.hinglishSuggestion || result.summary,
+        tip: result.hinglishTip || 'Watch for subtle smiles and shared glances.',
+        details: `Crush Test · Chemistry: ${result.breakdown.passion}% · Communication: ${result.breakdown.communication}%`,
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Crush-Certificate-${yourName}-${crushName}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setNotice('Certificate downloaded successfully!');
+    } catch {
+      setNotice('Could not generate certificate card.');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleShareWhatsApp = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob({
+        type: 'crush',
+        names: { person1: yourName, person2: crushName },
+        score: result.score,
+        tagline: result.hinglishTagline || 'Secret Crush Connection',
+        suggestion: result.hinglishSuggestion || result.summary,
+        tip: result.hinglishTip || 'Watch for subtle smiles and shared glances.',
+        details: `Crush Test · Chemistry: ${result.breakdown.passion}%`,
+      });
+      const file = new File([blob], `${yourName}-${crushName}-crush-card.png`, { type: 'image/png' });
+      if (typeof navigator !== 'undefined' && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'Crush Compatibility Certificate',
+          text: `Check out our crush compatibility score on CalculateLove! https://calculatelove.online/crush-calculator/`,
+        });
+      } else {
+        const text = encodeURIComponent(`We got a ${result.score}% Crush Compatibility Score on CalculateLove! Check yours: https://calculatelove.online/crush-calculator/`);
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      }
+    } catch {
+      handleDownloadCard();
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,6 +129,16 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         'The Crush Calculator combines phonetic name resonance with behavioral interaction dynamics. It evaluates letter vibrations, shared vowels, and your day-to-day communication frequency to produce a deterministic crush compatibility percentage and confession readiness meter.',
     },
     {
+      question: 'What is a crush detector and how does it find mutual attraction?',
+      answer:
+        'A crush detector evaluates behavioral hints—such as lingering eye contact, spontaneous texting, body language mirroring, and mutual banter. Our crush finder algorithm factors these interaction levels alongside character sound harmony to detect romantic affinity.',
+    },
+    {
+      question: 'Is your crush really meant for you according to the crush simulator?',
+      answer:
+        'While our crush simulator provides an entertaining phonetic and behavioral match score, true romantic compatibility develops over time through mutual trust, vulnerability, shared values, and honest communication.',
+    },
+    {
       question: 'Is my crush calculator result kept private?',
       answer:
         'Yes, 100% private. All calculations run strictly in your web browser. Neither your name nor your crush’s name is ever sent to or stored on any server.',
@@ -70,7 +149,7 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         'The secret crush score indicates romantic spark, mutual conversational comfort, and the psychological likelihood that your crush reciprocates interest based on your current dynamic.',
     },
     {
-      question: 'How can I know if my crush actually likes me back?',
+      question: 'How can I know who is my crush or if they like me back?',
       answer:
         'Key signs include consistent eye contact, mirroring your gestures, finding excuses to sit or walk near you, remembering small details you mentioned, and quick replies to your messages.',
     },
@@ -302,6 +381,48 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 </span>
               </div>
             </div>
+
+            {/* Certificate Download & Social Share Actions */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-pink-50/60 border border-pink-200 space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900">
+                    Download Official Crush Certificate Card
+                  </h4>
+                  <p className="text-[11px] text-slate-500">
+                    High-resolution 1080×1350 card designed for WhatsApp Status, Snapchat &amp; Instagram Stories
+                  </p>
+                </div>
+              </div>
+
+              {notice && (
+                <p className="text-xs text-pink-700 font-semibold bg-pink-100/60 p-2 rounded-xl">
+                  {notice}
+                </p>
+              )}
+
+              <div className="flex flex-wrap gap-2.5">
+                <button
+                  type="button"
+                  onClick={handleDownloadCard}
+                  disabled={downloading}
+                  className="px-4 py-2.5 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-sm transition-all"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>{downloading ? 'Generating...' : 'Download Certificate PNG'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  disabled={downloading}
+                  className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-sm transition-all"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Share on WhatsApp Status</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -310,13 +431,13 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       <section className="bg-white rounded-3xl border border-pink-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
         <div className="max-w-3xl mb-8">
           <span className="text-xs font-bold text-pink-600 uppercase tracking-wider block mb-2">
-            Crush Psychology
+            Crush Psychology &amp; Detection
           </span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
-            5 Psychological Signs Your Crush Likes You Back
+            Crush Detector: 5 Signs to Know If Your Crush Is Really Meant for You
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            While testing your love and crush calculator score is exciting, observing daily interpersonal behaviors reveals true romantic chemistry.
+            Wondering &quot;who is my crush&quot; or &quot;is your crush really meant for you&quot;? Use our crush finder and crush detector guide to interpret everyday body language and conversational vibes before using the crush simulator.
           </p>
         </div>
 

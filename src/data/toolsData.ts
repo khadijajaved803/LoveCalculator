@@ -124,12 +124,21 @@ export const TOOLS: ToolMeta[] = [
   {
     id: 'name-numerology',
     slug: 'name-numerology',
-    path: '/name-numerology/',
+    path: '/numerology/name-numerology/',
     title: 'Name Numerology Calculator – Pythagorean & Chaldean',
     shortTitle: 'Name Numerology',
     description: 'Calculate Pythagorean and Chaldean name destiny numbers, root letter vibrations, and couple number compatibility.',
     category: 'numerology',
-    keywords: ['name numerology', 'numerology calculator name', 'name total numerology', 'pythagorean numerology vs chaldean'],
+    keywords: [
+      'name numerology',
+      'numerology calculator name',
+      'name number calculator',
+      'chaldean numerology calculator',
+      'pythagorean numerology calculator',
+      'name and numerology',
+      'numerology of names',
+      'numerology name value',
+    ],
   },
   {
     id: 'love-percentage-on-paper',

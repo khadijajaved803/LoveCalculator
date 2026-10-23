@@ -6,6 +6,7 @@ import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { CalculationLoader } from '../components/CalculationLoader';
 import { calculateLoveScore } from '../lib/calculatorEngine';
+import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import {
   Users,
   Sparkles,
@@ -15,6 +16,8 @@ import {
   CheckCircle2,
   ShieldCheck,
   ArrowRight,
+  Download,
+  MessageCircle,
 } from 'lucide-react';
 
 interface Props {
@@ -26,7 +29,71 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
   const [partner2, setPartner2] = useState('');
   const [result, setResult] = useState<ReturnType<typeof calculateLoveScore> | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [downloading, setDownloading] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState('');
+
+  const handleDownloadCard = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob({
+        type: 'name-compatibility',
+        names: { person1: partner1, person2: partner2 },
+        score: result.score,
+        tagline: result.hinglishTagline || 'Name Compatibility Match',
+        suggestion: result.hinglishSuggestion || result.summary,
+        tip: result.hinglishTip || 'Spoken names carry acoustic warmth and emotional cadence.',
+        details: `Name Match · Syllable Flow: ${result.breakdown.communication}% · Vowel Harmony: ${result.breakdown.passion}%`,
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Name-Compatibility-Certificate-${partner1}-${partner2}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setNotice('Certificate downloaded successfully!');
+    } catch {
+      setNotice('Could not generate certificate card.');
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const handleShareWhatsApp = async () => {
+    if (!result) return;
+    setDownloading(true);
+    setNotice(null);
+    try {
+      const blob = await generateCardImageBlob({
+        type: 'name-compatibility',
+        names: { person1: partner1, person2: partner2 },
+        score: result.score,
+        tagline: result.hinglishTagline || 'Name Compatibility Match',
+        suggestion: result.hinglishSuggestion || result.summary,
+        tip: result.hinglishTip || 'Spoken names carry acoustic warmth and emotional cadence.',
+        details: `Name Match · Score: ${result.score}%`,
+      });
+      const file = new File([blob], `${partner1}-${partner2}-name-compatibility.png`, { type: 'image/png' });
+      if (typeof navigator !== 'undefined' && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'Name Compatibility Certificate',
+          text: `Check out our name compatibility test score on CalculateLove! https://calculatelove.online/name-compatibility/`,
+        });
+      } else {
+        const text = encodeURIComponent(`We got a ${result.score}% Name Compatibility Test match on CalculateLove! Check yours: https://calculatelove.online/name-compatibility/`);
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      }
+    } catch {
+      handleDownloadCard();
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,6 +118,21 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
       question: 'How does the Name Compatibility Test work?',
       answer:
         'The name compatibility test uses phonetic harmonic analysis. It compares the balance of vowels and consonants, sound resonance, and letter energy frequencies between both names to determine how melodically and energetically they harmonize.',
+    },
+    {
+      question: 'What is name compatibility by numerology?',
+      answer:
+        'Name compatibility by numerology analyzes the numerical values of both partners’ first names using the ancient Pythagorean or Chaldean number keys. This numerology of name compatibility reveals couple personality resonance and mutual communication styles.',
+    },
+    {
+      question: 'Can I check compatible names for marriage using a name match test?',
+      answer:
+        'Yes. Checking compatible names for marriage evaluates phonetic ease, family name flow, and daily conversational harmony. While traditional couples often consult astrology, an online compatibility test for couples by name offers an instant, entertaining relationship check.',
+    },
+    {
+      question: 'How to do the name compatibility test with first names?',
+      answer:
+        'Simply enter your first name and your partner’s first name into the calculator above. The tool checks name birthday compatibility, letter matching, and phonetic vibration without requiring complex birth charts.',
     },
     {
       question: 'What is the difference between Name Compatibility and Love Percentage?',
@@ -112,7 +194,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           Name Compatibility Test – Check Your Match by Name
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Analyze phonetic resonance, syllable balance, and vowel-consonant harmony between two names for genuine couple compatibility.
+          Analyze phonetic resonance, first name compatibility test results, and love compatibility using names for couples and marriage.
         </p>
       </div>
 
@@ -230,7 +312,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
                   Linguistic &amp; Phonetic Breakdown
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {result.explanation}
+                  {result.summary}
                 </p>
                 <div className="grid grid-cols-2 gap-2 text-xs pt-2">
                   <div className="p-3 rounded-xl bg-slate-50 border border-slate-100">
@@ -244,6 +326,46 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
                 </div>
               </div>
             </div>
+
+            {/* Certificate Card Actions */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+              <div>
+                <h4 className="text-xs sm:text-sm font-bold text-slate-900">
+                  Official Name Compatibility Certificate Card
+                </h4>
+                <p className="text-[11px] text-slate-500">
+                  Save a high-resolution 1080×1350 certificate of your couple name match for WhatsApp Status &amp; Instagram Stories
+                </p>
+              </div>
+
+              {notice && (
+                <p className="text-xs text-rose-700 font-semibold bg-rose-100/60 p-2 rounded-xl">
+                  {notice}
+                </p>
+              )}
+
+              <div className="flex flex-wrap gap-2.5">
+                <button
+                  type="button"
+                  onClick={handleDownloadCard}
+                  disabled={downloading}
+                  className="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-sm transition-all"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>{downloading ? 'Generating...' : 'Download Certificate PNG'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  disabled={downloading}
+                  className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs inline-flex items-center gap-1.5 shadow-sm transition-all"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Share on WhatsApp Status</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -252,13 +374,16 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
       <section className="bg-white rounded-3xl border border-rose-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
         <div className="max-w-3xl mb-8">
           <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block mb-2">
-            Linguistic Principles
+            Linguistic &amp; Numerological Principles
           </span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
-            How Name Compatibility Works: Letters, Vowels &amp; Rhythm
+            How Name Compatibility Works: Names Compatibility for Marriage &amp; Dating
           </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+            Whether you want a quick name compatibility test, are checking compatible names for marriage, or assessing name relationship compatibility between first names, name matching combines vowel-consonant cadence with character energy.
+          </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Names are not just labels; they are sound frequencies we hear every day. Linguistic researchers note that names sharing phonetic vowel heights and complementary consonant clusters often sound inherently harmonious when spoken together as a couple.
+            Many couples also explore name compatibility in numerology or couple name matcher techniques to understand relationship name compatibility and love test love match dynamics between partners.
           </p>
         </div>
 
@@ -278,11 +403,19 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
 
           <div className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 space-y-1.5">
-            <h3 className="font-bold text-slate-900 text-sm">3. Syllable Cadence</h3>
+            <h3 className="font-bold text-slate-900 text-sm">3. Syllable Cadence &amp; Marriage Match</h3>
             <p className="text-slate-600 leading-relaxed">
-              Shorter two-syllable names often complement longer three-syllable names naturally, creating a pleasant spoken couple cadence.
+              Shorter two-syllable names often complement longer three-syllable names naturally, creating a pleasant spoken couple cadence for lifelong partnership.
             </p>
           </div>
+        </div>
+
+        {/* Additional couple match guidance */}
+        <div className="mt-6 pt-6 border-t border-rose-100 text-xs text-slate-600 leading-relaxed">
+          <h4 className="font-bold text-slate-900 mb-2">Check Love Compatibility by Name: Practical Tips</h4>
+          <p>
+            When performing a compatibility check by name, consider both formal legal names and everyday nicknames. Looking for a traditional pen-and-paper experience? You can also try our classic <button type="button" onClick={() => onNavigate('/love-percentage-on-paper/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper method</button> or explore numerical vibration through our <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button>.
+          </p>
         </div>
       </section>
 

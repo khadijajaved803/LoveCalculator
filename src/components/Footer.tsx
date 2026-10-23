@@ -121,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <nav aria-label="Popular Calculators">
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-1.5">
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-              <span>Popular Calculators</span>
+              <span>Calculators</span>
             </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
@@ -132,6 +132,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   title="True Love Calculator by Name"
                 >
                   True Love Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/crush-calculator/"
+                  onClick={(e) => handleLinkClick(e, '/crush-calculator/')}
+                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Crush Calculator"
+                >
+                  Crush Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/name-compatibility/"
+                  onClick={(e) => handleLinkClick(e, '/name-compatibility/')}
+                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Name Compatibility Test"
+                >
+                  Name Compatibility Test
                 </a>
               </li>
               <li>
@@ -151,7 +171,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
                   title="Friendship & Bestie Meter"
                 >
-                  Friendship & Bestie Meter
+                  Friendship &amp; Bestie Meter
                 </a>
               </li>
               <li>
@@ -164,26 +184,36 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Love vs. Arranged Marriage
                 </a>
               </li>
+            </ul>
+          </nav>
+
+          {/* Cosmic, Numerology & Guides */}
+          <nav aria-label="Cosmic and Guides">
+            <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+              <span>Cosmic &amp; Guides</span>
+            </h3>
+            <ul className="space-y-2.5 text-xs">
               <li>
                 <a
                   href="/love-calculator-by-date-of-birth/"
                   onClick={(e) => handleLinkClick(e, '/love-calculator-by-date-of-birth/')}
-                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
                   title="Date of Birth & Life Path Compatibility"
                 >
-                  Date of Birth & Life Path Match
+                  DOB &amp; Life Path Match
                 </a>
               </li>
-            </ul>
-          </nav>
-
-          {/* Cosmic & Astrology Hub */}
-          <nav aria-label="Cosmic and Guides">
-            <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-              <span>Cosmic & Guides</span>
-            </h3>
-            <ul className="space-y-2.5 text-xs">
+              <li>
+                <a
+                  href="/numerology/name-numerology/"
+                  onClick={(e) => handleLinkClick(e, '/numerology/name-numerology/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Name Numerology Calculator"
+                >
+                  Name Numerology Calculator
+                </a>
+              </li>
               <li>
                 <a
                   href="/astrology/"
@@ -191,7 +221,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
                   title="Zodiac & Astrology Compatibility"
                 >
-                  Zodiac & Astrology Hub
+                  Zodiac &amp; Astrology Hub
                 </a>
               </li>
               <li>
@@ -201,7 +231,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
                   title="Numerology & Life Path Calculator"
                 >
-                  Numerology & Life Paths
+                  Numerology &amp; Life Paths
                 </a>
               </li>
               <li>
@@ -216,62 +246,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="/crush-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/crush-calculator/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Crush Calculator - Check Crush Compatibility"
-                >
-                  Crush Calculator
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/name-compatibility/"
-                  onClick={(e) => handleLinkClick(e, '/name-compatibility/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Name Compatibility Test"
-                >
-                  Name Compatibility Test
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/name-numerology/"
-                  onClick={(e) => handleLinkClick(e, '/name-numerology/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Name Numerology Calculator"
-                >
-                  Name Numerology Calculator
-                </a>
-              </li>
-              <li>
-                <a
                   href="/blog/"
                   onClick={(e) => handleLinkClick(e, '/blog/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Relationship Advice & Dating Guides"
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all font-medium"
+                  title="Relationship Articles & Guides"
                 >
-                  Relationship Articles & Guides
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blog/how-love-calculator-works/"
-                  onClick={(e) => handleLinkClick(e, '/blog/how-love-calculator-works/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="How Online Love Calculators Work"
-                >
-                  How Love Calculators Work
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/blog/how-flames-calculator-works/"
-                  onClick={(e) => handleLinkClick(e, '/blog/how-flames-calculator-works/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="How FLAMES Game Works"
-                >
-                  The Psychology of FLAMES
+                  Relationship Articles &amp; Guides →
                 </a>
               </li>
             </ul>

@@ -174,12 +174,12 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       {/* Featured Banner with SEO-optimized generated artwork */}
-      <div className="rounded-3xl overflow-hidden border border-purple-200 bg-slate-900 text-white shadow-md mb-12 relative">
+      <div className="rounded-3xl overflow-hidden border border-purple-200 bg-slate-900 text-white shadow-md mb-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="p-8 sm:p-10 space-y-4">
             <span className="text-xs uppercase tracking-widest text-purple-300 font-semibold flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-purple-300" />
-              <span>Sacred Geometry & Vibration</span>
+              <span>Sacred Geometry &amp; Vibration</span>
             </span>
             <h2 className="text-xl sm:text-2xl font-bold font-display leading-tight">
               Life Path Numbers: The Sacred Geometry of Love
@@ -208,6 +208,30 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             />
           </div>
         </div>
+      </div>
+
+      {/* Featured Banner for Name Numerology */}
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-purple-50 via-indigo-50 to-pink-50 border border-purple-200 shadow-sm mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="space-y-2 max-w-lg">
+          <div className="inline-flex items-center gap-1.5 text-purple-700 text-xs font-semibold">
+            <Hash className="w-4 h-4 text-purple-600" />
+            <span>Dedicated Name Numerology Calculator</span>
+          </div>
+          <h2 className="text-lg sm:text-xl font-bold text-slate-900 font-display">
+            Calculate Name Numbers (Pythagorean &amp; Chaldean)
+          </h2>
+          <p className="text-xs text-slate-600 leading-relaxed">
+            Convert both partners&apos; names into vibrational destiny numbers (1-9). Discover expression harmony, soul numbers, and download your couple certificate.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => onNavigate('/numerology/name-numerology/')}
+          className="w-full sm:w-auto px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 active:scale-[0.99] text-white font-semibold text-xs transition-colors shrink-0 flex items-center justify-center gap-2 shadow-sm"
+        >
+          <span>Try Name Numerology Tool</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
       </div>
 
       {/* Hero Action Card */}

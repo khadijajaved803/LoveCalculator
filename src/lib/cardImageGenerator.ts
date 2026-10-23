@@ -5,7 +5,7 @@
  */
 
 export interface CardRenderOptions {
-  type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage';
+  type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage' | 'crush' | 'name-compatibility' | 'numerology';
   names: { person1: string; person2: string };
   score?: number;
   letter?: string;
@@ -40,6 +40,16 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     bgGrad.addColorStop(0.4, '#ffffff');
     bgGrad.addColorStop(0.8, '#fff7ed');
     bgGrad.addColorStop(1, '#fef3c7');
+  } else if (options.type === 'crush') {
+    bgGrad.addColorStop(0, '#fdf2f8');
+    bgGrad.addColorStop(0.3, '#ffffff');
+    bgGrad.addColorStop(0.7, '#fff1f2');
+    bgGrad.addColorStop(1, '#fce7f3');
+  } else if (options.type === 'numerology') {
+    bgGrad.addColorStop(0, '#faf5ff');
+    bgGrad.addColorStop(0.3, '#ffffff');
+    bgGrad.addColorStop(0.7, '#f3e8ff');
+    bgGrad.addColorStop(1, '#ede9fe');
   } else {
     bgGrad.addColorStop(0, '#fff1f2');
     bgGrad.addColorStop(0.3, '#ffffff');

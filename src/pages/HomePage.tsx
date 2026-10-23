@@ -123,7 +123,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
     {
       title: 'Name Numerology Calculator',
       sub: 'Pythagorean & Chaldean',
-      path: '/name-numerology/',
+      path: '/numerology/name-numerology/',
       desc: 'Convert name letters to destiny numbers and calculate numerical couple harmony.',
       icon: Sparkles,
       color: 'text-purple-600 bg-purple-50 border-purple-200',
@@ -793,6 +793,15 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             <div className="flex flex-wrap gap-3">
               <button
                 type="button"
+                onClick={() => onNavigate('/name-compatibility/')}
+                className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-rose-200"
+              >
+                <Users className="w-3.5 h-3.5 text-rose-600" />
+                <span>Name Compatibility Test</span>
+              </button>
+
+              <button
+                type="button"
                 onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
                 className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
               >
@@ -957,6 +966,105 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Popular Love & Compatibility Testing Guides */}
+      <section className="px-4 sm:px-6 max-w-6xl mx-auto mb-16">
+        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+          <div className="max-w-3xl mb-6">
+            <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block mb-2">
+              Popular Compatibility Guides &amp; Methods
+            </span>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-3">
+              Explore Specialized Love Compatibility Tests &amp; Paper Games
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              From secret crush meters and phonetic name compatibility tests to ancient Pythagorean name numerology and nostalgic school notebook love tests on paper, CalculateLove provides dedicated tools for every relationship stage.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div
+              onClick={() => onNavigate('/name-compatibility/')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/name-compatibility/')}
+              className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 hover:border-rose-200 transition-all cursor-pointer group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-rose-600 block mb-1">
+                  Name Compatibility Test
+                </span>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  Test couple name matching, phonetic sound vibrations, and vowel harmony between two names.
+                </p>
+              </div>
+              <span className="text-xs text-rose-600 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                Check Name Match →
+              </span>
+            </div>
+
+            <div
+              onClick={() => onNavigate('/crush-calculator/')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/crush-calculator/')}
+              className="p-4 rounded-2xl bg-pink-50/40 border border-pink-100 hover:border-pink-200 transition-all cursor-pointer group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-pink-600 block mb-1">
+                  Crush Calculator &amp; Finder
+                </span>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  Secret crush detector test evaluating mutual eye contact vibes and confession readiness.
+                </p>
+              </div>
+              <span className="text-xs text-pink-600 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                Calculate Crush Score →
+              </span>
+            </div>
+
+            <div
+              onClick={() => onNavigate('/numerology/name-numerology/')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/numerology/name-numerology/')}
+              className="p-4 rounded-2xl bg-purple-50/40 border border-purple-100 hover:border-purple-200 transition-all cursor-pointer group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-purple-600 block mb-1">
+                  Name Numerology Calculator
+                </span>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  Pythagorean &amp; Chaldean name number calculation for couple destiny number compatibility.
+                </p>
+              </div>
+              <span className="text-xs text-purple-600 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                Calculate Name Numbers →
+              </span>
+            </div>
+
+            <div
+              onClick={() => onNavigate('/love-percentage-on-paper/')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/love-percentage-on-paper/')}
+              className="p-4 rounded-2xl bg-amber-50/40 border border-amber-100 hover:border-amber-200 transition-all cursor-pointer group flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-bold text-amber-700 block mb-1">
+                  Love Percentage on Paper
+                </span>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  Classic school notebook pen-and-paper guide with letter cancellation and pairwise addition rules.
+                </p>
+              </div>
+              <span className="text-xs text-amber-700 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                Read Paper Guide →
+              </span>
+            </div>
+          </div>
         </div>
       </section>
     </div>

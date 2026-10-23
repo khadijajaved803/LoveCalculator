@@ -94,6 +94,7 @@ export default function App() {
         return <AstrologyPage onNavigate={handleNavigate} />;
       case '/numerology/':
         return <NumerologyPage onNavigate={handleNavigate} />;
+      case '/numerology/name-numerology/':
       case '/name-numerology/':
         return <NameNumerologyPage onNavigate={handleNavigate} />;
       case '/blog/':
