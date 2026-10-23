@@ -202,6 +202,16 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
       answer:
         'Yes! Numerologists frequently analyze both. The Date of Birth Life Path represents your foundational life mission and temperament, while your Name Number reflects your active personality and conversational expression.',
     },
+    {
+      question: 'Can you use a name number calculator for business and brand names?',
+      answer:
+        'Yes. Many entrepreneurs use a business name numerology calculator or company name numerology chart to evaluate brand resonance, marketing luck, and commercial vibration before officially registering a business.',
+    },
+    {
+      question: 'What is the difference between Soul Urge, Personality, and Expression numbers?',
+      answer:
+        'The Expression (Destiny) number comes from all letters in your name. The Soul Urge (Heart’s Desire) comes exclusively from vowels (A, E, I, O, U), revealing inner spiritual yearnings. The Personality number comes from consonants, representing outward impressions.',
+    },
   ];
 
   const schemaJson = {
@@ -458,16 +468,16 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       {/* System Comparison: Pythagorean vs Chaldean */}
-      <section className="bg-white rounded-3xl border border-purple-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
-        <div className="max-w-3xl mb-8">
+      <section className="bg-white rounded-3xl border border-purple-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12 space-y-10">
+        <div className="max-w-3xl">
           <span className="text-xs font-bold text-purple-600 uppercase tracking-wider block mb-2">
-            Historical Systems
+            Historical Systems &amp; Vibration
           </span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
             Pythagorean vs. Chaldean Name Numerology: Calculating Name Number Values
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Both systems translate names into cosmic numbers. Whether you want to calculate name numerology, find your numerology name value, or check name and numerology meaning, each system offers unique insights into couple dynamics.
+            Both systems translate names into cosmic numbers. Whether you want to calculate name numerology, find your numerology name value, or check name and numerology meaning, each system offers unique insights into couple dynamics, personal destiny, and vibrational energy.
           </p>
         </div>
 
@@ -490,6 +500,212 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
               <li>The number 9 is omitted from letter assignment as sacred and divine.</li>
               <li>Focuses on inner soul desires and subconscious energetic chemistry.</li>
             </ul>
+          </div>
+        </div>
+
+        {/* Master Chart: Number Conversion Reference Table */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Name Numerology Chart: Letters to Numbers Reference Guide
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Use this reference table to understand how each alphabetical letter converts to its numerical value in both the Pythagorean and Chaldean systems when performing manual calculation or checking your name letter number:
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-purple-200 bg-purple-50/60 text-slate-900 font-bold">
+                  <th className="py-2.5 px-3">System</th>
+                  <th className="py-2.5 px-2 text-center">1</th>
+                  <th className="py-2.5 px-2 text-center">2</th>
+                  <th className="py-2.5 px-2 text-center">3</th>
+                  <th className="py-2.5 px-2 text-center">4</th>
+                  <th className="py-2.5 px-2 text-center">5</th>
+                  <th className="py-2.5 px-2 text-center">6</th>
+                  <th className="py-2.5 px-2 text-center">7</th>
+                  <th className="py-2.5 px-2 text-center">8</th>
+                  <th className="py-2.5 px-2 text-center">9</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-purple-100 text-slate-700">
+                <tr>
+                  <td className="py-2.5 px-3 font-semibold text-purple-900 bg-purple-50/30">Pythagorean</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">A, J, S</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">B, K, T</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">C, L, U</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">D, M, V</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">E, N, W</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">F, O, X</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">G, P, Y</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">H, Q, Z</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">I, R</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 px-3 font-semibold text-indigo-900 bg-indigo-50/30">Chaldean</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">A, I, J, Q, Y</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">B, K, R</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">C, G, L, S</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">D, M, T</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">E, H, N, X</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">U, V, W</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">O, Z</td>
+                  <td className="py-2.5 px-2 text-center font-mono font-medium">F, P</td>
+                  <td className="py-2.5 px-2 text-center font-mono text-slate-400 italic font-medium">Sacred (None)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Step-by-Step: How to Calculate Name Number */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              How to Calculate Name Numerology: Step-by-Step Guide
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              Wondering how to find numerology number for your name or calculating name number by hand? Follow these four straightforward steps:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+              <span className="w-6 h-6 rounded-full bg-purple-600 text-white font-bold text-[11px] flex items-center justify-center">1</span>
+              <h4 className="font-bold text-slate-900">Write Full Name</h4>
+              <p className="text-slate-600 leading-relaxed">
+                Write down your official birth name or everyday first name in capital letters without punctuation.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+              <span className="w-6 h-6 rounded-full bg-purple-600 text-white font-bold text-[11px] flex items-center justify-center">2</span>
+              <h4 className="font-bold text-slate-900">Assign Numbers</h4>
+              <p className="text-slate-600 leading-relaxed">
+                Match each letter against the Pythagorean (1-9) or Chaldean (1-8) alphabet table.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+              <span className="w-6 h-6 rounded-full bg-purple-600 text-white font-bold text-[11px] flex items-center justify-center">3</span>
+              <h4 className="font-bold text-slate-900">Sum the Values</h4>
+              <p className="text-slate-600 leading-relaxed">
+                Add all individual letter numbers together to obtain a preliminary compound sum.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+              <span className="w-6 h-6 rounded-full bg-purple-600 text-white font-bold text-[11px] flex items-center justify-center">4</span>
+              <h4 className="font-bold text-slate-900">Reduce to Root</h4>
+              <p className="text-slate-600 leading-relaxed">
+                Reduce compound digits until a single root digit (1-9) or Master Number (11, 22, 33) remains.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Deep Meaning of Name Numbers 1 to 9 */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-6">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Name Numbers 1 to 9: Meaning, Personality &amp; Love Energy
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Every name root number carries distinct energetic properties that shape romance, communication, and interpersonal relationships:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 1 · The Pioneer</span>
+              <p className="text-slate-600 leading-relaxed">
+                Independent, bold, and ambitious. Brings strong initiative and leadership into romantic partnerships.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 2 · The Peacemaker</span>
+              <p className="text-slate-600 leading-relaxed">
+                Empathetic, diplomatic, and tender. Prioritizes deep emotional connection, mutual listening, and balance.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 3 · The Expresser</span>
+              <p className="text-slate-600 leading-relaxed">
+                Playful, creative, and conversational. Brings vibrant wit, laughter, and uplifting optimism to couples.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 4 · The Builder</span>
+              <p className="text-slate-600 leading-relaxed">
+                Loyal, dependable, and grounded. Focuses on security, trustworthy actions, and long-term marital foundations.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 5 · The Adventurer</span>
+              <p className="text-slate-600 leading-relaxed">
+                Spontaneous, free-spirited, and passionate. Needs mental stimulation, exciting journeys, and adaptable love.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 6 · The Caregiver</span>
+              <p className="text-slate-600 leading-relaxed">
+                Nurturing, family-oriented, and harmonious. Naturally devoted to home comfort, protection, and unconditional support.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 7 · The Seeker</span>
+              <p className="text-slate-600 leading-relaxed">
+                Introspective, analytical, and spiritual. Values emotional depth, intellectual connection, and private serenity.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 8 · The Achiever</span>
+              <p className="text-slate-600 leading-relaxed">
+                Resilient, authoritative, and goal-driven. Creates material abundance and protective stability for their partner.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100 space-y-1.5">
+              <span className="font-mono font-bold text-purple-700 text-sm">Number 9 · The Humanitarian</span>
+              <p className="text-slate-600 leading-relaxed">
+                Compassionate, generous, and idealistic. Seeks profound universal understanding and selfless devotion.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Business & Brand Name Numerology */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Business Name Number &amp; Company Numerology Calculator
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Beyond romantic couples, numerology is extensively applied in corporate branding. Founders regularly use a business name numerology calculator or company name numerology chart to calculate business name numerology and ensure favorable brand vibration:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+                <h4 className="font-bold text-slate-900">Commercial Magnetism &amp; Numbers</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Numbers like 1 (leadership and innovation), 5 (marketing and commerce), and 8 (financial prosperity and expansion) are frequently chosen for corporate and enterprise names.
+                </p>
+              </div>
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+                <h4 className="font-bold text-slate-900">Name Correction by Numerology</h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Adding or modifying a letter in a personal or brand name (often called name correction or lucky name numerology) aligns the compound value with prosperous harmonic energies.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
