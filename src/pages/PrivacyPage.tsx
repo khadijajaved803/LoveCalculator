@@ -11,7 +11,7 @@ export const PrivacyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700 leading-relaxed text-sm">
       <SEOHead
-        title="Privacy Policy - CalculateLove"
+        title="Privacy Policy - Calculate Love"
         description="Learn how CalculateLove protects user privacy with 100% client-side calculations and zero name storage."
         canonicalPath="/privacy-policy/"
       />

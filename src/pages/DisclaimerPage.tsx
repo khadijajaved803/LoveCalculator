@@ -11,7 +11,7 @@ export const DisclaimerPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700 leading-relaxed text-sm">
       <SEOHead
-        title="Disclaimer - Entertainment & Relationship Notice | CalculateLove"
+        title="Disclaimer - Entertainment & Relationship Notice | Calculate Love"
         description="CalculateLove calculators and content are provided for entertainment, personal reflection, and fun. Read our full disclaimer."
         canonicalPath="/disclaimer/"
       />

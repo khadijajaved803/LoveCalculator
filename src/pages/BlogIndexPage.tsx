@@ -34,7 +34,7 @@ export const BlogIndexPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Relationship Guides & Compatibility Blog | CalculateLove"
+        title="Relationship Guides & Compatibility Blog | Calculate Love"
         description="Explore in-depth guides on how love calculators work, FLAMES rules, life path numerology, and modern relationship compatibility on CalculateLove."
         canonicalPath="/blog/"
         schemaJson={schemaJson}

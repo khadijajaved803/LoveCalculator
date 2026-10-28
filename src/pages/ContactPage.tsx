@@ -23,7 +23,7 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Contact CalculateLove - Editorial Feedback & Suggestions"
+        title="Contact Calculate Love - Editorial Feedback & Suggestions"
         description="Get in touch with the CalculateLove team for editorial questions, feature suggestions, calculator feedback, or partnership inquiries."
         canonicalPath="/contact/"
       />

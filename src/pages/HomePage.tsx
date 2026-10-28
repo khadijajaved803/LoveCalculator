@@ -60,7 +60,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       title: 'Master Love Calculator',
       sub: 'Naam Se Love Match',
       path: '/love-calculator/',
-      desc: 'Test sound harmony, letter frequency, and romantic vibrations with our core Love Calculator.',
+      desc: 'Test sound harmony, letter frequency, and calculate love vibrations with our core Love Calculator.',
       icon: Heart,
       color: 'text-rose-600 bg-rose-50 border-rose-200',
     },
@@ -148,7 +148,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       a: 'The Love Calculator analyzes symmetrical letter frequency, vowel-to-consonant ratios, and name harmony. By factoring in your couple vibe and age dynamic, this Love Calculator evaluates communication compatibility, emotional warmth, and relationship longevity.',
     },
     {
-      q: 'Kya is Love Calculator par mera data safe aur private hai?',
+      q: 'Kya is Love Calculator par calculate love karte waqt mera data safe aur private hai?',
       a: 'Haan, 100% private! Aapka enter kiya hua koi bhi naam, age ya date of birth hamare server par store nahi hota. Saari calculations seedha aapke device browser mein hoti hain.',
     },
     {
@@ -168,7 +168,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'name': 'CalculateLove',
+    'name': 'Calculate Love',
     'url': 'https://calculatelove.online/',
     'description': 'Free Love Calculator, FLAMES game, and relationship compatibility platform with authentic card sharing for India.',
     'potentialAction': {
@@ -181,8 +181,8 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="w-full overflow-x-hidden">
       <SEOHead
-        title="CalculateLove - Real Love Calculator by Name & Compatibility Test"
-        description="Free online Love Calculator to test true love percentage between two names. Use our accurate Love Calculator for instant compatibility, FLAMES, and couple analysis."
+        title="Calculate Love - Real Love Calculator by Name"
+        description="Free online Love Calculator to calculate love percentage by name. Use our accurate Real Love Calculator for instant compatibility, FLAMES, and couple analysis."
         canonicalPath="/"
         schemaJson={schemaJson}
       />
@@ -194,15 +194,15 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
 
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-4 border border-rose-200/80 shadow-2xs">
           <Sparkles className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-          <span>India&apos;s #1 Free & Private Love Calculator Platform</span>
+          <span>India&apos;s #1 Platform to Calculate Love Online</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-display mb-4 text-balance">
-          Real Love Calculator by Name & Compatibility Test
+          Calculate Love - Real Love Calculator by Name
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 text-balance">
-          Discover your true love percentage with our deterministic Love Calculator, check your name compatibility test, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
+          Looking to calculate love and discover your true love percentage? Use our deterministic Real Love Calculator, check your name compatibility test, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
         </p>
 
         {/* Action Buttons - 3 horizontal buttons on tablet/desktop, stacked on small mobile */}
@@ -263,7 +263,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 Instant Love Calculator: Check True Compatibility
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
-                Enter two names into our free Love Calculator to calculate love percentage & relationship advice
+                Enter two names into our free tool to calculate love percentage &amp; get genuine relationship advice
               </p>
             </div>
 
@@ -451,13 +451,13 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                   type="submit"
                   className="w-full max-w-md py-3.5 px-8 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all shadow-md shadow-rose-600/20 min-h-[48px]"
                 >
-                  <span>Calculate with Love Calculator</span>
+                  <span>Calculate Love with Real Love Calculator</span>
                   <Heart className="w-4 h-4 fill-white animate-pulse" />
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 mt-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Deterministic Love Calculator · Zero data logged · 100% Private</span>
+                  <span>Deterministic tool to calculate love · Zero data logged · 100% Private</span>
                 </div>
               </div>
             </form>
@@ -484,10 +484,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             Choose Your Match Intent
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
-            Popular Relationship & Love Calculator Tools
+            Popular Relationship &amp; Love Calculator Tools
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Each Love Calculator is specifically calibrated for different relationship questions, friendship meters, and compatibility stages.
+            Each tool is specifically calibrated to calculate love, evaluate friendship loyalty, and explore relationship compatibility stages.
           </p>
         </div>
 
@@ -535,18 +535,18 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-3 border border-rose-100">
-                Trending Search: Naam Se Love Calculator Match
+                Trending Search: Calculate Love by Name (Naam Se Match)
               </span>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-                True Love Calculator by Name (Naam Se Love Match Check Karein)
+                Calculate Love by Name: True Love Calculator (Naam Se Love Match)
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                Kya aap janna chahte hain ki aapke aur aapke partner ke naam mein kitni compatibility hai? CalculateLove offers a deterministic Love Calculator based on phonetic vibration analysis that evaluates letter frequency, vowel structure, and sound rhythm between two names.
+                Kya aap janna chahte hain ki aapke aur aapke partner ke naam mein kitni compatibility hai? When you calculate love with our deterministic Love Calculator based on phonetic vibration analysis, our tool evaluates letter frequency, vowel structure, and sound rhythm between two names.
               </p>
               <ul className="space-y-2 text-xs sm:text-sm text-slate-700 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Symmetrical Harmony:</strong> Person A + Person B ka Love Calculator result hamesha identical hota hai chahe kisi ka bhi naam pehle daalein.</span>
+                  <span><strong>Symmetrical Harmony:</strong> Jab aap calculate love karte hain, Person A + Person B ka result hamesha identical hota hai chahe kisi ka bhi naam pehle daalein.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -562,7 +562,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 onClick={() => onNavigate('/love-calculator-by-name/')}
                 className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
               >
-                <span>Check Name Match with Love Calculator</span>
+                <span>Calculate Love by Name Now</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -632,7 +632,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Har successful calculation ke baad, hamara <strong>Love Calculator</strong> aapko ek authentic, high-resolution <strong>Love Compatibility Certificate Card</strong> generate karke deta hai. Isme aap dono ke naam, overall compatibility percentage, dimensional ratings (Communication, Care, Passion, Longevity), aur cosmic seal stamp shaamil hota hai.
+                Jab aap is tool se calculate love karte hain, hamara <strong>Love Calculator</strong> aapko ek authentic, high-resolution <strong>Love Compatibility Certificate Card</strong> generate karke deta hai. Isme aap dono ke naam, overall compatibility percentage, dimensional ratings (Communication, Care, Passion, Longevity), aur cosmic seal stamp shaamil hota hai.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
@@ -705,23 +705,23 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Real vs Infatuation
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-display mb-4 text-balance">
-              Real Love Calculator vs Fake Clickbait Meters (Asli Pyaar Test)
+              Calculate Love with Real Love Calculator vs Fake Clickbait Meters
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-              Bohot si websites par har baar page refresh karne par alag percentage dikhata hai ya user ka data track karti hain. CalculateLove provides an authentic Love Calculator that eliminates random number generators with deterministic algorithms that guarantee the same result every single time.
+              Bohot si websites par har baar page refresh karne par alag percentage dikhata hai ya user ka data track karti hain. Agar aap accurate aur safe tareeqe se calculate love karna chahte hain, Calculate Love eliminates random number generators with deterministic algorithms that guarantee the same result every single time.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                 <ShieldCheck className="w-5 h-5 text-emerald-400 mb-2" />
                 <h3 className="font-bold text-xs text-white mb-1">Zero Logging</h3>
-                <p className="text-[11px] text-slate-400">Browser-executed calculations ensure your names and crush details never touch an external server.</p>
+                <p className="text-[11px] text-slate-400">Browser-executed calculations ensure your details never touch an external server when you calculate love.</p>
               </div>
 
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                 <Sparkles className="w-5 h-5 text-amber-400 mb-2" />
                 <h3 className="font-bold text-xs text-white mb-1">Deterministic Formula</h3>
-                <p className="text-[11px] text-slate-400">Standard character hashing guarantees that your Love Calculator score does not fluctuate randomly.</p>
+                <p className="text-[11px] text-slate-400">Standard character hashing guarantees your score stays consistent whenever you calculate love.</p>
               </div>
 
               <div className="p-4 rounded-xl bg-white/5 border border-white/10">
@@ -743,10 +743,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 Nostalgic School Game
               </span>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-                Play Authentic FLAMES Game Online: Classic Love Calculator Nostalgia
+                Calculate Love with Authentic FLAMES Game Online: Classic Love Calculator
               </h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-4">
-                School aur college ke dino ki sabse popular Love Calculator game—FLAMES! Ab notebook par kaatne ki zaroorat nahi hai. Hamara automated tool 1-on-1 letters cancel karke cyclic countdown ke saath authentic outcome batata hai:
+                School aur college ke dino mein relationship test karne aur calculate love karne ka sabse famous tareeqa—FLAMES! Ab notebook par kaatne ki zaroorat nahi hai. Hamara automated tool 1-on-1 letters cancel karke cyclic countdown ke saath authentic outcome batata hai:
               </p>
               <div className="grid grid-cols-2 gap-2 text-xs font-semibold mb-6">
                 <div className="p-2.5 rounded-xl bg-white border border-amber-200">F = Friends (Dosti)</div>
@@ -790,13 +790,13 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Tradition & Modern Science
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-              Kundli Milan vs. Love Calculator Name Compatibility (Naam Milan Aur Guna)
+              Calculate Love: Kundli Milan vs. Love Calculator Name Compatibility
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
               Traditional Indian astrology mein Kundli Milan ke Ashta Kuta (36 Gunas)—jaise Varna, Vashya, Tara, Yoni, Graha Maitri, Gana, Bhakoot, aur Nadi—ka evaluation hota hai.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-              Hamara Love Calculator numerology aur conversational name harmonics par based ek accessible, fun compatibility check provide karta hai. Yeh kisi bhi traditional Kundli astrologer ya matrimonial pandit ka replacement nahi hai, balki couples ke liye ek safe, uplifting aur playful reflection tool hai.
+              Hamara tool numerology aur conversational name harmonics par based ek accessible, fun compatibility check provide karta hai jisse aap aasaani se apna score dekh aur calculate love kar sakte hain. Yeh kisi traditional astrologer ka replacement nahi hai, balki couples ke liye ek safe aur playful reflection tool hai.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -836,13 +836,13 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
         <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white via-rose-50/20 to-white border border-rose-200/80 shadow-md">
           <div className="max-w-3xl">
             <span className="text-[11px] font-bold text-rose-600 uppercase tracking-wider block mb-2">
-              Why CalculateLove
+              Why Calculate Love
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
-              A Better, Faster, and Private Love Calculator Experience
+              Calculate Love with a Better, Faster, and Private Love Calculator
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-              CalculateLove replaces slow, ad-choked calculator websites with a clean, mobile-first Love Calculator experience. Whether calculating a lighthearted crush score or exploring marriage alignment, our platform provides stable, symmetric calculations with friendly relationship reflections.
+              Calculate Love replaces slow, ad-choked calculator websites with a clean, mobile-first experience. Whether you want to calculate love for a lighthearted crush score or explore long-term marriage alignment, our platform provides stable, symmetric calculations with friendly relationship reflections.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -986,10 +986,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Popular Compatibility Guides &amp; Methods
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-3">
-              Explore Specialized Love Compatibility Tests &amp; Paper Games
+              Specialized Tools to Calculate Love, Crush Chemistry &amp; Paper Games
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              From secret crush meters and phonetic name compatibility tests to ancient Pythagorean name numerology and nostalgic school notebook love tests on paper, CalculateLove provides dedicated tools for every relationship stage.
+              From secret crush meters and phonetic name compatibility tests to ancient Pythagorean name numerology and nostalgic school notebook love tests on paper, Calculate Love provides dedicated tools to calculate love for every relationship stage.
             </p>
           </div>
 

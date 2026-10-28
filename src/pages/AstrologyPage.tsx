@@ -51,7 +51,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Astrology Love Calculator & Zodiac Compatibility Hub | CalculateLove"
+        title="Astrology Love Calculator & Zodiac Compatibility Hub | Calculate Love"
         description="Explore astrology love compatibility, zodiac elements, and Rashi relationship dynamics with CalculateLove. Grounded, authentic, and educational insights."
         canonicalPath="/astrology/"
         schemaJson={schemaJson}

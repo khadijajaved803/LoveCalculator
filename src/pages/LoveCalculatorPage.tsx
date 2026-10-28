@@ -107,9 +107,9 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'True Love Calculator by Name & Love Percentage Compatibility Test',
+    'name': 'Calculate Love - True Love Calculator by Name & Love Percentage Compatibility Test',
     'url': 'https://calculatelove.online/love-calculator/',
-    'description': 'Master love calculator by name, true love percentage meter, and relationship compatibility test. 100% free, private, and deterministic.',
+    'description': 'Master love calculator to calculate love percentage by name. 100% free, private, and deterministic Real Love Calculator.',
     'applicationCategory': 'EntertainmentApplication',
     'operatingSystem': 'All',
   };
@@ -117,8 +117,8 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Calculator - True Love Percentage by Name & Compatibility Test"
-        description="Calculate true love percentage between two names with CalculateLove. Test name compatibility, couple vibes, communication harmony, and download shareable love cards."
+        title="Calculate Love - True Love Calculator by Name & Compatibility Test"
+        description="Calculate love percentage between two names with Calculate Love. Test name compatibility, couple vibes, communication harmony, and download shareable love cards."
         canonicalPath="/love-calculator/"
         schemaJson={schemaJson}
       />
@@ -135,13 +135,13 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-3 border border-rose-200/80">
           <Sparkles className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-          <span>All-In-One Master Love Compatibility Platform</span>
+          <span>All-In-One Platform to Calculate Love Online</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          True Love Calculator by Name & Love Percentage Test
+          Calculate Love: True Love Calculator by Name &amp; Percentage Test
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Test real love percentage, character sound harmony, and 4-pillar relationship compatibility between two names. Fast, deterministic, and 100% private.
+          Calculate love percentage, character sound harmony, and 4-pillar relationship compatibility between two names. Fast, deterministic, and 100% private.
         </p>
       </div>
 
@@ -173,10 +173,10 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2.5 mb-3.5">
                   <div>
                     <h2 className="text-base font-extrabold text-slate-900 font-display">
-                      Enter Couple Details
+                      Enter Couple Details to Calculate Love
                     </h2>
                     <p className="text-xs text-slate-500">
-                      Phonetic vibration matching based on letters & vowels
+                      Calculate love percentage with phonetic vibration matching based on letters &amp; vowels
                     </p>
                   </div>
                   <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] font-semibold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
@@ -364,13 +364,13 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                   type="submit"
                   className="w-full max-w-md py-3.5 px-8 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all shadow-md shadow-rose-600/20 min-h-[48px]"
                 >
-                  <span>Calculate Love Compatibility</span>
+                  <span>Calculate Love with Real Love Calculator</span>
                   <Heart className="w-4 h-4 fill-white animate-pulse" />
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 mt-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Deterministic formula · 100% private in your browser</span>
+                  <span>Deterministic formula to calculate love · 100% private in your browser</span>
                 </div>
               </div>
             </form>
@@ -388,23 +388,23 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
               Naam Se Love Match
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-4">
-              How Name-Based Love Compatibility Works (Naam Se Pyar Check Karein)
+              Calculate Love by Name: How Name-Based Compatibility Works
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Name compatibility testing traces back through Pythagorean numerology, phonetic acoustics, and sound vibration theory. When two names are pronounced together, their rhythmic synergy forms an audible and emotional cadence.
+              When you calculate love with our love calculator, testing traces back through Pythagorean numerology, phonetic acoustics, and sound vibration theory. When two names are pronounced together, their rhythmic synergy forms an audible and emotional cadence.
             </p>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 mb-6">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Consonant & Vowel Ratios:</strong> Names sharing harmonic vowel placements naturally produce comfortable verbal rhythm and conversational ease.</span>
+                <span><strong>Consonant & Vowel Ratios:</strong> Names sharing harmonic vowel placements naturally produce comfortable verbal rhythm when you calculate love.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Symmetric Invariance:</strong> Entering Person A + Person B produces the identical mathematical result as Person B + Person A.</span>
+                <span><strong>Symmetric Invariance:</strong> Entering Person A + Person B produces the identical mathematical result as Person B + Person A whenever you calculate love.</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span><strong>Age & Stage Balancing:</strong> Life stage preferences influence communication styles and long-term partnership goals.</span>
+                <span><strong>Age & Stage Balancing:</strong> Life stage preferences help calculate love with realistic communication styles and long-term partnership goals.</span>
               </li>
             </ul>
           </div>
@@ -470,11 +470,11 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display tracking-tight text-balance">
-              Generate & Download Your Love Compatibility Certificate Card
+              Calculate Love &amp; Download Your Official Compatibility Certificate
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              When you calculate your compatibility on CalculateLove, you get more than a basic score. You unlock a beautifully rendered <strong>Love Compatibility Certificate</strong> containing your names in romantic calligraphy, mutual love percentage, cosmic relationship verdict, and 4-pillar balance ratings.
+              When you calculate love on Calculate Love, you get more than a basic score. You unlock a beautifully rendered <strong>Love Compatibility Certificate</strong> containing your names in romantic calligraphy, mutual love percentage, cosmic relationship verdict, and 4-pillar balance ratings.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
@@ -520,7 +520,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 className="px-6 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-md shadow-rose-600/20 min-h-[44px]"
               >
                 <Heart className="w-4 h-4 fill-white" />
-                <span>Calculate Compatibility & Download Certificate</span>
+                <span>Calculate Love &amp; Download Certificate</span>
               </button>
             </div>
           </div>
@@ -534,10 +534,10 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             Multi-Dimensional Analysis
           </span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
-            What Does Your Love Percentage Score Actually Measure?
+            Calculate Love: What Does Your Love Percentage Score Actually Measure?
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Rather than generating a flat, mysterious number, CalculateLove breaks down your relationship compatibility across four psychological pillars:
+            Rather than generating a flat, mysterious number, Calculate Love breaks down your relationship compatibility across four psychological pillars whenever you calculate love:
           </p>
         </div>
 
@@ -591,10 +591,10 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             Psychological Insight: Asli Pyaar Test
           </span>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display mb-4 text-balance">
-            Real Love vs Temporary Crush: How to Know It’s Genuine
+            Calculate Love: Real Love vs Temporary Crush (How to Know It’s Genuine)
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-            A common question when testing a love meter is: <em>&quot;Is this genuine love or just intense infatuation?&quot;</em> Understanding the distinction helps couples build lasting relationships rather than chasing temporary dopamine highs.
+            A common question when couples calculate love is: <em>&quot;Is this genuine love or just intense infatuation?&quot;</em> Understanding the distinction helps couples build lasting relationships rather than chasing temporary dopamine highs.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

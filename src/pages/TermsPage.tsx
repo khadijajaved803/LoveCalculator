@@ -10,7 +10,7 @@ export const TermsPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700 leading-relaxed text-sm">
       <SEOHead
-        title="Terms of Service - CalculateLove"
+        title="Terms of Service - Calculate Love"
         description="Review the terms and conditions governing the use of the CalculateLove relationship calculators and educational content."
         canonicalPath="/terms/"
       />
