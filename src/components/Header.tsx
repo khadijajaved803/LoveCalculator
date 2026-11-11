@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Menu, X, ChevronDown, Star, Heart, Flame, Calculator, Users, Sparkles, BookHeart, Calendar, Hash, ChevronRight, Compass } from 'lucide-react';
+import { Menu, X, ChevronDown, Star, Heart, Flame, Calculator, Users, Sparkles, BookHeart, Calendar, Hash, ChevronRight, Compass, Moon } from 'lucide-react';
 import { CalculateLoveLogo } from './CalculateLoveLogo';
 
 interface HeaderProps {
@@ -39,6 +39,7 @@ const astrologyDropdown: NavDropdown = {
   items: [
     { label: 'Rashifal Today', path: '/rashifal-today/', icon: <Calendar className="w-4 h-4 text-orange-500" />, description: 'Daily horoscope' },
     { label: 'Birth Chart Calculator', path: '/birth-chart-calculator/', icon: <Compass className="w-4 h-4 text-indigo-500" />, description: 'Natal & divisional charts' },
+    { label: 'Love Horoscope', path: '/love-horoscope/', icon: <Moon className="w-4 h-4 text-rose-500" />, description: 'Daily love horoscope by sign' },
     { label: 'Thirumana Porutham', path: '/porutham/', icon: <Sparkles className="w-4 h-4 text-amber-500" />, description: '10 Porutham match' },
     { label: 'Astrology', path: '/astrology/', icon: <Star className="w-4 h-4 text-violet-500" />, description: 'Astrology hub' },
   ],

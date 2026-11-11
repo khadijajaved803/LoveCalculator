@@ -5,7 +5,7 @@
  */
 
 export interface CardRenderOptions {
-  type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage' | 'crush' | 'name-compatibility' | 'numerology' | 'kundali' | 'love-language' | 'porutham' | 'birth-chart';
+  type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage' | 'crush' | 'name-compatibility' | 'numerology' | 'kundali' | 'love-language' | 'porutham' | 'birth-chart' | 'life-path' | 'love-horoscope';
   names: { person1: string; person2: string };
   score?: number;
   maxScore?: number;
@@ -46,11 +46,16 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     bgGrad.addColorStop(0.3, '#ffffff');
     bgGrad.addColorStop(0.7, '#fff1f2');
     bgGrad.addColorStop(1, '#fce7f3');
-  } else if (options.type === 'numerology') {
+  } else if (options.type === 'numerology' || options.type === 'life-path') {
     bgGrad.addColorStop(0, '#faf5ff');
     bgGrad.addColorStop(0.3, '#ffffff');
     bgGrad.addColorStop(0.7, '#f3e8ff');
     bgGrad.addColorStop(1, '#ede9fe');
+  } else if (options.type === 'love-horoscope') {
+    bgGrad.addColorStop(0, '#fff1f2');
+    bgGrad.addColorStop(0.3, '#ffffff');
+    bgGrad.addColorStop(0.7, '#fdf2f8');
+    bgGrad.addColorStop(1, '#e0e7ff');
   } else if (options.type === 'kundali' || options.type === 'porutham') {
     bgGrad.addColorStop(0, '#fff7ed');
     bgGrad.addColorStop(0.3, '#ffffff');
@@ -72,7 +77,7 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
 
   // 2. Decorative Outer Border & Card Frame
   ctx.save();
-  ctx.strokeStyle = options.type === 'flames' ? '#f97316' : options.type === 'porutham' ? '#ea580c' : '#e11d48';
+  ctx.strokeStyle = options.type === 'flames' ? '#f97316' : options.type === 'porutham' ? '#ea580c' : options.type === 'life-path' ? '#9333ea' : options.type === 'love-horoscope' ? '#e11d48' : '#e11d48';
   ctx.lineWidth = 14;
   ctx.strokeRect(30, 30, width - 60, height - 60);
 
@@ -87,15 +92,15 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
 
   // Decorative top banner bar
   const bannerGrad = ctx.createLinearGradient(60, 60, width - 60, 60);
-  bannerGrad.addColorStop(0, options.type === 'porutham' ? '#ea580c' : '#e11d48');
-  bannerGrad.addColorStop(0.5, '#f43f5e');
-  bannerGrad.addColorStop(1, '#f59e0b');
+  bannerGrad.addColorStop(0, options.type === 'porutham' ? '#ea580c' : options.type === 'life-path' ? '#7c3aed' : options.type === 'love-horoscope' ? '#e11d48' : '#e11d48');
+  bannerGrad.addColorStop(0.5, options.type === 'life-path' ? '#9333ea' : '#f43f5e');
+  bannerGrad.addColorStop(1, options.type === 'life-path' ? '#c084fc' : '#f59e0b');
   ctx.fillStyle = bannerGrad;
   roundRectTop(ctx, 60, 60, width - 120, 24, 48);
   ctx.fill();
 
   // 3. Header: Brand & Certificate Badge
-  ctx.fillStyle = options.type === 'porutham' ? '#c2410c' : '#e11d48';
+  ctx.fillStyle = options.type === 'porutham' ? '#c2410c' : options.type === 'life-path' ? '#7c3aed' : '#e11d48';
   ctx.font = 'bold 36px "Outfit", system-ui, sans-serif';
   ctx.textAlign = 'left';
   ctx.fillText('♥ calculatelove.online', 100, 140);
@@ -109,6 +114,10 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ? 'THIRUMANA PORUTHAM REPORT'
     : options.type === 'birth-chart'
     ? 'OFFICIAL NATAL BIRTH CHART'
+    : options.type === 'life-path'
+    ? 'LIFE PATH NUMBER REPORT'
+    : options.type === 'love-horoscope'
+    ? 'DAILY LOVE HOROSCOPE'
     : 'OFFICIAL LOVE CERTIFICATE';
   ctx.fillText(badgeTitle, width - 100, 140);
 
@@ -191,6 +200,52 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ctx.fillStyle = '#e11d48';
     ctx.font = 'bold 22px system-ui, sans-serif';
     ctx.fillText('PRIMARY SCORE', centerX, centerY + 65);
+  } else if (options.type === 'love-horoscope' && options.letter) {
+    const boxX = width / 2 - 120;
+    const boxY = 340;
+    const boxSize = 240;
+
+    ctx.save();
+    ctx.fillStyle = '#fff1f2';
+    ctx.strokeStyle = '#e11d48';
+    ctx.lineWidth = 8;
+    ctx.shadowColor = 'rgba(225, 29, 72, 0.25)';
+    ctx.shadowBlur = 30;
+    roundRect(ctx, boxX, boxY, boxSize, boxSize, 40);
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.fillStyle = '#e11d48';
+    ctx.font = 'bold 120px "Outfit", system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(options.letter, width / 2, boxY + 160);
+
+    ctx.fillStyle = '#0f172a';
+    ctx.font = 'bold 44px "Outfit", system-ui, sans-serif';
+    ctx.fillText(options.word || 'Love Horoscope', width / 2, boxY + boxSize + 60);
+  } else if (options.type === 'life-path') {
+    const centerX = width / 2;
+    const centerY = 450;
+    const radius = 130;
+    const scoreVal = options.score !== undefined ? options.score : 1;
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.fillStyle = '#faf5ff';
+    ctx.fill();
+    ctx.strokeStyle = '#9333ea';
+    ctx.lineWidth = 22;
+    ctx.stroke();
+
+    ctx.fillStyle = '#7c3aed';
+    ctx.font = 'bold 84px "Outfit", system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`${scoreVal}`, centerX, centerY + 20);
+
+    ctx.fillStyle = '#7c3aed';
+    ctx.font = 'bold 22px system-ui, sans-serif';
+    ctx.fillText('LIFE PATH NUMBER', centerX, centerY + 65);
   } else {
     // Score Circular Gauge (Kundali, Porutham, Love, Friendship, etc.)
     const centerX = width / 2;
@@ -265,6 +320,10 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ? '✨ Vedic Kundali Milan · Astrological Advice'
     : options.type === 'love-language'
     ? '💡 Your Weekly Action · How To Be Loved'
+    : options.type === 'life-path'
+    ? '✨ Life Path Insight · Numerology Reading'
+    : options.type === 'love-horoscope'
+    ? '✨ Today’s Love Horoscope · What the Day Favours'
     : '✨ Dil Ki Baat · Relationship Advice';
   ctx.fillText(boxTitle, boxLeft + 40, boxTop + 60);
 

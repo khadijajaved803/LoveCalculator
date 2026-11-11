@@ -8,6 +8,8 @@ import {
   LifePathResult,
 } from '../lib/lifePathEngine';
 import { CalculationLoader } from './CalculationLoader';
+import { ShareModal } from './ShareModal';
+import { generateCardImageBlob } from '../lib/cardImageGenerator';
 import {
   Hash,
   Calendar,
@@ -18,6 +20,8 @@ import {
   Moon,
   Compass,
   Heart,
+  Download,
+  Share2,
 } from 'lucide-react';
 
 export const LifePathTool: React.FC = () => {
@@ -25,6 +29,11 @@ export const LifePathTool: React.FC = () => {
   const [isCalculating, setIsCalculating] = useState(false);
   const [result, setResult] = useState<LifePathResult | null>(null);
   const [error, setError] = useState('');
+  const [downloading, setDownloading] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [shareOpen, setShareOpen] = useState(false);
+
+  const lifePathMeaning = result ? getLifePathMeaning(result.lifePathNumber) : null;
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +61,40 @@ export const LifePathTool: React.FC = () => {
     setError('');
   };
 
-  const lifePathMeaning = result ? getLifePathMeaning(result.lifePathNumber) : null;
+  const handleDownload = async () => {
+    if (!result || !lifePathMeaning) return;
+    try {
+      setDownloading(true);
+      const blob = await generateCardImageBlob({
+        type: 'life-path',
+        names: { person1: `Life Path ${result.lifePathNumber}`, person2: '' },
+        score: result.lifePathNumber,
+        tagline: `Life Path ${result.lifePathNumber} — ${lifePathMeaning.title} · Mulank ${result.mulank}`,
+        suggestion: lifePathMeaning.description,
+        tip: `Mulank ${result.mulank} · Destiny Number ${result.destinyNumber} (Bhagyank) — your life path and destiny numbers are the same.`,
+        details: result.steps.join(' · '),
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Life-Path-Report-${result.lifePathNumber}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      setNotice('Shareable life path card downloaded!');
+      setTimeout(() => setNotice(null), 3000);
+    } catch {
+      setNotice('Could not generate image. Please try again.');
+      setTimeout(() => setNotice(null), 4000);
+    } finally {
+      setDownloading(false);
+    }
+  };
+
+  const shareText = result && lifePathMeaning
+    ? `My Life Path Number is ${result.lifePathNumber} (${lifePathMeaning.title}) · Mulank ${result.mulank} · Destiny Number ${result.destinyNumber} (Bhagyank).`
+    : '';
 
   return (
     <div className="w-full">
@@ -71,6 +113,11 @@ export const LifePathTool: React.FC = () => {
       {/* ─── Result View ─── */}
       {!isCalculating && result && lifePathMeaning && (
         <div className="bg-white rounded-3xl shadow-xl border border-purple-100 overflow-hidden">
+          {notice && (
+            <div className="bg-slate-900 text-white text-xs font-semibold py-2 px-4 text-center">
+              {notice}
+            </div>
+          )}
           {/* Result Header */}
           <div className="bg-gradient-to-r from-purple-600 via-indigo-600 to-amber-500 p-6 sm:p-8 text-white text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
@@ -193,14 +240,33 @@ export const LifePathTool: React.FC = () => {
               Your choices still decide your life.
             </p>
 
-            <button
-              type="button"
-              onClick={handleRetake}
-              className="mt-4 mx-auto flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:border-purple-300 hover:text-purple-700 transition-all"
-            >
-              <RotateCcw className="w-4 h-4" />
-              Calculate Again
-            </button>
+            <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={handleDownload}
+                disabled={downloading}
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 active:scale-95 transition-all shadow-xs min-h-[44px]"
+              >
+                <Download className="w-4 h-4" />
+                <span>{downloading ? 'Generating...' : 'Download Card'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setShareOpen(true)}
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold text-purple-700 bg-purple-50 border border-purple-200 hover:bg-purple-100 active:scale-95 transition-all min-h-[44px]"
+              >
+                <Share2 className="w-4 h-4" />
+                <span>Share</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleRetake}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:border-purple-300 hover:text-purple-700 transition-all min-h-[44px]"
+              >
+                <RotateCcw className="w-4 h-4" />
+                Calculate Again
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -289,6 +355,15 @@ export const LifePathTool: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* ─── Share Modal ─── */}
+      <ShareModal
+        isOpen={shareOpen}
+        onClose={() => setShareOpen(false)}
+        title="My Life Path Number Report"
+        shareText={shareText}
+        url="https://calculatelove.online/life-path-calculator/"
+      />
     </div>
   );
 };
