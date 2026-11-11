@@ -15,6 +15,18 @@ import { LovePercentageOnPaperPage } from './pages/LovePercentageOnPaperPage';
 import { CrushCalculatorPage } from './pages/CrushCalculatorPage';
 import { NameCompatibilityPage } from './pages/NameCompatibilityPage';
 import { NameNumerologyPage } from './pages/NameNumerologyPage';
+import { KundaliMatchingPage } from './pages/KundaliMatchingPage';
+import { KundaliPage } from './pages/KundaliPage';
+import { ZodiacSignsPage } from './pages/ZodiacSignsPage';
+import { RashifalTodayPage } from './pages/RashifalTodayPage';
+import { LoveLanguagePage } from './pages/LoveLanguagePage';
+import { NumerologyCalculatorPage } from './pages/NumerologyCalculatorPage';
+import { PoruthamPage } from './pages/PoruthamPage';
+import { BirthChartPage } from './pages/BirthChartPage';
+import { LifePathPage } from './pages/LifePathPage';
+import { LoveHoroscopePage } from './pages/LoveHoroscopePage';
+import { WhenWillIGetMarriedPage } from './pages/WhenWillIGetMarriedPage';
+import { LoveCompatibilityZodiacPage } from './pages/LoveCompatibilityZodiacPage';
 import { BlogIndexPage } from './pages/BlogIndexPage';
 import { BlogPostPage } from './pages/BlogPostPage';
 import { AboutPage } from './pages/AboutPage';
@@ -90,13 +102,44 @@ export default function App() {
       case '/love-or-arranged-marriage-calculator/':
       case '/marriage-prediction/':
         return <MarriageCalculatorPage onNavigate={handleNavigate} />;
+      case '/kundali/':
+        return <KundaliPage onNavigate={handleNavigate} />;
+      case '/kundali-matching/':
+        return <KundaliMatchingPage onNavigate={handleNavigate} />;
+      case '/love-language-test/':
+      case '/love-languages-test/':
+      case '/love-language-quiz/':
+        return <LoveLanguagePage onNavigate={handleNavigate} />;
       case '/astrology/':
         return <AstrologyPage onNavigate={handleNavigate} />;
+      case '/birth-chart-calculator/':
+      case '/astrology/birth-chart-calculator/':
+      case '/natal-chart-calculator/':
+        return <BirthChartPage onNavigate={handleNavigate} />;
+      case '/porutham/':
+      case '/thirumana-porutham/':
+      case '/jathagam-porutham/':
+        return <PoruthamPage onNavigate={handleNavigate} />;
+      case '/zodiac-signs/':
+        return <ZodiacSignsPage onNavigate={handleNavigate} />;
+      case '/rashifal-today/':
+        return <RashifalTodayPage onNavigate={handleNavigate} />;
       case '/numerology/':
         return <NumerologyPage onNavigate={handleNavigate} />;
+      case '/numerology-calculator/':
+      case '/numerology/numerology-calculator/':
+        return <NumerologyCalculatorPage onNavigate={handleNavigate} />;
       case '/numerology/name-numerology/':
       case '/name-numerology/':
         return <NameNumerologyPage onNavigate={handleNavigate} />;
+      case '/life-path-calculator/':
+        return <LifePathPage onNavigate={handleNavigate} />;
+      case '/love-horoscope/':
+        return <LoveHoroscopePage onNavigate={handleNavigate} />;
+      case '/when-will-i-get-married/':
+        return <WhenWillIGetMarriedPage onNavigate={handleNavigate} />;
+      case '/love-compatibility-by-zodiac-sign/':
+        return <LoveCompatibilityZodiacPage onNavigate={handleNavigate} />;
       case '/blog/':
         return <BlogIndexPage onNavigate={handleNavigate} />;
       case '/about/':

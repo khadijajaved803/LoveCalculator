@@ -126,6 +126,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
+                  href="/love-language-test/"
+                  onClick={(e) => handleLinkClick(e, '/love-language-test/')}
+                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-semibold text-rose-600"
+                  title="Love Language Test & 5 Love Languages Quiz"
+                >
+                  Love Language Test
+                </a>
+              </li>
+              <li>
+                <a
                   href="/love-calculator/"
                   onClick={(e) => handleLinkClick(e, '/love-calculator/')}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-medium"
@@ -142,6 +152,36 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   title="Crush Calculator"
                 >
                   Crush Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/kundali/"
+                  onClick={(e) => handleLinkClick(e, '/kundali/')}
+                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-medium"
+                  title="Free Kundali Online & Janam Kundli"
+                >
+                  Kundali (Birth Chart)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/kundali-matching/"
+                  onClick={(e) => handleLinkClick(e, '/kundali-matching/')}
+                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-medium"
+                  title="Kundali Matching & Gun Milan"
+                >
+                  Kundali Matching
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/porutham/"
+                  onClick={(e) => handleLinkClick(e, '/porutham/')}
+                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-semibold text-rose-600"
+                  title="Thirumana Porutham – 10 Porutham Tamil Marriage Matching"
+                >
+                  Thirumana Porutham
                 </a>
               </li>
               <li>
@@ -196,6 +236,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
+                  href="/numerology-calculator/"
+                  onClick={(e) => handleLinkClick(e, '/numerology-calculator/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all font-semibold text-purple-700"
+                  title="Numerology Calculator – Chaldean & Pythagorean"
+                >
+                  Numerology Calculator
+                </a>
+              </li>
+              <li>
+                <a
                   href="/love-calculator-by-date-of-birth/"
                   onClick={(e) => handleLinkClick(e, '/love-calculator-by-date-of-birth/')}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
@@ -212,6 +262,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   title="Name Numerology Calculator"
                 >
                   Name Numerology Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/rashifal-today/"
+                  onClick={(e) => handleLinkClick(e, '/rashifal-today/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all font-medium"
+                  title="Aaj Ka Rashifal & Daily Love Horoscope"
+                >
+                  Rashifal Today (Daily)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/zodiac-signs/"
+                  onClick={(e) => handleLinkClick(e, '/zodiac-signs/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="All 12 Zodiac Signs & Dates"
+                >
+                  All 12 Zodiac Signs &amp; Dates
                 </a>
               </li>
               <li>
