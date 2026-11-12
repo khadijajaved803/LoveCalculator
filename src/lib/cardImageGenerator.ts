@@ -118,6 +118,8 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ? 'LIFE PATH NUMBER REPORT'
     : options.type === 'love-horoscope'
     ? 'DAILY LOVE HOROSCOPE'
+    : options.type === 'marriage' && options.word
+    ? 'MARRIAGE PREDICTION'
     : 'OFFICIAL LOVE CERTIFICATE';
   ctx.fillText(badgeTitle, width - 100, 140);
 
@@ -246,6 +248,29 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ctx.fillStyle = '#7c3aed';
     ctx.font = 'bold 22px system-ui, sans-serif';
     ctx.fillText('LIFE PATH NUMBER', centerX, centerY + 65);
+  } else if (options.type === 'marriage' && options.word) {
+    // Marriage prediction: big age range, never a misleading % gauge.
+    // (MarriageCalculatorPage passes no `word`, so it still uses the % gauge below.)
+    const centerX = width / 2;
+    const centerY = 450;
+    const radius = 130;
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.fillStyle = '#eef2ff';
+    ctx.fill();
+    ctx.strokeStyle = '#4f46e5';
+    ctx.lineWidth = 22;
+    ctx.stroke();
+
+    ctx.fillStyle = '#4338ca';
+    ctx.font = 'bold 76px "Outfit", system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(options.word, centerX, centerY + 20);
+
+    ctx.fillStyle = '#4338ca';
+    ctx.font = 'bold 22px system-ui, sans-serif';
+    ctx.fillText('PREDICTED MARRIAGE AGE', centerX, centerY + 65);
   } else {
     // Score Circular Gauge (Kundali, Porutham, Love, Friendship, etc.)
     const centerX = width / 2;
