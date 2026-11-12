@@ -235,7 +235,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             >
               Rashifal Today
             </a>
-            {' '}page gives that daily reading by sign, and the 
+            {' '}page gives that daily reading by sign, and the {' '}
             <a
               href="/love-horoscope/"
               onClick={(e) => {
@@ -344,7 +344,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             >
               Love Compatibility by Zodiac Sign
             </a>
-            {' '}page gives the percentage and the reasons for any pair, and the 
+            {' '}page gives the percentage and the reasons for any pair, and the {' '}
             <a
               href="/zodiac-signs/"
               onClick={(e) => {
@@ -375,7 +375,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             >
               Love or Arranged Marriage Calculator
             </a>
-            {' '}reads whether a match is likely to be a love marriage or an arranged one. The matching can be done online too: an online astrology matching check compares the two charts on the page, with the score and the reasons shown. The 
+            {' '}reads whether a match is likely to be a love marriage or an arranged one. The matching can be done online too: an online astrology matching check compares the two charts on the page, with the score and the reasons shown. The {' '}
             <a
               href="/name-compatibility/"
               onClick={(e) => {
@@ -452,7 +452,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             >
               Numerology Calculator
             </a>
-            {' '}reads the numbers behind the names and dates, and the 
+            {' '}reads the numbers behind the names and dates, and the {' '}
             <a
               href="/life-path-calculator/"
               onClick={(e) => {
