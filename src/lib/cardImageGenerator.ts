@@ -314,11 +314,25 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ctx.fillText(subLabel, centerX, centerY + 65);
   }
 
-  // 6. Tagline
+  // 6. Tagline — wrapped so a long line never runs outside the card.
+  // The band between the score circle (bottom ~600) and the advice box
+  // (top 750) fits at most 3 lines, so shrink the font until it does.
   ctx.textAlign = 'center';
   ctx.fillStyle = '#881337';
-  ctx.font = 'bold 40px "Outfit", system-ui, sans-serif';
-  ctx.fillText(options.tagline, width / 2, 690);
+  const taglineMaxWidth = width - 200;
+  let taglineFont = 40;
+  ctx.font = `bold ${taglineFont}px "Outfit", system-ui, sans-serif`;
+  let taglineLines = splitWrapLines(ctx, options.tagline, taglineMaxWidth);
+  for (const smaller of [34, 30, 28]) {
+    if (taglineLines.length <= 3) break;
+    taglineFont = smaller;
+    ctx.font = `bold ${taglineFont}px "Outfit", system-ui, sans-serif`;
+    taglineLines = splitWrapLines(ctx, options.tagline, taglineMaxWidth);
+  }
+  const taglineLineHeight = taglineFont + 12;
+  const taglineBlockHeight = taglineLines.length * taglineLineHeight;
+  const taglineFirstBaseline = 605 + (140 - taglineBlockHeight) / 2 + taglineFont * 0.75;
+  wrapText(ctx, options.tagline, width / 2, taglineFirstBaseline, taglineMaxWidth, taglineLineHeight);
 
   // 7. Reflection / Action Box
   const boxTop = 750;
@@ -414,6 +428,30 @@ function roundRectTop(ctx: CanvasRenderingContext2D, x: number, y: number, w: nu
   ctx.closePath();
 }
 
+function splitWrapLines(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  maxWidth: number
+): string[] {
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let line = '';
+
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = ctx.measureText(testLine);
+    const testWidth = metrics.width;
+    if (testWidth > maxWidth && n > 0) {
+      lines.push(line);
+      line = words[n] + ' ';
+    } else {
+      line = testLine;
+    }
+  }
+  lines.push(line);
+  return lines;
+}
+
 function wrapText(
   ctx: CanvasRenderingContext2D,
   text: string,
@@ -422,20 +460,9 @@ function wrapText(
   maxWidth: number,
   lineHeight: number
 ) {
-  const words = text.split(' ');
-  let line = '';
-
-  for (let n = 0; n < words.length; n++) {
-    const testLine = line + words[n] + ' ';
-    const metrics = ctx.measureText(testLine);
-    const testWidth = metrics.width;
-    if (testWidth > maxWidth && n > 0) {
-      ctx.fillText(line, x, y);
-      line = words[n] + ' ';
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
+  const lines = splitWrapLines(ctx, text, maxWidth);
+  for (const line of lines) {
+    ctx.fillText(line, x, y);
+    y += lineHeight;
   }
-  ctx.fillText(line, x, y);
 }
