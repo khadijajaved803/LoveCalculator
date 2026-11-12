@@ -181,7 +181,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             Everything in astrology starts with one date: the day you were born. A horoscope by date of birth is a picture of the sky at that moment — where the Sun, the Moon and the planets stood — and your birth horoscope is simply that picture, read as a chart. Your sun sign comes from the month of your birth, your moon sign from where the Moon stood that day, and your rising sign from the exact time. Together they are the three points every chart is read from.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Add your birth time and the reading gets sharper. The time fixes the ascendant — the sign rising on the eastern horizon when you were born — and the ascendant sets the twelve houses of the chart, so a morning birth and an evening birth on the same day can read differently. On a printed chart the ascendant is usually written as &apos;asc&apos;, short for the same word. A birth time astrology calculator is simply the tool that works the houses out from the time you enter. A horoscope by date of birth and time includes the rising sign and the houses; a horoscope by date of birth alone does not, and is read from the moon sign instead — and the 
+            Add your birth time and the reading gets sharper. The time fixes the ascendant — the sign rising on the eastern horizon when you were born — and the ascendant sets the twelve houses of the chart, so a morning birth and an evening birth on the same day can read differently. On a printed chart the ascendant is usually written as &apos;asc&apos;, short for the same word. A birth time astrology calculator is simply the tool that works the houses out from the time you enter. A horoscope by date of birth and time includes the rising sign and the houses; a horoscope by date of birth alone does not, and is read from the moon sign instead — and the  {' '}
             <a
               href="/birth-chart-calculator/"
               onClick={(e) => {
@@ -195,7 +195,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             {' '}says so plainly when you use it that way.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            If you don&apos;t know your sign, your birthday tells you. Every sign covers a fixed range of dates — Aries from 21 March to 19 April, and so on — so finding your horoscope sign by date of birth is a simple lookup, and the horoscope dates for all twelve signs are listed on the 
+            If you don&apos;t know your sign, your birthday tells you. Every sign covers a fixed range of dates — Aries from 21 March to 19 April, and so on — so finding your horoscope sign by date of birth is a simple lookup, and the horoscope dates for all twelve signs are listed on the  {' '}
             <a
               href="/zodiac-signs/"
               onClick={(e) => {
@@ -224,7 +224,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             Every reading on this page is free astrology: no fee, no sign-up, no account. A free astrology by date of birth reading gives you the three points every chart is read from — your sun sign, your moon sign and, if you give a birth time, your rising sign — plus the chart behind them. It is a free horoscope online in the full sense: the reading, the chart and the written report, all in the browser, all free. Give a birth time as well and you get a free horoscope by date of birth and time — the sharper version, with the rising sign fixed. The reading is also available as a written report: a free astrology report sets out the signs, the chart and the interpretation in one place.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Most people want the reading for today, not in general. A daily prediction by date of birth is the chart read for one day: what the day favours, and what needs care. The 
+            Most people want the reading for today, not in general. A daily prediction by date of birth is the chart read for one day: what the day favours, and what needs care. The  {' '}
             <a
               href="/rashifal-today/"
               onClick={(e) => {
@@ -264,7 +264,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
         </h2>
         <div className="space-y-4">
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            In the Indian tradition, the reading is done from the Vedic chart. Vedic astrology — Jyotish, the science of light — reads the Moon sign first, then the birth star and the planets, where Western astrology starts from the sun sign. A vedic astrology chart is that chart: the same sky, read through the sidereal zodiac, so the signs sit about 23 degrees behind the Western ones. Vedic astrology predictions are readings of the planetary periods — the dashas — and what they are traditionally read to favour. Vedic astrology today is the daily version: today&apos;s chart, read the Vedic way. The 
+            In the Indian tradition, the reading is done from the Vedic chart. Vedic astrology — Jyotish, the science of light — reads the Moon sign first, then the birth star and the planets, where Western astrology starts from the sun sign. A vedic astrology chart is that chart: the same sky, read through the sidereal zodiac, so the signs sit about 23 degrees behind the Western ones. Vedic astrology predictions are readings of the planetary periods — the dashas — and what they are traditionally read to favour. Vedic astrology today is the daily version: today&apos;s chart, read the Vedic way. The  {' '}
             <a
               href="/kundali/"
               onClick={(e) => {
@@ -287,7 +287,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             Jyotish has moved online. Online jyotish is the Vedic reading in the browser — the chart drawn from your date, read on the page — and online jyothisham is the same word written another way: the two spellings are transliterations of the same Sanskrit word. It costs nothing here — online jyotish free is the full reading in the browser, with no fee and no sign-up — and an online jyotish by date of birth reading starts from your date, like every reading on this page. A jyotish chart is the chart itself, and an online jyotish horoscope is the written reading of it. A jyotish app puts the reading on your phone, but the browser tool here needs nothing installed.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Marriage is where Vedic astrology is used most. The full check is guna milan: eight kootas scored out of 36, with dosha checks beside them, and it lives on the 
+            Marriage is where Vedic astrology is used most. The full check is guna milan: eight kootas scored out of 36, with dosha checks beside them, and it lives on the  {' '}
             <a
               href="/kundali-matching/"
               onClick={(e) => {
@@ -301,7 +301,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             {' '}page. Marriage astrology reads that check for one couple — two charts, compared sign by sign, house by house. The check is free here, and it can be read from the dates alone: marriage astrology by date of birth free is the guna-milan check without a birth time, and astrology by date of birth for marriage is the marriage reading read from the two birth dates alone. Free astrology predictions for marriage are the predictions that come out of that check — when the charts look easy, and when they need care. And a vedic astrology dating reading asks the matching question for a new relationship, not a marriage: whether two charts get on, before anything is promised.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Vedic matching is read in several languages. In Tamil it is the ten poruthams, on the 
+            Vedic matching is read in several languages. In Tamil it is the ten poruthams, on the  {' '}
             <a
               href="/porutham/"
               onClick={(e) => {
@@ -333,7 +333,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
         </h2>
         <div className="space-y-4">
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The twelve signs are the starting points, and the question everyone asks is which ones match. An astrology sign compatibility calculator is the tool that does the comparing: two signs in, one match out, with the reasons shown. A compatibility reading compares two signs — their elements, their qualities, and the planets that rule them — and gives a percentage with the reasons beside it. It is a guide, not a verdict: the reading shows where a pairing is easy and where it needs care, and the people do the rest. That is how astrology can guide your love life: not by deciding for two people, but by showing them how they talk, fight and make up. The 
+            The twelve signs are the starting points, and the question everyone asks is which ones match. An astrology sign compatibility calculator is the tool that does the comparing: two signs in, one match out, with the reasons shown. A compatibility reading compares two signs — their elements, their qualities, and the planets that rule them — and gives a percentage with the reasons beside it. It is a guide, not a verdict: the reading shows where a pairing is easy and where it needs care, and the people do the rest. That is how astrology can guide your love life: not by deciding for two people, but by showing them how they talk, fight and make up. The  {' '}
             <a
               href="/love-compatibility-by-zodiac-sign/"
               onClick={(e) => {
@@ -364,7 +364,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             For a couple already together, the check changes. An astrology couple match looks at how two people live together — how they argue, how they make up, how they share a home — not only whether their signs match on paper. A couple compatibility astrology reading is the full version of it: the same two charts, read for a life together rather than a first date. Relationship astrology is the wider subject: how the signs behave together over years, through rows and reconciliations.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Love astrology by date of birth reads the love between two people from their birthdays, and love life astrology follows that love across a whole life, not one date. A matrimonial astrology match is the marriage version of the check, and the 
+            Love astrology by date of birth reads the love between two people from their birthdays, and love life astrology follows that love across a whole life, not one date. A matrimonial astrology match is the marriage version of the check, and the  {' '}
             <a
               href="/love-or-arranged-marriage-calculator/"
               onClick={(e) => {
@@ -407,7 +407,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             Read the word &apos;exact&apos; carefully. Searches for exact astrology predictions are common, and the answer is the same: no honest reading can promise an exact outcome — not an exact date, not an exact result. That is why exact future predictions free by date of birth do not exist as a product: only readings do, and a reading is an indication, not a guarantee. A good reading names its reasons, says what is easy and what needs care, and is useful when it helps you understand a situation, not when it promises an outcome. If you ask a tool to predict my future, that is what you should get: a reading with the working shown, never a single date presented as certain. The same rule covers accuracy: the most accurate life prediction free is still a reading, not a fact, and accurate astrology predictions free are worth trusting only when they show their reasons. And a free longevity calculator astrology search asks about lifespan — no calculator can fix a lifespan, and this site does not try to. The honest reading is about the quality of the years, not their number.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Love and marriage are the predictions people ask for most. A love life prediction by date of birth reads the love in your chart from your date: how you love, what you need from a partner, and which periods look easy for love. The 
+            Love and marriage are the predictions people ask for most. A love life prediction by date of birth reads the love in your chart from your date: how you love, what you need from a partner, and which periods look easy for love. The  {' '}
             <a
               href="/when-will-i-get-married/"
               onClick={(e) => {
@@ -421,7 +421,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             {' '}page reads the timing from your birth date — the age range, the strongest year, and whether the chart leans towards love or arranged marriage. A life partner prediction by date of birth asks about the partner instead of the timing: who they might be, and when you might meet. A marriage year prediction by date of birth asks for one year: which year the chart reads as most likely for marriage.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Marriage life prediction by date of birth is the marriage read across a whole life — the timing, the partner, and the years that look easy — and marriage time astrology is the timing part of that reading: when, not whether. An astrology spouse prediction describes the partner the chart points to: never a name, only indications — warm, steady, older, younger. A marriage calculator astrology check answers the timing question with a calculator, instead of a written reading. The 
+            Marriage life prediction by date of birth is the marriage read across a whole life — the timing, the partner, and the years that look easy — and marriage time astrology is the timing part of that reading: when, not whether. An astrology spouse prediction describes the partner the chart points to: never a name, only indications — warm, steady, older, younger. A marriage calculator astrology check answers the timing question with a calculator, instead of a written reading. The  {' '}
             <a
               href="/love-horoscope/"
               onClick={(e) => {
@@ -441,7 +441,7 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
             Numbers are read from the same birth date, and they add a second layer to the chart. A date of birth numerology with future prediction reading combines the two: the chart for the tendencies, the numbers for the theme. Your life path number is the theme of your life, read from the full date; your mulank is the theme of your day, read from the day alone. A name astrology calculator reads the same numbers from a name instead of a date. Astrology numerology is the meeting point of the two: the chart and the numbers, read together. Number astrology is the study of those numbers — what each one is traditionally read to mean.
           </p>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Each number has its own reading: the number 9 is traditionally read as completion and compassion, and the number 2 as cooperation and patience. The same idea is applied to phone numbers: mobile number astrology reads the digits of a phone number as a chart of its owner. A vedic numerology chart is the Vedic form of it: the numbers of your date laid out in a grid and read as a whole. The 
+            Each number has its own reading: the number 9 is traditionally read as completion and compassion, and the number 2 as cooperation and patience. The same idea is applied to phone numbers: mobile number astrology reads the digits of a phone number as a chart of its owner. A vedic numerology chart is the Vedic form of it: the numbers of your date laid out in a grid and read as a whole. The  {' '}
             <a
               href="/numerology-calculator/"
               onClick={(e) => {
