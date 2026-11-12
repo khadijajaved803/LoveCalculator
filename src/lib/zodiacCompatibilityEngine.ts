@@ -154,7 +154,7 @@ const WHAT_WORKS: Record<ElementPairCategory, string[]> = {
 
 const WHAT_NEEDS_CARE: Record<ElementPairCategory, string[]> = {
   same: [
-    'The same habits can double up — two of the same sign can share a blind spot, so watch for it together.',
+    'The same habits can double up — two signs of the same element can share a blind spot, so watch for it together.',
     'When you disagree, you disagree the same way — which can turn a small row into a standoff. Name it early.',
     'Variety needs a little effort: plan something new now and then, instead of the same comfortable routine.',
   ],
