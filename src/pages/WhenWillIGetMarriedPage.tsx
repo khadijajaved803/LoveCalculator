@@ -137,7 +137,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>What Is a Marriage Prediction?</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">What Is a Marriage Prediction?</h2>
             <p>
               What is a marriage prediction? It is a reading of when and how you are likely to
               marry, taken from your birth chart. A marriage prediction looks at the timing of
@@ -172,7 +172,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>Marriage Prediction by Date of Birth</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">Marriage Prediction by Date of Birth</h2>
             <p>
               A marriage prediction by date of birth starts with the date and works out the chart
               from it. The free marriage prediction by date of birth mode in the tool above needs
@@ -203,7 +203,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>How to Know When Will I Get Married</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">How to Know When Will I Get Married</h2>
             <p>
               How to know when will i get married? Start with the chart, not with a guess. How to
               find out when will i get married in astrology comes down to three things: the 7th
@@ -229,7 +229,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>Marriage Age Prediction: How to Calculate Marriage Age</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">Marriage Age Prediction: How to Calculate Marriage Age</h2>
             <p>
               A marriage age prediction is the part of the reading most people actually want: not
               a date on a calendar, but an age. A marriage age prediction by date of birth free
@@ -273,7 +273,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>When Will I Get Married Astrology: Horoscope, Kundali and Vedic Astrology</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">When Will I Get Married Astrology: Horoscope, Kundali and Vedic Astrology</h2>
             <p>
               When will i get married astrology is the broadest form of the question, and it has
               three dialects on this site. When will i get married astrology free is the free
@@ -363,7 +363,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>Love Marriage Prediction and Love or Arranged Marriage Prediction</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">Love Marriage Prediction and Love or Arranged Marriage Prediction</h2>
             <p>
               The second half of the question is not when, but what kind. A love marriage
               prediction reads whether the chart points to marrying someone you choose yourself.
@@ -428,7 +428,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>When Will I Meet My Life Partner?</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">When Will I Meet My Life Partner?</h2>
             <p>
               The question behind the question is often not the wedding date but the meeting: when
               will i meet my life partner astrology calculator is the tool version of that, and
@@ -487,7 +487,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>Shadi Kab Hogi: Marriage Prediction in Hindi</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">Shadi Kab Hogi: Marriage Prediction in Hindi</h2>
             <p>
               A large part of this group asks the question in Hindi, and it deserves its own
               section. Shadi kab hogi calculator is the Hindi question as a tool: “shadi kab
@@ -506,7 +506,7 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
           </section>
 
           <section>
-            <h2>Free Marriage Prediction: True, Accurate and Complete</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">Free Marriage Prediction: True, Accurate and Complete</h2>
             <p>
               Free marriage prediction is the most-searched phrase in this group after the main
               keyword, and it is worth saying plainly what “free” means here: the tool above is
