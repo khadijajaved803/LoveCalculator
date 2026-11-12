@@ -42,6 +42,7 @@ const astrologyDropdown: NavDropdown = {
     { label: 'Love Horoscope', path: '/love-horoscope/', icon: <Moon className="w-4 h-4 text-rose-500" />, description: 'Daily love horoscope by sign' },
     { label: 'Thirumana Porutham', path: '/porutham/', icon: <Sparkles className="w-4 h-4 text-amber-500" />, description: '10 Porutham match' },
     { label: 'When Will I Get Married', path: '/when-will-i-get-married/', icon: <Heart className="w-4 h-4 text-rose-500" />, description: 'Marriage prediction by date of birth' },
+    { label: 'Love Compatibility by Zodiac Sign', path: '/love-compatibility-by-zodiac-sign/', icon: <Users className="w-4 h-4 text-indigo-500" />, description: 'Love compatibility by zodiac sign' },
     { label: 'Astrology', path: '/astrology/', icon: <Star className="w-4 h-4 text-violet-500" />, description: 'Astrology hub' },
   ],
 };
