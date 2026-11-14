@@ -35,6 +35,17 @@ const BLOG_IMAGES: Record<string, BlogImage> = {
   'life-path-numbers-circle.webp': { src: lifePathNumbersImage, width: 800, height: 1600, figureClass: 'mx-auto w-full max-w-[300px] my-8' },
 };
 
+// Render **bold** markers in blog copy as real bold text. The old posts were
+// written with markdown-style markers but the renderer never parsed them,
+// so they showed as literal asterisks. Unmatched ** is left as-is.
+const renderInline = (text: string) =>
+  text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+
 export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
@@ -177,27 +188,27 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
                 key={idx}
                 className="text-lg font-bold text-slate-900 font-display pt-4 pb-1"
               >
-                {paragraph.replace('### ', '')}
+                {renderInline(paragraph.replace('### ', ''))}
               </h3>
             );
           }
           if (paragraph.startsWith('- ')) {
             return (
               <li key={idx} className="ml-5 list-disc text-slate-700">
-                {paragraph.replace('- ', '')}
+                {renderInline(paragraph.replace('- ', ''))}
               </li>
             );
           }
           if (/^\d+\.\s/.test(paragraph)) {
             return (
               <p key={idx} className="font-medium text-slate-800">
-                {paragraph}
+                {renderInline(paragraph)}
               </p>
             );
           }
           return (
             <p key={idx} className="leading-relaxed">
-              {paragraph}
+              {renderInline(paragraph)}
             </p>
           );
         })}
