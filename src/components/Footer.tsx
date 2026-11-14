@@ -156,32 +156,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="/kundali/"
-                  onClick={(e) => handleLinkClick(e, '/kundali/')}
-                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-medium"
-                  title="Free Kundali Online & Janam Kundli"
-                >
-                  Kundali (Birth Chart)
-                </a>
-              </li>
-              <li>
-                <a
                   href="/kundali-matching/"
                   onClick={(e) => handleLinkClick(e, '/kundali-matching/')}
                   className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-medium"
                   title="Kundali Matching & Gun Milan"
                 >
                   Kundali Matching
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/porutham/"
-                  onClick={(e) => handleLinkClick(e, '/porutham/')}
-                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all font-semibold text-rose-600"
-                  title="Thirumana Porutham – 10 Porutham Tamil Marriage Matching"
-                >
-                  Thirumana Porutham
                 </a>
               </li>
               <li>
@@ -204,26 +184,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   FLAMES Game Online
                 </a>
               </li>
-              <li>
-                <a
-                  href="/friendship-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/friendship-calculator/')}
-                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Friendship & Bestie Meter"
-                >
-                  Friendship &amp; Bestie Meter
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/love-or-arranged-marriage-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/love-or-arranged-marriage-calculator/')}
-                  className="hover:text-rose-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Love vs. Arranged Marriage Calculator"
-                >
-                  Love vs. Arranged Marriage
-                </a>
-              </li>
             </ul>
           </nav>
 
@@ -236,19 +196,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
-                  href="/numerology-calculator/"
-                  onClick={(e) => handleLinkClick(e, '/numerology-calculator/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all font-semibold text-purple-700"
-                  title="Numerology Calculator – Chaldean & Pythagorean"
-                >
-                  Numerology Calculator
-                </a>
-              </li>
-              <li>
-                <a
                   href="/love-calculator-by-date-of-birth/"
                   onClick={(e) => handleLinkClick(e, '/love-calculator-by-date-of-birth/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all font-semibold text-purple-700"
                   title="Date of Birth & Life Path Compatibility"
                 >
                   DOB &amp; Life Path Match
@@ -256,22 +206,42 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="/numerology/name-numerology/"
-                  onClick={(e) => handleLinkClick(e, '/numerology/name-numerology/')}
+                  href="/love-horoscope/"
+                  onClick={(e) => handleLinkClick(e, '/love-horoscope/')}
                   className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Name Numerology Calculator"
+                  title="Daily Love Horoscope for Your Zodiac Sign"
                 >
-                  Name Numerology Calculator
+                  Love Horoscope
                 </a>
               </li>
               <li>
                 <a
-                  href="/rashifal-today/"
-                  onClick={(e) => handleLinkClick(e, '/rashifal-today/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all font-medium"
-                  title="Aaj Ka Rashifal & Daily Love Horoscope"
+                  href="/when-will-i-get-married/"
+                  onClick={(e) => handleLinkClick(e, '/when-will-i-get-married/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="When Will I Get Married? Marriage Age Prediction"
                 >
-                  Rashifal Today (Daily)
+                  When Will I Get Married
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/life-path-calculator/"
+                  onClick={(e) => handleLinkClick(e, '/life-path-calculator/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Life Path Number Calculator"
+                >
+                  Life Path Calculator
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/birth-chart-calculator/"
+                  onClick={(e) => handleLinkClick(e, '/birth-chart-calculator/')}
+                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
+                  title="Free Birth Chart Calculator & Natal Chart Reading"
+                >
+                  Birth Chart Calculator
                 </a>
               </li>
               <li>
@@ -282,36 +252,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   title="All 12 Zodiac Signs & Dates"
                 >
                   All 12 Zodiac Signs &amp; Dates
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/astrology/"
-                  onClick={(e) => handleLinkClick(e, '/astrology/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Zodiac & Astrology Compatibility"
-                >
-                  Zodiac &amp; Astrology Hub
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/numerology/"
-                  onClick={(e) => handleLinkClick(e, '/numerology/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="Numerology & Life Path Calculator"
-                >
-                  Numerology &amp; Life Paths
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/love-percentage-on-paper/"
-                  onClick={(e) => handleLinkClick(e, '/love-percentage-on-paper/')}
-                  className="hover:text-purple-600 hover:translate-x-0.5 inline-block transition-all"
-                  title="How to Calculate Love Percentage on Paper"
-                >
-                  Love Percentage on Paper
                 </a>
               </li>
               <li>
