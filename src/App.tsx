@@ -1,39 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
-// Pages
-import { HomePage } from './pages/HomePage';
-import { LoveCalculatorPage } from './pages/LoveCalculatorPage';
-import { FlamesPage } from './pages/FlamesPage';
-import { FriendshipPage } from './pages/FriendshipPage';
-import { DobCalculatorPage } from './pages/DobCalculatorPage';
-import { MarriageCalculatorPage } from './pages/MarriageCalculatorPage';
-import { AstrologyPage } from './pages/AstrologyPage';
-import { NumerologyPage } from './pages/NumerologyPage';
-import { LovePercentageOnPaperPage } from './pages/LovePercentageOnPaperPage';
-import { CrushCalculatorPage } from './pages/CrushCalculatorPage';
-import { NameCompatibilityPage } from './pages/NameCompatibilityPage';
-import { NameNumerologyPage } from './pages/NameNumerologyPage';
-import { KundaliMatchingPage } from './pages/KundaliMatchingPage';
-import { KundaliPage } from './pages/KundaliPage';
-import { ZodiacSignsPage } from './pages/ZodiacSignsPage';
-import { RashifalTodayPage } from './pages/RashifalTodayPage';
-import { LoveLanguagePage } from './pages/LoveLanguagePage';
-import { NumerologyCalculatorPage } from './pages/NumerologyCalculatorPage';
-import { PoruthamPage } from './pages/PoruthamPage';
-import { BirthChartPage } from './pages/BirthChartPage';
-import { LifePathPage } from './pages/LifePathPage';
-import { LoveHoroscopePage } from './pages/LoveHoroscopePage';
-import { WhenWillIGetMarriedPage } from './pages/WhenWillIGetMarriedPage';
-import { LoveCompatibilityZodiacPage } from './pages/LoveCompatibilityZodiacPage';
-import { BlogIndexPage } from './pages/BlogIndexPage';
-import { BlogPostPage } from './pages/BlogPostPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
-import { PrivacyPage } from './pages/PrivacyPage';
-import { TermsPage } from './pages/TermsPage';
-import { DisclaimerPage } from './pages/DisclaimerPage';
+// Pages — lazy-loaded so each route ships its own chunk instead of one
+// ~1.6 MB bundle. Every page is a named export, so each dynamic import
+// maps it to `default` for React.lazy. The prerender still renders every
+// route fully: the worker imports the bundle in Node, where these dynamic
+// imports resolve to the chunk files on disk.
+const HomePage = lazy(() => import('./pages/HomePage').then((m) => ({ default: m.HomePage })));
+const LoveCalculatorPage = lazy(() => import('./pages/LoveCalculatorPage').then((m) => ({ default: m.LoveCalculatorPage })));
+const FlamesPage = lazy(() => import('./pages/FlamesPage').then((m) => ({ default: m.FlamesPage })));
+const FriendshipPage = lazy(() => import('./pages/FriendshipPage').then((m) => ({ default: m.FriendshipPage })));
+const DobCalculatorPage = lazy(() => import('./pages/DobCalculatorPage').then((m) => ({ default: m.DobCalculatorPage })));
+const MarriageCalculatorPage = lazy(() => import('./pages/MarriageCalculatorPage').then((m) => ({ default: m.MarriageCalculatorPage })));
+const AstrologyPage = lazy(() => import('./pages/AstrologyPage').then((m) => ({ default: m.AstrologyPage })));
+const NumerologyPage = lazy(() => import('./pages/NumerologyPage').then((m) => ({ default: m.NumerologyPage })));
+const LovePercentageOnPaperPage = lazy(() => import('./pages/LovePercentageOnPaperPage').then((m) => ({ default: m.LovePercentageOnPaperPage })));
+const CrushCalculatorPage = lazy(() => import('./pages/CrushCalculatorPage').then((m) => ({ default: m.CrushCalculatorPage })));
+const NameCompatibilityPage = lazy(() => import('./pages/NameCompatibilityPage').then((m) => ({ default: m.NameCompatibilityPage })));
+const NameNumerologyPage = lazy(() => import('./pages/NameNumerologyPage').then((m) => ({ default: m.NameNumerologyPage })));
+const KundaliMatchingPage = lazy(() => import('./pages/KundaliMatchingPage').then((m) => ({ default: m.KundaliMatchingPage })));
+const KundaliPage = lazy(() => import('./pages/KundaliPage').then((m) => ({ default: m.KundaliPage })));
+const ZodiacSignsPage = lazy(() => import('./pages/ZodiacSignsPage').then((m) => ({ default: m.ZodiacSignsPage })));
+const RashifalTodayPage = lazy(() => import('./pages/RashifalTodayPage').then((m) => ({ default: m.RashifalTodayPage })));
+const LoveLanguagePage = lazy(() => import('./pages/LoveLanguagePage').then((m) => ({ default: m.LoveLanguagePage })));
+const NumerologyCalculatorPage = lazy(() => import('./pages/NumerologyCalculatorPage').then((m) => ({ default: m.NumerologyCalculatorPage })));
+const PoruthamPage = lazy(() => import('./pages/PoruthamPage').then((m) => ({ default: m.PoruthamPage })));
+const BirthChartPage = lazy(() => import('./pages/BirthChartPage').then((m) => ({ default: m.BirthChartPage })));
+const LifePathPage = lazy(() => import('./pages/LifePathPage').then((m) => ({ default: m.LifePathPage })));
+const LoveHoroscopePage = lazy(() => import('./pages/LoveHoroscopePage').then((m) => ({ default: m.LoveHoroscopePage })));
+const WhenWillIGetMarriedPage = lazy(() => import('./pages/WhenWillIGetMarriedPage').then((m) => ({ default: m.WhenWillIGetMarriedPage })));
+const LoveCompatibilityZodiacPage = lazy(() => import('./pages/LoveCompatibilityZodiacPage').then((m) => ({ default: m.LoveCompatibilityZodiacPage })));
+const BlogIndexPage = lazy(() => import('./pages/BlogIndexPage').then((m) => ({ default: m.BlogIndexPage })));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage').then((m) => ({ default: m.BlogPostPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage })));
+const TermsPage = lazy(() => import('./pages/TermsPage').then((m) => ({ default: m.TermsPage })));
+const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage').then((m) => ({ default: m.DisclaimerPage })));
 
 function normalizePath(path: string): string {
   if (!path || path === '/') return '/';
@@ -178,7 +182,15 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased font-sans">
       <Header currentPath={currentPath} onNavigate={handleNavigate} />
       <main className="flex-1">
-        {renderPage()}
+        <Suspense
+          fallback={
+            <div className="max-w-md mx-auto px-4 py-24 text-center">
+              <p className="text-sm text-slate-500">Loading…</p>
+            </div>
+          }
+        >
+          {renderPage()}
+        </Suspense>
       </main>
       <Footer onNavigate={handleNavigate} />
     </div>
