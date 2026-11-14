@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
                 {/* Facebook */}
                 <a
-                  href="https://www.facebook.com/share/1CHLVkkX9e/"
+                  href="https://www.facebook.com/calculatelove1/"
                   target="_blank"
                   rel="me noopener"
                   className="w-9 h-9 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center text-slate-600 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-200 group"
