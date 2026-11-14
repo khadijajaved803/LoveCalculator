@@ -47,9 +47,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="flex items-center gap-2.5">
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/calculate_love1/"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="me noopener"
                   className="w-9 h-9 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center text-slate-600 hover:text-white hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 hover:border-transparent transition-all duration-200 group"
                   aria-label="Follow CalculateLove on Instagram"
                   title="Follow us on Instagram"
@@ -71,9 +71,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
                 {/* Facebook */}
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/share/1CHLVkkX9e/"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="me noopener"
                   className="w-9 h-9 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center text-slate-600 hover:text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all duration-200 group"
                   aria-label="Follow CalculateLove on Facebook"
                   title="Follow us on Facebook"
@@ -89,9 +89,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
                 {/* X (Twitter) */}
                 <a
-                  href="https://x.com"
+                  href="https://x.com/calculatelove1"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="me noopener"
                   className="w-9 h-9 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex items-center justify-center text-slate-600 hover:text-white hover:bg-slate-900 hover:border-slate-900 transition-all duration-200 group"
                   aria-label="Follow CalculateLove on X"
                   title="Follow us on X"
