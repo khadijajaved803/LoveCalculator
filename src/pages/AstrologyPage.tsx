@@ -5,7 +5,7 @@ import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { Sparkles, Moon, Sun, ArrowRight, ShieldCheck } from 'lucide-react';
-import astrologyImage from '../assets/images/astrology_zodiac_harmony_1790774231196.jpg';
+import astrologyImage from '../assets/images/astrology_zodiac_harmony_1790774231196.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -81,8 +81,8 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Astrology by Date of Birth: Free Horoscope & Zodiac Compatibility | Calculate Love"
-        description="Free astrology by date of birth — read your horoscope by date of birth, explore Vedic astrology, zodiac signs and compatibility, with free charts and readings. No sign-up."
+        title="Astrology by Date of Birth: Free Horoscope & Zodiac"
+        description="Free astrology by date of birth — read your horoscope, explore Vedic astrology, zodiac signs and compatibility, with free charts and readings. No sign-up."
         canonicalPath="/astrology/"
         schemaJson={schemaJson}
       />

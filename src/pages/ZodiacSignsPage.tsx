@@ -112,12 +112,30 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Zodiac Signs',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
-        title="Zodiac Signs | All 12 Zodiac Signs, Dates & Your Sign by Date of Birth"
+        title="Zodiac Signs | All 12 Signs, Dates & Your Sign"
         description="All 12 zodiac signs with dates by month — find your zodiac sign, sun sign, moon sign and rashi by date of birth, free."
         canonicalPath="/zodiac-signs/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

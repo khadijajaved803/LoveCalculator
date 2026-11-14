@@ -23,7 +23,7 @@ import {
   Award,
   Download,
 } from 'lucide-react';
-import loveCertificateImage from '../assets/images/love_certificate_showcase_1792223212819.jpg';
+import loveCertificateImage from '../assets/images/love_certificate_showcase_1792223212819.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -117,8 +117,8 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Calculate Love - True Love Calculator by Name & Compatibility Test"
-        description="Calculate love percentage between two names with Calculate Love. Test name compatibility, couple vibes, communication harmony, and download shareable love cards."
+        title="True Love Calculator by Name | Calculate Love"
+        description="Calculate love percentage between two names. Test name compatibility, couple vibes, communication harmony, and download shareable love cards."
         canonicalPath="/love-calculator/"
         schemaJson={schemaJson}
       />

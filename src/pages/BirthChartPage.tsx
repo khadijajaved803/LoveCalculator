@@ -72,12 +72,30 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Birth Chart Calculator',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
         title="Birth Chart Calculator | Free Natal Chart by Date of Birth"
-        description="Free birth chart calculator — make your natal chart by date of birth and time, with lagna chart, navamsa chart (D9), D10 chart and free birth chart analysis."
+        description="Free birth chart calculator — make your natal chart by date of birth and time, with lagna, navamsa (D9) and D10 charts and free analysis."
         canonicalPath="/birth-chart-calculator/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

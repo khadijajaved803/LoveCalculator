@@ -5,7 +5,7 @@ import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { Hash, ArrowRight, ShieldCheck, Compass, Sparkles, BookOpen, Layers, CheckCircle2 } from 'lucide-react';
-import numerologyImage from '../assets/images/numerology_sacred_path_1792219943804.jpg';
+import numerologyImage from '../assets/images/numerology_sacred_path_1792219943804.webp';
 import numerologyChartImage from '../assets/images/numerology-chart-wheel.webp';
 import numerologyLettersImage from '../assets/images/numerology-letters-to-numbers.webp';
 
@@ -148,7 +148,7 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Numerology Love Calculator - Name Numerology & Life Path Hub"
+        title="Numerology Love Calculator - Name Numerology"
         description="Explore numerology, your numerology chart, name numerology vibrations, Life Path numbers 1-9, and birth date harmony principles with CalculateLove."
         canonicalPath="/numerology/"
         schemaJson={schemaJson}

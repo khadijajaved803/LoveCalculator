@@ -17,13 +17,16 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) return;
+    const subjectLine = encodeURIComponent(`[CalculateLove] ${subject} — ${name}`);
+    const body = encodeURIComponent(`From: ${name} <${email}>\n\n${message}`);
+    window.location.href = `mailto:calculatelove123@gmail.com?subject=${subjectLine}&body=${body}`;
     setSubmitted(true);
   };
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Contact Calculate Love - Editorial Feedback & Suggestions"
+        title="Contact Calculate Love - Feedback & Suggestions"
         description="Get in touch with the CalculateLove team for editorial questions, feature suggestions, calculator feedback, or partnership inquiries."
         canonicalPath="/contact/"
       />
@@ -42,6 +45,10 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
         </h1>
         <p className="text-sm text-slate-600 leading-relaxed">
           We welcome your feedback, calculator feature suggestions, or mathematical inquiries.
+        </p>
+        <p className="text-sm text-slate-600 leading-relaxed mt-2">
+          You can also reach us directly at{' '}
+          <a href="mailto:calculatelove123@gmail.com" className="text-rose-600 font-semibold hover:underline">calculatelove123@gmail.com</a>.
         </p>
       </div>
 
@@ -139,7 +146,7 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
               Message Received!
             </h3>
             <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto">
-              Thank you for contacting us, {name}. Our editorial team reviews suggestions and responds within 1–2 business days.
+              Thank you for your note, {name}. Your email app should now open with your message addressed to us — just press send.
             </p>
             <button
               type="button"

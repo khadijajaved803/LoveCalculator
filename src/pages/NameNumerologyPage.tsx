@@ -235,8 +235,8 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Name Numerology Calculator – Pythagorean & Chaldean Name Numbers"
-        description="Use this free name numerology calculator to find your name number. Compare Pythagorean vs Chaldean name vibrations and discover couple destiny compatibility."
+        title="Name Numerology Calculator | Pythagorean & Chaldean"
+        description="Use this free name numerology calculator to find your name number. Compare Pythagorean vs Chaldean name vibrations and couple destiny compatibility."
         canonicalPath="/numerology/name-numerology/"
         schemaJson={schemaJson}
       />

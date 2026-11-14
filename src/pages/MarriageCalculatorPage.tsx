@@ -26,7 +26,7 @@ import {
   HeartHandshake,
   BookOpen,
 } from 'lucide-react';
-import weddingImage from '../assets/images/wedding_hands_harmony_1792219742165.jpg';
+import weddingImage from '../assets/images/wedding_hands_harmony_1792219742165.webp';
 import loveOrArrangedWeddingImage from '../assets/images/love-or-arranged-marriage-calculator-wedding.webp';
 import loveOrArrangedKundliImage from '../assets/images/love-or-arranged-marriage-calculator-kundli.webp';
 
@@ -233,8 +233,8 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love or Arranged Marriage Calculator - Marriage Compatibility Test"
-        description="Try the free love or arranged marriage calculator: enter two names and see whether your path leans to a love marriage or an arranged one, with name matching and family alignment."
+        title="Love or Arranged Marriage Calculator | Free Test"
+        description="Try the free love or arranged marriage calculator: enter two names and see whether your path leans to a love marriage or an arranged one."
         canonicalPath="/love-or-arranged-marriage-calculator/"
         schemaJson={schemaJson}
       />

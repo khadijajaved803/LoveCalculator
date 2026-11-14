@@ -29,7 +29,7 @@ import {
   Calendar,
   ArrowRight,
 } from 'lucide-react';
-import flamesImage from '../assets/images/flames_notebook_game_1790774216847.jpg';
+import flamesImage from '../assets/images/flames_notebook_game_1790774216847.webp';
 import flamesWorkedExampleImage from '../assets/images/flames-calculator-how-to-calculate.webp';
 import flamesTwinFlameImage from '../assets/images/flames-calculator-twin-flame-vs-flames.webp';
 
@@ -231,8 +231,8 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="FLAMES Calculator Online – FLAMES Game & Love Calculator by Name"
-        description="Play the authentic FLAMES calculator and FLAMES game online at CalculateLove. Free flames name game with 1-on-1 letter cancellation, FLAMES full form, flames love calculator percentage, and instant result cards."
+        title="FLAMES Calculator Online | FLAMES Game by Name"
+        description="Play the FLAMES calculator and FLAMES game online. Free flames name game with 1-on-1 letter cancellation, FLAMES full form and instant result cards."
         canonicalPath="/flames-calculator/"
         schemaJson={schemaJson}
       />
@@ -249,13 +249,13 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200 shadow-2xs">
           <Flame className="w-3.5 h-3.5 text-amber-600 fill-amber-500" />
-          <span>India&apos;s #1 Nostalgic FLAMES Calculator &amp; FLAMES Game Online</span>
+          <span>Nostalgic FLAMES Calculator &amp; FLAMES Game Online</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
           FLAMES Calculator – Free FLAMES Game &amp; Name Matching Online
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Welcome to the authentic online <strong>FLAMES calculator</strong> and legendary <strong>FLAMES game</strong>! Discover your true <strong>flames love</strong> connection with instant <strong>flames name matching</strong>, explore the complete <strong>FLAMES full form</strong>, see your <strong>flames calculator percentage</strong> explained, and download high-resolution couple certificate cards.
+FLAMES is a classic name game that turns two names into one of six outcomes — Friends, Lovers, Affectionate, Marriage, Enemies or Siblings. Enter both names and the calculator cancels the letters the two names share, one for one, then counts the letters left over and eliminates letters from F-L-A-M-E-S until one remains. The surviving letter is your result, a lighthearted read on the pair that you can download as a shareable card.
         </p>
       </div>
 

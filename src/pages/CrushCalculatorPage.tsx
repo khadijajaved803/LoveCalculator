@@ -177,8 +177,8 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Crush Calculator - Check Your Crush Compatibility & Love Score"
-        description="Calculate crush compatibility percentage between you and your crush. Test secret crush vibes, confession readiness, and phonetic name harmony at CalculateLove."
+        title="Crush Calculator | Check Your Crush Compatibility"
+        description="Calculate crush compatibility percentage between you and your crush. Test secret crush vibes, confession readiness and phonetic name harmony."
         canonicalPath="/crush-calculator/"
         schemaJson={schemaJson}
       />

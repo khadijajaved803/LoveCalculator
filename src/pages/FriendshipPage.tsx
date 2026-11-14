@@ -27,7 +27,7 @@ import {
   HelpCircle,
   ArrowRight,
 } from 'lucide-react';
-import bestFriendsImage from '../assets/images/best_friends_chai_1792219741237.jpg';
+import bestFriendsImage from '../assets/images/best_friends_chai_1792219741237.webp';
 import friendshipPercentageImage from '../assets/images/friendship-calculator-road-trip.webp';
 import bestieCompatibilityImage from '../assets/images/friendship-calculator-sunset-selfie.webp';
 
@@ -231,7 +231,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Friendship Calculator - Best Friend & Loyalty Compatibility Test"
+        title="Friendship Calculator | Best Friend Compatibility Test"
         description="Check friendship percentage and bestie loyalty with the friendship calculator by names — secret-keeping, mutual banter, Dosti Pact cards."
         canonicalPath="/friendship-calculator/"
         schemaJson={schemaJson}

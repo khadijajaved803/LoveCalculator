@@ -57,12 +57,30 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Life Path Calculator',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
-        title="Life Path Calculator | Free Life Path Number by Date of Birth"
-        description="Free life path calculator — find your life path number, mulank and destiny number by date of birth, with mulank 2 personality, bhagyank 9 and life path number meanings."
+        title="Life Path Calculator | Free Number by Date of Birth"
+        description="Free life path calculator — find your life path number, mulank and destiny number by date of birth, with life path number meanings."
         canonicalPath="/life-path-calculator/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

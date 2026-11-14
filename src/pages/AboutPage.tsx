@@ -11,7 +11,7 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700">
       <SEOHead
-        title="About Calculate Love - India's Trusted Relationship Tools Platform"
+        title="About Calculate Love | Relationship Tools Platform"
         description="Learn about CalculateLove, our commitment to privacy, deterministic algorithms, and positive relationship reflections for couples and friends across India."
         canonicalPath="/about/"
       />

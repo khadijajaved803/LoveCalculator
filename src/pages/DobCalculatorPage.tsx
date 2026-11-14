@@ -27,7 +27,7 @@ import {
   Layers,
   Award,
 } from 'lucide-react';
-import dobImage from '../assets/images/birth_chart_calendar_1792219741407.jpg';
+import dobImage from '../assets/images/birth_chart_calendar_1792219741407.webp';
 import ageGapCalendarsImage from '../assets/images/love-calculator-by-date-of-birth-age-gap-calendars.webp';
 import ageGapTimelineImage from '../assets/images/love-calculator-by-date-of-birth-age-gap-timeline.webp';
 
@@ -226,7 +226,7 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Love Calculator by Date of Birth - Life Path & Soulmate Compatibility"
+        title="Love Calculator by Date of Birth | Life Path Match"
         description="Calculate love compatibility by date of birth, Life Path match (1-9) and the age difference between two birthdays. Free, private, in your browser."
         canonicalPath="/love-calculator-by-date-of-birth/"
         schemaJson={schemaJson}

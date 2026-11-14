@@ -95,8 +95,8 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="How to Calculate Love Percentage on Paper - Step-by-Step Pen & Paper Test"
-        description="Learn how to calculate love percentage on paper with names. Discover the classic notebook method, letter frequency rules, worked examples, and online comparison."
+        title="How to Calculate Love Percentage on Paper | Step-by-Step"
+        description="Learn how to calculate love percentage on paper with names — the classic notebook method, letter frequency rules and worked examples."
         canonicalPath="/love-percentage-on-paper/"
         schemaJson={schemaJson}
       />

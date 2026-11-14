@@ -26,7 +26,7 @@ import {
   Award,
   Download,
 } from 'lucide-react';
-import loveCertificateImage from '../assets/images/love_certificate_showcase_1792223212819.jpg';
+import loveCertificateImage from '../assets/images/love_certificate_showcase_1792223212819.webp';
 import homeHowToImage from '../assets/images/home-how-to-calculate-love-percentage.webp';
 import homeLoveMeterImage from '../assets/images/home-love-meter-score.webp';
 import homeFiveLanguagesImage from '../assets/images/home-five-love-languages.webp';
@@ -659,10 +659,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="/how-to-calculate-love-percentage/"
+                  href="/love-percentage-on-paper/"
                   onClick={(e) => {
                     e.preventDefault();
-                    onNavigate('/how-to-calculate-love-percentage/');
+                    onNavigate('/love-percentage-on-paper/');
                   }}
                   className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
                 >
@@ -937,10 +937,10 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 </li>
               </ul>
               <a
-                href="/love-calculator-by-name/"
+                href="/love-calculator/"
                 onClick={(e) => {
                   e.preventDefault();
-                  onNavigate('/love-calculator-by-name/');
+                  onNavigate('/love-calculator/');
                 }}
                 className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
               >

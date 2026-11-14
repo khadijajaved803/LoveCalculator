@@ -152,12 +152,30 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Kundali',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
         title="Kundali | Free Kundali Online by Date of Birth"
         description="Free kundali online — make your janam kundali by date of birth and time, read your kundli chart, yogas and predictions."
         canonicalPath="/kundali/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

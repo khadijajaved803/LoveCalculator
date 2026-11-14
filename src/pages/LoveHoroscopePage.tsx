@@ -57,12 +57,30 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Love Horoscope',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
-        title="Love Horoscope Today | Free Daily Love Horoscope by Zodiac Sign"
-        description="Free love horoscope today — your daily love horoscope by zodiac sign or date of birth, with tomorrow, weekly and monthly love horoscope, singles and couples readings, and love horoscope in Hindi."
+        title="Love Horoscope Today | Free Daily Love Horoscope"
+        description="Free love horoscope today — your daily love horoscope by zodiac sign or date of birth, with tomorrow, weekly and monthly readings for singles and couples."
         canonicalPath="/love-horoscope/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

@@ -86,12 +86,30 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Numerology Calculator',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen py-6 sm:py-10">
       <SEOHead
-        title="Numerology Calculator | Free Chaldean & Pythagorean Calculator by Name and Date of Birth"
-        description="Use the free numerology calculator to find your lucky number, fortune number and numerology chart by date of birth and name — Chaldean and Pythagorean, mobile and vehicle numbers included."
+        title="Numerology Calculator | Free Chaldean & Pythagorean"
+        description="Use the free numerology calculator to find your lucky number, fortune number and numerology chart by date of birth and name — Chaldean and Pythagorean."
         canonicalPath="/numerology-calculator/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6">

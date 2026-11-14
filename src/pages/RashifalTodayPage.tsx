@@ -123,12 +123,30 @@ export const RashifalTodayPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Rashifal Today',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
-        title="Rashifal Today | Aaj Ka Rashifal & Daily Love Rashifal by Date of Birth"
+        title="Rashifal Today | Aaj Ka Rashifal & Daily Love Rashifal"
         description="Rashifal today — check today's rashifal, aaj ka rashifal love and daily horoscope by date of birth, free. All 12 signs, in Hindi and English."
         canonicalPath="/rashifal-today/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

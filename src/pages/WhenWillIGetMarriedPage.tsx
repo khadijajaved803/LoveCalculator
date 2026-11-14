@@ -57,12 +57,30 @@ export const WhenWillIGetMarriedPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'When Will I Get Married',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
-        title="When Will I Get Married? Free Marriage Prediction by Date of Birth"
-        description="Free marriage prediction by date of birth — when will I get married, your marriage age, love or arranged marriage, and when you will meet your life partner, with Vedic astrology and kundali."
+        title="When Will I Get Married? Free Marriage Prediction"
+        description="Free marriage prediction by date of birth — when will I get married, your marriage age, and when you will meet your life partner, with Vedic astrology."
         canonicalPath="/when-will-i-get-married/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

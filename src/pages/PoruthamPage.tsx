@@ -70,12 +70,30 @@ export const PoruthamPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Thirumana Porutham',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen py-6 sm:py-10">
       <SEOHead
-        title="Thirumana Porutham | Free Tamil Marriage Matching — 10 Porutham Check"
-        description="Check thirumana porutham free online — Tamil marriage matching by date of birth and star, with all 10 poruthams, rasi porutham and jathagam porutham in Tamil."
+        title="Thirumana Porutham | Free Tamil Marriage Matching"
+        description="Check thirumana porutham free online — Tamil marriage matching by date of birth and star, with all 10 poruthams, in Tamil."
         canonicalPath="/porutham/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6">

@@ -97,7 +97,7 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title={`${post.title} | Calculate Love`}
+        title={`${post.seoTitle ?? post.title} | Calculate Love`}
         description={post.description}
         canonicalPath={`/blog/${post.slug}/`}
         schemaJson={schemaJson}

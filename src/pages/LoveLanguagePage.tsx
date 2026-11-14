@@ -84,12 +84,30 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Love Language Test',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="bg-slate-50 min-h-screen py-6 sm:py-10">
       <SEOHead
         title="Love Language Test | Free 5 Love Languages Quiz with Results"
-        description="Take the free love language test — the 5 love languages quiz with free results. Discover your love language and your partner's, for couples, teens and children."
+        description="Take the free love language test — the 5 love languages quiz with free results. Discover your love language and your partner's."
         canonicalPath="/love-language-test/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6">

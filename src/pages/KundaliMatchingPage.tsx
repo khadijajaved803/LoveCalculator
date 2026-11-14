@@ -164,12 +164,30 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Kundali Matching',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
         title="Kundali Matching | Free Kundali Milan for Marriage"
         description="Free kundali matching online — check kundli milan, gun milan (36 gunas) and horoscope matching for marriage by name and date of birth."
         canonicalPath="/kundali-matching/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">

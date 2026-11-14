@@ -178,7 +178,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
-        title="Name Compatibility Test – Check Your Match by Name | Calculate Love"
+        title="Name Compatibility Test | Check Your Match by Name"
         description="Run a free name compatibility test on two names and see how they sound together — vowel harmony, syllable flow and a shareable match score."
         canonicalPath="/name-compatibility/"
         schemaJson={schemaJson}

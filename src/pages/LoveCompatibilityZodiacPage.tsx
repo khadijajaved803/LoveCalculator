@@ -57,12 +57,30 @@ export const LoveCompatibilityZodiacPage: React.FC<Props> = ({ onNavigate }) => 
     },
   ];
 
+  const schemaJson = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebApplication',
+        'name': 'Zodiac Sign Compatibility',
+        'applicationCategory': 'LifestyleApplication',
+        'operatingSystem': 'Web browser',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD',
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <SEOHead
-        title="Zodiac Sign Compatibility | Free Love Compatibility by Zodiac Sign"
-        description="Free zodiac sign compatibility — check love compatibility between zodiac signs with the star sign compatibility chart, calculator and test, by sign, birth date or birth chart."
+        title="Zodiac Sign Compatibility | Free Love Compatibility"
+        description="Free zodiac sign compatibility — check love compatibility between zodiac signs with the sign compatibility chart and calculator, by sign or birth date."
         canonicalPath="/love-compatibility-by-zodiac-sign/"
+        schemaJson={schemaJson}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
