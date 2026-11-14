@@ -27,6 +27,8 @@ import {
   BookOpen,
 } from 'lucide-react';
 import weddingImage from '../assets/images/wedding_hands_harmony_1792219742165.jpg';
+import loveOrArrangedWeddingImage from '../assets/images/love-or-arranged-marriage-calculator-wedding.webp';
+import loveOrArrangedKundliImage from '../assets/images/love-or-arranged-marriage-calculator-kundli.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -232,7 +234,7 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Love or Arranged Marriage Calculator - Marriage Compatibility Test"
-        description="Will your future be a love marriage or arranged alliance? Test marriage compatibility, name matching for marriage, and Shaadi harmony at CalculateLove."
+        description="Try the free love or arranged marriage calculator: enter two names and see whether your path leans to a love marriage or an arranged one, with name matching and family alignment."
         canonicalPath="/love-or-arranged-marriage-calculator/"
         schemaJson={schemaJson}
       />
@@ -252,7 +254,7 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Shaadi & Marriage Alignment Test</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          Love vs. Arranged Marriage Calculator
+          Love or Arranged Marriage Calculator
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
           Will your path be a self-discovered love marriage or a traditional family-guided alliance? Explore your alignment with custom relationship advice.
@@ -871,6 +873,145 @@ export const MarriageCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* New Section: How the calculator works */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-800 text-xs font-bold mb-3 border border-purple-200">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+              <span>How It Works</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              How a Love or Arranged Marriage Calculator Works
+            </h2>
+          </div>
+
+          <figure className="my-2">
+            <img
+              src={loveOrArrangedWeddingImage}
+              alt="A couple holding hands at a wedding celebration with family around them, under marigold garlands and warm lights"
+              width="1200"
+              height="675"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              A love or arranged marriage calculator, in one picture: two people, two families, one question.
+            </figcaption>
+          </figure>
+
+          <div className="space-y-4 max-w-3xl">
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Two names and a few honest answers go into a love or arranged marriage calculator, and two numbers come out: the chance your marriage is a love marriage, and the chance it is arranged. The tool above works the same way — the names feed the name matching, the courtship time and the family slider set how much weight tradition carries, and the result shows both sides instead of picking one for you.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              At its simplest, a love marriage calculator takes two names and returns one score. Run this tool with names alone and it behaves as a love marriage calculator by name — two names in, a score for how they sound together. Add courtship time and family priority, and the single score opens into the split: a love percentage and an arranged percentage, and the gap between them is the answer. A love marriage or arrange marriage calculator does not decide anything for you — it shows the split, and the split is what you discuss with your family.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Love marriage astrology reads the question from the chart instead of from names: Venus and the 7th house show how love enters a life, and the 5th house shows how romance begins. When Venus sits in or aspects the 7th house, or the 5th and 7th lords exchange places, astrologers call it a love marriage yoga in astrology — a combination that points to a marriage the person chooses for themselves. Read a birth chart for that one question and you have a love marriage horoscope — which way the marriage goes, and when the timing supports it. To check love or arranged marriage in kundli, an astrologer starts with the 7th house and its lord, then looks at Venus, the 5th house, and the dasha running at the time — and the{' '}
+              <a
+                href="/kundali-matching/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/kundali-matching/');
+                }}
+                className="text-purple-700 hover:underline font-semibold"
+              >
+                Kundali Matching
+              </a>{' '}
+              page runs that reading for two charts at once, scoring the match out of 36. Tamil families read it through porutham instead, and a love marriage porutham reading compares the two stars across ten poruthams — the{' '}
+              <a
+                href="/porutham/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/porutham/');
+                }}
+                className="text-purple-700 hover:underline font-semibold"
+              >
+                Porutham
+              </a>{' '}
+              page runs the full matching.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              A love or arranged marriage test by date of birth works differently again: it reads the birth chart for the marriage yogas and the dasha running at the age of marriage, and the{' '}
+              <a
+                href="/when-will-i-get-married/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/when-will-i-get-married/');
+                }}
+                className="text-purple-700 hover:underline font-semibold"
+              >
+                When Will I Get Married
+              </a>{' '}
+              page runs that reading. The date of birth matters because the chart is fixed at birth, so a love or arranged marriage by date of birth reading starts from the 7th house and its lord, then checks Venus and Jupiter before it says anything about timing. Pair the names with a birth date and the reading becomes a love marriage calculator by date of birth: the chart joins the names, and the 7th house carries the most weight.
+            </p>
+          </div>
+        </section>
+
+        {/* New Section: Signs people look for */}
+        <section className="bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
+            <div className="md:col-span-3 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-purple-300 font-semibold block">
+                Signs &amp; Clues
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold font-display">
+                What People Look For: Signs, Palm Lines and Numbers
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Before anyone opens a calculator, most people look for signs. Here is what those signs are — and how much weight each one carries.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                The first place people look is the chart, for what astrologers call love marriage hone ke sanket — the signs of a love marriage: Venus strong in the chart, the 7th lord placed well, a friendly aspect between the 5th and 7th houses. No single sign decides anything on its own; they are read together, the way the tool on this page reads names, courtship and family together, and the reading only means something when the whole picture points the same way.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Palm readers look somewhere else entirely: the love marriage line, the small line under the little finger that they say shows how marriage arrives. A long clear line is read as a love marriage, a line that forks or fades is read as a marriage that needs family support — but palmistry is a folk reading, not a chart, and no line on a hand changes what the kundli or the calculator says.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Numbers get asked the same way. A numerology love or arranged marriage reading takes the life path number from the birth date and reads it for independence against tradition — a 1 or a 5 leans toward choosing for yourself, a 2 or a 6 leans toward family guidance — and the{' '}
+                <a
+                  href="/numerology-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/numerology-calculator/');
+                  }}
+                  className="text-purple-300 hover:underline font-semibold"
+                >
+                  Numerology Calculator
+                </a>{' '}
+                page works the number out from any birth date. The reading changes sign by sign too: an Aries chart reads differently from an Aquarius one, because the 7th house falls in a different sign for each, so the{' '}
+                <a
+                  href="/love-compatibility-by-zodiac-sign/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-compatibility-by-zodiac-sign/');
+                  }}
+                  className="text-purple-300 hover:underline font-semibold"
+                >
+                  love compatibility by zodiac sign
+                </a>{' '}
+                page reads two signs together instead of one chart alone.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                The two percentages the tool gives are, in plain terms, the chances: the love percentage is the chance of a love marriage, the arranged percentage the chance of an arranged one. And the question most people actually type — love marriage hogi ya arrange, how to know — has a simpler answer than the chart: run the numbers above, read the 7th house, and see whether the two agree. When the calculator and the chart point the same way, families usually come around faster than when either one stands alone.
+              </p>
+            </div>
+            <figure className="md:col-span-2">
+              <img
+                src={loveOrArrangedKundliImage}
+                alt="A Vedic kundli birth chart drawn in gold on aged paper, with a brass oil lamp and marigold flowers"
+                width="1200"
+                height="1500"
+                loading="lazy"
+                className="w-full rounded-2xl object-cover"
+              />
+              <figcaption className="mt-2 text-center text-xs text-slate-400">
+                What your kundli says: Venus, the 7th house and the 5th house are where a love-marriage reading starts.
+              </figcaption>
+            </figure>
           </div>
         </section>
       </div>

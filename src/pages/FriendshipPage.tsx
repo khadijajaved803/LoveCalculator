@@ -28,6 +28,8 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import bestFriendsImage from '../assets/images/best_friends_chai_1792219741237.jpg';
+import friendshipPercentageImage from '../assets/images/friendship-calculator-road-trip.webp';
+import bestieCompatibilityImage from '../assets/images/friendship-calculator-sunset-selfie.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -205,7 +207,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
         'Absolutely. Strong friendships form the most resilient foundation for romantic relationships (often known as the "friends-to-lovers" dynamic). When mutual trust and respect already exist, emotional intimacy transitions smoothly into romantic love.',
     },
     {
-      question: 'How accurate is the Friendship Calculator by name?',
+      question: 'How accurate is the Friendship Calculator by names?',
       answer:
         'Our Friendship Calculator uses a 100% deterministic algorithm that pairs name character resonance with dynamic friendship variables (origin of meeting and shared vibe). Entering the same names and parameters will consistently produce the exact same score.',
     },
@@ -230,7 +232,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Friendship Calculator - Best Friend & Loyalty Compatibility Test"
-        description="Test friendship percentage and bestie loyalty with CalculateLove. Check secret-keeping quotients, mutual banter, and download official Dosti Pact cards."
+        description="Check friendship percentage and bestie loyalty with the friendship calculator by names — secret-keeping, mutual banter, Dosti Pact cards."
         canonicalPath="/friendship-calculator/"
         schemaJson={schemaJson}
       />
@@ -250,10 +252,10 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Dosti & Best Friend Meter</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          Friendship & Bestie Loyalty Calculator
+          Friendship Calculator: Bestie Loyalty & Compatibility Test
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Celebrate your closest bonds! Check friendship percentage, loyalty resonance, secret-keeping quotient, and download official shareable Bestie cards.
+          Celebrate your closest bonds! This friendship calculator checks friendship percentage, loyalty resonance, secret-keeping quotient, and lets you download official shareable Bestie cards.
         </p>
       </div>
 
@@ -717,7 +719,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-2">
               <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
                 <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
-                <h3>1. Psychological Safety & Emotional Vault</h3>
+                <h3 className="text-sm font-bold">1. Psychological Safety & Emotional Vault</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Can you confess your deepest insecurities, awkward mistakes, and career fears without the fear of mockery or gossip? A top-tier friendship score reflects a sealed mutual vault where secrets remain completely safeguarded.
@@ -727,7 +729,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-200/80 space-y-2">
               <div className="flex items-center gap-2 text-rose-900 font-bold text-sm">
                 <Smile className="w-4 h-4 text-rose-600 shrink-0" />
-                <h3>2. Shared Humor & Unfiltered Banter</h3>
+                <h3 className="text-sm font-bold">2. Shared Humor & Unfiltered Banter</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
                 From hilarious inside jokes to laughing uncontrollably in solemn rooms, shared comedic frequency is the glue of youthful energy. If both names share high phonetic rhythm, playful teasing flows without hurt feelings.
@@ -737,7 +739,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 space-y-2">
               <div className="flex items-center gap-2 text-purple-900 font-bold text-sm">
                 <RotateCcw className="w-4 h-4 text-purple-600 shrink-0" />
-                <h3>3. Time & Distance Invariance</h3>
+                <h3 className="text-sm font-bold">3. Time & Distance Invariance</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
                 The truest hallmark of an Indian best friendship: you might move to separate cities for jobs or higher education, yet when you reunite months later, it feels like zero seconds have elapsed. There is no awkwardness or need to restart.
@@ -747,7 +749,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
               <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <h3>4. Ego-Free Apologies & Conflict Resolution</h3>
+                <h3 className="text-sm font-bold">4. Ego-Free Apologies & Conflict Resolution</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Every long friendship faces disagreements. In toxic bonds, people hold grudges or play silent treatment. In authentic friendships, an honest conversation or a simple cup of cutting chai washes away disputes instantly.
@@ -821,7 +823,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-6 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-3">
               <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                <h3>5 Green Flags of a Lifelong Friend</h3>
+                <h3 className="text-sm font-bold">5 Green Flags of a Lifelong Friend</h3>
               </div>
               <ul className="space-y-2 text-xs text-slate-700 leading-relaxed">
                 <li className="flex items-start gap-2">
@@ -851,7 +853,7 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-6 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
               <div className="flex items-center gap-2 text-rose-900 font-bold text-sm">
                 <ShieldCheck className="w-5 h-5 text-rose-600 shrink-0" />
-                <h3>5 Red Flags in a Toxic Friendship</h3>
+                <h3 className="text-sm font-bold">5 Red Flags in a Toxic Friendship</h3>
               </div>
               <ul className="space-y-2 text-xs text-slate-700 leading-relaxed">
                 <li className="flex items-start gap-2">
@@ -877,6 +879,110 @@ export const FriendshipPage: React.FC<Props> = ({ onNavigate }) => {
               </ul>
             </div>
           </div>
+        </section>
+
+        {/* Section 4: How Your Friendship Percentage Is Worked Out */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>How the Score Works</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              How Your Friendship Percentage Is Worked Out
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              When you run this friendship calculator by names, the check starts with the two names you type in — nicknames work just as well as full names, since that is how close friends actually address each other. What the friendship percentage calculator then shows is a single number, the Dosti Score, built from how the names sit together and the friendship details you pick below the name fields: where you met, and the vibe that fits the two of you best. It is a friendship compatibility test you can finish in under a minute, and the same names with the same details always give the same score.
+            </p>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-amber-200">
+            <img
+              src={friendshipPercentageImage}
+              alt="Two best friends laughing on a golden-hour road trip, with the title Friendship Percentage"
+              width={1200}
+              height={675}
+              className="w-full h-auto object-cover"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+
+          <p className="text-sm font-bold text-slate-900">
+            How to find friendship percentage on this page:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
+            <div className="md:col-span-3 space-y-3">
+              <div className="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 space-y-2">
+                <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
+                  <Users className="w-4 h-4 text-amber-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-amber-900">1. Enter both names</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Type your name and your friend&apos;s name — nicknames are fine, since the check reads the names as you actually use them.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+                <div className="flex items-center gap-2 text-rose-900 font-bold text-sm">
+                  <Smile className="w-4 h-4 text-rose-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-rose-900">2. Pick where you met and your vibe</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Choose where the friendship started and the bestie vibe that fits the two of you — the meeting place and the vibe weigh into the score alongside the names.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
+                <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <h3 className="text-sm font-bold text-emerald-900">3. Get your percentage and card</h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  The tool returns your friendship percentage on the spot, with the loyalty, banter and secret-keeping break-down, and a shareable Bestie card you can send on WhatsApp.
+                </p>
+              </div>
+            </div>
+
+            <div className="md:col-span-2 rounded-2xl overflow-hidden border border-amber-200 min-h-[300px]">
+              <img
+                src={bestieCompatibilityImage}
+                alt="Two best friends taking a laughing selfie together at sunset in a park, with the title Bestie Compatibility"
+                width={800}
+                height={1000}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+
+          <p className="text-sm text-slate-600 leading-relaxed max-w-3xl">
+            Some people look for a friendship calculator by date of birth, expecting the answer to come from birth dates. This one takes the other route: it reads the names and the friendship itself, and the ages you can add are only an optional extra, not the basis of the score. If the bond you are checking is romantic rather than platonic, the{' '}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/');
+              }}
+              className="text-amber-700 hover:underline font-semibold"
+            >
+              love calculator
+            </a>
+            {' '}gives you a love percentage instead, and the{' '}
+            <a
+              href="/crush-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/crush-calculator/');
+              }}
+              className="text-amber-700 hover:underline font-semibold"
+            >
+              crush calculator
+            </a>
+            {' '}answers whether a crush likes you back.
+          </p>
         </section>
       </div>
 

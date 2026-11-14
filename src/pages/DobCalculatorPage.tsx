@@ -28,6 +28,8 @@ import {
   Award,
 } from 'lucide-react';
 import dobImage from '../assets/images/birth_chart_calendar_1792219741407.jpg';
+import ageGapCalendarsImage from '../assets/images/love-calculator-by-date-of-birth-age-gap-calendars.webp';
+import ageGapTimelineImage from '../assets/images/love-calculator-by-date-of-birth-age-gap-timeline.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -225,7 +227,7 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Love Calculator by Date of Birth - Life Path & Soulmate Compatibility"
-        description="Calculate love compatibility by date of birth and Life Path numerology match (1-9). Test true love soulmate alignment by name and birth date at CalculateLove."
+        description="Calculate love compatibility by date of birth, Life Path match (1-9) and the age difference between two birthdays. Free, private, in your browser."
         canonicalPath="/love-calculator-by-date-of-birth/"
         schemaJson={schemaJson}
       />
@@ -750,6 +752,79 @@ export const DobCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             When birth dates reduce to 11 or 22 before single-digit reduction, they carry heightened spiritual and energetic potential. Master Number 11 individuals possess profound intuitive empathy, often sensing their partner&apos;s moods before a single word is spoken. Master Number 22 individuals are master architects of long-term security, turning visionary marital dreams into practical realities. Both numbers require partners who provide grounded emotional calm and unconditional loyalty.
           </p>
+        </section>
+
+        {/* Section 4: The Age Gap Between Two Birth Dates */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 text-rose-800 text-xs font-bold mb-3 border border-rose-200">
+              <Calendar className="w-3.5 h-3.5 text-rose-600" />
+              <span>Age Gap & Birth Dates</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              Age Difference Calculator: What the Gap Between Two Birth Dates Adds to a Match
+            </h2>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200">
+            <img
+              src={ageGapCalendarsImage}
+              alt="Two wall calendars with birthdays circled in rose and indigo, showing the age gap between two birth dates — Two Birthdays, One Gap"
+              className="w-full h-auto"
+              loading="lazy"
+              width={1200}
+              height={675}
+            />
+          </div>
+          <p className="text-xs text-slate-500 leading-relaxed">
+            Two birthdays, years apart — the gap between them is part of what the reading weighs.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+            <div className="md:col-span-3 space-y-4">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                When you run a love calculator by date of birth, you hand it two dates, and the gap between those dates is part of the reading from the start. A love calculator by name and date of birth reads both birthdays together, so it sees two people at different points in their lives — one may be settling into a career while the other is still studying — and the Life Path numbers it returns already reflect that difference in pacing.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                If you are wondering what&apos;s the age difference between two people, take the later birthday&apos;s year and subtract the earlier one, then step back a year if the later birthday has not happened yet this year. That is the whole calculation — you don&apos;t need a separate age difference calculator online for it, since the two dates you already entered above are enough, and it runs in your browser like the rest of this check.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                A gap of one or two years usually means two people dating are moving through the same life stage together, while a gap of ten years or more often means different priorities — one may be thinking about settling down while the other is still building a career. The number of years matters less than whether the two Life Path numbers move at a similar pace, which is what the triads above describe. And because the reading starts from birth dates, the same two dates also feed the Vedic side of the site — the{' '}
+                <a
+                  href="/birth-chart-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/birth-chart-calculator/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  Birth Chart Calculator
+                </a>{' '}
+                reads the planetary positions for those dates — and the{' '}
+                <a
+                  href="/blog/love-compatibility-by-date-of-birth/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/blog/love-compatibility-by-date-of-birth/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  love compatibility by date of birth
+                </a>{' '}
+                guide explains how birthdays shape a match in more detail.
+              </p>
+            </div>
+            <div className="md:col-span-2 rounded-2xl overflow-hidden border border-slate-200">
+              <img
+                src={ageGapTimelineImage}
+                alt="A paper timeline ribbon with two gold stars marking two birthdays, with candles and a small cake — What the Gap Means"
+                className="w-full h-auto"
+                loading="lazy"
+                width={1200}
+                height={1800}
+              />
+            </div>
+          </div>
         </section>
       </div>
 

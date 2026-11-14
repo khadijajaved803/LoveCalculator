@@ -20,6 +20,9 @@ import {
   MessageCircle,
 } from 'lucide-react';
 
+import nameCompatibilityTestImage from '../assets/images/name-compatibility-test-names.webp';
+import nameCompatibilityMatchImage from '../assets/images/name-compatibility-do-our-names-match.webp';
+
 interface Props {
   onNavigate: (path: string) => void;
 }
@@ -120,6 +123,11 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
         'The name compatibility test uses phonetic harmonic analysis. It compares the balance of vowels and consonants, sound resonance, and letter energy frequencies between both names to determine how melodically and energetically they harmonize.',
     },
     {
+      question: 'What is the name compatibility test people film on TikTok?',
+      answer:
+        'It is the free tool on this page, filmed. People type two names into the test, share the score on camera, and ask followers whose names to try next. The trend works because the reveal is instant — the score appears the moment both names are in — and the certificate at the end gives the clip something to show.',
+    },
+    {
       question: 'What is name compatibility by numerology?',
       answer:
         'Name compatibility by numerology analyzes the numerical values of both partners’ first names using the ancient Pythagorean or Chaldean number keys. This numerology of name compatibility reveals couple personality resonance and mutual communication styles.',
@@ -162,7 +170,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
     name: 'Name Compatibility Test – Check Your Match by Name',
     url: 'https://calculatelove.online/name-compatibility/',
     description:
-      'Test name compatibility, vowel-consonant phonetic harmony, and letter matching between two partners on CalculateLove. Free and private.',
+      'Run a free name compatibility test on two names — vowel harmony, syllable flow and letter matching between two partners on CalculateLove. Free and private.',
     applicationCategory: 'EntertainmentApplication',
     operatingSystem: 'All',
   };
@@ -171,7 +179,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Name Compatibility Test – Check Your Match by Name | Calculate Love"
-        description="Check couple name compatibility and true love name match. Discover phonetic sound vibrations, vowel-consonant harmony, and letter resonance between two names."
+        description="Run a free name compatibility test on two names and see how they sound together — vowel harmony, syllable flow and a shareable match score."
         canonicalPath="/name-compatibility/"
         schemaJson={schemaJson}
       />
@@ -194,7 +202,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           Name Compatibility Test – Check Your Match by Name
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Analyze phonetic resonance, first name compatibility test results, and love compatibility using names for couples and marriage.
+          Run a free compatibility test on any two names and see how they sound together — the vowels, the rhythm and the flow — with a score and certificate you can share.
         </p>
       </div>
 
@@ -380,10 +388,10 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
             How Name Compatibility Works: Names Compatibility for Marriage &amp; Dating
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-            Whether you want a quick name compatibility test, are checking compatible names for marriage, or assessing name relationship compatibility between first names, name matching combines vowel-consonant cadence with character energy.
+            A name compatibility test listens to how two names sound together. The tool weighs the vowels and consonants, the rhythm of the syllables, and the way the names sit side by side when spoken — and turns that into a score you can read at a glance. Couples run it before a first date, while planning a wedding, or just for fun with friends.
           </p>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Many couples also explore name compatibility in numerology or couple name matcher techniques to understand relationship name compatibility and love test love match dynamics between partners.
+            Some couples go further and read the same two names through numerology, where every letter carries a number and the two numbers are compared for how they get along. The sections below explain how each kind of reading works — the sound, the numbers, the birth date — and what to make of the result.
           </p>
         </div>
 
@@ -493,6 +501,111 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
             </p>
           </div>
         </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              What a Compatibility Test by Name Actually Measures
+            </h3>
+            <figure className="mb-4">
+              <img src={nameCompatibilityTestImage} alt="Name Compatibility Test — two names written in elegant script with hearts and rose petals" loading="lazy" width={1200} height={675} className="w-full rounded-2xl border border-rose-100" />
+              <figcaption className="text-[11px] text-slate-500 mt-2 text-center">
+                A name compatibility test reads how two names sound together — vowels, rhythm and flow.
+              </figcaption>
+            </figure>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              A relationship compatibility test built on names looks at sound, not at the future. Friends and couples check compatibility here before a first date, and the tool breaks each name into syllables, counts the vowels against the consonants, and checks how the sounds sit together — then blends the two readings into one percentage. That percentage is the headline, but the breakdown underneath it is the useful part: syllable flow tells you whether the names roll off the tongue together, and vowel harmony tells you whether the open, warm sounds balance the harder consonants.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Type both names in and the love compatibility name score appears in seconds, with the syllable flow and vowel harmony beside it. The result page shows a small compatibility chart with the two scores side by side, so you can see at a glance which half of the reading carried the match. Unlike a full love compatibility calculator, which weighs birth dates and charts, this one reads only the names — as a couple compatibility test it takes seconds and costs nothing.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              A high score means the names sound smooth together; a low one usually means the syllables clash or the vowels crowd each other out. People searching for a love compatibility test name result are usually after the same thing: two names, one score, and a card to share. If the number surprises you, try a nickname or a full name instead, because the sounds change with the form of the name you type — and treat the score as a starting point for a conversation, not a verdict on the relationship.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              The Name Compatibility Game Taking Over TikTok
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              The name compatibility test tiktok trend is simple to join: someone films the screen while typing two names, the score pops up, and the reaction does the rest. Couples test each other, friends test celebrity pairs, and the comments fill up with people asking for their own names next. The clip works because the reveal is instant — no waiting, no birth details, just two names and a number.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              That same instant reveal is why the name compatibility game travels so well in group chats and classrooms. One person runs the tool while everyone else shouts out pairs to try — best friends, teachers, fictional couples — and the funniest mismatch usually wins the round. Played this way, the game is a party trick with a real score behind it, and the certificate at the end gives the winner something to post.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              If you want to play along, start with the two names you actually use every day, then try full names and nicknames to see how the score moves. Friends often compare their match compatibility scores across a whole group and crown the highest pair of the night — and because the test is free, there is nothing stopping a rematch.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              Name Matching for Marriage — and How Tamil Families Check
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Name matching for marriage is the oldest use of this kind of check: before a proposal goes ahead, families want to know whether the two names sit well together. The tool above works as a name matching for marriage calculator — type both first names, and the score reflects how the sounds blend, which is the part of the match a family actually hears every day when the names are spoken at home.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Adding a birth date sharpens the read. A name matching for marriage with date of birth check pairs the sound of the names with the numbers behind the birth date, so the result speaks to both how the names sound and how the birth numbers get along. If you want that fuller reading, try the <button type="button" onClick={() => onNavigate('/love-calculator-by-date-of-birth/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love calculator by date of birth</button> page, which runs the same idea with both birth dates instead of just names.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Name matching for marriage in Tamil Nadu often sits beside the older star-based checks, not instead of them. The name read says how the couple will sound together day to day, while porutham matching reads the stars — so many families run both and weigh them together. Our <button type="button" onClick={() => onNavigate('/porutham/')} className="text-rose-600 font-semibold underline hover:text-rose-700">Thirumana Porutham</button> page explains the ten poruthams, and the <button type="button" onClick={() => onNavigate('/kundali-matching/')} className="text-rose-600 font-semibold underline hover:text-rose-700">Kundali Matching</button> page covers the full guna milan check for couples who want the Vedic reading too.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-3">
+              Names, Birth Dates, Nakshatras and Number Pairs
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Names are only half the story for many couples. A name and date of birth compatibility reading adds the birth date to the sound of the names, so two people who share a birthday — or whose birthdays fall on friendly numbers — read as more in tune. The same two names can score differently once the birth dates join the calculation, because the numbers behind the dates change the balance — which is why couples who check compatibility by birthdate often run both versions and compare.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              The tool on this page reads names only, so if you want the birth-date half as well, run a dob compatibility check with both birth dates — the <button type="button" onClick={() => onNavigate('/love-calculator-by-date-of-birth/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love calculator by date of birth</button> page does exactly that. Birth compatibility works the same way in reverse: two people born days apart often share a rhythm in how they talk and plan, and a compatible birthday reading simply puts that feeling into a number.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Astrology reads the question from the sky instead of the alphabet. A nakshatra compatibility calculator looks at the Moon's nakshatra for each partner — the lunar mansion each person was born under — and compares them the way guna milan compares whole charts. It is a narrower read than a full <button type="button" onClick={() => onNavigate('/kundali-matching/')} className="text-rose-600 font-semibold underline hover:text-rose-700">Kundali Matching</button> check, but for couples who already know their birth stars it answers the question fast. Name matching astrology works the same way in reverse: it starts from the names and checks them against the chart, which is why an astrology love compatibility reading and a name-based one can disagree — they are measuring different things, and a compatibility test astrology fans trust will usually show its working so you can see which half carried the score.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+              Numerology reads the pair through numbers instead of stars. In name matching numerology, each letter becomes a number, the two names reduce to two root numbers, and the pair is read for how those numbers work together — you can work out your own root numbers on the <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button> page. The numerology 4 and 7 love compatibility pairing is the one people search for most, so it sits first in the number compatibility chart below — steady 4 beside questioning 7. Read the pair that matches your two numbers and see whether the description fits how the two of you actually talk, plan and argue.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+              <div className="rounded-2xl bg-slate-50 border border-slate-200/80 overflow-hidden">
+                <table className="w-full text-xs text-left">
+                  <thead>
+                    <tr className="border-b border-slate-200">
+                      <th className="px-4 py-3 font-bold text-slate-900">Number pair</th>
+                      <th className="px-4 py-3 font-bold text-slate-900">What the numbers say</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-600 leading-relaxed">
+                    <tr className="border-b border-slate-100">
+                      <td className="px-4 py-3 font-semibold text-slate-900">4 and 7 compatibility</td>
+                      <td className="px-4 py-3">Four builds, seven questions. Steady habits meet deep thinking; the pair lasts when routines leave room for curiosity.</td>
+                    </tr>
+                    <tr className="border-b border-slate-100">
+                      <td className="px-4 py-3 font-semibold text-slate-900">1 and 7 compatibility</td>
+                      <td className="px-4 py-3">One leads, seven reflects. The pair works when the leader makes room for quiet thinking and the thinker trusts the leader's pace.</td>
+                    </tr>
+                    <tr className="border-b border-slate-100">
+                      <td className="px-4 py-3 font-semibold text-slate-900">2 and 7 compatibility</td>
+                      <td className="px-4 py-3">Two soothes, seven studies. A gentle, private pair — strongest when both get time alone to recharge.</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 font-semibold text-slate-900">9 and 7 compatibility</td>
+                      <td className="px-4 py-3">Nine gives, seven withdraws. The pair works when generosity meets respect for solitude — and frays when giving turns into keeping score.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <figure>
+                <img src={nameCompatibilityMatchImage} alt="Do Our Names Match? — a couple writing their names on paper together over tea" loading="lazy" width={960} height={1200} className="w-full rounded-2xl border border-rose-100" />
+                <figcaption className="text-[11px] text-slate-500 mt-2 text-center">
+                  Checking name compatibility together — two names, one score.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
 
         {/* Additional couple match guidance */}
         <div className="pt-6 border-t border-rose-100 text-xs text-slate-600 leading-relaxed">

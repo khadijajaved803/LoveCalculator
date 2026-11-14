@@ -30,6 +30,8 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import flamesImage from '../assets/images/flames_notebook_game_1790774216847.jpg';
+import flamesWorkedExampleImage from '../assets/images/flames-calculator-how-to-calculate.webp';
+import flamesTwinFlameImage from '../assets/images/flames-calculator-twin-flame-vs-flames.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -187,7 +189,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'How does the FLAMES calculator calculate the flames love calculator percentage?',
       answer:
-        'Our flames calculator and flames love calculator percentage algorithm counts the uncancelled letters from both names and applies cyclic elimination across F-L-A-M-E-S. In addition to revealing your final relationship destiny, it calculates the mutual letter affinity and flames love score percentage so you get complete compatibility insights.',
+        'The flames love calculator percentage is the affinity reading the result card gives you — the letter’s meaning, suggestion and tip — rather than a separate number. Our flames calculator counts the uncancelled letters from both names and applies cyclic elimination across F-L-A-M-E-S, then shows the full working: every cancelled letter, the remaining count and each elimination round, so you can see exactly how the result was reached.',
     },
     {
       question: 'Should I enter my flames real name or a nickname in the FLAMES calculator?',
@@ -253,7 +255,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
           FLAMES Calculator – Free FLAMES Game &amp; Name Matching Online
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Welcome to the authentic online <strong>FLAMES calculator</strong> and legendary <strong>FLAMES game</strong>! Discover your true <strong>flames love</strong> connection with instant <strong>flames name matching</strong>, explore the complete <strong>FLAMES full form</strong>, calculate your <strong>flames love calculator percentage</strong>, and download high-resolution couple certificate cards.
+          Welcome to the authentic online <strong>FLAMES calculator</strong> and legendary <strong>FLAMES game</strong>! Discover your true <strong>flames love</strong> connection with instant <strong>flames name matching</strong>, explore the complete <strong>FLAMES full form</strong>, see your <strong>flames calculator percentage</strong> explained, and download high-resolution couple certificate cards.
         </p>
       </div>
 
@@ -717,6 +719,84 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
         </section>
 
+        {/* Section 2b: Worked Example — How to Calculate FLAMES */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="rounded-2xl overflow-hidden border border-slate-200">
+            <img
+              src={flamesWorkedExampleImage}
+              alt="Two friends writing the names Liam and Emma in a school notebook to calculate FLAMES, with matching letters crossed out and the FLAMES letters circled"
+              width={1200}
+              height={675}
+              loading="lazy"
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Worked Example</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              How to Calculate FLAMES Between Two Names
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              The love calculator flames game is the paper-and-pen cousin of a{' '}
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                love calculator
+              </a>
+              {' '}— it asks whether two names go together, but it answers with a letter instead of a number. Checking love flames by name takes about a minute and needs nothing but the two first names: no birth dates, no signs, and no flames calculator app to install.
+            </p>
+            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+              Here is how to calculate love flames on paper. Write the two names side by side and cross out the letters they share, one for one — that is how to find flames between two names without any tool — then count what is left. Take Liam and Emma. The letter A appears in both names, so one A is crossed out from each; the letter M appears once in Liam and twice in Emma, so one M is crossed out from each. Four letters stay behind — L and I from Liam, E and M from Emma — and that count, 4, is the number the whole game turns on.
+            </p>
+            <div className="mt-4 p-4 bg-slate-50 rounded-xl font-mono text-xs text-slate-700 leading-relaxed space-y-1 border border-slate-100">
+              <div>Liam + Emma</div>
+              <div>Shared letters crossed out, one for one: <span className="font-bold text-rose-600">A, M</span></div>
+              <div>Letters left: L, I, E, M — count N = <span className="font-bold text-amber-700">4</span></div>
+              <div>Count 4 around F-L-A-M-E-S: M out, then L, F, A, S</div>
+              <div>Letter left standing: <span className="font-bold text-rose-600">E — Enemies</span></div>
+            </div>
+            <p className="text-sm text-slate-600 mt-4 leading-relaxed">
+              Counting 4 around the letters strikes out M first, then L, F, A and S, and E is the letter left standing — so Liam and Emma land on Enemies. That sounds harsher than it is: in this game Enemies usually means spirited banter and stubborn pride, the kind of friction that keeps two people talking, and the FAQ below explains why it is rarely a real warning. If the letter had come out Lovers instead, the{' '}
+              <a
+                href="/crush-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/crush-calculator/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                crush calculator
+              </a>
+              {' '}is the next playful check, reading the same two names for crush chemistry rather than letter counts.
+            </p>
+            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+              The flames calculator percentage people ask about is the affinity reading that comes with the letter — the meaning, the suggestion and the tip on the result card — not a second score hiding behind it. There is no separate flames percentage to chase: the game gives you one letter and the count that produced it, so the strength of the match is visible in the working rather than in a number. No flames percentage calculator will give you a second score, because the game has only one number: the count. That is also what makes a flames calculator love test different from a flames love meter: the game measures how two names line up on paper, not how two people actually feel.
+            </p>
+            <p className="text-sm text-slate-600 mt-3 leading-relaxed">
+              Think of it as a flames love test, not a verdict — and a real flames calculator shows its working, the cancelled letters, the count and every round, so you can check the result yourself instead of taking it on trust. The flames game calculator above is a flames generator in the practical sense: type two names and it generates the letter, the working and the shareable card in one go, and it is a flames love game online in the simplest sense — free, in the browser, no sign-up. Use it as a flames relationship calculator whenever you want a quick, playful read on two names — or try{' '}
+              <a
+                href="/name-compatibility/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/name-compatibility/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                name compatibility
+              </a>
+              {' '}for a different lens on the same two names, one that reads sound and spelling patterns instead of shared letters.
+            </p>
+          </div>
+        </section>
+
         {/* Section 3: FLAMES Real Name vs Nicknames & Name Generator */}
         <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold text-rose-700 uppercase tracking-wider">
@@ -777,6 +857,73 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
         </section>
 
+        {/* Section 4b: Twin Flame Calculator vs the FLAMES Game */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr,280px] gap-6 items-start">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-800 text-xs font-bold border border-indigo-200">
+                <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+                <span>Not the Same Game</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+                Twin Flame Calculator vs the FLAMES Game
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Twin flames are described as two halves of one soul, split apart and looking for each other across lifetimes — and a twin flame calculator claims to tell you whether two people fit that story, usually from their birth dates. That is a different kind of check from the FLAMES game, which only counts the letters in two names and never looks at a birth date. The two ideas share the word flame and almost nothing else, so a twin flame result and a FLAMES result cannot be compared with each other.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Most twin flame calculator pages call themselves free, and they ask for two birth dates before they answer. A free twin flame calculator usually returns a yes-or-no verdict, sometimes with a percentage, and the ones that go further ask for full birth details: a twin flame birthday calculator works from the two birthdays alone, while a twin flame birth chart calculator compares the two full charts. The ones that go furthest lay two birth charts side by side instead of just comparing birthdays — that comparison is what a twin flame synastry chart calculator promises.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                If what you actually want is a birth-date reading, this site has better tools for it than a twin flame verdict. The{' '}
+                <a
+                  href="/love-calculator-by-date-of-birth/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-calculator-by-date-of-birth/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  love calculator by date of birth
+                </a>
+                {' '}compares two birth dates the way the FLAMES game compares two names, and the{' '}
+                <a
+                  href="/love-compatibility-by-zodiac-sign/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-compatibility-by-zodiac-sign/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  zodiac sign compatibility
+                </a>
+                {' '}reading looks at the two signs together. For the soulmate idea behind twin flames, the{' '}
+                <a
+                  href="/blog/what-is-a-soulmate/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/blog/what-is-a-soulmate/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  soulmate guide
+                </a>
+                {' '}explains what a soulmate is supposed to be and how people claim to recognise one. None of those is a twin flame calculator either — they are the closest honest checks this site offers for two people wondering how they fit.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-slate-200 h-72 md:h-full min-h-[18rem]">
+              <img
+                src={flamesTwinFlameImage}
+                alt="Two candle flames merging into one golden glow under a starry sky, titled Twin Flame vs FLAMES"
+                width={1120}
+                height={2240}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Section 5: School Nostalgia */}
         <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
@@ -787,7 +934,7 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
             The School Notebook Legacy: India&apos;s Favorite FLAMES Game
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            In an era before smartphones, dating apps, and social media reels, the <strong>FLAMES calculator</strong> was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling uncontrollably whenever a classmate’s crush ended on &apos;M&apos; (Marriage) or teasing them endlessly when it landed on &apos;S&apos; (Siblings). CalculateLove honors that innocent nostalgia with authentic transparent mechanics, our deterministic <strong>flames love calculator percentage</strong>, and instant shareable status cards.
+            In an era before smartphones, dating apps, and social media reels, the <strong>FLAMES calculator</strong> was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling uncontrollably whenever a classmate’s crush ended on &apos;M&apos; (Marriage) or teasing them endlessly when it landed on &apos;S&apos; (Siblings). CalculateLove honors that innocent nostalgia with authentic transparent mechanics, a deterministic <strong>FLAMES letter result</strong>, and instant shareable status cards.
           </p>
         </section>
       </div>

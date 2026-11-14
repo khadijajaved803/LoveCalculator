@@ -17,6 +17,8 @@ import {
   Download,
   MessageCircle,
 } from 'lucide-react';
+import nameBirthDateImage from '../assets/images/name-numerology-name-birth-date.webp';
+import luckyNameImage from '../assets/images/name-numerology-lucky-name.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -212,6 +214,11 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
       answer:
         'The Expression (Destiny) number comes from all letters in your name. The Soul Urge (Heart’s Desire) comes exclusively from vowels (A, E, I, O, U), revealing inner spiritual yearnings. The Personality number comes from consonants, representing outward impressions.',
     },
+    {
+      question: 'Is this name numerology calculator free to use?',
+      answer:
+        'Yes. People often look for a numerology name calculator free of charge, and this one is — a numerology name calculator online that runs in your browser with no sign-up and gives the full breakdown: every letter, its value, and the reduced root number for both names.',
+    },
   ];
 
   const schemaJson = {
@@ -229,7 +236,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <SEOHead
         title="Name Numerology Calculator – Pythagorean & Chaldean Name Numbers"
-        description="Calculate your name numerology number with our free interactive tool. Compare Pythagorean vs Chaldean name vibrations and discover couple destiny compatibility."
+        description="Use this free name numerology calculator to find your name number. Compare Pythagorean vs Chaldean name vibrations and discover couple destiny compatibility."
         canonicalPath="/numerology/name-numerology/"
         schemaJson={schemaJson}
       />
@@ -253,7 +260,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
           Name Numerology Calculator – Explore Name Numbers
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Convert names into vibrational numbers. Compare Pythagorean and Chaldean name totals to evaluate couple destiny compatibility.
+          Use this free name numerology calculator to convert names into vibrational numbers and compare Pythagorean and Chaldean name totals for couple destiny compatibility.
         </p>
       </div>
 
@@ -477,18 +484,19 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             Pythagorean vs. Chaldean Name Numerology: Calculating Name Number Values
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Both systems translate names into cosmic numbers. Whether you want to calculate name numerology, find your numerology name value, or check name and numerology meaning, each system offers unique insights into couple dynamics, personal destiny, and vibrational energy.
+            The tool above is a numerology name calculator that runs both systems. Pick Pythagorean or Chaldean, and it turns every letter of a name into a value, adds them up, and shows the name number. In chaldean name numerology the values follow the sound of each letter rather than its place in the alphabet, which is why the same name can add up differently here than in the Pythagorean table. Worked by hand, the same four steps make a simple name number calculator: write the name, look up each letter in the chart below, add the values, and reduce the total.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
           <div className="p-5 rounded-2xl bg-purple-50/40 border border-purple-100 space-y-2">
-            <h3 className="font-bold text-slate-900 text-sm">Pythagorean Numerology Calculator (Modern Western)</h3>
+            <h3 className="font-bold text-slate-900 text-sm">Pythagorean Numerology Name Calculator (Modern Western)</h3>
             <ul className="text-slate-600 space-y-1.5 list-disc list-inside leading-relaxed">
               <li>Created by the ancient Greek philosopher Pythagoras.</li>
               <li>Numbers are assigned sequentially 1 through 9.</li>
               <li>Standardized worldwide for Latin alphabet name calculations.</li>
               <li>Focuses on life lessons, destiny expression, and outward communication.</li>
+              <li>Switch the toggle above to Pythagorean to run this page as a pythagorean name calculator.</li>
             </ul>
           </div>
 
@@ -499,6 +507,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
               <li>Numbers are assigned 1 through 8 based on phonetic acoustic vibration.</li>
               <li>The number 9 is omitted from letter assignment as sacred and divine.</li>
               <li>Focuses on inner soul desires and subconscious energetic chemistry.</li>
+              <li>Switch the toggle above to Chaldean to run this page as a chaldean name calculator.</li>
             </ul>
           </div>
         </div>
@@ -510,7 +519,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
               Name Numerology Chart: Letters to Numbers Reference Guide
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Use this reference table to understand how each alphabetical letter converts to its numerical value in both the Pythagorean and Chaldean systems when performing manual calculation or checking your name letter number:
+              Use this reference table as a numerology name number chart: it shows how each letter converts to its numerical value in both the Pythagorean and Chaldean systems, so you can check the tool's result letter by letter or work a name out by hand. The Chaldean row works as a chaldean name number calculator on its own — look up each letter in the second row and add.
             </p>
           </div>
 
@@ -567,7 +576,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
               How to Calculate Name Numerology: Step-by-Step Guide
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Wondering how to find numerology number for your name or calculating name number by hand? Follow these four straightforward steps:
+              Wondering how to find numerology number for your name? This is how to calculate numerology name totals by hand — together the four steps work as a numerology name number calculator you can run on paper:
             </p>
           </div>
 
@@ -690,7 +699,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
               Business Name Number &amp; Company Numerology Calculator
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Beyond romantic couples, numerology is extensively applied in corporate branding. Founders regularly use a business name numerology calculator or company name numerology chart to calculate business name numerology and ensure favorable brand vibration:
+              Beyond romantic couples, numerology is extensively applied in corporate branding. Founders regularly use a business name numerology calculator or company name numerology chart to calculate business name numerology and ensure favorable brand vibration. The company name numerology calculator on this page is the same tool above: type the company name in as the first name and compare its root number with a second name.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1.5">
@@ -706,6 +715,142 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Name Numerology with Date of Birth */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Name Numerology with Date of Birth: Reading the Two Numbers Together
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              A name on its own gives you one number, but most readers check it next to the number from the date of birth, because the two answer different questions. The numerology name number describes how you come across and communicate; the birth-date number describes the longer arc underneath. When the two point the same way, people usually read that as a steady match between personality and direction; when they pull apart, the gap itself is what the reading talks about. A numerology name check starts from the name alone and only brings the birth date in afterwards, so the name reading stays clean.
+            </p>
+          </div>
+
+          <figure className="my-6">
+            <img
+              src={nameBirthDateImage}
+              alt="Name and birth date in numerology: a notebook with the name Elara and numbers under each letter, beside a July calendar page"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              A name number and a birth-date number read side by side: one from the name, one from the date of birth.
+            </figcaption>
+          </figure>
+
+          <div className="max-w-3xl space-y-3">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              That is why a numerology name calculator with date of birth is one of the most used combinations on this site: you enter two names above, then check each person's life path number from their birth date and lay the two readings side by side. Running a numerology name calculator for date of birth checks means doing the name reading first, then the birth-date reading, and comparing the two root numbers — the tool on this page only needs the names, so the birth-date side comes from the{' '}
+              <a
+                href="/life-path-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/life-path-calculator/');
+                }}
+                className="text-purple-600 hover:underline font-semibold"
+              >
+                Life Path Calculator
+              </a>
+              {' '}or the{' '}
+              <a
+                href="/numerology-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/numerology-calculator/');
+                }}
+                className="text-purple-600 hover:underline font-semibold"
+              >
+                Numerology Calculator
+              </a>
+              {', '}a name calculator by date of birth that reads both the name and the birthday. If you want to find numerology name by date of birth for a partner, run both readings and compare the root numbers rather than expecting one tool to do both jobs.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              One caution: the two numbers will not always agree, and a mismatch is not a verdict on a relationship. The name number can change — a married name or a name change shifts it — while the birth-date number never moves. So if you check a name numerology calculator by date of birth and the two readings disagree, treat the birth-date number as the fixed point and the name number as the part that moves with how someone lives and presents themselves. The percentage the tool returns is a name numerology compatibility score built from the two root numbers, so read it as a comparison of two people, not a judgement on either one alone.
+            </p>
+          </div>
+        </div>
+
+        {/* Lucky Name Numerology */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Lucky Name Numerology: What a Lucky Name Number Actually Means
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+            <div className="md:col-span-3 space-y-3">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                A lucky name number is not a promise — it is a preference inside numerology. Some numbers are read as easier to carry: 1 for leading, 5 for selling and moving, 8 for money and standing. So when people look for a lucky name numerology calculator, what they are really asking is which root number lines up with what they want the name to do — a name for a new baby, a stage name, or a business name that needs to sound confident.
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                The honest way to use it is backwards from how most people try: decide what the name is for first, then check which numbers suit that purpose, then test the names you actually like. A lucky name calculator only helps if the name still sounds like the person or business it belongs to; a number 8 on a name nobody can pronounce buys nothing. The alphabets matter here too — the same name adds up differently in Pythagorean and Chaldean values, so check the name in both systems before settling.
+              </p>
+            </div>
+            <figure className="md:col-span-2">
+              <img
+                src={luckyNameImage}
+                alt="Lucky name numerology: a glowing golden number 8 among stars with a brass nameplate below"
+                width="800"
+                height="1200"
+                loading="lazy"
+                className="w-full rounded-2xl object-cover"
+              />
+              <figcaption className="mt-2 text-center text-xs text-slate-500">
+                The number 8 is the one most often called lucky — for money, standing, and growth.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="max-w-3xl space-y-3 mt-4">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              For business names the same thinking applies, and it is where lucky business name numerology gets used most: founders test a shortlist of names with a business name calculator, keep the ones whose root number fits the work — 5 for trade and marketing, 8 for finance and growth — and drop the ones that fight it. The calculator above doubles as a numerology business name calculator free to use: type the business name in as the first name and compare its total with a second name. A business name numerology calculator by date of birth goes one step further, checking the company name against the founder's birth-date number as well — the same pairing of name and birth date, applied to a business instead of a couple.
+            </p>
+          </div>
+        </div>
+
+        {/* Name Correction in Numerology */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Name Correction in Numerology: Changing a Name to Change Its Number
+            </h3>
+          </div>
+          <div className="max-w-3xl space-y-3">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Name correction is the practice of adjusting a name — usually by adding, dropping, or respelling a letter — so its total lands on a different root number. Behind every numerology name change is the same idea: the name you use every day carries the number, so a new spelling means a new number. A numerology name correction calculator does the checking: type the altered spelling in, see the new total, and try variants until the number you want appears.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Most corrections are small: an extra 'a' at the end, a 'y' swapped in for an 'i', a middle name added or dropped. The spelling still has to be usable — a corrected name that nobody spells right will keep being written the old way, which defeats the point. And the change is only as real as the belief behind it: numerology treats the name you actually use, every day, as the one that counts, so a correction written on paper but never spoken changes nothing.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              A free numerology name correction takes a few minutes here: run the current spelling, note the number, then run the corrected spelling as a second name and compare. If you are weighing a new spelling, run it through the tool as a numerology name change calculator first — type the spelling you are considering and see its number before you start using it. If you want a second opinion, a numerology name correction online free of charge works the same way; what matters is testing the exact spelling you would actually use, letter by letter, in both the Pythagorean and Chaldean systems, because a spelling that fixes the number in one system can break it in the other.
+            </p>
+          </div>
+        </div>
+
+        {/* Namank and Name Numerology in India */}
+        <div className="pt-6 border-t border-purple-100">
+          <div className="max-w-3xl mb-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display mb-2">
+              Namank and Name Numerology in India
+            </h3>
+          </div>
+          <div className="max-w-3xl space-y-3">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              In India the same practice often goes by the name Namank — the number of a name, worked out from its letters. A namank calculator adds the letter values and reduces them to a root number, exactly as the tool on this page does. An indian numerology name calculator works from the same arithmetic, and Indian readers often weigh its result against the birth chart as well as the name alone, in the Vedic way of reading, while this page keeps the reading to the name itself.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              If you grew up with the term, you can use this page the same way: type the name in Latin letters, pick a system, and read the root number. Wondering how to calculate namank for a numerology name in Tamil or Hindi? Transliterate it into Latin letters first, because the calculator works from the Latin alphabet — the letters A to Z and their values in the chart above. The number you get belongs to the transliterated spelling, so keep the spelling consistent every time you check it.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              That is also why searches for a name numerology calculator in Tamil or a name numerology calculator in Hindi lead here: the practice is the same, only the language of the name changes. The tool itself stays in English and the Latin alphabet, and the reading it gives — the root number, the breakdown, and the compatibility between two names — works the same way whatever language the name comes from.
+            </p>
           </div>
         </div>
       </section>

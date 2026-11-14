@@ -23,6 +23,9 @@ import {
   Check,
 } from 'lucide-react';
 
+import crushCalculatorDoesMyCrushLikeMeImage from '../assets/images/crush-calculator-does-my-crush-like-me.webp';
+import crushCalculatorSecretCrushDetectorImage from '../assets/images/crush-calculator-secret-crush-detector.webp';
+
 interface Props {
   onNavigate: (path: string) => void;
 }
@@ -198,7 +201,7 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           Crush Calculator – Check Your Crush Compatibility
         </h1>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-          Discover your secret crush compatibility percentage, mutual chemistry vibes, and confession readiness between two names.
+          Take the crush test to discover your secret crush compatibility percentage, mutual chemistry vibes, and confession readiness between two names.
         </p>
       </div>
 
@@ -427,6 +430,98 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
         )}
       </div>
 
+      {/* How the crush quiz works */}
+      <section className="bg-white rounded-3xl border border-pink-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
+        <div className="max-w-3xl mb-8">
+          <span className="text-xs font-bold text-pink-600 uppercase tracking-wider block mb-2">
+            Crush Quiz &amp; Test
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
+            Crush Quiz: What This Crush Test Actually Checks
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            The tool above is a short crush quiz. The crush test behind it asks very little:
+            two names, and the dynamic between you — a secret crush from afar, mutual smiles
+            across the room, late-night texting. From that it returns a crush compatibility
+            score with a chemistry spark reading, an emotional ease reading, and a confession
+            readiness meter. The whole thing runs in your browser, takes under a minute, and
+            never sends either name anywhere.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            Most people arrive with a does my crush like me quiz in mind. The quiz answers from
+            the dynamic you described: a high score means the warmth you described already runs
+            both ways in how you two act, and a low score usually means distance so far, not a
+            closed door. When the worry is whether the feeling comes back, run the test as a
+            does my crush like me back quiz and read the score against the replies, the smiles,
+            and the excuses to be near you. And if you came here through a
+            does my crush have feelings for me quiz, the score is still the thing to read,
+            because the test looks at the replies and the smiles, not at the wording of the
+            question. When you already know how you feel, the question flips — and a
+            does your crush like you quiz reads the signs from their side: the replies, the
+            smiles, the excuses to be near you.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            At the earliest stage, when you are not even sure the feeling has a name yet, a
+            do i have a crush quiz gives you a score for the dynamic — and a quiet result
+            usually matches a crush that is still mostly in your own head. An am i in love quiz
+            comes later, when the feeling has lasted long enough to ask whether it has grown
+            past a crush. The tool cannot answer that — love shows over weeks of how someone
+            treats you, not in a score — but a high score does tell you the dynamic is warm
+            enough to be worth finding out. A do i love him quiz sits between the two: the test
+            reads the two names and the dynamic, and what you do with the answer — a
+            conversation, a coffee, a little more time — is where the real question gets
+            settled. And if all you want to know is do you like your crush, a quick
+            do you like your crush quiz gives you a number for the dynamic and lets you
+            decide what the number means.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            If you want a quick test for crush compatibility, the tool above takes under a
+            minute — the crush questions inside it are the three choices above the button: the
+            names, the dynamic, and the way you talk. Short crush quizzes like this one work
+            because they ask so little, and the result is a crush compatibility test in the full
+            sense: a score, two readings, and a tip for what to do next. If the score comes
+            back strong and you want a longer view, the{' '}
+            <a
+              href="/love-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-calculator/');
+              }}
+              className="text-pink-600 hover:underline font-semibold"
+            >
+              love calculator
+            </a>
+            {' '}runs the same two names through a four-pillar compatibility read. And once you
+            know the feeling is shared, the{' '}
+            <a
+              href="/love-language-test/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-language-test/');
+              }}
+              className="text-pink-600 hover:underline font-semibold"
+            >
+              Love Language Test
+            </a>
+            {' '}shows how the two of you express affection day to day.
+          </p>
+        </div>
+      </section>
+
+      <figure className="my-8">
+        <img
+          src={crushCalculatorDoesMyCrushLikeMeImage}
+          alt="Watercolor classroom scene with the title 'Does My Crush Like Me?' — a young woman glancing across the room at a smiling young man"
+          width="1200"
+          height="675"
+          loading="lazy"
+          className="w-full rounded-2xl object-cover"
+        />
+        <figcaption className="mt-2 text-center text-xs text-slate-500">
+          The question behind the test — a glance across the room is usually where a crush starts.
+        </figcaption>
+      </figure>
+
       {/* Guide Content: Signs Your Crush Likes You Back */}
       <section className="bg-white rounded-3xl border border-pink-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
         <div className="max-w-3xl mb-8">
@@ -469,6 +564,182 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
               Whether picking an adjacent seat in class, joining your break table, or asking simple questions, proximity is a classic crush indicator.
             </p>
           </div>
+
+          <div className="p-4 rounded-2xl bg-pink-50/40 border border-pink-100 space-y-1.5">
+            <h3 className="font-bold text-slate-900 text-sm">5. They Text First and Keep Talking</h3>
+            <p className="text-slate-600 leading-relaxed">
+              A crush who starts conversations, replies quickly, and asks follow-up questions is showing more than politeness — they are looking for reasons to stay in touch.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How to read the signs */}
+      <section className="bg-white rounded-3xl border border-pink-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
+        <div className="max-w-3xl mb-8">
+          <span className="text-xs font-bold text-pink-600 uppercase tracking-wider block mb-2">
+            Reading the Signs Together
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
+            How to Know If Someone Has a Crush on You
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            How can you tell someone has a crush on you? One sign on its own proves very
+            little — anyone can hold eye contact once or remember one detail. What matters is
+            the pattern: the same person showing up in your eyeline, remembering things you
+            mentioned, replying fast, and finding reasons to be near you, day after day. That
+            is how to know if someone has a crush on you — not from a single moment, but from
+            several small ones pointing the same way. Read together, those small moments are
+            the signs someone has a crush on you, and they are worth more than any single grand
+            gesture.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            How do you know if your crush likes you back? Start with replies: do they answer
+            quickly, ask follow-up questions, and keep the conversation going after it could
+            have ended? Then look at proximity: do they choose the seat near you, join your
+            table, or find small reasons to talk? When both are true, the answer is usually
+            yes — and the test above will generally agree with you. That is also
+            how to tell if your crush likes you back without asking outright: watch what they
+            do over a week, not what they say in one conversation. The question
+            does my crush like me back is answered the same way — by the pattern, not by one
+            moment — and if the question is how to know if my crush likes me, the answer is
+            the pattern above, not any single sign.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            A does he love me quiz asks a bigger question than a crush test can settle. A crush
+            is attraction and attention; love is what shows over weeks — consistency, care when
+            things are dull, remembering what matters to you. The signs overlap, which is why
+            the two questions get confused, but a high score here means the attraction is real,
+            not that love has already arrived. If the question is will my crush like me, the
+            honest answer is that nobody can promise it — what you can do is watch whether the
+            dynamic is warming, and let the score tell you where it stands today.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            Some readers flip the question around and run a who has a crush on me quiz — the
+            person who has noticed someone acting warmly and wants to know who it is. The way
+            to use it is to run the names of the people you suspect one by one through the test
+            above, and see whose score stands out. Behind the who has a crush on me question is
+            usually one person you already suspect. The who is crushing on me version works the
+            same way — the signs are the ones in the section above, read from the other side —
+            and a will your crush like you quiz is only worth taking once you have a name in
+            mind, because without one there is nothing for the test to read.
+          </p>
+        </div>
+      </section>
+
+      {/* Secret crush detector */}
+      <section className="bg-white rounded-3xl border border-pink-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
+        <div className="max-w-3xl mb-8">
+          <span className="text-xs font-bold text-pink-600 uppercase tracking-wider block mb-2">
+            Detector, Horoscope &amp; Astrology
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
+            Secret Crush Detector: What It Can and Cannot Tell You
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            A secret crush detector sounds like a device that reads minds. What this page
+            actually does is simpler: it reads the two names you type and the dynamic you pick,
+            and turns them into a score, two readings, and a tip. A secret crush calculator
+            asks for two names and gives back a number. That is what the tool above does, with
+            a score, two readings, and a tip attached. The crush detector on this page runs
+            entirely in your browser. There is no secret crush detector app to download, no
+            account to make, and both names stay on your device.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            The astrology version of the question looks somewhere else entirely. A
+            secret crush astrology reading looks at birth dates and star signs instead of
+            names — it asks what the day favours for your sign, not what the person across the
+            room thinks of you. A secret crush horoscope works the same way, by sign and by
+            day, and neither one can see the dynamic between two real people. The tool here
+            does not read stars, and it does not pretend to. If you want the star-based read,
+            the{' '}
+            <a
+              href="/love-horoscope/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-horoscope/');
+              }}
+              className="text-pink-600 hover:underline font-semibold"
+            >
+              Love Horoscope
+            </a>
+            {' '}page gives the day&apos;s love reading by sign, and you can compare what it
+            says with what the names say here.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            Underneath the detector talk sits a simpler question: is my crush meant for me? No
+            test can answer that outright — being meant for each other is something two people
+            build, not something a score declares. What the detector can show is whether the
+            dynamic you described already looks mutual, which is the closest a test can get to
+            an answer.
+          </p>
+        </div>
+      </section>
+
+      <figure className="my-8 mx-auto max-w-md">
+        <img
+          src={crushCalculatorSecretCrushDetectorImage}
+          alt="Watercolor scene with the title 'Secret Crush Detector' — a glowing phone with pink hearts rising from its screen beside a handwritten secret note"
+          width="1120"
+          height="2240"
+          loading="lazy"
+          className="w-full rounded-2xl object-cover"
+        />
+        <figcaption className="mt-2 text-center text-xs text-slate-500">
+          No app, no account — the detector runs right here in your browser.
+        </figcaption>
+      </figure>
+
+      {/* Code names and crush games */}
+      <section className="bg-white rounded-3xl border border-pink-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
+        <div className="max-w-3xl mb-8">
+          <span className="text-xs font-bold text-pink-600 uppercase tracking-wider block mb-2">
+            Code Names &amp; Games
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
+            Code Names for Your Crush — and the Crush Games People Play
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Most people with a crush invent a code name for them. Code names for crushes exist
+            for one practical reason: you need to talk about the person in a group chat without
+            the person — or anyone else — knowing who you mean. Code names for your crush work
+            best when they come from a shared detail — a food they love, a place you met, the
+            initials of their name — because a code name built on a memory is easy to remember
+            and hard for outsiders to crack. A codename for crush usually runs to one word — a
+            snack, a colour, a place — short enough to type fast when they walk into the room.
+            A crush name that means nothing to anyone else is doing its job. When the code name
+            stops being a secret and starts being affectionate, it has become a crush nickname.
+          </p>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+            Then there are the games. Most of them are group quizzes built around a
+            my crush game: everyone answers, and the reveal is the fun. The how many people
+            have a crush on me format is the classic one — the group guesses, the number comes
+            out, and someone blushes. A how many people have a crush on me quiz adds a score
+            to the guessing, which is why it travels so well in group chats, and the
+            how many people have a crush on you version asks the whole group instead of one
+            person. The how many people have crushes on you version counts admirers instead of
+            naming one, which is why it works as a party game and not as a test. This page
+            works differently: it checks one crush at a time, with a score for the dynamic
+            rather than a count of admirers. The first question in every version is the same —
+            who is your crush — and the tool above starts there too, with the name field. The
+            trickiest version is the do i have a crush on my friend quiz, because a friend
+            crush carries a real friendship underneath it. The test reads the dynamic the way
+            it reads any other — the difference is only in what you do with a high score. As
+            for games to play with your crush, the honest ones are simple — a quiz you both
+            take, a question game over text — because the point is a conversation, not a
+            result. If you want the game version of the same two names, the{' '}
+            <a
+              href="/flames-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/flames-calculator/');
+              }}
+              className="text-pink-600 hover:underline font-semibold"
+            >
+              FLAMES calculator
+            </a>
+            {' '}plays them through a letter game instead of a score.
+          </p>
         </div>
       </section>
 

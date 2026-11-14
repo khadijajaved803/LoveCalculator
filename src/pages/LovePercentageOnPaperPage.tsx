@@ -4,6 +4,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
+import lovePercentageNotebookMethod from '../assets/images/love-percentage-on-paper-notebook-method.webp';
+import lovePercentageTrueLoveGames from '../assets/images/love-percentage-on-paper-true-love-games.webp';
 import {
   FileText,
   Sparkles,
@@ -205,12 +207,57 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             </div>
             <h3 className="text-sm font-bold text-slate-900">Step 4: Reduce to Two Digits</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Keep repeating this pairwise addition on each new row until you are left with exactly two numbers. Those two digits give you your true love test percentage on paper.
+              Keep repeating this pairwise addition on each new row until you are left with exactly two numbers. Those two digits give you the result of your true love test on paper.
             </p>
             <div className="bg-white p-3 rounded-xl border border-rose-200 text-center text-xs font-mono text-rose-600 font-bold">
               Final Two Digits = 82%
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* How to Check Your Paper Result */}
+      <section className="bg-white rounded-3xl border border-rose-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
+        <div className="max-w-3xl mb-6">
+          <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block mb-2">
+            Check Your Work
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
+            How to Check Love Percentage on Paper: Read Your Result Right
+          </h2>
+        </div>
+
+        <figure className="mb-6 overflow-hidden rounded-2xl border border-rose-100">
+          <img
+            src={lovePercentageNotebookMethod}
+            alt="Open notebook showing NOAH LOVES AVA with letter counts underneath, under the title Love Percentage on Paper"
+            loading="lazy"
+            width={1200}
+            height={675}
+            className="w-full h-auto"
+          />
+          <figcaption className="px-4 py-2.5 text-[11px] text-slate-500 bg-rose-50/50 leading-relaxed">
+            A notebook page mid-calculation: two names joined by LOVES, with the letter counts underneath that feed the adding rounds.
+          </figcaption>
+        </figure>
+
+        <div className="max-w-3xl space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p>
+            Learning how to test love percentage on paper takes one practice round: run the same two names through the counting and adding rounds a second time and compare the two rows — if a count differs somewhere, one of the tallies was wrong, and that is the most common reason two friends get different scores from the same names.
+          </p>
+          <p>
+            Anyone wondering how to take out love percentage on paper only needs to follow the rows to the end — the moment they shrink to two digits, the score is out, and writing it on the sheet itself keeps the working that proves it. A love percentage by names on paper comes only from the letters in the two names, so the same pair of names always produces the same rows.
+          </p>
+          <p>
+            This is how to calculate love percentage on paper with names when the first names are very short: start with full names rather than nicknames — longer names give longer count rows and more adding rounds, which makes a copying mistake easier to spot. The love calculator paper version travels where the online one cannot — into classrooms, onto trains, and onto any scrap of paper with a pen nearby. And if a friend asks how to do love calculator on paper, hand them your finished sheet and walk them through the count row — the method is easier to learn from a worked example than from rules.
+          </p>
+          <p>
+            When a love tester on paper gives a surprisingly low score, the first thing to check is the letter counts — one missed letter changes every row below it. Anyone wondering how to do a love test on paper only needs the four steps above — write the names, count the letters, add the pairs, and read the two digits that remain. The same counting also serves as a true love compatibility test on paper — the final two digits are read as compatibility between the two names, and the comparison table below shows what the online engine adds that paper cannot. To see what the number means, read{' '}
+            <button type="button" onClick={() => onNavigate('/blog/what-does-love-percentage-mean/')} className="text-rose-600 font-semibold underline hover:text-rose-700">what your love percentage means</button>{' '}
+            or check the same names on the{' '}
+            <button type="button" onClick={() => onNavigate('/love-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">online love calculator</button>{' '}
+            to compare the paper score with a phonetic reading.
+          </p>
         </div>
       </section>
 
@@ -284,7 +331,7 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             The &quot;TRUE LOVE&quot; Letter Match Method on Paper
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Another beloved paper love calculator game involves writing the letters <strong>T-R-U-E &nbsp; L-O-V-E</strong> and counting matches against both partner names.
+            Another beloved love calculator on paper involves writing the letters <strong>T-R-U-E &nbsp; L-O-V-E</strong> and counting matches against both partner names.
           </p>
         </div>
 
@@ -309,6 +356,52 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
               If you want an even more traditional game, try our dedicated <button type="button" onClick={() => onNavigate('/flames-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">FLAMES Calculator</button>, which uses letter cancellation to reveal friendship, love, affection, marriage, enemy, or sibling status.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* More Paper Love Games */}
+      <section className="bg-white rounded-3xl border border-rose-200/90 shadow-sm p-6 sm:p-8 md:p-10 mb-12">
+        <div className="max-w-3xl mb-6">
+          <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block mb-2">
+            More Paper Games
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display mb-3">
+            True Love Games on Paper: More Ways to Play
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          <div className="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p>
+              A true love game on paper needs nothing but two names and a pen — the counting and adding rounds are the game itself, and the score at the end is the prize. Every love test game on paper follows the same rhythm — write, count, add, read — so once you know one version, the others take a minute to learn. School notebooks are full of love games on paper because they cost nothing and any two names can start one.
+            </p>
+            <p>
+              The same counting shows how to find friendship percentage on paper — write two friends' names instead of a couple's, run the same rounds, and read the result as friendship rather than romance. It also works as a name compatibility game on paper: two names go in, the adding rounds do the work, and the final two digits are read as how well the names fit together — you can check the same pair on the{' '}
+              <button type="button" onClick={() => onNavigate('/name-compatibility/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name compatibility calculator</button>{' '}
+              or test the friendship on the{' '}
+              <button type="button" onClick={() => onNavigate('/friendship-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">friendship calculator</button>{' '}
+              instead.
+            </p>
+            <p>
+              FLAMES is another game you can play entirely on paper: cross out the matching letters in two names, count what is left, and strike through the word FLAMES until one letter remains. This is how to calculate flames on paper: count the leftover letters first — the count decides how many letters of FLAMES get struck through on each pass — and the{' '}
+              <button type="button" onClick={() => onNavigate('/flames-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">FLAMES Calculator</button>{' '}
+              does the same striking online when you want it done instantly.
+            </p>
+          </div>
+
+          <figure className="overflow-hidden rounded-2xl border border-rose-100">
+            <img
+              src={lovePercentageTrueLoveGames}
+              alt="Notebook page covered in hand-drawn hearts with the title True Love Games on Paper and TRUE LOVE written large in the middle"
+              loading="lazy"
+              width={1200}
+              height={1500}
+              className="w-full h-auto"
+            />
+            <figcaption className="px-4 py-2.5 text-[11px] text-slate-500 bg-rose-50/50 leading-relaxed">
+              The TRUE LOVE grid is only one of the paper games — the same counting turns into friendship, compatibility and FLAMES games.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
