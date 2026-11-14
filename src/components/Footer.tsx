@@ -392,7 +392,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
             <span>© 2026 CalculateLove (calculatelove.online).</span>
             <span aria-hidden="true" className="hidden sm:inline">·</span>
-            <span>Made with <span className="text-rose-500 inline-block animate-pulse">❤️</span> for romance, friendship & fun.</span>
+            <span>Made with{' '}<span className="text-rose-500 inline-block animate-pulse">❤️</span>{' '}for romance, friendship & fun.</span>
           </div>
 
           <div className="flex items-center gap-4">
