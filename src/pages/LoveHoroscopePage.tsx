@@ -5,6 +5,8 @@ import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { LoveHoroscopeTool } from '../components/LoveHoroscopeTool';
+import loveHoroscopeCoupleStarsImage from '../assets/images/love-horoscope-couple-stars.webp';
+import loveHoroscopeHeartConstellationImage from '../assets/images/love-horoscope-heart-constellation.webp';
 import { Moon } from 'lucide-react';
 
 interface Props {
@@ -98,26 +100,19 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
         <article className="prose prose-slate max-w-none bg-white p-6 sm:p-10 rounded-3xl shadow-xs border border-slate-100 text-slate-700 leading-relaxed space-y-8 mt-12">
           <section>
             <p className="text-base sm:text-lg leading-relaxed">
-              Check your love horoscope today, free. Pick your zodiac sign — or enter your date of
-              birth and let the tool find it — and get your daily love horoscope: what love looks
-              like for you today, what to say, and what to hold back on. Your horoscope today love
-              reading refreshes every morning, so the love horoscope you see here is always
-              today&apos;s, never yesterday&apos;s horoscope.
+              Pick your sign — or type in your date of birth and let the tool find it — and your
+              love horoscope today is ready in a moment: the mood between you and the person you
+              care about, one thing worth saying, and one thing better left unsaid. Your
+              horoscope today love reading refreshes every morning, so what you open is always
+              today&apos;s — never yesterday&apos;s. The reading is free, it needs no sign-up,
+              and it asks for nothing more than a sign or a date.
             </p>
             <p className="mt-3">
-              A love horoscope is the love half of your daily horoscope: while a full horoscope
-              covers work, money and health, the love horoscope reads only your love life — your
-              feelings, your partner, a crush, or the chances of meeting someone new. That is why
-              people check it first thing: a daily love horoscope is short, personal, and about
-              the one thing they most want to know today. Whether you search for my love
-              horoscope today, today&apos;s free love horoscope, or a free daily love horoscope,
-              this is the same page — a daily love horoscope today, refreshed every morning, and
-              my free love horoscope whenever you want it. If you are finding love horoscope
-              readings for the first time, start with your sign. This page gives you the free
-              love horoscope for today, tomorrow, this week and this month, for singles and for
-              couples, by sign or by date of birth — and in Hindi too. Read today&apos;s love
-              horoscope in the tool above, then read on for how to use it. And once you know what
-              the day favours, the{' '}
+              Use it the way most readers do: a quick check over morning tea, before you text
+              back, before you bring up something delicate. The daily love horoscope here is
+              short on purpose — one sign, one day, one piece of advice — and it stays practical:
+              what the day favours, what to avoid, and which signs it pairs well with today. And
+              once you know what the day favours, the{' '}
               <a
                 href="/love-language-test/"
                 onClick={(e) => {
@@ -127,9 +122,9 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Love Language Test
-              </a>{' '}
-              shows how you express love day to day — the horoscope says when, the love languages
-              say how. If you want a number with your reading, the{' '}
+              </a>
+              {' '}shows how you express love day to day — the horoscope says when, the love
+              languages say how. If you want a number with your reading, the{' '}
               <a
                 href="/"
                 onClick={(e) => {
@@ -139,33 +134,43 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 love calculator
-              </a>{' '}
-              on the home page gives you a quick compatibility score from two names.
+              </a>
+              {' '}on the home page gives you a quick compatibility score from two names.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={loveHoroscopeCoupleStarsImage}
+              alt="A love horoscope scene: a couple under a starry night sky with a crescent moon"
+              width="1200"
+              height="1800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              The stars the reading is drawn from — the Moon sets the day&apos;s feeling, Venus
+              sets the timing.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               What Is a Love Horoscope?
             </h2>
             <p>
-              What is a love horoscope? It is a short daily reading of your love life, written
-              for your zodiac sign. Astrologers read it from where the Moon and Venus sit today
-              against your sign: the Moon for feelings, Venus for love. A love horoscope today
-              reading answers small, practical questions — is today good for telling someone how
-              you feel, should you give your partner space, is a new person worth a second look —
-              rather than making big promises. Love horoscope{' '}
-              <a
-                href="/astrology/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate('/astrology/');
-                }}
-                className="text-indigo-600 hover:underline font-semibold"
-              >
-                astrology
-              </a>{' '}
-              is the same astrology as the rest of the site, pointed at love: your{' '}
+              The reading sticks to one part of the day: love. Work, money and health belong to
+              the full daily horoscope; this one looks only at feelings, a partner, a crush, or
+              the chance of meeting someone new. Behind it sit the Moon and Venus — the Moon
+              shifts sign every two and a half days, so it sets the day&apos;s feeling, while
+              Venus sets the timing of what you say and when. The tool reads those two against
+              your sign and turns them into a short note with three parts: the mood, one thing
+              worth saying, and one thing to hold back. It runs free in your browser, with no
+              sign-up, and the note under every result says the same thing this page will keep
+              saying: tendencies, not guarantees.
+            </p>
+            <p className="mt-3">
+              The twelve{' '}
               <a
                 href="/zodiac-signs/"
                 onClick={(e) => {
@@ -175,11 +180,21 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 zodiac signs
-              </a>{' '}
-              set the theme, the planets set the timing, and your choices do the rest.
-            </p>
-            <p className="mt-3">
-              A love horoscope is not the same as a{' '}
+              </a>
+              {' '}give the reading its shape — each sign brings its own theme to the day — and
+              the{' '}
+              <a
+                href="/astrology/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/astrology/');
+                }}
+                className="text-indigo-600 hover:underline font-semibold"
+              >
+                astrology
+              </a>
+              {' '}behind it is the same tradition the rest of the site uses, pointed at love
+              instead of work or money. Your{' '}
               <a
                 href="/kundali/"
                 onClick={(e) => {
@@ -190,9 +205,9 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               >
                 kundali
               </a>
-              . A kundali is your whole birth chart, fixed for life; a love horoscope changes
-              every day, because the Moon moves to a new sign every two and a half days. For the
-              full chart, use the Kundali page or the{' '}
+              {' '}is a different thing: your whole birth chart, fixed for life, while this
+              reading changes every morning because the Moon keeps moving. For the full chart,
+              the{' '}
               <a
                 href="/birth-chart-calculator/"
                 onClick={(e) => {
@@ -203,11 +218,9 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               >
                 Birth Chart Calculator
               </a>
-              ; for today, this page is the right one. A love horoscope birth chart reading goes
-              one step deeper: it reads your love life from the full birth chart, not only the sun
-              sign, and a vedic love horoscope does the same reading from the Vedic chart. And a
-              love horoscope is not the same as a rashifal either — the rashifal is the whole day,
-              love included, while the love horoscope is the love half of the day only. The{' '}
+              {' '}draws it; for today, this page is the one to open. The rashifal is different
+              again — it covers the whole day, love included — while this page reads only the
+              love half. The{' '}
               <a
                 href="/rashifal-today/"
                 onClick={(e) => {
@@ -217,17 +230,10 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Rashifal Today
-              </a>{' '}
-              page holds today&apos;s rashifal, love first; this page holds the full daily love
-              horoscope by sign. Horoscope and love go together in this reading: the horoscope
-              sets the day, and love is what it is read for. A daily love horoscope astrology
-              reading is the same daily reading under its longest name, and so is an astrology
-              love horoscope — different words, same page. A zodiac daily love horoscope is the
-              daily reading for your zodiac sign, and a chinese horoscope love calculator is the
-              one exception: it reads the Chinese zodiac — Rat, Ox, Tiger and the rest — instead
-              of the Western signs, so it sits apart from this page&apos;s readings. Your love
-              horoscope for the year is a different thing again — a yearly love horoscope reads
-              the slow planets over twelve months, while this page reads today.
+              </a>
+              {' '}page holds today&apos;s rashifal, love first; here you get the full love
+              reading by sign. The reading here follows the Western signs — the Vedic chart is
+              read on the Kundali page, and the two traditions don&apos;t mix on this tool.
             </p>
           </section>
 
@@ -236,84 +242,75 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Today&apos;s Love Horoscope by Zodiac Sign
             </h2>
             <p>
-              Your daily love horoscope is written for your sign, so start there. Pick your sign
-              in the tool above for the full reading; the lines below say what each sign&apos;s
-              love horoscope usually focuses on. Whatever you call it — today horoscope love life
-              or horoscope today love life — it is the same reading: today&apos;s love horoscope
-              for your sign. Every sign gets a daily love horoscope — Aries, Taurus, Gemini,
-              Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius and Pisces —
-              and every sign&apos;s reading changes daily, so check back tomorrow for a fresh one.
+              Every reading on this page is written for one sign, so the first step is always
+              the same: pick yours. The tool holds all twelve, and each sign&apos;s reading
+              leans on what that sign is known for — not as a verdict, but as the angle the
+              day&apos;s advice takes. Aries gets told to speak plainly; Pisces gets told to
+              trust what it feels. The list below is a flavour of each, not the reading itself —
+              for the full note, pick your sign above.
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Aries — aries today love horoscope:</strong> bold and direct. An Aries
-                love horoscope today usually says: say it plainly, don&apos;t wait. Aries is read
-                as the sign most likely to make the first move.
+                <strong>Aries:</strong> bold and direct — when the reading tells Aries to say
+                something, it usually means say it now, plainly, before the moment passes.
               </li>
               <li>
-                <strong>Taurus — taurus daily love horoscope:</strong> steady and sensual. A
-                Taurus love horoscope is read as slow and loyal — comfort, food, touch, and
-                showing love by showing up.
+                <strong>Taurus:</strong> slow and steady wins the day — comfort, good food,
+                showing up. The advice here is usually to prove love by being there, not by
+                saying more.
               </li>
               <li>
-                <strong>Gemini — gemini love horoscope:</strong> talk first. A Gemini love
-                horoscope is read as clever and curious — a good conversation is the way in.
+                <strong>Gemini:</strong> talk first. For Gemini the way in is a good
+                conversation, and the reading often points at a message worth sending or a
+                question worth asking.
               </li>
               <li>
-                <strong>Cancer — cancer love horoscope:</strong> the most-searched sign in this
-                group, so Cancer gets its own section below.
+                <strong>Cancer:</strong> the most-searched sign on this page — Cancer gets its
+                own section below, because more readers look for its reading than any other.
               </li>
               <li>
-                <strong>Leo — leo love horoscope:</strong> warm and proud. A Leo love horoscope
-                is read as generous and dramatic — Leo loves to be admired and loves to spoil the
-                person they love.
+                <strong>Leo:</strong> warm and proud. Leo&apos;s reading is usually about
+                generosity — a grand gesture, a compliment, making the other person feel
+                chosen.
               </li>
               <li>
-                <strong>Virgo — virgo love horoscope:</strong> careful and kind. A Virgo love
-                horoscope is read as practical love — small acts, remembered details, help without
-                being asked.
+                <strong>Virgo:</strong> small acts, remembered details. Virgo&apos;s love
+                advice is practical — help without being asked, and notice what the other
+                person actually needs.
               </li>
               <li>
-                <strong>Libra — libra daily love horoscope:</strong> balance and charm. A Libra
-                love horoscope is read as the peacemaker&apos;s reading — harmony first, and a gift
-                for making the other person feel chosen. A libra daily love horoscope tomorrow is
-                tomorrow&apos;s Libra reading, and a daily libra love horoscope tarot is the Libra
-                reading by cards.
+                <strong>Libra:</strong> balance first. Libra&apos;s reading is the
+                peacemaker&apos;s note: smooth over the small friction before it grows, and
+                make the other person feel chosen.
               </li>
               <li>
-                <strong>Scorpio — scorpio love horoscope:</strong> deep and intense. A Scorpio
-                love horoscope is read as all-or-nothing — loyalty, jealousy and a feeling that
-                runs deep.
+                <strong>Scorpio:</strong> deep and all-or-nothing. A Scorpio reading talks
+                about loyalty and trust, and it is honest about jealousy when it shows up.
               </li>
               <li>
-                <strong>Sagittarius — today&apos;s sag love horoscope:</strong> free and honest.
-                Today&apos;s Sag love horoscope is read as adventurous — Sagittarius wants a
-                partner who keeps up, not one who holds them back. A sag today love horoscope is
-                the same Sagittarius reading, shortened.
+                <strong>Sagittarius:</strong> free and honest — Sagittarius wants a partner
+                who keeps up. The reading usually points at something new to try together
+                rather than a talk.
               </li>
               <li>
-                <strong>Capricorn — capricorn love horoscope:</strong> serious and steady. A
-                Capricorn love horoscope is read as slow-burn love — trust built over time, and a
-                partner who is in it for the long run.
+                <strong>Capricorn:</strong> slow-burn love. Capricorn&apos;s advice is about
+                trust built over time, and the reading often says to let the other person
+                prove themselves.
               </li>
               <li>
-                <strong>Aquarius — aquarius love horoscope:</strong> unusual and loyal. An
-                Aquarius love horoscope is read as friendship first — Aquarius falls for a mind
-                before a face.
+                <strong>Aquarius:</strong> friendship first. Aquarius falls for a mind before
+                a face, and the reading often starts with a conversation, not a gesture.
               </li>
               <li>
-                <strong>Pisces — pisces love horoscope:</strong> dreamy and tender. A Pisces love
-                horoscope is read as romantic and intuitive — Pisces feels what the other person
-                feels.
+                <strong>Pisces:</strong> dreamy and tender — Pisces feels what the other
+                person feels, and the reading usually says to trust that instinct, then check
+                it gently.
               </li>
             </ul>
             <p className="mt-3">
-              Your zodiac love horoscope is the same reading by another name — &ldquo;zodiac love
-              horoscope&rdquo; and &ldquo;zodiac sign love horoscope&rdquo; are the same search,
-              and this page is the answer to both: pick your zodiac sign above and read
-              today&apos;s love horoscope for it. And if you want to know how your sign gets on
-              with someone else&apos;s, the horoscope sign love compatibility section below points
-              you to the full compatibility page.
+              Two signs read together are a different question, and the Love Match section below
+              takes it up. For now, one sign is enough: pick yours above and read what the day
+              holds for it.
             </p>
           </section>
 
@@ -322,23 +319,19 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Tomorrow&apos;s Love Horoscope — Today and Tomorrow
             </h2>
             <p>
-              A love horoscope is not only about today. The tool above also gives you
-              tomorrow&apos;s love horoscope, because the question most people ask after reading
-              today&apos;s is &ldquo;what about tomorrow?&rdquo; A tomorrow love horoscope is the
-              same kind of reading, one day ahead: whether tomorrow is a better day to say
-              something, to ask someone out, or to wait. Love horoscopes for today and tomorrow
-              are read together — today for what to do now, tomorrow for what to plan — and a love
-              horoscope today tomorrow reading covers both days at once, today and tomorrow in one
-              look. The tool gives you both, plus the daily love horoscope tomorrow line for the
-              day after.
+              Today&apos;s reading answers what to do now; the tomorrow love horoscope answers
+              what to plan. The tool keeps both beside each other — today and tomorrow tabs on
+              the same result — because the question most people ask after reading today is
+              &ldquo;what about tomorrow?&rdquo; A day that looks tense for a hard conversation
+              might look fine the morning after, and knowing that changes whether you speak
+              today or wait.
             </p>
             <p className="mt-3">
-              Yesterday&apos;s love horoscope is the one reading this page does not give you.
-              Horoscope yesterday love is the reading for a day already gone: what the stars said
-              yesterday cannot change what you do today, and a daily page that shows old readings
-              is a page that has gone stale. So this page looks forward only — today, tomorrow,
-              this week, this month. Check your love horoscope each morning and the reading you
-              get is always a fresh one.
+              Yesterday is the one direction this page doesn&apos;t go. A reading for a day
+              already gone can&apos;t change what you do now, and a page that keeps old
+              readings is a page that has gone stale — so the tool looks forward only: today,
+              tomorrow, this week, this month. Check each morning and the reading is always
+              fresh.
             </p>
           </section>
 
@@ -347,21 +340,15 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Love Horoscope by Date of Birth
             </h2>
             <p>
-              Don&apos;t know your zodiac sign? Your love horoscope by date of birth is the way
-              in. Enter your date of birth in the tool above and it works out your sign, then
-              gives you the same daily love horoscope — a free love horoscope by date of birth,
-              with no sign-up. A daily love horoscope by date of birth is the same reading as the
-              by-sign one; the date of birth is just the way to find the sign. The tool also gives
-              a future love horoscope by date of birth — the weekly and monthly readings for your
-              sign — and a personal love horoscope by date of birth and time, which adds your
-              rising sign when you know your birth time. For the full chart behind that rising
+              Don&apos;t know your sign? Type in your date of birth and the tool works it out,
+              then gives you the same daily reading — a free love horoscope by date of birth,
+              with no sign-up. The date is only the way in: it finds the sign, and the sign is
+              what the reading is written for. The tool asks for the date only, not the time —
+              there is no rising-sign step here — and if you want the full chart behind the
               sign, the Birth Chart Calculator draws it.
             </p>
             <p className="mt-3">
-              Your love horoscope according to date of birth is personal in one more way: your
-              birthday love horoscope. A birthday love horoscope reads your birthday itself —
-              your sun sign, your life path number from the same date, and what the year ahead
-              holds for love. The{' '}
+              The same date can be read more than one way. The{' '}
               <a
                 href="/life-path-calculator/"
                 onClick={(e) => {
@@ -371,8 +358,8 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Life Path Calculator
-              </a>{' '}
-              reads the same date of birth as numbers, and the{' '}
+              </a>
+              {' '}reads it as numbers, and the{' '}
               <a
                 href="/numerology-calculator/"
                 onClick={(e) => {
@@ -382,23 +369,11 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Numerology Calculator
-              </a>{' '}
-              reads it as a lucky number — the love horoscope reads it as a sign. A love
-              horoscope based on date of birth is the same as a love horoscope by date of birth —
-              different word order, same reading — and a love horoscope by dob is the shortened
-              form of it. A today love horoscope by date of birth is today&apos;s reading found
-              from your date of birth, and a free love horoscope by date of birth and time adds
-              your rising sign when you know your birth time. A love horoscope match by date of
-              birth free compares two dates of birth for free. A love horoscope by date of birth
-              in hindi is the Hindi version of the same by-date reading. A free personalized love
-              horoscope — a love horoscope personalised, or a love horoscope personalised free —
-              is the same idea: your sign, your date of birth, your reading, free — a free
-              personal love horoscope reading in the tool itself, not a paid report. And a
-              numerology love horoscope reads the same date of birth as numbers: the Numerology
-              Calculator gives you the number, and this page gives you the sign. Together they
-              are three readings from one date: sign, number, and love. You can also check your
-              love horoscope by name and date of birth: the name adds the name-compatibility
-              angle, and the{' '}
+              </a>
+              {' '}reads it as a lucky number — this page reads it as a sign. Together they are
+              three readings from one date. Your birthday is the date the tool uses to find
+              your sign, so a birthday reading works the same way: enter the birthday, get the
+              sign, read the day. And if a name matters to you as well, the{' '}
               <a
                 href="/name-compatibility/"
                 onClick={(e) => {
@@ -408,10 +383,9 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Name Compatibility
-              </a>{' '}
-              page reads two names together. To check love horoscope readings any day, bookmark
-              this page — check love horoscope is one search, and this page is the answer to it,
-              every morning.
+              </a>
+              {' '}page reads two names together — the name adds a second angle to the same
+              date.
             </p>
           </section>
 
@@ -420,52 +394,54 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Single Love Horoscope and Couples Love Horoscope
             </h2>
             <p>
-              A love horoscope reads differently depending on whether you are single or taken, so
-              the tool asks first. A single love horoscope today is written for someone looking:
-              will you meet someone, should you message first, is the person you are thinking
-              about worth another chance? A single love horoscope is the most-read kind on this
-              page, and the tool gives a daily single love horoscope — today&apos;s single love
-              horoscope, and singles love horoscope today by sign — plus a single cancer monthly
-              love horoscope for Cancer singles, a cancer monthly love horoscope for singles, and
-              a monthly love horoscope for singles for every sign. Accurate love horoscopes for
-              singles are the ones that stay practical: they say what to do today, not that a
-              stranger will appear at a fixed hour.
+              The tool asks one question before it reads: single or couple. Pick
+              &ldquo;single&rdquo; and the reading is written for someone looking: a single
+              love horoscope today answers whether to message first, whether the person on your
+              mind is worth another chance, and whether to say yes to a date. Accurate love
+              horoscopes for singles stay practical: they say what to do today, not that a
+              stranger will appear at a fixed hour. That honesty is what makes a reading
+              useful — it tells you how to act, not what will happen to you.
             </p>
             <p className="mt-3">
-              A couples love horoscope today is written for two people already together: how the
-              day runs between you, when to talk about something hard, and when to leave it for a
-              better day. A couples love horoscope is quieter than a singles one — it reads the
-              mood between two people, not the chances of meeting a third. A horoscope of my love
-              life reading is the same couples reading — your love life, read for today. Both
-              readings are free, and both refresh daily: your free love horoscope reading changes
-              with the day, single or taken. And if your love is one sided, there is a reading for
-              that too — a one sided love horoscope reads the situation honestly, including the
-              hardest advice a horoscope gives: when to wait, and when to stop waiting. Teen
-              readers get the same treatment: a teen love horoscope is written for first crushes
-              and school-day feelings, plainly and without adult promises. And a gay love
-              horoscope is the same reading for every reader — love horoscope readings are written
-              for whoever is in love, and the tool asks for a sign, not a label.
+              Pick &ldquo;couple&rdquo; and the note changes: a couples love horoscope today
+              reads how the day runs between two people already together — when to raise
+              something hard, and when to leave it for a better day. It reads the mood between
+              two people, not the chances of meeting a third — quieter, and closer to home.
+              Readers also open the singles reading for a one sided love horoscope — not to
+              find out what the other person feels, because no daily reading can do that, but
+              to get an honest note on their own side: when to wait, and when to stop waiting.
+              The tool never asks your age or your label — a teenager gets the same daily
+              reading as anyone else, written plainly, and the reading is written for whoever
+              is in love.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={loveHoroscopeHeartConstellationImage}
+              alt="A heart-shaped constellation glowing in a deep indigo sky"
+              width="1200"
+              height="1600"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              A heart among the stars: one sign, one day, one note.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               Weekly, Monthly and Yearly Love Horoscope
             </h2>
             <p>
-              Today is not the only span a love horoscope covers. The tool gives you a weekly
-              love horoscope: horoscope love this week, in one reading — the best days of the week
-              for love, and the days to keep things light. A cancer weekly love horoscope is the
-              most-searched weekly reading in this group, and the tool gives a weekly reading for
-              every sign, not only Cancer. The monthly love horoscope is the next span up: this
-              month love horoscope, next month love horoscope, and the monthly love horoscope
-              tarot reading for readers who like the cards. A monthly love horoscope reads the
-              month&apos;s theme — a slow month for new love, a good month for sorting out a
-              relationship — rather than day-by-day detail. The yearly love horoscope is the
-              longest span: one reading for the whole year, for the year ahead. A cancer yearly
-              love horoscope is the year&apos;s reading for Cancer, and the yearly reading for
-              every sign works the same way. Read the yearly love horoscope once, then come back
-              daily for the short readings — the year sets the theme, the day sets the timing.
+              Today is the shortest span the tool gives, not the only one. The weekly tab pulls
+              the week together — the best days for love, the days to keep things light — and
+              the monthly tab reads the month&apos;s theme: a slow month for new love, a good
+              month for sorting out a relationship, rather than day-by-day detail. There is no
+              yearly tab here; the longest span is the month, and a year is read one month at a
+              time. Read the month once, then come back each morning for the short readings —
+              the month sets the theme, the day sets the timing.
             </p>
           </section>
 
@@ -474,27 +450,21 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Love Horoscope in Hindi, Marathi, Urdu and Tamil
             </h2>
             <p>
-              Love horoscopes are read in many languages, and this group is full of Hindi
-              searches. A today love horoscope hindi reading is the same daily love horoscope, in
-              Hindi: today love horoscope in hindi, love horoscope in hindi, and a weekly love
-              horoscope in hindi are all covered by the Hindi toggle in the tool above. Aaj ka
-              love horoscope in hindi — today&apos;s love horoscope in Hindi — is the most natural
-              way to ask for it, and the tool answers in Hindi when you choose it. The Hindi
-              reading covers every sign: aries horoscope today in hindi love, today aries love
-              horoscope in hindi, today aquarius love horoscope in hindi, today capricorn love
-              horoscope in hindi, and a cancer horoscope today love in hindi are all the same
-              daily reading, per sign, in Hindi. A daily love horoscope in hindi refreshes every
-              morning like the English one, and a yearly love horoscope in hindi gives the
-              year&apos;s reading in Hindi too.
+              Hindi is the one other language the tool actually speaks. Flip the toggle to
+              हिन्दी and the whole reading — mood, what to say, what to avoid, best matches —
+              comes back in Hindi, for every sign, for today, tomorrow, the week and the
+              month. That covers the way most Hindi readers ask for it: today love horoscope
+              in hindi, or the shorter today love horoscope hindi, both land on the same
+              toggle. The week&apos;s reading is there too — a weekly love horoscope in hindi
+              is the same weekly note, in Hindi.
             </p>
             <p className="mt-3">
-              The same reading exists in other languages in this group: a love horoscope in
-              marathi, a daily love horoscope in marathi, a love horoscope today in marathi, a
-              today love horoscope in marathi, a love horoscope in urdu, and a love horoscope
-              tamil. The Marathi and Urdu readings cover the same signs — an aries today love
-              horoscope in urdu and a cancer horoscope today love in urdu are the Urdu versions
-              of the same daily reading. Language changes the words, not the reading: the sign,
-              the day and the love advice stay the same.
+              Marathi, Urdu and Tamil are a different story: the tool reads in English and
+              Hindi only, so those versions aren&apos;t offered on this page. The signs, the
+              day and the advice don&apos;t change between languages — only the words do — and
+              for now the Hindi toggle is the one that changes them. If you read in Marathi,
+              Urdu or Tamil, the English reading on this page is the same daily note, and the
+              sign picker works the same in either language.
             </p>
           </section>
 
@@ -503,85 +473,60 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Cancer Love Horoscope
             </h2>
             <p>
-              Cancer is the most-searched sign in this group by far, so it gets its own section.
-              A cancer love horoscope is the daily love reading for Cancer, the water sign ruled
-              by the Moon. Cancer horoscope today love is the most-searched Cancer reading in this
-              group — today&apos;s Cancer reading, love first — and the tool above gives it free,
-              every morning. A cancer love horoscope today reading usually says the same kind of
-              thing: Cancer feels first and thinks second, so the reading is about feelings —
-              whether to say what you feel, or to wait until you are sure.
+              Cancer is the most-searched sign in this group by far, so it gets its own
+              section. Cancer readers open the cancer horoscope today love reading first — the
+              water sign ruled by the Moon, read love-first every morning. Cancer feels first
+              and thinks second, so the note usually turns on feelings: whether to say what
+              you feel, or to wait until you are sure. And the cancer love horoscope itself is
+              free in the tool, like every other sign&apos;s — no separate page, no separate
+              charge.
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Cancer today:</strong> cancer horoscope love life today — how
-                Cancer&apos;s love life runs today, mood first. Cancer horoscope today love
-                single is the singles version: a cancer single love horoscope for Cancer readers
-                looking for someone, and a cancer horoscope today single love reading is
-                today&apos;s singles reading for Cancer.
+                <strong>Cancer today:</strong> how Cancer&apos;s love life runs today, mood
+                first. The singles version reads the same day for Cancer readers who are
+                looking — and the tool&apos;s singles toggle covers it, today and tomorrow.
               </li>
               <li>
-                <strong>Cancer this week:</strong> cancer weekly love horoscope — the
-                week&apos;s reading for Cancer, and a cancer weekly love horoscope for singles
-                when the week is about meeting someone new. A cancer weekly love horoscope tarot
-                reading adds the cards for readers who like them. Cancer horoscope this week love
-                and cancer this week love horoscope are the same weekly reading.
+                <strong>Cancer this week:</strong> the cancer weekly love horoscope is the
+                week&apos;s reading for Cancer, and the singles version of it when the week is
+                about meeting someone new. The weekly tab holds it; the month&apos;s theme
+                sits one tab over.
               </li>
               <li>
-                <strong>Cancer men and women:</strong> a cancer man love horoscope today and a
-                cancer male love horoscope today are the same reading for Cancer men; a cancer
-                woman love horoscope and a cancer woman today love horoscope are the same reading
-                for Cancer women. A cancer man love horoscope reads how Cancer men show love —
-                quietly, loyally, and through care rather than words — while a cancer woman love
-                horoscope reads the same loyalty from the other side.
+                <strong>Cancer men and women:</strong> the tool doesn&apos;t split readings
+                by men and women — it splits them by single and couple, and the reading is the
+                same for any Cancer reader. What changes is the situation: Cancer men are
+                often read as showing love quietly, through care rather than words, and Cancer
+                women the same loyalty from the other side — the note is about how Cancer
+                loves, not who is reading it.
               </li>
               <li>
-                <strong>Cancer and other signs:</strong> a cancer and cancer love horoscope today
-                reads two Cancers together; a cancer and sagittarius love horoscope today reads
-                Cancer with Sagittarius; a leo cancer love horoscope today reads Leo with Cancer.
-                A cancer cancer love horoscope is the same two-Cancers reading in shorter words.
-                The full version of any of these is on the Love Compatibility by Zodiac Sign page
-                — a cancer horoscope love compatibility reading is a compatibility reading, and
-                compatibility is what that page is for.
+                <strong>Cancer and other signs:</strong> two Cancers together, Cancer with
+                Sagittarius, Leo with Cancer — the sign-pair readings all live on the
+                compatibility page, because a match between two signs is a compatibility
+                question, not a daily one. The daily tool gives you one sign&apos;s reading;
+                the compatibility page gives you the pair.
               </li>
               <li>
-                <strong>Cancer by time:</strong> a cancer love horoscope tonight reads the
-                evening; a cancer love horoscope yesterday is yesterday&apos;s reading, and this
-                page does not keep old readings; a cancer love horoscope day after tomorrow looks
-                two days ahead. A cancer daily love horoscope tomorrow is tomorrow&apos;s Cancer
-                reading, and a cancer love horoscope tarot reading adds the cards. A cancer love
-                horoscope in hindi and a cancer love horoscope today in hindi are the Hindi
-                versions of the same Cancer reading.
+                <strong>Cancer by time:</strong> the day&apos;s reading covers the evening as
+                well — there is no separate tonight tab — and it looks forward only: tomorrow
+                and the day after sit on their own tabs, while yesterday&apos;s reading is
+                gone, because this page doesn&apos;t keep old readings. The Hindi toggle
+                covers Cancer too, so the same day&apos;s note reads in Hindi when you choose
+                it.
               </li>
               <li>
-                <strong>Cancer predictions:</strong> cancer love horoscope predictions are the
-                forward-looking part of the reading — what the next days hold for Cancer in love.
-                Predictions are written as tendencies, not certainties: the reading says what the
-                day favours, and your choices decide the rest.
+                <strong>Cancer predictions:</strong> predictions are the forward-looking part
+                of the reading — what the next days favour for Cancer in love. They are
+                written as tendencies, not certainties: the note says what the day favours,
+                and your choices decide the rest.
               </li>
             </ul>
             <p className="mt-3">
-              A cancer zodiac love horoscope is the same reading under its longest name, and a
-              cancer horoscope love life reading is the love-life half of Cancer&apos;s day.
-              Cancer readers also search for a cancer daily single love horoscope and a cancer
-              love horoscope for singles tomorrow — both are singles readings, and the tool&apos;s
-              singles toggle covers them.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
-              Tarot Love Horoscope
-            </h2>
-            <p>
-              Some readers prefer cards to stars. A tarot love horoscope is a love reading from
-              tarot cards: a card for today, a card for the person you are thinking about, and a
-              card for where it is going. A monthly love horoscope tarot reading is the
-              most-searched tarot reading in this group, and a tarot monthly love horoscope is
-              the same monthly reading by cards. A taurus daily love horoscope tarot and a taurus
-              love horoscope tarot are the Taurus versions, and a cancer daily love horoscope
-              tarot is the Cancer version. Tarot and horoscope readings are two ways of asking
-              the same question — the horoscope reads the planets, the tarot reads the cards —
-              and this page gives you the horoscope first.
+              Cancer readers also look a day ahead for the singles readings — the singles
+              toggle and the tomorrow tab cover them together. One sign, one day, one note:
+              that is the whole of it.
             </p>
           </section>
 
@@ -590,9 +535,10 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Love Match and Compatibility
             </h2>
             <p>
-              A love horoscope often ends with a match question: who does my sign get on with? A
-              horoscope love match is the short answer — the signs that match yours best in love
-              — and the long answer is on the{' '}
+              Most readings end with a match question: who does my sign get on with? The short
+              answer is the horoscope love match — the signs that suit yours best in love —
+              and the tool&apos;s own result names them for today before pointing you on. The
+              long answer lives on the{' '}
               <a
                 href="/love-compatibility-by-zodiac-sign/"
                 onClick={(e) => {
@@ -602,24 +548,10 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Love Compatibility by Zodiac Sign
-              </a>{' '}
-              page. A love horoscope between two signs is the compatibility question in its
-              simplest form — two signs, one match — and horoscope and love compatibility is the
-              same question in longer words. A horoscope love calculator does the same thing from
-              two signs or two names: enter both and get the match. Horoscope signs love is the
-              same idea in three words, and horoscope signs match for love is the chart version
-              of it — which signs match which, for love. Horoscope best lovers is the search for
-              the best-matched pairs, and the compatibility page lists them. Horoscope sign love
-              compatibility is the same question in longer words, and a horoscope love
-              compatibility test is the tool version of it: enter two signs and get the match. A
-              horoscope love match by birth date does the same thing from two dates of birth, and
-              a horoscope love match chart shows the matches as a chart rather than a list. The
-              best horoscope love matches are the pairings the chart keeps returning — and the
-              honest version of that is that a match is a starting point: the horoscope says
-              which pairings are easy, and the two people decide whether it works. A horoscope
-              love chart and a horoscope love compatibility chart are the same chart, and both
-              live on the compatibility page. The birthday horoscope love compatibility reading
-              — two birthdays compared — is also a compatibility reading, and the{' '}
+              </a>
+              {' '}page: two signs, one match, with the reasons. The tool there works like a
+              horoscope love calculator — enter two signs, or two dates of birth, and get the
+              match. The question can also be asked from two names or two dates instead — the{' '}
               <a
                 href="/love-calculator-by-date-of-birth/"
                 onClick={(e) => {
@@ -629,9 +561,8 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Love Calculator by Date of Birth
-              </a>{' '}
-              page compares two dates the same way. And a horoscope love percentage is the number
-              version of a match: the Love Calculator gives you a{' '}
+              </a>
+              {' '}compares two dates, and the home page&apos;s calculator gives a{' '}
               <a
                 href="/blog/what-does-love-percentage-mean/"
                 onClick={(e) => {
@@ -641,9 +572,9 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 love percentage
-              </a>{' '}
-              from two names, and this page&apos;s match line gives you the same idea from two
-              signs.
+              </a>
+              {' '}from two names. A match is a starting point, not a verdict: the chart says
+              which pairings run easy, and the two people decide whether it works.
             </p>
           </section>
 
@@ -652,34 +583,27 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               How Accurate Is a Love Horoscope? The Best and Most Accurate Readings
             </h2>
             <p>
-              Are horoscopes accurate for love? That is the honest question in this group, and it
-              deserves an honest answer. A love horoscope is a guide, not a guarantee: it reads
-              tendencies — a good day for honesty, a tense day for big talks — and it is useful
-              when it helps you act better today, not when it promises an outcome. The best love
-              horoscope is the one that is specific enough to use and honest enough to ignore
-              when it is wrong: a reading that says &ldquo;today favours a calm
-              conversation&rdquo; is useful; a reading that says &ldquo;you will meet your
-              soulmate at 4 pm&rdquo; is not. The most accurate love horoscope is the one built
-              from your own sign and date, refreshed daily, rather than a generic paragraph
-              written for everyone — that is why this page&apos;s tool asks for your sign or date
-              of birth, and why it refreshes every day. Accurate love horoscopes are the ones that
-              stay in their lane: they describe the day&apos;s mood, they do not claim to decide
-              your future, and they never claim a number or a sign guarantees luck, money or
-              marriage.
+              Are horoscopes accurate for love? It is the question that matters most, and it
+              deserves a straight answer: a reading here is a guide, not a guarantee. It
+              describes tendencies — a good day for honesty, a tense day for big talks — and it
+              earns its keep when it helps you act better today, not when it promises an
+              outcome. That is what an accurate love horoscope does: it describes the
+              day&apos;s mood, it doesn&apos;t claim to decide your future, and it never
+              claims a number or a sign guarantees luck, money or marriage. Judge a reading by
+              whether you can use it: &ldquo;today favours a calm conversation&rdquo; helps;
+              &ldquo;you will meet your soulmate at 4 pm&rdquo; doesn&apos;t. And a reading
+              built from your own sign and date, refreshed daily, will always beat a generic
+              paragraph written for everyone — which is why the tool asks for your sign or
+              date of birth and refreshes every morning.
             </p>
             <p className="mt-3">
-              A free love horoscope can be a good love horoscope — free does not mean vague. This
-              page&apos;s reading is free, with a free online love horoscope in the tool and a
-              free love horoscope reading for every sign, and it costs nothing because a daily
-              reading is short: one sign, one day, one piece of advice. A best love horoscope app
-              search usually ends at a browser page like this one — no install, no sign-up, the
-              same free reading. If you ever want a deeper reading, the Birth Chart Calculator
-              draws the full chart, and a love horoscope specialist — a human astrologer — can
-              read the chart with you. But for today, the tool above is enough: a true love
-              horoscope is the one that helps you love better today, and a real love horoscope is
-              the one that tells you the truth about the day, good or bad. A detailed love
-              horoscope is simply a longer version of the same thing — sign, day, advice — with
-              the why included, and the sections above give you the why.
+              Free doesn&apos;t mean vague. The free love horoscope here costs nothing because
+              a daily reading is short — one sign, one day, one piece of advice — and the tool
+              asks for nothing in return: no sign-up, no install. If you ever want a deeper
+              reading, the Birth Chart Calculator draws the full chart, and a human astrologer
+              can read it with you. But for today, the tool above is enough: the reading that
+              helps you love better today is the one worth keeping, and the one that tells you
+              the truth about the day, good or bad, is the one worth trusting.
             </p>
           </section>
 
@@ -688,9 +612,9 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
               Love Horoscope and Marriage
             </h2>
             <p>
-              A love horoscope is often read with marriage in mind. Is horoscope important for
-              love marriage? In the Indian tradition it is: a horoscope love marriage or arrange
-              reading asks whether the match suits a love marriage or an arranged one, and the{' '}
+              Marriage is often the reason someone opens a love reading. Is horoscope
+              important for love marriage? In the Indian tradition, yes — and the match is
+              where it starts. A match can suit a love marriage or an arranged one, and the{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {
@@ -700,8 +624,8 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 Kundali Matching
-              </a>{' '}
-              page answers it with the full guna-milan check. The{' '}
+              </a>
+              {' '}page answers that with the full guna-milan check. The{' '}
               <a
                 href="/when-will-i-get-married/"
                 onClick={(e) => {
@@ -711,16 +635,12 @@ export const LoveHoroscopePage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 When Will I Get Married
-              </a>{' '}
-              page answers the other half of the question — when will I find love, and when will I
-              get my love — with a marriage prediction by date of birth. People also ask it as a
-              horoscope question: when will i find love horoscope, when will i find my love
-              horoscope, when will i get my love horoscope — three wordings of the same question,
-              and the When Will I Get Married page answers all three. A horoscope of love
-              relationship reading is the in-between step: it reads the relationship as it stands
-              today, and the daily love horoscope above does exactly that. Your love horoscope is
-              a daily companion to those bigger readings: the marriage pages read the life, and
-              this page reads the day.
+              </a>
+              {' '}page answers the other half — when love is likely to arrive, and when
+              marriage follows — with a prediction from your date of birth. Between the two
+              sits the daily reading: it reads the relationship as it stands today, while the
+              marriage pages read the life. Open this page for the day, and those pages for
+              the years.
             </p>
           </section>
         </article>

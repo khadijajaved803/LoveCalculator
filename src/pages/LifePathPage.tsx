@@ -6,6 +6,8 @@ import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { LifePathTool } from '../components/LifePathTool';
 import { Hash } from 'lucide-react';
+import lifePathJourneyImage from '../assets/images/life-path-number-journey.webp';
+import lifePathStonesImage from '../assets/images/life-path-number-stones.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -96,32 +98,41 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
         <article className="prose prose-slate max-w-none bg-white p-6 sm:p-10 rounded-3xl shadow-xs border border-slate-100 text-slate-700 leading-relaxed space-y-8 mt-12">
           <section>
             <p className="text-base sm:text-lg leading-relaxed">
-              Your life path number is the most important number in numerology: it is calculated
-              from your full date of birth, and it is read as the theme of your life — your
-              strengths, your challenges and the direction you are headed. A life path number
-              calculator does the same sum the tool above does: add up all the digits of your
-              birth date, reduce them to a single digit, and that digit is your life path number.
-              To calculate life path number by hand, take your birth date — for example 29-07-1998
-              — add 2+9+0+7+1+9+9+8 = 45, then 4+5 = 9, so the life path number is 9. The tool
-              shows every step, so you can check the sum yourself. Numerology life path number
-              readings are the same in the Western and Indian systems: the Western life path
-              number and the Indian bhagyank are the same number, calculated the same way from the
-              same date of birth. This page gives you both names for it, plus your mulank — the
-              root number from your birth day alone.
+              Start with the date you were born. To calculate life path number by hand, add
+              every digit of that date together and keep reducing until one digit is left — that
+              digit is the thread running through your whole life: the talents that come easily,
+              the lessons that keep repeating, and the direction that suits you. Try it with
+              29-07-1998: 2+9+0+7+1+9+9+8 makes 45, and 4+5 makes 9. This life path calculator
+              runs the same sum and shows each step, so you can check the arithmetic yourself.
+              Indian numerology runs that sum too and calls the result bhagyank, and it adds one
+              more number from the day alone — your mulank, the root number that describes how
+              you come across day to day.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={lifePathJourneyImage}
+              alt="A winding garden path lit by lanterns at dusk, symbolising a life path number journey"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              A lantern-lit path at dusk — your life path number is the thread that runs through
+              a whole life.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               What Is a Life Path Number?
             </h2>
             <p>
-              A life path number is the single digit you get when you reduce your full date of
-              birth to one number. It is the first number any numerologist works out, and in
-              numerology it is read as your life&apos;s theme: the talents you were born with, the
-              lessons you keep meeting, and the kind of life that fits you. Your life path number
-              never changes — it is fixed by your birth date, while your daily rashifal changes
-              every day. The{' '}
+              Unlike a daily forecast, this number never changes. It is fixed the moment your
+              birth date is fixed, which is why people treat it as the long view rather than the
+              mood of the day. For the mood of the day, the{' '}
               <a
                 href="/rashifal-today/"
                 onClick={(e) => {
@@ -132,11 +143,12 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 Rashifal Today
               </a>{' '}
-              page gives you the daily reading; your life path number gives you the long view.
+              page reads what today favours and what needs care — the number below it stays the
+              same, and the daily reading changes around it.
             </p>
             <p className="mt-3">
-              Astrology life path readings pair the number with the chart: your life path number
-              is read alongside your{' '}
+              Read on its own, the number is only half the story. An astrology life path reading
+              pairs it with the chart: your{' '}
               <a
                 href="/kundali/"
                 onClick={(e) => {
@@ -147,7 +159,7 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 kundali
               </a>{' '}
-              and your{' '}
+              shows where the planets sat when you were born, your{' '}
               <a
                 href="/zodiac-signs/"
                 onClick={(e) => {
@@ -158,9 +170,7 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 zodiac signs
               </a>{' '}
-              — the number says what your life&apos;s theme is, the chart says how it plays out.
-              Your life path number comes from your date of birth; your birth chart adds the time
-              and place — the{' '}
+              place you in the twelve-sign cycle, and the{' '}
               <a
                 href="/birth-chart-calculator/"
                 onClick={(e) => {
@@ -171,7 +181,9 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 Birth Chart Calculator
               </a>{' '}
-              page draws it. Your life path number also colours your{' '}
+              draws the full picture from your time and place of birth — the number gives the
+              theme, the chart shows how it plays out in practice. The same pairing helps in
+              love: your{' '}
               <a
                 href="/love-horoscope/"
                 onClick={(e) => {
@@ -182,7 +194,7 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 love horoscope
               </a>{' '}
-              for the year, and it is read alongside{' '}
+              for the year reads differently once you know the number behind it, and{' '}
               <a
                 href="/love-compatibility-by-zodiac-sign/"
                 onClick={(e) => {
@@ -193,8 +205,8 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 love compatibility by zodiac sign
               </a>{' '}
-              when two people are compared. The number is a guide, not a verdict: it describes
-              tendencies, and your choices still decide your life.
+              compares two people&apos;s charts side by side. Treat all of it as a guide, not a
+              verdict — the number describes tendencies, and your choices still decide the rest.
             </p>
           </section>
 
@@ -203,75 +215,89 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               How to Calculate Life Path Number
             </h2>
             <p>
-              How to calculate life path number? Add up every digit of your date of birth, then
-              keep adding the digits of the result until you get a single digit — except for the
-              master numbers 11, 22 and 33, which are not reduced. A life path number calculator
-              does this in one step, but the method is simple enough to do by hand. How to
-              calculate life path number, step by step: write your birth date as numbers, add all
-              the digits together, and if the result has two digits, add those two digits
-              together. Repeat until you have one digit. For 14-03-2001: 1+4+0+3+2+0+0+1 = 11 — a
-              master number, so it stays 11 and is not reduced to 2. For 29-07-1998:
-              2+9+0+7+1+9+9+8 = 45, then 4+5 = 9. Life path 10 works the same way: 10 reduces to
-              1, so a life path number 10 is read as a 1, with the extra energy of the 0. The tool
-              above shows each step of the sum, so you can see exactly how your number was
-              reached.
+              All you need is your birth date and a minute of adding. How to calculate life path
+              number, step by step: write the date as digits, add them all together, and if the
+              answer still has two digits, add those two together. Keep going until one digit is
+              left — unless you land on 11, 22 or 33, which are master numbers and stay exactly
+              as they are. Take 14-03-2001: 1+4+0+3+2+0+0+1 makes 11, so it stays 11 and is not
+              reduced to 2. Take 29-07-1998: 2+9+0+7+1+9+9+8 makes 45, and 4+5 makes 9. Landing
+              on 10 works the same way — life path 10 reduces to 1, so a life path number 10
+              reads as a 1 with the extra energy of the 0. A life path number calculator does
+              this in one step, but doing it by hand takes less than a minute, and the tool above
+              shows every step of the sum so you can see exactly how your number was reached.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={lifePathStonesImage}
+              alt="Nine glowing stones in a spiral on dark indigo ground, one for each life path number from 1 to 9"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              Nine stones, nine numbers — each life path number from 1 to 9 has its own
+              traditional reading.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               Life Path Number Meanings: 1 to 9
             </h2>
             <p>
-              Every life path number has its own meaning. These are the traditional readings —
-              tendencies, not rules.
+              People who ask for a numerology life path number reading usually want one thing: to
+              know what their birth date says about the shape of their life. The list below is
+              the traditional answer, number by number — tendencies, not rules.
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
                 <strong>Life path number 1 (and life path 10):</strong> leadership and
-                independence. 1s are read as self-starters who want to lead and do things their
-                own way. Life path 10 is read as a 1, because 10 reduces to 1.
+                independence. 1s are natural self-starters who want to lead and do things their
+                own way.
               </li>
               <li>
-                <strong>Life path number 2:</strong> cooperation and sensitivity. 2s are read as
+                <strong>Life path number 2:</strong> cooperation and sensitivity. 2s are
                 peacemakers — diplomatic, gentle, and good at working with others.
               </li>
               <li>
-                <strong>Life path number 3:</strong> creativity and expression. 3s are read as
-                expressive and social, happiest when creating or communicating.
+                <strong>Life path number 3:</strong> creativity and expression. 3s are expressive
+                and social, happiest when creating or communicating.
               </li>
               <li>
-                <strong>Life path number 4:</strong> stability and hard work. 4s are read as
-                builders — practical, patient, and steady.
+                <strong>Life path number 4:</strong> stability and hard work. 4s are builders —
+                practical, patient, and steady.
               </li>
               <li>
-                <strong>Life path number 5:</strong> freedom and change. 5s are read as restless
-                and curious, happiest with variety and movement.
+                <strong>Life path number 5:</strong> freedom and change. 5s are restless and
+                curious, happiest with variety and movement.
               </li>
               <li>
-                <strong>Life path number 6:</strong> responsibility and care. 6s are read as the
-                carers — home, family and looking after others matter most.
+                <strong>Life path number 6:</strong> responsibility and care. 6s are the carers —
+                home, family and looking after others matter most.
               </li>
               <li>
-                <strong>Life path number 7:</strong> analysis and spirituality. 7s are read as
-                thinkers — private, analytical, and drawn to deeper questions.
+                <strong>Life path number 7:</strong> analysis and spirituality. 7s are thinkers —
+                private, analytical, and drawn to deeper questions.
               </li>
               <li>
-                <strong>Life path number 8:</strong> ambition and money. 8s are read as
-                achievers, focused on success, status and material results.
+                <strong>Life path number 8:</strong> ambition and money. 8s are achievers, focused
+                on success, status and material results.
               </li>
               <li>
                 <strong>Life path number 9:</strong> compassion and completion. A life path
-                number 9 is read as the humanitarian — generous, idealistic, and drawn to serving
-                others. 9 is the number of completion: the last single digit, so 9s are read as
-                old souls finishing a cycle.
+                number 9 is the humanitarian — generous, idealistic, and drawn to serving others.
+                9 is the last single digit, the number of completion, so 9s are often described
+                as old souls finishing a cycle.
               </li>
             </ul>
             <p className="mt-3">
-              Master numbers 11, 22 and 33 are not reduced: 11 is read as intuition and
-              inspiration, 22 as big building and practical vision, 33 as teaching and healing. If
-              your number is 11, 22 or 33, the tool keeps it as it is and reads both the master
-              number and its reduced digit.
+              If your sum stopped at 11, 22 or 33, you have a master number, and the tool keeps
+              it as it is — 11 for intuition and inspiration, 22 for big building and practical
+              vision, 33 for teaching and healing. The tool also reads the reduced digit
+              alongside it, so you get both the master reading and the single-digit one.
             </p>
           </section>
 
@@ -280,19 +306,18 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               Mulank: Your Root Number
             </h2>
             <p>
-              In Indian numerology, your mulank is your root number — the number of your birth
-              day. What is my mulank? Add the digits of the day you were born: born on the 29th,
-              2+9 = 11, then 1+1 = 2, so your mulank is 2. How to find mulank number is that
-              simple — the day alone, not the month or year. The mulank is read as your core
-              nature: how you think and act day to day, while the bhagyank (your destiny number,
-              from the full date) is read as your life&apos;s direction.
+              Indian numerology splits the work in two. The day you were born gives your mulank,
+              the root number that describes your core nature — how you think and act day to day.
+              Wondering what is my mulank? Take the day alone, add its digits and keep reducing:
+              born on the 29th, 2+9 makes 11, then 1+1 makes 2, so your mulank is 2. How to find
+              mulank number? Use only the day — never the month or year. The full date gives the
+              bhagyank, your destiny number, which points the other way: the mulank says who you
+              are, the bhagyank says where your life is heading.
             </p>
             <p className="mt-3">
-              Mulank 2 is the most searched mulank, so it gets its own section below. 2 mulank
-              means the same thing as mulank 2 — &ldquo;2 mulank&rdquo; is simply the number
-              written first. Mulank compatibility is the comparison of two people&apos;s mulanks:
-              mulank compatibility is read for friendships, business and marriage, and it is read
-              alongside{' '}
+              Root numbers are also compared between two people. When families check a match
+              before a marriage, that comparison is mulank compatibility in practice, and it is
+              read alongside{' '}
               <a
                 href="/porutham/"
                 onClick={(e) => {
@@ -303,7 +328,7 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 thirumana porutham
               </a>{' '}
-              when a match is checked for marriage —{' '}
+              — while{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {
@@ -314,8 +339,8 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 Kundali Matching
               </a>{' '}
-              does the same check with the 8-koota system. The same numbers are also read for
-              marriage timing on the{' '}
+              checks the match through the 8-koota system. The numbers can also point at timing,
+              which is why people check the{' '}
               <a
                 href="/when-will-i-get-married/"
                 onClick={(e) => {
@@ -326,7 +351,8 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 When Will I Get Married
               </a>{' '}
-              page. Once you know your life path number, the{' '}
+              page once they know theirs. In everyday love, the number says what you need and
+              the{' '}
               <a
                 href="/love-language-test/"
                 onClick={(e) => {
@@ -337,8 +363,8 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 Love Language Test
               </a>{' '}
-              shows how you express love day to day — the number says what you need, the love
-              languages say how you show it. If you want the love reading first, the{' '}
+              shows how you express it — one tells you the need, the other tells you the
+              language. And if you want the quick version first, the{' '}
               <a
                 href="/"
                 onClick={(e) => {
@@ -349,27 +375,23 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 love calculator
               </a>{' '}
-              on the home page gives you a quick compatibility score from your names and birth
-              dates.
+              on the home page gives a compatibility score from names and birth dates.
             </p>
 
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display mt-8 mb-3">
               Mulank 2: Personality, Love Life and Compatibility
             </h3>
             <p>
-              Mulank 2 personality: 2s are ruled by the Moon, and mulank 2 personality is read as
-              gentle, sensitive and diplomatic. People with mulank 2 are said to be good
-              listeners, peacemakers and loyal friends — they feel things deeply and they avoid
-              conflict. Mulank 2 love life is read the same way: in love, 2s are caring and
-              emotional, and they need reassurance and closeness from their partner. A mulank 2
-              love life works best with a partner who is steady and openly affectionate. Mulank 2
-              compatibility is traditionally read as strongest with mulank 1, mulank 2 and mulank
-              7 — numbers that balance the 2&apos;s softness with steadiness or understanding.
-              Mulank 7 compatibility is read the same way for 7s: 7s are traditionally said to
-              match well with 1, 2 and 5. Mulank 9 love life is different again: 9s are
-              compassionate and idealistic in love, and they need a partner who shares their
-              values — a mulank 9 love life is read as generous and devoted, but 9s can give too
-              much and forget their own needs.
+              Ruled by the Moon, the mulank 2 personality comes across as gentle, sensitive and
+              diplomatic — 2s listen well, keep the peace and stay loyal to their friends, but
+              they feel things deeply and would rather avoid a fight than win one. In love, a
+              mulank 2 love life runs on reassurance and closeness: 2s are caring and emotional,
+              and they do best with a partner who is steady and openly affectionate. For
+              matching, mulank 2 compatibility is traditionally strongest with 1, 2 and 7 —
+              numbers that steady the 2&apos;s softness without dulling it. Sevens follow a
+              similar pattern: mulank 7 compatibility is traditionally strongest with 1, 2 and
+              5. Nines love differently again — a mulank 9 love life is generous and devoted,
+              driven by shared values, though 9s can give so much they forget their own needs.
             </p>
           </section>
 
@@ -378,31 +400,30 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               Bhagyank and Destiny Number
             </h2>
             <p>
-              Bhagyank is the Indian name for the destiny number: &ldquo;bhagya&rdquo; means
-              destiny, so bhagyank is your destiny number, calculated from your full date of
-              birth. Bhagyank calculation is the same sum as the life path number — add all the
-              digits of your birth date and reduce to one digit. A destiny number calculator does
-              exactly this sum, and the destiny number it gives you is your bhagyank. What is
-              destiny number in numerology? It is the number of your life&apos;s direction: while
-              the mulank (from the day) is read as your nature, the destiny number (from the full
-              date) is read as where your life is headed. Destiny number meaning is that
-              direction — the work, the relationships and the lessons your life keeps bringing
-              you. Numerology destiny number readings use the same digits as the life path number,
-              so your destiny number and your life path number are the same number, under two
-              names.
+              &ldquo;Bhagya&rdquo; means destiny, and in Indian numerology the destiny number
+              goes by that name: bhagyank. The bhagyank calculation runs the same sum as the life
+              path number — add all the digits of your birth date and reduce to one digit — and
+              a destiny number calculator does exactly that sum. When people look for the destiny
+              number meaning, what they are really after is a sense of direction — while the
+              mulank, from the day, describes your nature, the destiny number, from the full
+              date, describes where your life is heading: the work, the relationships and the
+              lessons that keep finding you. That is the question behind what is destiny number
+              in numerology — where the road leads. A numerology destiny number reading uses the
+              same digits as the life path number, so it always lands on the same digit — the
+              Western and Indian systems are reading one birth date, not two.
             </p>
             <p className="mt-3">
-              How to calculate destiny number is the same as how to calculate life path number:
-              add the digits of your full birth date and reduce to a single digit. How to find
-              destiny number is the same sum — the tool above shows it step by step. Destiny
-              number 9 is the most talked-about destiny number: a destiny number 9 is read as the
-              humanitarian path — service, compassion and finishing what others start. Destiny
-              number 2 is read as the path of cooperation and partnership — 2s build their life
-              through relationships. Bhagyank 9 is the same as destiny number 9, and bhagyank 9
-              wale log — people with bhagyank 9 — are said to be compassionate, generous and
-              drawn to helping others, sometimes at their own expense. If you want a deeper
-              reading of your numbers together, a life path number numerologist can read your life
-              path number, mulank and destiny number as one chart — the tool above gives you the
+              How to calculate destiny number? Add the digits of your full birth date and reduce
+              to a single digit — the tool above shows it step by step. Anyone asking how to find
+              destiny number only needs one birth date: it gives you both numbers at once. A
+              destiny number 9 is the most talked-about of the set — the humanitarian path, built
+              on service, compassion and finishing what others start — and a destiny number 2 is
+              the path of cooperation and partnership, a life built through relationships.
+              Bhagyank 9 is the Indian name for that same 9, and bhagyank 9 wale log — people
+              with bhagyank 9 — are said to be compassionate, generous and drawn to helping
+              others, sometimes at their own expense. If you want a human read on all three
+              numbers together, a life path number numerologist can look at your life path
+              number, mulank and destiny number as one chart — the tool above gives you the
               numbers, and the{' '}
               <a
                 href="/numerology-calculator/"
@@ -414,7 +435,7 @@ export const LifePathPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 Numerology Calculator
               </a>{' '}
-              page gives you the full number reading, including your lucky numbers.
+              page gives the full reading, including your lucky numbers.
             </p>
           </section>
         </article>

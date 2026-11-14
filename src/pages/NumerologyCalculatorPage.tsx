@@ -4,6 +4,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTools } from '../components/RelatedTools';
 import { FAQSection, FAQItem } from '../components/FAQSection';
 import { NumerologyCalculatorTool } from '../components/NumerologyCalculatorTool';
+import numerologyNumbersGrid from '../assets/images/numerology-calculator-numbers-grid.webp';
+import numerologyLifePathJourney from '../assets/images/numerology-calculator-life-path-journey.webp';
 import {
   Hash,
   Sparkles,
@@ -123,7 +125,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A numerology calculator turns a name or a date of birth into numbers, and then reads those numbers the way numerology has read them for centuries: each number from 1 to 9 carries a meaning, and the numbers that keep showing up for you are the ones this page explains. This is the numerology calculator for this site: a free numerology calculator, online, with your result on the page the moment you finish. Alongside our{' '}
+            Behind every result on this page sits a very old idea: a name or a date of birth can be turned into numbers, and each number from 1 to 9 carries a meaning of its own. The tool above does the turning for you — use the numerology calculator online, free, with your result on the page the moment you finish and nothing to sign up for. It is a free numerology calculator in the plainest sense: no account, no email, no payment, and the result appears on the page, not in your inbox. Alongside our{' '}
             <button
               type="button"
               onClick={() => onNavigate('/')}
@@ -138,11 +140,11 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
               className="text-purple-600 font-semibold hover:underline"
             >
               love language test
-            </button>, this calculator uncovers your individual blueprint. If you only have a date of birth, use the numerology calculator by date of birth mode. If you only have a name, use the numerology calculator name mode. If you have both, use the numerology calculator name and date of birth mode — that is the full reading, and it is the one this page recommends.
+            </button>, this calculator covers the personal side of the site: not how two people match, but what your own numbers say. Start with the date of birth if that is all you have — the numerology calculator by date of birth mode needs only the day, month and year — or with the name alone, in the numerology calculator name mode. When you have both, use them together, because the numerology calculator name and date of birth mode gives you both at once, and that combined reading is the fullest one this page gives.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            People arrive here typing the same request in many different words, and they all land on this one tool. A numerology calculator online search, a free numerology calculator search, a best numerology calculator search — they are the same tool, and this page is it. Some people type the phrase twice over — "numerology numerology calculator" — and that doubled phrase is the same request again, typed in a hurry. Whatever words you used to get here, the tool above is the answer: enter a name, enter a date of birth, and it calculates.
+            People arrive here from all kinds of searches, and they all land on the same tool. Some come with a date of birth and want one number; others come with a name and want to know what it adds up to; plenty come with a phone number or a number plate they are curious about. Whatever you typed to get here, the way in is the same: enter a name, enter a date of birth, and the calculator does the adding. If you are comparing tools, the best numerology calculator is the one that shows both systems and lets you check the adding yourself — and that is how this page is built: two systems side by side, the tables visible, and every result explained beside the number.
           </p>
 
           <hr className="my-8 border-slate-100" />
@@ -153,23 +155,38 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            What is a numerology calculator? It is a tool that adds up the letters of a name, or the digits of a date of birth, and reduces them to a single number — then tells you what that number is said to mean. In classical{' '}
+            The obvious question is how does a numerology calculator work, and the answer is less mysterious than the name suggests: every letter gets a value from the table you have picked, the values are added, and the total is reduced by adding its digits together until one number is left. A date works the same way — the day, month and year are added and reduced to one number — and that is the whole method. The tool above does the adding for you, while this guide explains what the numbers are said to mean once you have them. If you are new to the subject, the wider{' '}
             <button
               type="button"
               onClick={() => onNavigate('/numerology/')}
               className="text-purple-600 font-semibold hover:underline"
             >
               numerology
-            </button>, how does a numerology calculator work is the question behind it: letters are given values, the values are added, and the total is reduced by adding its digits together until one number is left. That is the whole method, and the tool above does the adding for you.
+            </button>{' '}
+            hub is the place to start, and this page is the calculator that belongs to it.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A numerology calculator by date of birth works on your birth date: the day, month and year are added and reduced to one number. A dob numerology calculator is the same tool, with "dob" in place of "date of birth". A birth date numerology calculator is the same tool again, and a birthday numerology calculator is the same tool once more — birth date, birthday and date of birth are the same input, and this calculator accepts any of them. A numerology calculator by date of birth and time adds the time of birth as well, for the chart underneath the main number — the time does not change the main number, it adds detail to the chart.
+            One date can be entered in several ways, and the tool accepts all of them: the full date, or just the day and month if that is what you have. A name works on letters instead of digits, and the combined mode runs the numerology date of birth and name together — both inputs, one chart — which is why it gives the fullest reading. Adding your birth time doesn&apos;t change the main number; it adds detail to the chart underneath, and that is what the numerology calculator by date of birth and time mode is for.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A numerology calculator name works on letters instead of digits: your name is converted to numbers, the numbers are added, and the total is reduced the same way. A numerology date of birth and name reading uses both together, which is why the combined mode is the fullest one. And a name as per numerology calculator is the same name mode, asked the other way round — what does my name add up to, and what does that number mean.
+            Names carry more than one number, because a name has both a sound and a spelling — and the two systems on this page read those two things differently. The Chaldean table listens to the sound; the Pythagorean table follows the alphabet. Run your name through both and you get two readings of the same name, which is the point of showing them side by side: not to pick a winner, but to let you see where they agree and where they part.
           </p>
+
+          <figure className="my-8">
+            <img
+              src={numerologyNumbersGrid}
+              alt="Glowing number grid on a dark indigo background, illustrating the number tables a numerology calculator uses to turn letters and dates into numbers"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              The number tables behind the calculator: every letter and date is reduced to a single number from 1 to 9.
+            </figcaption>
+          </figure>
 
           {/* ─── Section: Chaldean Numerology ─── */}
           <h2 className="text-2xl font-bold text-slate-900 font-display mt-10 mb-4">
@@ -177,23 +194,23 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Chaldean numerology is the oldest system on this page, and the one most people in India ask for first. Chaldean numerology calculator searches (9,900/mo) and chaldean numerology searches (40,500/mo) are the two biggest groups after the main keyword, so this section takes them in full.
+            The oldest system on this page grew up in Babylon, and it still does things its own way. In chaldean numerology, a letter&apos;s value comes from how it sounds, not from where it sits in the alphabet — so two letters that sound alike can carry the same value, and the order of the alphabet matters less than the sound of the name. That sound-first habit is also why this system is the one most people in India ask for first: it grew out of the same tradition as Vedic astrology, and it reads a name the way that tradition reads it.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            What is chaldean numerology? It is a system that gives each letter a value from 1 to 8, based on sound rather than on the alphabet's order — and the number 9 is left out of the letter values, because in the Chaldean system 9 is sacred and stands apart. A chaldean calculator is a calculator that uses those values; a chaldean numerology calculator is the same tool, named in full. A chaldean and pythagorean numerology calculator is a tool that shows both systems side by side, and a chaldean pythagorean numerology calculator is the same combined tool, typed without the "and". Numerology chaldean and pythagorean is the same comparison, asked as a topic: which system, and what changes when you switch.
+            The values live in a table, and that table is worth seeing: a chaldean numerology chart lists each letter beside its value from 1 to 8, and the tool above uses exactly that table when you pick the Chaldean side. The chaldean method is easy to describe and slow to do by hand — look each letter up, add the values, reduce the total — which is the honest reason the calculator exists. One habit makes it fiddly: compound numbers such as 11 and 22 are read for their own meaning first, before any reducing happens, because in this tradition a double number carries its own message. If you want to check the tool&apos;s working, the chaldean chart is the place to look — every letter, its value, and nothing hidden.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The chaldean method is simple to describe and fiddly to do by hand, which is why the calculator exists. In the chaldean method, each letter of your name takes its Chaldean value, the values are added, and the total is reduced — except that the compound numbers 11, 22 and other double numbers are read for their own meaning before reducing, because in Chaldean reading a compound number matters. The chaldean numerology chart is the table of those letter values: that chart is what the tool uses, and the chaldean chart is the same table, named shortly. A chaldean numerology chart shows the same values the calculator applies, so if you want to check the tool's working, the chart is the place to look.
+            Nine has no place in that table. In this system the number is treated as sacred and kept apart, which is why a name worked out under Chaldean rules can come out differently from the same name under Pythagorean rules — the two tables simply don&apos;t agree about 9. The values a name is built from run from 1 to 8, and those chaldean numerology numbers are the whole range the system works with — the chaldean numbers run 1 to 8, and everything past that is built by adding them and reducing the result.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Chaldean numerology numbers are the numbers 1 to 8, plus the compound numbers that come from adding a name. Chaldean numbers, asked plainly, are those same numbers — and chaldean numerology numbers is the same question, asked with the system's name in front. What is chaldean numerology, asked as a plain question, is answered by this whole section: it is the sound-based system above, and chaldean numerology meaning is that same answer in one line — numbers read by sound, not by alphabet order. A chaldean number calculator is a calculator that uses the Chaldean table, and a chaldean number chart is that table written out; a chaldean numerology chart calculator is the tool that shows the chart and calculates from it at the same time. What each number means is covered in the chart section below, and the chaldean numerology friendly numbers are the pairings the system calls friendly: some numbers are said to get on well together, and some are said to clash, and the friendly numbers list is the short version of that. A chaldean numerology compatibility chart is the same friendly-numbers idea, laid out as a chart between two people's numbers. A chaldean calendar is not a separate calendar at all — it is the Chaldean system's way of naming days and years by their numbers, so a chaldean calendar search lands here, on the Chaldean section, not on a calendar page. A chaldean numerology calculator for business name is the Chaldean tool applied to a business name, and the business section below covers it.
+            Some numbers are said to get on well together and some to clash, and that pairing is what the chaldean numerology friendly numbers list describes — the tool shows it beside your result, so you can see at a glance which numbers suit your own and which ones clash. Run a name through a chaldean numerology calculator and through the Pythagorean side, and the two totals can disagree; that disagreement is the point of showing both, not a fault in either. A chaldean calculator on its own gives you the sound-based answer, while a chaldean and pythagorean numerology calculator gives you both answers at once, so the comparison is visible instead of guessed.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The cheiro numerology calculator is the Chaldean system under its other name: Cheiro was the famous palmist and numerologist who popularised Chaldean numerology in the English-speaking world, so a cheiro numerology calculator is a chaldean numerology calculator, and the two names describe one tool.
+            Cheiro, the famous palmist and numerologist, popularised this system in the English-speaking world, so a search for a cheiro numerology calculator is looking for the Chaldean tool under its older name. Days and years get numbers too in this tradition — which is why you will see references to a chaldean calendar — not a wall calendar, but the same number-giving habit applied to dates.
           </p>
 
           {/* ─── Section: Pythagorean Numerology ─── */}
@@ -202,15 +219,15 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Pythagorean numerology is the other system on this page, and the simpler one to learn. A pythagorean numerology calculator (4,400/mo) uses the alphabet in order: A is 1, B is 2, C is 3, and so on through to I is 9, then J starts again at 1. The pythagorean numerology chart is that table, written out in full — and a chaldean and pythagorean numerology calculator shows the two charts together, so you can see where they agree and where they differ.
+            The other system on this page is the simpler one to learn. It runs through the alphabet in order: A is 1, B is 2, C is 3, and so on through to I is 9, then J starts again at 1. That table is what a pythagorean numerology calculator uses, and a pythagorean numerology chart shows it written out in full — every letter, its value, and no exceptions to remember.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The difference between the two systems is the values, not the idea. Pythagorean numerology gives every letter a value from 1 to 9 and runs through the alphabet in order; Chaldean numerology gives letters values from 1 to 8, by sound, and leaves 9 out. A numerology chaldean and pythagorean comparison, then, is a comparison of two tables — and the calculator above lets you run your name through both, so you can see both results and decide which one feels right. Neither system is "the correct one": they are two traditions, and this page presents both without picking a winner.
+            Put the two tables together and the difference is easy to see: one values letters by sound and stops at 8, the other values them by alphabet order and runs to 9. Neither is &quot;the correct one&quot; — they are two traditions, and this page presents both without picking a winner. That side-by-side comparison is what people mean when they search numerology chaldean and pythagorean — two tables, one name, and the differences laid out where you can see them. The tool above lets you run your name through both, so you can see both results and decide which one feels right.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A pyramid numerology calculator is a different way of laying the same numbers out — a pyramid chart that stacks your numbers by date of birth, used in some Pythagorean readings. It is a chart shape, not a third system, and the tool's chart section shows the pyramid layout for anyone who asks for it.
+            Some Pythagorean readings lay the numbers out as a pyramid, stacking them by date of birth — a pyramid numerology calculator is a tool built around that shape, and this page&apos;s calculator doesn&apos;t use it. It works with the two letter tables and the chart of your numbers instead, so if you were looking for the pyramid layout, what you will find here is the same numbers arranged as a chart, not as a pyramid.
           </p>
 
           {/* ─── Section: Vedic Numerology and Other Systems ─── */}
@@ -219,11 +236,11 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A vedic numerology calculator (1,600/mo) is the Indian tradition that sits close to the Chaldean one: Vedic numerology reads the date of birth and the name together, and it is the system most people mean when they ask for numerology in Tamil or Hindi. A numerology calculator tamil search (1,900/mo) is a request for the same tool in Tamil — the numbers are the same, the language of the explanation is what changes — and this page's Tamil section below covers it in Tamil terms. The same applies to the Hindi, Telugu and Indian variants in the under-300 keywords: the calculator is the same, and the guide explains it in the terms those searches use.
+            In the Vedic tradition, the birth date carries the weight and the name is read alongside it — that is the approach a vedic numerology calculator follows, and it sits close to the Chaldean side of this page because both grew out of the same Indian tradition. It is the system many people mean when they ask for numerology in Tamil or Hindi, and a search for a numerology calculator tamil is asking for the same working with the explanation in Tamil — the numbers don&apos;t change, only the language around them does.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Other systems appear in the smaller keywords and are answered here briefly, so nobody lands on a dead end. Hebrew numerology — sometimes called by its own name in the under-300 searches — reads letters by their Hebrew values. Chinese numerology reads numbers by their sound in Chinese, which is why 8 is favoured and 4 is avoided there. Occult numerology is the older Western name for the same study. None of these is a separate tool on this page: the calculator above is Chaldean and Pythagorean, and this section names the other systems so that a search for them finds an honest answer instead of a wrong tool.
+            Other systems turn up in smaller searches and get a brief, honest answer here. Hebrew numerology reads letters by their Hebrew values. Chinese numerology reads numbers by their sound in Chinese, which is why 8 is favoured and 4 is avoided there. Occult numerology is the older Western name for the same study. None of these is a separate tool on this page: the calculator above is Chaldean and Pythagorean, and this section names them so that a search for them finds an honest answer instead of a wrong tool.
           </p>
 
           {/* ─── Section: Your Lucky Number ─── */}
@@ -232,31 +249,35 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Your lucky number is the part of this page most people come for. Lucky number searches (22,200/mo) are the second-biggest group on this page, and they come in dozens of forms — and every form is answered in this section.
+            Most people come here for one thing: the number that belongs to them. Enter a date of birth and the tool gives it to you — the number your birth date adds up to, with the full chart around it. The date is added, the total is reduced digit by digit, and the number it lands on is your lucky number by date of birth — the one the rest of the chart is built around. It is called lucky in the tradition, not because it guarantees anything, but because it is the number the tradition says suits you best.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            What is my lucky number? That is the question, and the calculator above answers it: enter your date of birth, and the tool gives you the number numerology assigns to it. What is my lucky number astrology is the same question, asked with astrology in front — and the answer is the same number, because this page's lucky number comes from numerology, not from a horoscope. What is the lucky number is the same question, shortened. Which is the lucky number is the same question again, asked when two numbers are on the table and you want to know which one is yours.
+            Most people arrive with one question — what is my lucky number — and the tool answers it in seconds from the date of birth alone. Some arrive with astrology in the question — what is my lucky number astrology — expecting a horoscope; here the answer comes from the numbers, not the planets, and the page says so plainly. When two numbers are on the table, which is the lucky number is decided by the date: whichever number your birth date reduces to is yours.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            How to find lucky number is the practical version: how to find your lucky number, how to find my lucky number, how to know your lucky number, how to know my lucky number, how to know lucky number — these are all the same request, and the answer is the same in every case: use the calculator above, by date of birth, and it finds it for you. How to check your lucky number, how to check lucky number, how to check my lucky number — same again, and the check is the same tool: enter the date, read the number. Find lucky number is the shortest form of the same request. How to find lucky number by date of birth is the same request with the method named, and lucky number by date of birth is the result it gives.
+            The practical question is how to find lucky number without doing the adding by hand — and the answer is the tool above: enter the date and it finds the number for you. If you already have a number in mind and want to confirm it, how to check your lucky number works the same way: enter the date, and the tool shows whether that number is the one your date reduces to. And the question behind all of this — how to know your lucky number and what to do with it once you have it — is answered in two halves: the calculator gives you the number, and the meaning written beside each number tells you what the tradition says about it. Type find lucky number into any search box and you&apos;ll get a hundred tools; the difference here is that the result comes with the working shown, so you can follow the adding yourself.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A lucky number calculator (2,900/mo) is a calculator that returns only the lucky number, without the rest of the chart — this page's tool does that and more, so a lucky number calculator search lands on the same tool. A numerology lucky number calculator is the same tool, named with numerology in front. A lucky number generator is the same tool again, asked as a generator. My lucky numbers is the plural form — your lucky numbers, more than one, because numerology gives you a main lucky number and supporting ones — and lucky number for me is the same request, made personal. Numerology lucky numbers is the same topic, named as a set.
+            A lucky number calculator that returns only the one number would do for most visitors — this tool returns the number with the whole chart around it, so you can see where it came from. Some people call the same tool a lucky number generator, because it produces a number on demand — but it doesn&apos;t invent one; it derives it from the date and name you enter, and you can follow every step. The name gives a second number as well: your lucky number by name is the total your name reduces to, and the tool shows it in the name mode, beside the date number, so you can compare the two. The name mode is the other half of a numerology lucky number calculator — your name reduced to its number, shown beside the date number so you can compare them.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Lucky number by name is the name version: your name adds up to a number, and that number is your lucky number by name. Lucky number by date of birth and time is the date version with the time added, for a finer reading. Lucky number as per date of birth is the same date version, in Indian English. Numerology predictions by date of birth is the wider question — what does your date of birth say, beyond the lucky number — and the chart section below answers it. How to calculate lucky number is the do-it-yourself version, and the worked example below shows the adding, step by step.
+            The result is rarely a single digit. Most charts show a main number and supporting ones, which is why people ask for my lucky numbers in the plural — the tool lists them together, with the main number first. The request is always personal: a lucky number for me is the number that belongs to your date of birth, not a number that suits everyone. Adding the birth time refines the chart underneath without changing that main number — that is what the lucky number by date of birth and time mode is for.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The numbers themselves have their own searches, and each one gets its own line. Lucky number 7 (720/mo) is the most-searched single number: 7 is the number of thinking, study and quiet — and if 7 is your number, the calculator will tell you so. Lucky number 1 (320/mo) is the number of leading and starting: 1 is the first number, and a 1 person is read as independent. 9 is a lucky number (320/mo) is a claim people search to check, and the answer is: in Pythagorean numerology 9 is the number of completion and kindness, and it is lucky for the people it belongs to — in Chaldean numerology 9 is sacred and is not assigned to letters, which is why the two systems can disagree about it. The best lucky numbers (320/mo) is a search for a ranking, and the honest answer is that there is no universal ranking: the best lucky number is the one that belongs to your date of birth. A universal lucky number (320/mo) and a world lucky number (390/mo) are the same idea — one number that is lucky for everyone — and the honest answer is the same: numerology does not have one; your number is yours. My lucky numbers, again, is the personal version of the same idea.
+            Seven is the number people ask about most: a lucky number 7 result is read as thinking, study and quiet, and if 7 is your number the calculator will say so. One leads and starts: a lucky number 1 result is read as independence, and it is the first number in the table. People also check whether 9 is a lucky number — in the Pythagorean table it means completion and kindness, while in the Chaldean table it is kept apart as sacred, so the two systems can disagree about it. There is no ranking of best lucky numbers that applies to everyone; the number that suits your date is the best one for you, and any list that claims otherwise is selling a certainty the tradition doesn&apos;t offer. The same goes for the idea of a universal lucky number, or a world lucky number: one number lucky for everyone doesn&apos;t exist in this tradition, because the number always comes from a specific date or name.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Unlucky numbers (1,300/mo) are the other side of the same coin: the numbers your chart says to be careful with. This page lists them as traditional meanings, not as warnings to obey — a number being "unlucky" in numerology means it clashes with your main number, not that it will harm you. Unlucky numbers in India, in the smaller keywords, is the same topic in its Indian form, and the world unlucky number is the same question asked globally — and the answer is the same in both: there is no one unlucky number for a whole country or the world, only numbers that clash with yours. And a saturday lucky number (880/mo) is the weekday version: each day of the week has its own number in numerology, and Saturday's is the one people search for most, with Friday, Tuesday and Wednesday following in the smaller keywords — the weekday table is in the chart section below. A friday lucky number, a tuesday lucky number and a wednesday lucky number are the same weekday question for other days, and the lucky number chart in the chart section gives all seven. Lucky numbers according to date of birth is the same chart, read from your birth date. An indian lucky number is a lucky number read in the Indian tradition, and the most lucky number in the world is the search for a single luckiest number — the honest answer, again, is that the luckiest number is the one that belongs to you. Lucky numbers now is the same question asked for this moment, and the 1 to 100 lucky number list in the smaller keywords is the same idea as a list — the chart below covers the numbers 1 to 9, which is where numerology stops. You can also explore our Vedic{' '}
+            The other side of the chart is the unlucky numbers: totals that clash with your main number in the traditional reading. Treat them as meanings, not warnings — nothing here claims a number will harm you. In the tradition every weekday carries a number too, and the saturday lucky number is the one people look up most, ahead of Friday, Tuesday and Wednesday.
+          </p>
+
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            You can also explore our Vedic{' '}
             <button
               type="button"
               onClick={() => onNavigate('/birth-chart-calculator/')}
@@ -308,7 +329,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            More ways people ask the same question, all answered by the tool above: what's my lucky number, what is lucky number for me, find my lucky number, find your lucky number, check lucky number, lucky number based on date of birth, lucky number by name and date of birth, how to find out lucky number, birth lucky number, my name lucky number, how to find lucky number by name, and lucky number calculator by name. How to calculate numerology by date of birth, how to find numerology number from date of birth, and how to calculate numerology number by date of birth are the do-it-yourself versions — and the worked example at the end of the chart section shows the adding, step by step. Numerology based on date of birth is the same date-based reading, and a numerology calculator by birth date is the same tool, with "birth date" in place of "date of birth". A name as per numerology and date of birth reading is the combined mode, and a lucky number for business is the business version, covered in the business section below. A wedding date numerology calculator, in the smaller keywords, is the same tool applied to a wedding date — enter the date, and it gives the day's number. For couples matching, try our{' '}
+            For couples matching, try our{' '}
             <button
               type="button"
               onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
@@ -327,7 +348,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Today's lucky number is a daily question, and people type it in many ways — including "to day lucky number", typed with a space, meaning today's lucky number. The answer is the same in every spelling: your lucky number for today comes from your date of birth plus today's date, and the tool's daily mode gives it. Yesterday's lucky number, in the smaller keywords, is the same question asked a day late — and the tool answers it the same way, by the date you enter.
+            Today&apos;s number is a daily question, and it is worked out the same way as everything else on this page: combine your birth number with today&apos;s date, add, reduce, and read the result. The adding never changes — only the date you feed into it does.
           </p>
 
           {/* ─── Section: Mobile Number Numerology ─── */}
@@ -336,15 +357,15 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Mobile number numerology (8,100/mo) is the second-biggest practical use of this calculator: people want to know whether their phone number suits them. A mobile number numerology calculator (5,400/mo) adds up the digits of a mobile number and reduces them to one number, then reads that number the same way it reads a name. A mobile numerology calculator (3,600/mo) is the same tool, shortened. A numerology calculator mobile number (480/mo) is the same tool, with the words in a different order. A phone number numerology calculator (590/mo) is the same tool, for any phone number, not just a mobile.
+            A phone number is a string of digits, and digits are exactly what this system reads — so mobile number numerology is the most practical use of the tool after the date and name. Paste the number into the mobile mode and it adds the digits, reduces them to one number, and reads that number the same way it reads a name — then compares it with your date-of-birth number, so you can see whether the two get on or clash. A mobile number numerology calculator does that adding for you; shortened to a mobile numerology calculator, it is the same mode, and it works for any phone number, not just a mobile — a phone number numerology calculator takes a landline the same way, digit by digit.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            How to calculate mobile number numerology (1,300/mo) is the do-it-yourself version, and the worked example is simple: add all the digits of the number, reduce by adding again until one digit is left, and that digit is the mobile number's number. The last 4 digits of mobile number numerology (3,600/mo) is a shortcut people use: add only the last four digits, because those are the part of the number that feels personal. A lucky mobile number analysis numerology reading (3,600/mo) is the full version: the whole number, analysed digit by digit, with a note on which digits help and which clash. Lucky mobile number numerology (590/mo) is the same analysis, shortened. A lucky mobile number calculator (1,900/mo) is the tool that does it. Show my lucky mobile number (1,600/mo) is the request in plain words — show me whether my mobile number is lucky — and the tool answers it on the page. Find lucky mobile number by date of birth (590/mo) is the matching version: given your date of birth, which mobile-number totals suit you — and the tool's mobile mode answers it by comparing the two numbers.
+            Doing it by hand is simple enough to check: how to calculate mobile number numerology comes down to adding every digit, reducing by adding again until one digit is left, and that digit is the number&apos;s number. A shortcut people use is to add only the last 4 digits of mobile number numerology — those are the digits that feel personal, and they are the ones most people remember. The full version goes digit by digit: a lucky mobile number analysis numerology reading looks at the whole number, notes which digits help and which clash, and compares the total with your birth number. The tool that does all of this is a lucky mobile number calculator in the plainest sense — it takes a number and tells you what the tradition says about it.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The same reading applies in Hindi and Tamil in the smaller keywords: mobile number numerology in Hindi, and a mobile number numerology calculator in Hindi, are the same tool with the explanation in Hindi — and the language section below covers it.
+            The request is often phrased as show my lucky mobile number — show me whether my number suits me — and the mobile mode answers it on the page, with the comparison beside it. The matching version starts from the other end: find lucky mobile number by date of birth asks which totals suit your birth number, and the tool answers by comparing the two numbers. People ask for this in Hindi and Tamil too — the digits don&apos;t change, only the language of the explanation does — and the language section below covers those searches.
           </p>
 
           {/* ─── Section: Vehicle and Car Number Numerology ─── */}
@@ -353,11 +374,11 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Vehicle number numerology is the same idea, applied to a number plate. A vehicle lucky number calculator (4,400/mo) adds up a vehicle number and reads the total. A lucky vehicle number calculator (3,600/mo) is the same tool, with the words in a different order. A vehicle number numerology calculator (1,900/mo) is the same tool again. A car number numerology calculator (1,900/mo) is the car version, and a car numerology calculator (480/mo) is the same car version, shortened. A vehicle numerology calculator (480/mo) is the same tool, named plainly. A numerology lucky car number (320/mo) is the number a car adds up to, read as lucky or not. A lucky vehicle number (480/mo) is the result — the vehicle number that suits you.
+            A number plate is a mix of letters and digits, and the tool reads it the same way it reads a name and a date together — letters by their table values, digits by their face value, added and reduced to one number. That is the work a vehicle lucky number calculator does: it takes the plate and returns the total, with the meaning beside it. The car version has its own name in searches — a car number numerology calculator — but it is the same mode, applied to a car&apos;s plate instead of a phone&apos;s digits. What you get back is one number for the plate — in search terms, a numerology lucky car number — and the tool shows it beside your own birth number so you can compare them. A lucky vehicle number, then, is a plate whose total gets on with your birth number — the tool flags the match; it doesn&apos;t tell you to change your plate.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Unlucky vehicle numbers (480/mo) are the other side: vehicle totals that clash with your own number, in the traditional reading. This page lists them the same way it lists unlucky numbers generally — as a traditional meaning, not a warning to change your plate. A bike number numerology calculator, in the smaller keywords, is the same tool for a bike's number plate, and a lucky bike number according to date of birth is the matching version — the tool compares the bike number's total with your date of birth number, the same way it does for a car.
+            The other side is the unlucky vehicle numbers: totals that clash with your birth number in the traditional reading. They are listed as meanings, not as a reason to change a plate — a number plate is paperwork, not a prediction. A bike&apos;s plate works the same way, digit by digit, and the tool compares it with your birth number just as it does for a car.
           </p>
 
           {/* ─── Section: Business Numerology ─── */}
@@ -366,7 +387,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A business numerology calculator (1,900/mo) reads a business name the way the name mode reads a person's name: the letters add up, the total is reduced, and the number is read for what it is said to mean for a business — growth, stability, visibility, or caution. A name as per numerology calculator search for a business name lands here too, because a business name is a name, and the same calculator reads it. To explore personal and baby names in depth, visit our dedicated{' '}
+            A business name is read the way a person&apos;s name is read: the letters add up, the total is reduced, and the number is read for what it is said to mean for a business — growth, stability, visibility, or caution. That is the work of a business numerology calculator, and the tool&apos;s business mode does it in the same place as the name mode. The Chaldean side is the one most business searches ask for, because it is the system Indian business owners use most often — so pick the Chaldean mode for a business name, and read the business number beside your own, because the pairing matters: if the two get on, the tradition calls them friendly. To explore personal and baby names in depth, visit our dedicated{' '}
             <button
               type="button"
               onClick={() => onNavigate('/numerology/name-numerology/')}
@@ -374,7 +395,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             >
               name numerology
             </button>{' '}
-            calculator. The Chaldean system is the one most business-numerology searches ask for, because Chaldean numerology is the system Indian business owners most often use — so the tool's Chaldean mode is the one to pick for a business name, and the Chaldean chart above is the table it uses. A business name's number is read alongside the owner's own number: if the two get on, the pairing is called friendly, in the same sense as the chaldean numerology friendly numbers above.
+            calculator.
           </p>
 
           {/* ─── Section: Fortune Number ─── */}
@@ -383,8 +404,22 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A fortune number (9,900/mo) is the number numerology assigns to your whole chart, not just to one input: it is the number that comes from your name and your date of birth together. The tool above gives it as part of the full reading — the numerology calculator name and date of birth mode — and this section explains what it is for: a fortune number is read as the number of your overall direction, while the lucky number is read as the number of the day. They are often the same number, and when they differ, the fortune number is the one to remember and the lucky number is the one to use.
+            Look past the day-to-day number and there is a bigger one underneath. Your fortune number comes from your name and your date of birth together, and the tool gives it as part of the full reading. It is read as your overall direction, where the lucky number is read as the number of the day. Often the two are the same number; when they differ, the fortune number is the one to remember and the lucky number is the one to use. That combined reading is what the numerology calculator name and date of birth mode is for — both inputs, one chart.
           </p>
+
+          <figure className="my-8">
+            <img
+              src={numerologyLifePathJourney}
+              alt="Stepping stones winding through a garden at dusk, symbolising the life path journey behind a numerology reading"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              One number at a time: your chart is a path, not a single step.
+            </figcaption>
+          </figure>
 
           {/* ─── Section: Numerology by Language and Place ─── */}
           <h2 className="text-2xl font-bold text-slate-900 font-display mt-10 mb-4">
@@ -392,7 +427,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Numerology is searched for in many languages, and the calculator is the same in all of them. A numerology calculator tamil search is a request for the tool with a Tamil explanation — the numbers do not change, and the Tamil terms for the numbers are the ones Tamil speakers use. The same is true of the Telugu, Hindi and Indian variants in the under-300 keywords: a numerology calculator in Telugu, mobile number numerology in Hindi, and an Indian numerology calculator are the same tool, explained in the terms those searches use. Indian lucky number, unlucky numbers in India, and the weekday lucky numbers by Indian tradition are covered in the chart section, because the Indian tradition is the one most of this page's searches come from. Explore our wider{' '}
+            Numerology is searched for in many languages, and the calculator is the same in all of them. The numbers don&apos;t change when the language changes — only the words around them do — so a Tamil, Telugu or Hindi search lands on the same tool, explained in the terms those searches use. Indian lucky number, unlucky numbers in India, and the weekday numbers by Indian tradition are covered in the chart section, because the Indian tradition is the one most of this page&apos;s searches come from. Explore our wider{' '}
             <button
               type="button"
               onClick={() => onNavigate('/astrology/')}
@@ -404,7 +439,7 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            An alphabet numerology calculator (1,000/mo) is a calculator that shows the letter-to-number table itself — the alphabet, with each letter's value beside it — and the Chaldean and Pythagorean charts above are exactly that: two alphabet tables, side by side, so you can see both.
+            The two letter tables are worth seeing for themselves: an alphabet numerology calculator shows the alphabet with each letter&apos;s value beside it, and the Chaldean and Pythagorean charts above are exactly that — two tables, side by side, so you can see both.
           </p>
 
           {/* ─── Section: Your Numerology Chart and Predictions ─── */}
@@ -413,15 +448,15 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A numerology chart by date of birth (720/mo) is the full picture the tool draws from your birth date: your main number, your lucky number, your fortune number, and the weekday and month numbers that sit alongside them. Numerology predictions by date of birth (390/mo) is the question of what that chart says — and the honest answer is that the chart describes tendencies, not events: it says which numbers suit you and which clash, and the rest is up to you.
+            The chart is the full picture: your main number, your lucky number, your fortune number, and the supporting numbers that sit alongside them — all drawn from one birth date by a numerology chart by date of birth. It is the part of the result worth reading slowly, because the single numbers only make sense beside each other. The wider question — numerology predictions by date of birth — is answered here too, and the honest answer is that the chart describes tendencies, not events: it says which numbers suit you and which clash, and the rest is up to you.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The weekday table is part of that chart: each day carries a number, and Saturday's number is the one people search for most, followed by Friday, Tuesday and Wednesday in the smaller keywords. The month table works the same way. And the chart's daily mode — today's lucky number — is the part that changes every day, while the rest of the chart stays the same.
+            The tradition also gives numbers to days and months — each weekday carries one, Saturday&apos;s being the one people ask for most — but those are readings in the tradition, not part of the tool&apos;s chart, which is built from your name and date. The part of the result that changes daily is the number for today: combine your birth number with today&apos;s date, add, reduce, and read the result — the same adding as everything else on this page.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            How to calculate your own numbers, step by step, is the worked example this section ends with. Take a date of birth — say 14 July 1998. Add the digits: 1 + 4 + 0 + 7 + 1 + 9 + 9 + 8 = 39, then 3 + 9 = 12, then 1 + 2 = 3. The number is 3. Take a name the same way: give each letter its Chaldean or Pythagorean value, add, and reduce the same way. That is how to calculate lucky number by hand — and the calculator above does the same adding, instantly, for any name or date you enter.
+            Take a date and do it by hand once — say 14 July 1998. Add the digits: 1 + 4 + 0 + 7 + 1 + 9 + 9 + 8 = 39, then 3 + 9 = 12, then 1 + 2 = 3. The number is 3. A name works the same way: give each letter its Chaldean or Pythagorean value, add, and reduce. That is how to calculate lucky number by hand — and the tool above does the same adding, instantly, for any name or date you enter.
           </p>
         </article>
 

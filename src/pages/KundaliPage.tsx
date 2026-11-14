@@ -25,6 +25,8 @@ import {
   Users,
   Compass,
 } from 'lucide-react';
+import kundaliWheelImage from '../assets/images/kundali-birth-chart-wheel.webp';
+import kundaliAstrologerImage from '../assets/images/kundali-astrologer-reading-chart.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -116,7 +118,7 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'Can I make a kundali without birth time?',
       answer:
-        'Yes. Choose the "by date of birth only" mode. The Moon sign and Nakshatra are fixed by the date alone, so the chart still works — the Lagna and house positions are approximate without the time, but the reading is still useful. Add the birth time later for the full chart. Kundli without time of birth is the same question, with the same answer.',
+        'Yes. Choose the "by date of birth only" mode. The Moon sign and Nakshatra are fixed by the date alone, so the chart still works — the Lagna and house positions are approximate without the time, but the reading is still useful. Add the birth time later for the full chart. The date alone is enough to start, so kundli without time of birth works the same way.',
     },
     {
       question: 'How to read kundli?',
@@ -141,7 +143,7 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'What is kundali by dob?',
       answer:
-        'Kundali by dob is kundali by date of birth — dob is short for date of birth. Enter your date of birth in the tool above and it makes your kundali from the date alone. Kundli by dob is the same check, and kundli by name is the name-only check: the first letter of your name gives your Moon sign.',
+        'Kundali by dob means kundali by date of birth — dob is short for date of birth. Enter your date of birth in the tool above and it makes your kundali from the date alone. The same date-only mode covers kundli by dob, and if you only have a name, the kundli by name mode reads your Moon sign from its first letter.',
     },
     {
       question: 'Is there a kundali in English?',
@@ -356,7 +358,10 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
         <article className="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-8">
           <section>
             <p className="text-base sm:text-lg leading-relaxed">
-              Kundali, also spelled kundli, is your Vedic birth chart — a map of the sky at the moment you were born. It is the starting point for almost everything in Vedic{' '}
+              People have read their lives from the sky for thousands of years, and in India that reading starts with the kundali — twelve houses, with the planets placed in them exactly as they were at the moment of birth. In India it still comes first before the big decisions: a wedding, a career change, a move. The tool above makes yours in seconds, and the quickest route is kundali by date of birth — enter the date, add the birth time if you know it, and it draws your janam kundali: the chart, the planetary positions and a plain reading of what they show. You get all of it as a free online kundali — the chart, the reading and the report — with no sign-up and no payment.
+            </p>
+            <p className="mt-3">
+              Once you have the chart, the rest of this page walks through it: how to read the houses, what the yogas mean, and where the South Indian jathagam fits in. The kundali sits inside a much older system, and the{' '}
               <a
                 href="/astrology/"
                 onClick={(e) => {
@@ -367,7 +372,8 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 astrology
               </a>
-              : <a
+              {' '}hub explains how the pieces of that system fit together. And if your question is marriage, one chart only takes you halfway — two charts have to be compared, and that comparison is what{' '}
+              <a
                 href="/kundali-matching/"
                 onClick={(e) => {
                   e.preventDefault();
@@ -376,17 +382,31 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-rose-600 hover:underline font-semibold"
               >
                 kundali matching
-              </a>{' '}
-              for marriage, career and future predictions, and reading your yogas and doshas. This page is a kundali maker, kundli maker, kundali generator, kundli generator and kundali calculator in one: it makes your kundali and explains how to read it. To make my kundali is what most people type first — make my kundli is the same request — and the tool above does it in seconds: generate kundali, kundali create, create kundli or kundli create, it is the same free chart. Kundali make, making kundali and kundali making are all the same act, and the tool above is the quickest way to do it — a kundali making app in your browser, free kundali making with no download, and kundali making free online in the same place. Online kundali making and online kundli making are the same online check, and kundli making online free is the free version of it. Kundali maker online and online kundali maker are the same tool written two ways, and so are online kundali generator and online kundli generator — a kundali generator free to use, with no sign-up.
+              </a>
+              {' '}does.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={kundaliWheelImage}
+              alt="Kundali birth chart wheel in the North Indian style, with the twelve houses and planet symbols"
+              width="1200"
+              height="1200"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              The twelve houses of a kundali, with the planets placed as they were at birth.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               What Is Kundali?
             </h2>
             <p>
-              A kundali is a chart of the twelve houses (bhavas) with the planets placed in them as they were at your birth. The most important points in it are the Lagna (ascendant, the sign rising at your birth), the Moon sign or Rashi across the twelve{' '}
+              Twelve houses hold the whole reading. The first house is you — your body, your manner, the way you meet the world. The seventh holds marriage, the tenth holds career, the fifth holds children and creativity, and the rest divide up health, money, family and everything in between. Into those houses go the planets as they stood at your birth, and the pattern they make is the chart. Three points matter most when you first look at it: the Lagna, the sign rising in the east at that moment; the Moon sign, or Rashi, found among the twelve{' '}
               <a
                 href="/zodiac-signs/"
                 onClick={(e) => {
@@ -397,10 +417,10 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 zodiac signs
               </a>
-              , and the Nakshatra (birth star). Together they describe your nature, your strengths, your career, your relationships and the timing of major events. A kundali is also a kundali birth chart and a birth chart kundli — the same chart, named by what it is: your birth kundali and your birth kundli, the chart of your birth.
+              {' '}and the Nakshatra, the birth star the Moon was passing through. Together they set the tone of the whole chart — your nature, your strengths, and the timing of the big events. Those three points are what turn twelve empty houses into a kundali birth chart worth reading.
             </p>
             <p className="mt-3">
-              It goes by several names, and they all mean the same chart: kundali, kundli, janam kundali, janma kundali, janma kundli, janampatri, jataka kundali and kundali jataka. In South India it is called jathagam or jathakam, and the same chart is read from the date of birth and time in Tamil, Telugu and Malayalam families. A Vedic kundali and a vedic kundli are the North Indian names for it; a KP kundali (Krishnamurti Paddhati) and a kp kundli are the same chart read with a different house system. Astro kundali,{' '}
+              Different families call the chart by different names, and the names tell you where the family comes from. In the north it is usually janam kundali, the chart of birth; in the south it is jathagam, read in the South Indian style with the houses drawn in a fixed square. The old texts call it janampatri, the written record of the birth, or jataka kundali — jataka meaning birth. Two systems read it most often: the Vedic way, which gives you a vedic kundali, and the Krishnamurti system, which gives you a kp kundali and divides the houses differently. People also reach this page through astro kundali searches, because the chart is what an astrologer actually reads — and the{' '}
               <a
                 href="/astrology/"
                 onClick={(e) => {
@@ -410,17 +430,17 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-rose-600 hover:underline font-semibold"
               >
                 astrology
-              </a>{' '}
-              kundali, kundli astrology and astrology kundli are four ways of saying the same thing — the kundali as astrology. Whether you call it kundali, kundli, janam kundali or jathagam, the tool above makes the same chart. It is a hindu kundali, an india kundli and a kundali of india all at once — the Indian, Hindu form of the birth chart — and it is also a kundali horoscope and a kundli horoscope: the horoscope drawn from your birth chart.
+              </a>
+              {' '}hub explains how the chart fits into the wider system.
             </p>
             <p className="mt-3">
-              Some people type it as kunduli — a common misspelling of kundali — and it means the same chart. Others search in English: kundli in English, kundali in English, janam kundli in English and janampatri in English are all the same request, a kundali explained in English rather than in Hindi or Sanskrit terms. And &ldquo;kundali nikale&rdquo; — to make or draw a kundali, as it is said in Hindi — is the same act: making the chart from the birth details.
+              Your kundli is personal to you. It is built from your own date, time and place of birth, so two people born on the same day can have different charts — a different Lagna, different houses, different yogas. That is why the tool makes a new kundali for every person, fresh each time, and why it asks for the birth time when you have it: the time is what sets the Lagna. From the result you can save the whole thing — the chart, the planetary table and the reading together — as a kundali report, free to download and yours to keep.
             </p>
             <p className="mt-3">
-              Your kundali is personal to you — it is made from your own date, time and place of birth, which is why two people born on the same day can have different kundalis. The tool above builds yours in seconds, free, with no app and no sign-up: a new kundali made fresh for you. You can also download or save your kundali report from the result — the chart, the planetary table and the reading together — and a kundli report and a free kundali report and a free kundli report are the same saved report.
+              Open the result and you see the chart drawn out — the kundali image itself, a square of twelve houses with the planets placed in them, or the same chart as a circle, the kundli view with the planets around the wheel. Look first at five things: the houses, the planets, the Lagna, the Moon sign and the Nakshatra. Those are the kundali details that carry the reading, and the tool&apos;s result shows them all — a detailed kundali, with nothing left out. If you are looking for a chart you made before, the tool finds it again from your birth details, which is what a kundali finder does. And the kundli place the tool asks for is your place of birth: it fixes the Lagna. Type too fast and you get kunduli — the misspelling is common enough to have its own search numbers, and if you typed it, you are in the right place.
             </p>
             <p className="mt-3">
-              A kundali has details worth knowing, and a detailed kundali is simply one that shows them all: the kundali details are the houses, the planets, the Lagna, the Moon sign and the Nakshatra. A kundali finder and a kundli finder are the same thing — a tool that finds your kundali from your birth details — and find kundali, find kundli and find my kundali are the same search: your own chart, found and read. Get kundali and get kundali online are the same request too, answered by the tool above. And your kundali image, kundali photo and kundali drawing are all the chart itself drawn out — the kundli view of the twelve houses, square or circle, with the planets placed in them. An e kundali is the same chart made online, and the kundli place the tool asks for is your place of birth, which fixes the Lagna.
+              The whole page reads in English, including the tool&apos;s result. If you arrived by searching kundli in english, that is what you get — the chart and its reading in plain words, with the Sanskrit names explained as they come up. In Hindi the request is usually kundali nikale — to draw the chart out — and the tool does exactly that in seconds.
             </p>
           </section>
 
@@ -429,10 +449,30 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               Kundali by Date of Birth
             </h2>
             <p>
-              Kundali by date of birth is the way most people make their kundali: the date of birth fixes the Moon&apos;s Nakshatra, and the Nakshatra is the foundation of the chart. Enter your date of birth in the tool above and you get your kundali chart, your Moon sign and your Nakshatra. Kundli by date of birth is the same check spelled the other way, and kundali by dob and kundli by dob are the same check shortened — dob is simply short for date of birth. Kundali by date of birth and time is the full version: the date fixes the Nakshatra and the time fixes the Lagna. Janam kundali by date of birth and time is the same full check in its longer name, and janam kundali by date of birth, janam kundli by date of birth and janam kundli by date of birth and time are the same checks with &ldquo;janam&rdquo; added. Janam kundali by date of birth and time without name is the same full check too — the chart needs no name at all, only the birth details.
+              The date of birth does most of the work. It fixes the Moon&apos;s position, and the Moon&apos;s position fixes your Nakshatra — the birth star the whole chart is built on. That is why kundali by date of birth is the way most people make their chart: enter the date in the tool above and you get your kundali chart, your Moon sign and your Nakshatra in seconds. You may have typed it as kundli by date of birth, or shortened it to kundali by dob — dob is short for date of birth — and either way the tool draws the same chart.
             </p>
             <p className="mt-3">
-              Janampatri by date of birth, jatakam by date of birth and jathakam by date of birth are the same date-of-birth check in their other names, and jathakam based on date of birth and time and jathakam based on date of birth are the same check again, with &ldquo;based on&rdquo; added. A date of birth jathakam is the same South Indian chart from the date alone. Kundali based on date of birth, kundli based on date of birth and kundali according to date of birth are the same check written three more ways. A kundali chart by date of birth is the chart the date alone produces, and a kundali name by date of birth is a name chosen from that chart — the name suggested by the Nakshatra. You can also check date-based relationship synergy on our{' '}
+              Add the birth time and the chart gets sharper. The time fixes the Lagna — the sign rising when you were born — and the exact house each planet sits in, so the reading can speak about timing as well as character. That is the full version: a janam kundali by date of birth and time, the chart to use when you have the time written down somewhere — a hospital record, a family diary, an old horoscope. The same two details — date and time — are what a janampatri by date of birth needs, and what a jathakam based on date of birth and time needs in the south.
+            </p>
+            <p className="mt-3">
+              If you do not know your birth time, use the &ldquo;by date of birth only&rdquo; mode. The tool builds the chart from the date alone, using the Moon sign and Nakshatra, and it is honest about what is missing: the Lagna and the house positions are approximate, not exact. The Moon sign, the Nakshatra and the planetary signs are still correct, and that is enough for a first reading. If your search was kundli without time of birth, this mode is your answer: the date alone is enough to start. With the date alone you get a kundali chart by date of birth — complete for the Moon sign and Nakshatra, approximate for the houses — and it is free: a free kundali by date of birth, made online in seconds. You can add the time later, when you find it, and the chart sharpens.
+            </p>
+            <p className="mt-3">
+              There is also a simpler way in: by name alone. The first letter of your name points to a Moon sign, and from that the tool gives a basic kundali by name — enough to start with, though far less detailed than a chart from the date. It works the same as a kundli by name check, and adding the date gives you kundali by name and date of birth: the name for the Moon sign, the date for the Nakshatra. It is the quickest check on the page, and the right one when a name is all you have. Families also pick a name from the chart — the kundali name by date of birth, the name the Nakshatra suggests for the child. For a lighter look at two names together, you can test{' '}
+              <a
+                href="/name-compatibility/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/name-compatibility/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                name compatibility
+              </a>
+              {' '}alongside your chart.
+            </p>
+            <p className="mt-3">
+              You can also check date-based relationship synergy on our{' '}
               <a
                 href="/love-calculator-by-date-of-birth/"
                 onClick={(e) => {
@@ -443,30 +483,7 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 love calculator by date of birth
               </a>
-              .
-            </p>
-            <p className="mt-3">
-              Adding your birth time makes the kundali more precise, because the time fixes the Lagna (ascendant) — the sign rising when you were born — and the exact house each planet sits in. With the date of birth and time together you get the full chart: houses, planetary positions and yogas.
-            </p>
-            <p className="mt-3">
-              If you do not know your birth time, you can still make your kundali. Choose the &ldquo;by date of birth only&rdquo; mode: the tool builds the chart from the date alone, using the Moon sign and Nakshatra. It is less detailed than a full kundali — the Lagna and the house positions are approximate — but the Moon sign, Nakshatra and planetary signs are still correct, and that is enough for a first reading. The same applies to kundli without time of birth and kundli without birth time: the date alone is enough to start. Free kundali by date of birth is this same date-only check, free here, and online kundali by date of birth and kundali online by date of birth are the same check done online.
-            </p>
-            <p className="mt-3">
-              You can also make a kundali by name: the first letter of your name gives your Moon sign (Rashi), and from that the tool gives a basic kundali by name. Kundli by name is the same name check, and kundali by name and date of birth and kundli by name and date of birth combine both: the name for the Moon sign and the date of birth for the Nakshatra. It is the simplest check — useful when you only have a name — but it is less detailed than a kundali by date of birth, so confirm it with the full date-of-birth kundali when you can. For a fun look at name chemistry, you can test{' '}
-              <a
-                href="/name-compatibility/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate('/name-compatibility/');
-                }}
-                className="text-rose-600 hover:underline font-semibold"
-              >
-                name compatibility
-              </a>{' '}
-              alongside your chart.
-            </p>
-            <p className="mt-3">
-              Kundali making by date of birth and kundli making by date of birth are the same making, from the date alone. Janam kundli free, janam kundali free, janam kundli free online, janam kundli online free and online janam kundali free are all the same free janam kundali from the date of birth, free here, and janma kundali free is the same free chart in its janma spelling. And a kundali prediction by date of birth — what the chart says about your future, read from the date — is covered in the analysis section below, as is a raj yoga calculator by date of birth, which checks for Raj Yoga from the date alone.
+              {' '}The analysis section below explains the other thing people ask the date for: a kundali prediction by date of birth — what the chart says about your future, and what it can and cannot say.
             </p>
           </section>
 
@@ -475,7 +492,7 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               How to Make Your Kundali
             </h2>
             <p>
-              Making a kundali used to mean sitting with an astrologer and a panchang. Now the tool above does it in seconds. How to make kundali is the question most people ask first, and how to make kundali online and how to make kundli online are the same question with &ldquo;online&rdquo; added. Make kundali is the short form of it, and make my kundali free, make my kundali for free and make my kundli free are the same free making, free here.
+              Kundali making used to mean sitting with an astrologer and a panchang — the almanac the calculations came from. The tool above does the same calculation in seconds, and you do not need to know the maths to use it. Most people arrive with a simple aim — to make my kundali — and if you have ever wondered how to make kundali online, the answer is three steps, and the first is the only one that needs you.
             </p>
 
             <ol className="list-decimal pl-5 space-y-2 mt-3">
@@ -491,7 +508,10 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
             </ol>
 
             <p className="mt-3">
-              That is all there is to it: create your kundli online, free, and get the full kundali report immediately — create kundli online is the same making, generate kundali online is the same making done online, and a kundali calculator free to use and a free kundli calculator are the same tool, as is a janma kundali calculator. A free kundali maker, a free kundli maker and a kundali maker free are the same free maker. There is no software to install and no app to download — the online kundali maker works in your browser. Kundali making free and kundali making free online are the same free making, and free kundali making is the same again. A kundali chart maker is the same tool named for what it makes — the chart — and a kundali making app is the same tool on a phone. If you prefer an app, the same check is available as a kundali app (see the section below), but the website tool gives you the same chart without installing anything.
+              That is all there is to it. The tool draws the chart from your birth details, then explains what the chart shows — a kundli maker in the plain sense. It costs nothing, a free kundali maker with no software to install and no app to download, and it works as an online kundali maker, so the same chart comes out on a phone, which is why people also use it as a kundali making app. To create kundli online, free, enter the details and press the button — the tool will generate kundali online in seconds, and the full report is yours immediately.
+            </p>
+            <p className="mt-3">
+              Behind the scenes, the tool works out the planetary positions from the date, time and place, so you never do the maths by hand. That is the kundali calculator at work — a kundali calculator free to use, with no payment and no sign-up — and the report it generates, chart, planetary table and yogas in one file, is the kundli generator at work. If all you want is the picture, it works as a kundali chart maker too, and the chart is ready to save from the result. The whole thing is free kundali making: no payment, no sign-up, no app.
             </p>
             <p className="mt-3">
               If you are making a kundali for someone else — a child, a partner, a family member — enter their birth details instead of yours. A new kundali is made fresh for each person; there is no shared or family kundali, because every chart depends on the exact birth moment.
@@ -503,7 +523,7 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               Reading Your Kundali Chart
             </h2>
             <p>
-              A kundali chart is a square divided into twelve houses. Each house stands for an area of life — the first house is you, the seventh is marriage, the tenth is career — and each planet in a house colours that area. Reading a kundali generated by a{' '}
+              Look at the result and you see your kundali chart — a square divided into twelve houses. Each house stands for an area of life — the first house is you, the seventh is marriage, the tenth is career — and each planet in a house colours that area. Reading the chart means reading the planets in their houses, not just looking at the picture. A{' '}
               <a
                 href="/birth-chart-calculator/"
                 onClick={(e) => {
@@ -513,50 +533,64 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-rose-600 hover:underline font-semibold"
               >
                 birth chart calculator
-              </a>{' '}
-              means reading the planets in their houses, not just looking at the picture. A kundli chart is the same chart spelled the other way, and a kundali chart online, a kundli chart online and an online kundli chart are the same chart made online. A free kundli chart, a free kundali chart and a free kundali chart online are the same chart, free here.
+              </a>
+              {' '}draws the same square, and the tool above draws an online kundli chart in seconds — but the reading is yours to do, and this section is how. If your question is how to read kundli at all, start with the Lagna, then the Moon sign, then the planets house by house.
             </p>
 
             <div className="space-y-3 mt-4 text-sm sm:text-base">
               <p>
-                <strong>Find the Lagna (ascendant).</strong> The Lagna kundali starts from the sign rising at your birth. It is the first house, and it sets the whole chart — the other houses follow from it. A lagna kundli is the same ascendant chart, and a lagna kundali chart is the chart drawn from the Lagna. A lagna kundali online and a lagna kundli online are the same Lagna chart made online, and a free lagna kundali is the same chart, free here.
+                <strong>Find the Lagna (ascendant).</strong> The Lagna is the sign rising at your birth, and it is the first house — the house the whole chart is built from. Everything else follows from it: the other houses are counted from the Lagna, so a wrong Lagna means a wrong chart, which is why the birth time matters so much. The tool above shows your lagna kundali with the ascendant marked, free — a free lagna kundali, made from your birth details in seconds.
               </p>
               <p>
-                <strong>Find the Moon sign and Nakshatra.</strong> Your Rashi (Moon sign) is the sign the Moon was in, and your Nakshatra is the birth star. They describe your mind, your emotions and your nature. My kundali chart and my kundli chart are the same request — your own chart, with your Lagna and Moon sign in it.
+                <strong>Find the Moon sign and Nakshatra.</strong> Your Rashi, the Moon sign, is the sign the Moon was in when you were born, and your Nakshatra is the birth star it was passing through. Together they describe your mind, your emotions and your nature — the inner life, where the Lagna describes the outer one. It is your own chart that matters — my kundali chart, with your Lagna and Moon sign in it, not anyone else&apos;s.
               </p>
               <p>
-                <strong>Read the planets house by house.</strong> A planet in the tenth house speaks about career; a planet in the seventh speaks about marriage; a planet in the fifth speaks about children and creativity. The same planet means something different in each house. A kundali house chart and a kundli house chart are the same reading: the houses, with the planets in them.
+                <strong>Read the planets house by house.</strong> A planet in the tenth house speaks about career; a planet in the seventh speaks about marriage; a planet in the fifth speaks about children and creativity. The same planet means something different in each house, which is why the chart is read house by house, not planet by planet. Go house by house and the chart starts to speak — that slow reading, house by house, is what a kundali house chart is for.
               </p>
               <p>
-                <strong>Check the Navamsa (Navmansh) chart.</strong> The Navmansh kundali is a second, finer chart made from the same birth details. Astrologers read it alongside the main chart, especially for marriage — a planet that is strong in both charts is genuinely strong. A navmansh kundli is the same Navamsa chart, a navamsa kundali is the same chart in its Sanskrit spelling, and a navmansh kundli calculator is the tool that makes it.
+                <strong>Check the Navamsa (Navmansh) chart.</strong> The Navmansh kundali — also called a navamsa kundali — is a second, finer chart made from the same birth details. Astrologers read it alongside the main chart, especially for marriage — a planet that is strong in both charts is genuinely strong. Read the navmansh kundli alongside the main chart, and the tool above draws it for you: a navmansh kundli calculator is built into the result, and the Navamsa chart sits beside the main one.
               </p>
               <p>
-                <strong>Check the Chalit chart.</strong> The Chalit kundali adjusts the house positions for the exact birth time. It matters most when a planet sits near the edge of a house.
+                <strong>Check the Chalit chart.</strong> The Chalit kundali adjusts the house positions for the exact birth time. It matters most when a planet sits near the edge of a house — the Chalit chart tells you which side of the line it falls on.
               </p>
             </div>
 
             <p className="mt-4">
-              You do not need to memorise all of this to use the tool: the result shows your Lagna kundali chart, your Navamsa chart and your planetary positions, with a plain reading of each. The kundli chakra (the wheel diagram) is the same chart drawn as a circle — square or circle, the houses and planets are the same. A janma kundali chart is the same chart in its &ldquo;janma&rdquo; name, and today&apos;s kundali chart is the same chart read for today — the daily reading of your chart.
+              You do not need to memorise all of this to use the tool: the result shows your Lagna chart, your Navamsa chart and your planetary positions, with a plain reading of each. The square and the circle are the same chart — the kundli chakra is the wheel diagram, drawn as a circle — and the chart is free: a free kundali chart, made online in seconds, yours to keep.
             </p>
             <p className="mt-3">
-              Read kundali online and read my kundali are the same request: your chart, read for you, online. How to check kundali and how to check kundli are the same question, and check kundali, check my kundali and check my kundli are the same act — checking your own chart. A kundli check and a kundali check are the same check, and a kundali check online, a kundli online check, an online kundali check and check kundali online are the same check done online, while check kundli online free is the same check, free and online. The kundali image and the kundali photo on the result are the chart itself, drawn out for you to see.
+              A kundli online check takes seconds; understanding the result takes a little longer, and that is what this section is for. If your question is how to check kundali at all, the answer is the tool above: enter the date, and the chart appears. From there you can read kundali online, on this page — the chart, the reading and the report together. The kundali photo on the result is the chart itself, drawn out for you to see — save it, and you have the chart wherever you go.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={kundaliAstrologerImage}
+              alt="A Vedic astrologer reading a kundali chart by lamplight"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              Reading a kundali means reading the planets in their houses — the chart is the starting point, not the answer.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               Kundali Analysis and Prediction
             </h2>
             <p>
-              Kundali analysis is reading the chart to answer a question — about career, marriage, health or the future. A kundali analysis, a kundli analysis, a free kundali analysis and a free kundli analysis are the same reading, and a kundali analysis free is the same free reading. My kundali analysis and my kundli analysis are the same request — your own chart, analysed for you. A free online kundali analysis, an online free kundli analysis and an online free kundali analysis are the same analysis done online, free. The tool above gives a free kundli analysis and a free kundali analysis from your birth details, and this section explains what each part of the analysis means.
+              A chart only matters when it answers a question — about career, marriage, health or what is ahead. That is what analysis is: reading the chart with a question in mind, and letting the houses answer it. The tool above gives you a free kundali analysis from your birth details — the chart read for your questions, not in the abstract — and this section explains what each part of that analysis means.
             </p>
 
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Career:</strong> the tenth house, its lord and the planets in it describe your career — the kind of work that suits you, and when career changes are likely. Kundali for career, career kundli and kundali career are the same check: read the tenth house first.
+                <strong>Career:</strong> the tenth house, its lord and the planets in it describe your career — the kind of work that suits you, and when career changes are likely. Start with the tenth house, then look at its lord, then at the planets sitting in it; a strong tenth house usually means a steady career, and a weak one means the work will take longer to settle. People looking for kundali for career usually want one thing: the tenth house, its lord and the planets in it, read in that order. A career kundli reading starts in the same place — the tenth house — and follows the same order.
               </li>
               <li>
-                <strong>Marriage and love:</strong> the seventh house describes marriage and partnership, and love marriage in kundli is read from the seventh house and from Venus. Love marriage in kundali is the same reading, and a love marriage kundali is the chart read for a love marriage. For a full match between two people, use the{' '}
+                <strong>Marriage and love:</strong> the seventh house describes marriage and partnership, and Venus describes love — read them together and you get the timing of marriage and the shape of the partnership. Love marriage in kundli is read from the seventh house and from Venus — the house for partnership, the planet for love — and the chart can show whether the marriage is likely to be love or arranged. For a full match between two people, use the{' '}
                 <a
                   href="/kundali-matching/"
                   onClick={(e) => {
@@ -566,8 +600,8 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                   className="text-rose-600 hover:underline font-semibold"
                 >
                   kundali matching
-                </a>{' '}
-                page — matching compares two kundalis, while this page reads one. You can also explore our core{' '}
+                </a>
+                {' '}page — matching compares two kundalis, while this page reads one. You can also explore our core{' '}
                 <a
                   href="/"
                   onClick={(e) => {
@@ -577,14 +611,14 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                   className="text-rose-600 hover:underline font-semibold"
                 >
                   love calculator
-                </a>{' '}
-                for romantic chemistry.
+                </a>
+                {' '}for romantic chemistry.
               </li>
               <li>
-                <strong>Future prediction:</strong> kundali prediction and kundli prediction read the Dasha periods — the planetary periods running through your life — to say when things are likely to happen, not just what they are. A free kundali prediction and a free kundli prediction are the same prediction, free here, and an online kundali prediction, an online kundli prediction, a free online kundli prediction and an online free kundali prediction are the same prediction made online. A kundali future prediction and a kundli future prediction are the same reading, and future prediction by kundali and future prediction kundli are the same again. Kundali bhavishya is the same future reading in its Hindi name — bhavishya means the future — and my kundali and future is the same request: your chart, read for what is ahead.
+                <strong>Future prediction:</strong> the Dasha periods — the planetary periods running through your life — say when things are likely to happen, not just what they are. A kundali prediction reads those periods, and a kundli prediction reads them the same way; the strongest signal in either is a Dasha change, when the ruling planet changes and the theme of your life changes with it. That timing is what a free kundali prediction gives you — the periods, laid out year by year, with what each one favours. In Hindi it is called kundali bhavishya — bhavishya means the future — and the question people usually bring is my kundali and future: their own chart, read for what is ahead.
               </li>
               <li>
-                <strong>My kundali, checked:</strong> my kundali, my kundli, my kundali online, my kundli online, my kundali free and my kundli free are the same request — your own chart, read for you. Know your kundli and know your kundali are the same request too. Enter your details above and the tool gives your chart, your analysis and your prediction in one report — your kundali report and your kundli report, and a free kundli report and a free kundali report are the same saved report. For additional destiny clues, explore our{' '}
+                <strong>My kundali, checked:</strong> if you came here by searching my kundali, this is the report you were looking for — your own chart, with your own placements. Enter your details above and the tool gives your chart, your analysis and your prediction in one report, including a free kundli analysis of the houses that matter for your question. The point is to know your kundli well enough to use it: not to memorise every placement, but to know which houses matter for the question you have. That is the report to save — a free kundali report, yours to download and keep. For additional destiny clues, explore our{' '}
                 <a
                   href="/numerology-calculator/"
                   onClick={(e) => {
@@ -594,8 +628,8 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                   className="text-rose-600 hover:underline font-semibold"
                 >
                   numerology calculator
-                </a>{' '}
-                and{' '}
+                </a>
+                {' '}and{' '}
                 <a
                   href="/numerology/"
                   onClick={(e) => {
@@ -605,19 +639,19 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                   className="text-rose-600 hover:underline font-semibold"
                 >
                   numerology
-                </a>{' '}
-                alongside your astrological chart.
+                </a>
+                {' '}alongside your astrological chart.
               </li>
               <li>
-                <strong>Reading:</strong> a kundali reading and a kundli reading are the same plain-language reading of your chart. A free kundali reading and a free kundli reading are the same reading, free here, and an online kundali reading, a kundli reading online, an online free kundali reading and a free online kundali reading are the same reading done online.
+                <strong>Reading:</strong> the tool&apos;s result is written as a kundali reading: the chart first, then what it means, in plain words. It is free, and it is online — a free kundli reading, made in seconds — and you can come back to it whenever the question changes.
               </li>
               <li>
-                <strong>Horoscope and today:</strong> a kundali horoscope and a kundli horoscope are the horoscope drawn from your kundali, and a free kundali horoscope is the same horoscope, free here. Kundali today and today kundali are the same daily reading — your chart read for today — and a live kundli and a live kundali are the same live reading, updated for the current day.
+                <strong>Horoscope and today:</strong> your horoscope is drawn from this chart, not from your sun sign alone — a kundali horoscope follows the Moon and the Lagna, so it is personal in a way a newspaper horoscope never is. The tool&apos;s daily reading is the same chart read for today: kundali today, with what the day favours and what needs care. It updates every day, which is why people call it a live kundali — the chart, read fresh each morning.
               </li>
             </ul>
 
             <p className="mt-3">
-              A kundali reading is a guide, not a verdict. The chart shows tendencies and timings; what you do with them is yours. If a prediction worries you, read the dosha and yoga sections too — a single placement is never the whole story. And the best kundli is simply your own chart made from correct birth details — the best kundli of a person is their own accurate kundali, not anyone else&apos;s.
+              Treat a kundali reading as a guide, not a verdict. The chart shows tendencies and timings; what you do with them is yours. If a prediction worries you, read the dosha and yoga sections too — a single placement is never the whole story. And the best kundli is your own chart made from correct birth details — the best kundli of a person is their own accurate kundali, not anyone else&apos;s.
             </p>
           </section>
 
@@ -626,29 +660,29 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               Yogas in Your Kundali
             </h2>
             <p>
-              A yoga in kundli is a combination of planets that gives a specific result. The tool above checks your chart for the main yogas automatically and lists the ones it finds. A kundli yog is the same yoga, and a yoga calculator in kundli, a yoga calculator in kundali and a yoga in kundli calculator are the same check — a calculator that finds the yogas in your kundali. Check yogas in your kundali free with the tool above: enter your birth details and the yogas found are listed with the reading. These are the yogas people search for most:
+              Some combinations of planets matter more than single placements. When two or more planets combine in a particular way, the result has a name — a yoga — and the tool above checks your chart for the main ones automatically. To check yogas in your kundali free, enter your birth details above; the tool looks for kundli yog, one combination at a time, and lists the ones it finds with the reading, in plain words.
             </p>
 
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Raj Yoga:</strong> the classic yoga of status and success — formed when the lords of the good houses (kendra and trikona) combine. A Raj Yoga calculator checks your chart for these combinations; a raj yog calculator is the same check, and a raj yoga calculator by date of birth checks it from the date alone, while a raj yoga calculator free is the same check, free here. A strong Raj Yoga in kundali is traditionally read as success in career and public life.
+                <strong>Raj Yoga:</strong> the classic yoga of status and success — formed when the lords of the good houses, the kendra and trikona houses, combine. A raj yoga calculator checks your chart for these combinations, and a strong Raj Yoga is traditionally read as success in career and public life. From the date alone, a raj yoga calculator by date of birth finds the same combinations, and it is free — a raj yoga calculator free, in the tool above.
               </li>
               <li>
-                <strong>Vipreet Raj Yoga:</strong> a Raj Yoga formed from the lords of the difficult houses (6th, 8th, 12th). A vipreet raj yoga calculator checks for it. It is read as success rising out of difficulty — gains after struggle.
+                <strong>Vipreet Raj Yoga:</strong> a Raj Yoga formed from the lords of the difficult houses — the 6th, 8th and 12th. A vipreet raj yoga calculator checks for it. It is read as success rising out of difficulty — gains after struggle, and often later in life than a straight Raj Yoga.
               </li>
               <li>
-                <strong>Neech Bhang Raj Yoga:</strong> formed when a debilitated planet&apos;s weakness is cancelled. A neech bhang raj yoga calculator and a neech bhang raj yog calculator check for it. It is read as recovery — a weak start that turns strong.
+                <strong>Neech Bhang Raj Yoga:</strong> formed when a debilitated planet&apos;s weakness is cancelled — a weak planet made strong by the company it keeps. A neech bhang raj yoga calculator checks for it, and it is read as recovery: a weak start that turns strong.
               </li>
               <li>
-                <strong>Kaal Sarp Yoga (Kaal Sarp Dosh):</strong> formed when all seven planets sit between Rahu and Ketu. A Kaal Sarp Dosh calculator and a kaal sarp yog calculator check for this pattern. It is traditionally read as delays and struggle early in life, easing with time — it is a flag to look closer, not a final verdict.
+                <strong>Kaal Sarp Yoga (Kaal Sarp Dosh):</strong> formed when all seven planets sit between Rahu and Ketu. A kaal sarp dosh calculator checks for this pattern, and a kaal sarp yog calculator is the tool that looks for it. It is traditionally read as delays and struggle early in life, easing with time — a flag to look closer, not a final verdict.
               </li>
               <li>
-                <strong>Child Yog:</strong> combinations read for children — their timing and well-being. Child yog in my kundli is the same check, read from the fifth house, and child yog in my kundli free is the same check, free here.
+                <strong>Child Yog:</strong> combinations read for children — their timing and well-being — from the fifth house. If you came looking for child yog in my kundli free, the tool above checks it the same way: enter the birth details, and the yogas found are listed with the reading.
               </li>
             </ul>
 
             <p className="mt-3">
-              Use the yoga calculator in kundli (the tool above) to check yogas in your kundali free: enter your birth details and the yogas found are listed with the reading. A yoga is one combination among many — always read it with the rest of the chart.
+              A yoga is one combination among many — always read it with the rest of the chart. Use the tool above as a yoga calculator in kundli: enter your birth details, and the yogas found are listed with the reading.
             </p>
           </section>
 
@@ -657,18 +691,18 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               Jathagam and Jathakam
             </h2>
             <p>
-              Jathagam (also spelled jathakam) is the Tamil and Telugu name for the kundali — the same birth chart, read in the South Indian style. A South Indian kundali chart looks different from a North Indian one (the houses are drawn in a fixed square), but the planets, houses and readings are the same. A south indian kundali and a south indian kundli chart are the same South Indian chart, and a kerala kundali is the same chart in its Kerala name.
+              In Tamil and Telugu families the chart has another name: jathagam, also spelled jathakam. It is the same birth chart, read in the South Indian style — a south indian kundali chart looks different from a North Indian one, because the houses are drawn in a fixed square, but the planets, the houses and the readings are the same. In Kerala it is a kerala kundali, and the tool above makes all three: the North Indian kundali, the South Indian jathagam and the Kerala chart, because the chart is the same.
             </p>
 
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Jathagam online:</strong> make your jathagam online from your date of birth and time, in the same tool above. Jathagam online is the most searched South Indian variant, and a jathagam online free is the same check, free here. Enter your details and you get your jathagam chart, your Rashi and your Nakshatra. Online jathakam is the same online check, and an online jathakam free is the same check, free here.
+                <strong>Jathagam online:</strong> make your jathagam online from your date of birth and time, in the same tool above. Enter your details and you get your jathagam chart, your Rashi and your Nakshatra. It is the most searched South Indian form — jathagam online is the way most Tamil and Telugu families look for it — and it is free: a jathagam online free check, with no sign-up.
               </li>
               <li>
-                <strong>Jathagam by date of birth:</strong> the date of birth fixes the Nakshatra, exactly as in a North Indian kundali. Jathagam by date of birth and time adds the Lagna and the house positions. Jathakam based on date of birth and time and jathakam based on date of birth are the same checks, and a date of birth jathakam is the same chart from the date alone.
+                <strong>Jathagam by date of birth:</strong> the date of birth fixes the Nakshatra, exactly as in a North Indian kundali. Add the time and you get the Lagna and the house positions as well — a jathagam by date of birth and time, the full chart. With the date alone, the south Indian form is a date of birth jathakam, and a jathakam based on date of birth and time is the full version with the Lagna included.
               </li>
               <li>
-                <strong>Jathakam matching:</strong> matching two jathakams for marriage is the South Indian form of kundali matching. Jathakam matching, jathagam matching and matching jathagam are the same matching, and telugu jathakam matching is the Telugu form of it. The check is the same — guna matching between two charts — and it is covered in full on our{' '}
+                <strong>Jathakam matching:</strong> the South Indian form of kundali matching is jathakam matching — the same guna check between two charts, read in the Tamil or Telugu way. That matching is covered in full on our{' '}
                 <a
                   href="/kundali-matching/"
                   onClick={(e) => {
@@ -678,8 +712,8 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                   className="text-rose-600 hover:underline font-semibold"
                 >
                   kundali matching
-                </a>{' '}
-                page, which also covers telugu jathakam matching for marriage, telugu jathakam for marriage based on date of birth, online jathakam for marriage, online jathakam for marriage in telugu and online telugu jathakam matching. Jathagam match in tamil and jathagam matching tamil are the Tamil forms of the same matching, also checked as{' '}
+                </a>
+                {' '}page, including telugu jathakam matching for marriage and online jathakam for marriage in telugu. The Tamil form is checked as{' '}
                 <a
                   href="/porutham/"
                   onClick={(e) => {
@@ -690,16 +724,16 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 >
                   thirumana porutham
                 </a>
-                .
+                {' '}in the Tamil way.
               </li>
               <li>
-                <strong>Jathagam calculator:</strong> the tool above is also a jathagam calculator and a tamil jathagam calculator — it makes the chart from your birth details and reads it, in English, for Tamil, Telugu and Malayalam names alike. A jathagam generator and an online jathagam generator are the same tool named for what it generates — the jathagam.
+                <strong>Jathagam calculator:</strong> the tool above is also a jathagam calculator — it makes the chart from your birth details and reads it, in English, for Tamil, Telugu and Malayalam names alike. Families looking for a tamil jathagam calculator land on the same tool, and a jathagam generator is the same tool named for what it generates: the jathagam itself.
               </li>
               <li>
-                <strong>Jathagam in English:</strong> jathagam in English and jathakam in English are the same request — the South Indian chart explained in English. My jathagam is your own jathagam, a birth jathagam is the jathagam of your birth, a marriage jathagam and a marriage jathakam are jathagams read for marriage, and a free jathagam, a free jathakam, a free jathagam online and a free jathagam download are the same free jathagam, free here. An online jathagam download is the saved jathagam report.
+                <strong>Jathagam in English:</strong> the whole page reads in English, including the tool&apos;s result. If you arrived by searching jathagam in english, that is what you get — the South Indian chart, explained in plain words, with the Tamil and Telugu names explained as they come up. For marriage, the chart is read as a marriage jathagam — the same chart, read for the wedding rather than for career. A free jathagam is the chart itself, free — the same tool, no payment. You can save the jathagam report from the result — a free jathagam download, yours to keep.
               </li>
               <li>
-                <strong>Jathagam parka:</strong> jathagam parka and tamil jathagam parka — &ldquo;to look at the jathagam&rdquo;, as Tamil speakers say — are the same request: to see your jathagam. A computer jathagam tamil and a computer jathakam are the same computer-made jathagam, and a computer jathagam near me is the same computer jathagam, found online.
+                <strong>Jathagam parka:</strong> in Tamil, to look at the chart is tamil jathagam parka — &ldquo;to look at the jathagam&rdquo; — and the tool above is where you look: enter the details, and the chart appears. Families searching computer jathagam tamil want a chart made by software, not by hand — and that is what the tool above is.
               </li>
             </ul>
 
@@ -713,30 +747,30 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               Is Kundali Free? Online, App and Software
             </h2>
             <p>
-              Yes. Online kundali on this site is free — free kundali, free kundli online, free online kundali, free kundali online, online kundali free, kundali free, kundali online free and online free kundali all use the same free tool above. Free vedic kundali and vedic kundali free are the same free Vedic chart. There is no app to install and no sign-up: open the page, enter your date of birth, and get your kundali chart, planetary positions and reading immediately. Janam kundli online, janam kundali online and online janam kundali are the same janam kundali made online, and free janam kundali, janam kundali free, janam kundli free, janam kundli free online, janam kundli online free and online janam kundali free are the same free janam kundali, free here. Janampatri online and janampatri online free are the same janampatri made online, free.
+              Yes. Everything on this page is free kundali — the chart, the reading and the report — with no app to install and no sign-up. Open the page, enter your date of birth, and the chart appears in seconds. That is the whole offer: a free online kundali, with nothing to install and nothing to pay. What you get is a free janam kundali — the chart, the reading and the report, with no sign-up.
             </p>
 
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Online kundali:</strong> the tool above is an online kundali maker — make, check and read your kundali in the browser, free. Online kundali check, check kundali online and online kundli analysis all work the same way, and an online free kundli analysis and an online free kundali analysis are the same online analysis, free.
+                <strong>Online kundali:</strong> the tool above is an online kundali maker — a free kundali online, made in your browser, with nothing to install. The tool also makes a janam kundali online and a janampatri online — the written record of your birth, drawn from the same details. An online kundali check works the same way: enter the details, get the chart, read the result. The chart is Vedic — a free vedic kundali, read the Vedic way, with no payment.
               </li>
               <li>
-                <strong>Kundali app:</strong> a kundali app and a free kundali app do the same job on a phone, and a free kundli app is the same free app spelled the other way. A janam kundli app, a janma kundali app and a janam kundali app are the same app named for the janam kundali. A kundli app download, a kundali app download and a kundli app download free are the same download, and the best kundli app and the best kundli app free are the same app asked for as &ldquo;the best&rdquo;. A kundli astrology app is the same astrology app. The website tool gives you the same chart without installing anything, and works on any phone browser.
+                <strong>Kundali app:</strong> a kundali app does the same job on a phone — the chart, the reading and the report, in an app instead of a browser. The website tool gives you the same chart without installing anything, and it works on any phone browser. A kundali app download takes a minute to install; the website tool takes seconds, and the chart is the same. If you prefer an app, a free kundali app does the same work for free — and a janam kundli app is the app form of the janam kundali, for families who want the chart on their phone. People ask for the best kundli app — the answer is the one that gives you the chart without a fee, and this tool does that in the browser.
               </li>
               <li>
-                <strong>Kundali software:</strong> kundli software and free kundali software are desktop programs that make charts, and free kundli software is the same free software. A kundli software download is the downloaded program, kundli software for pc is the PC version, free kundli software online is the same software used online, kundali software free is the same free software, best kundli software is the same software asked for as &ldquo;the best&rdquo;, online kundali software is the same software used online, and kundli for windows is the Windows version. They do the same calculation as the online tool; the online tool is the quicker way to get the same result.
+                <strong>Kundali software:</strong> kundli software is the desktop version of the same calculation — a program on your computer that draws the chart. Free kundali software does it for free, and kundli software for pc is the Windows version. Kundali software and the online tool do the same calculation; the online tool is the quicker way to get the same result. A kundli software download takes minutes to install; the online tool takes seconds, and the chart is the same. People ask for the best kundli software — the honest answer is the one that draws the chart correctly, and the online tool does that for free.
               </li>
               <li>
-                <strong>Kundali download:</strong> you can save your kundali report — the chart and the reading — from the result. A kundali download and a free kundali download are the saved report, and a kundli download is the same saved report. A janampatri online free download is the same saved janampatri, and kundli in hindi download is the same saved kundli in Hindi.
+                <strong>Kundali download:</strong> you can save your kundali report — the chart and the reading — from the result. That saved file is a kundali download, and it is free: a free kundali download, yours to keep. Save it as a kundli download and it is the same file — chart and reading together. The janampatri saves the same way — a janampatri online free download is the saved janampatri, free.
               </li>
               <li>
-                <strong>AI kundali:</strong> an AI kundali reading is a chart reading written in plain language, and kundali ai is the same AI reading. The tool&apos;s reading is written the same way — the chart first, then what it means, in plain words. Online jyotish kundali and online jyotish kundli are the same check through a jyotish (astrology) site.
+                <strong>AI kundali:</strong> if you came looking for an ai kundali reading, the tool above already does that job — it takes the chart and turns the placements into a plain-language reading, without an astrologer in the room. The reading is written by software, and the chart comes first, then what it means. The same software reading is what people mean by kundali ai, and an online jyotish kundali is a reading through a jyotish — astrology — site.
               </li>
               <li>
-                <strong>Kundli near me:</strong> kundli near me and kundali near me are the same search — a kundali made for you, wherever you are. There is no physical place to visit for this — the kundali tool is online, so &ldquo;kundli near me&rdquo; is answered by the free online tool above, wherever you are. A computer jathagam near me is the same online answer for a jathagam.
+                <strong>Kundli near me:</strong> a lot of people search kundli near me, expecting a shop or an office to visit. There isn&apos;t one to visit — the chart is made online, so the same free tool answers it wherever you are. The same goes for kundali near me, and for a computer jathagam near me: the answer is the free online tool above, wherever you are.
               </li>
               <li>
-                <strong>Languages:</strong> kundli online gujarati, gujarati kundali free and free kundli gujarati are the same Gujarati kundali, free here, and free bengali kundali is the same free kundali in Bengali. The tool reads the chart in English, for names in any Indian language.
+                <strong>Languages:</strong> the tool reads the chart in English, for names in any Indian language. Gujarati families looking for kundli online gujarati will find the same tool — the chart is drawn from the birth details, whatever language the name is in — and a free bengali kundali is the same free chart in Bengali.
               </li>
             </ul>
           </section>
@@ -746,10 +780,21 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
               Kundali for Marriage
             </h2>
             <p>
-              Your kundali is used for marriage in two ways: reading your own chart for marriage, and matching two charts. Reading your own kundali for marriage means the seventh house — its lord, the planets in it and Venus — which describes marriage timing and partnership. Kundali for marriage, marriage kundali and marriage kundli are that check, and the tool above reads the seventh house in your analysis. A kundali check for marriage and a kundli check for marriage are the same check of your own chart, and a free janam kundali analysis for marriage is the same analysis, free here. A kundli reading for marriage is the same reading of your own chart, and online kundali for marriage and online kundli for marriage are the same check done online.
+              Kundali for marriage works in two ways: reading your own chart, and matching two charts. Reading your own chart means the seventh house — its lord, the planets in it and Venus — which describes marriage timing and partnership. Read this way, your own chart is a marriage kundali, and a kundali check for marriage is that reading: the seventh house, read for marriage. A free janam kundali analysis for marriage is that reading, free — the chart read for marriage, with nothing to pay. The tool above reads the seventh house in your analysis, so the check is already in your result — and the{' '}
+              <a
+                href="/kundali-matching/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/kundali-matching/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                kundali matching
+              </a>
+              {' '}page takes it further, comparing your chart with a partner&apos;s.
             </p>
             <p className="mt-3">
-              Matching two kundalis is a different check: it compares two charts, guna by guna, out of 36. That is covered in full on our{' '}
+              Matching two kundalis is a different check: it compares two charts, guna by guna, out of 36, and the result is a kundali compatibility score, with the doshas checked beside it. That comparison is covered in full on our{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {
@@ -759,8 +804,8 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-rose-600 hover:underline font-semibold"
               >
                 kundali matching
-              </a>{' '}
-              page — kundali match for marriage, match kundali online, kundli match making and janam kundli match all belong there, as do kundli match for marriage, kundli match matching, matching kundali, match making kundali, match making kundli, match kundli, kundali match by name, match kundali for marriage, how to match kundli for marriage, how to match kundli, how to match kundali, how to match kundli online, matchmaking kundali, kundali online matching, online kundali match making, online kundli match making, kundali compatibility, kundli compatibility, astro kundali match, astro kundli match, vedic kundli match, kundali name matching, jatakam match, online jathakam matching and online telugu jathakam matching. Kundli match marathi is the same match asked in Marathi, and the best kundali match app is the same match asked for as &ldquo;the best app&rdquo; — both are covered on the{' '}
+              </a>
+              {' '}page — if your question is how to match kundali at all, that page walks through it. Use this page to make each person&apos;s kundali, then use the{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {
@@ -770,19 +815,8 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-rose-600 hover:underline font-semibold"
               >
                 kundali matching
-              </a>{' '}
-              page too. Use this page to make each person&apos;s kundali, then use the{' '}
-              <a
-                href="/kundali-matching/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onNavigate('/kundali-matching/');
-                }}
-                className="text-rose-600 hover:underline font-semibold"
-              >
-                kundali matching
-              </a>{' '}
-              page to compare them. The matching keywords in this page&apos;s group point to that page, not to a second matching guide here.
+              </a>
+              {' '}page to compare them. To match kundali online, make both charts here first. Families searching in Marathi often ask for kundli match marathi, and the matching page covers that too, along with kundli match making for everyone else.
             </p>
           </section>
         </article>

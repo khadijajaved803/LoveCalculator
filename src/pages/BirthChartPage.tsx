@@ -5,6 +5,8 @@ import { RelatedTools } from '../components/RelatedTools';
 import { RelatedArticles } from '../components/RelatedArticles';
 import { FAQSection } from '../components/FAQSection';
 import { BirthChartTool } from '../components/BirthChartTool';
+import birthChartWheelImage from '../assets/images/birth-chart-calculator-wheel.webp';
+import birthChartCandlelightImage from '../assets/images/birth-chart-calculator-candlelight.webp';
 import { Compass, Sparkles } from 'lucide-react';
 
 interface Props {
@@ -109,19 +111,33 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
         <article className="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-8 mt-12">
           <section>
             <p className="text-base sm:text-lg leading-relaxed">
-              A birth chart is the map of the sky at the moment you were born. This natal chart calculator draws it for you: your ascendant, your sun sign and moon sign, every planet&apos;s position, and your houses chart — the 12 houses of your chart. Whether you call it a birth chart, a natal chart or an astro chart, it is the same thing: one chart, made from your birth details. Use it to find birth chart details for yourself or for anyone whose birth details you know — to find my birth chart is the same search with the same answer: your chart, made free, on this page. It works as a birth chart online tool and a free online birth chart calculator, so you do not need an app or a book: open the page, enter your details, and your free online birth chart is ready. A free natal chart from this tool comes with a free birth chart analysis — a plain reading of what the chart shows — and if you want the Vedic version, the same tool gives you a free vedic birth chart with interpretation too.
+              Three details are all it takes to draw your chart: the date you were born, the time, and the place. The tool above is a free birth chart calculator — enter your date, time and place and it draws your wheel in seconds: the sun, the moon, every planet, and the houses they fall into — then adds a plain reading of what the wheel shows, with no sign-up and nothing to pay. It is an online birth chart calculator, so there is nothing to download and nothing to install, and your birth chart online result appears the moment the details are in, with the reading attached. Most people arrive here wanting one thing — my birth chart, drawn from my own birth details, with the reading included — and you can look up a chart for yourself or for anyone whose birth details you know.
             </p>
             <p className="mt-3">
-              Your birthday chart is the same as your birth chart — the chart of the day you were born — and this tool makes it from your birth date and birth time. A birth chart maker, an astrology birth chart generator and a free birth chart generator are all the same kind of tool, and this one is free: a free birth chart maker that draws your chart and explains it. Create birth chart in three steps — date, time, place — and the calculator does the rest. The best astrology birth chart is the one made from the correct birth time, so enter your time as exactly as you know it; if you do not know it, the tool still makes your chart, but without the houses and the ascendant.
+              Your birthday chart is drawn from the same three details — date, time and place — and the most useful chart is the one made from the correct birth time, so enter your time as exactly as you know it. If you do not know the time, the tool still draws your chart, but without the houses and the ascendant: the date alone gives you the sun sign, the moon sign and the planetary positions, and the page says so plainly wherever it matters. You get a free birth chart with every calculation, and a free natal chart reading with it, the same wheel explained in plain words. Every chart also comes with a free birth chart analysis — a plain explanation of the placements, not just the wheel. This birth chart generator needs no app and no book: open the page, enter your details, and your chart is ready. If you would rather not pay an astrologer, this free birth chart maker draws the wheel and explains it for you.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={birthChartWheelImage}
+              alt="Natal birth chart wheel with planets and zodiac symbols on a deep indigo night sky"
+              width="1200"
+              height="1200"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              Your free online birth chart, drawn as a wheel — the sun, moon and planets placed in the twelve signs.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               What Is a Birth Chart?
             </h2>
             <p>
-              What is a birth chart? A birth chart is a snapshot of the sky — the positions of the sun, moon and planets — at the exact moment and place you were born. What are birth charts used for? In astrology, the chart is read as a map of your personality, your strengths, your relationships and the timing of events in your life. In Vedic astrology a birth chart is a{' '}
+              Picture the sky at the exact minute you were born — where the sun stood, where the moon stood, where each planet stood — and imagine that sky drawn as a wheel. That wheel is what astrologers read, and the tool above draws it for you from your birth details. The natal chart reading the tool gives you walks through the wheel in order: the three signs that shape you most, the planets by sign and house, and the smaller wheels that sit underneath the main one. What are birth charts used for, in practice? They are read for personality, for relationships, and for timing — which years favour a move, a marriage, a change of direction. A birth chart analysis weighs the whole wheel together instead of reading one placement at a time, and the free birth chart analysis on this page is included with every chart. The timing part of the reading — the free birth chart prediction for the year ahead — comes at the end, and it is written as an indication, not a guarantee. Your horoscope comes from the same wheel: a horoscope birth chart reading is your own chart read for the year ahead, not a generic sun-sign column. In birth chart astrology, the wheel is the source and everything else — the horoscope, the compatibility check, the timing — is read from it. In Vedic astrology the wheel has its own name —{' '}
               <a
                 href="/kundali/"
                 onClick={(e) => {
@@ -131,11 +147,11 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 kundali
-              </a>{' '}
-              — your janam kundali — and the reading of it is the same whether you call it a chart or a kundali. A birth chart reading, also called a natal chart reading, explains what each placement means: which sign your sun is in, which sign your moon is in, which sign was rising, and which house each planet sits in. A birth chart analysis goes further — it weighs the whole chart together, and a free birth chart analysis from the tool above gives you that reading without paying an astrologer. A birth chart prediction is the timing part of the reading: what the chart says about the year ahead. The tool gives you a free birth chart prediction as part of the analysis, and the same reading works as horoscope birth chart — your horoscope, drawn from your own chart instead of a generic sun-sign column. Birth chart astrology is simply astrology done from the chart: the chart is the source, and everything else — your horoscope, your compatibility, your predictions — is read from it.
+              </a>
+              {' '}— your janam kundali — and the reading follows the same placements, sign by sign.
             </p>
             <p className="mt-3">
-              Your chart has three layers. The sun sign is the sign the sun was in on your birthday. The moon sign is the sign the moon was in — in Vedic astrology this is your Rasi, and the{' '}
+              Three placements matter more than the rest, and an astrology birth chart reading starts with them. The sun stood in one sign on your birthday, and that sign shapes the core of the reading. The moon stood in its own sign that day — in Vedic astrology this is your Rasi — and the{' '}
               <a
                 href="/rashifal-today/"
                 onClick={(e) => {
@@ -145,8 +161,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 rashifal today
-              </a>{' '}
-              page gives you the daily reading for it. And the rising sign — your ascendant — is the sign that was rising on the eastern horizon at your birth time. Together they are the big three of any chart, and the tool shows all three at the top of your result.
+              </a>
+              {' '}page gives the daily reading for it. The rising sign was coming up over the eastern horizon at your birth time, and it sets the first house of the whole wheel. Together they are the big three of any chart — sun moon and rising sign — and the tool shows all three at the top of your result. Use this natal chart calculator with your birth time and you get the ascendant and the houses as well as the planets.
             </p>
           </section>
 
@@ -155,7 +171,7 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Your Rising Sign and Ascendant
             </h2>
             <p>
-              Your rising sign is the sign on the eastern horizon when you were born, and in astrology it is called your ascendant. Your rising sign is one of the twelve{' '}
+              The sign on the eastern horizon when you were born sets the shape of the whole wheel, because the houses are counted from it. That sign is your rising sign, and astrologers call that same sign your ascendant. The ascendant sign sets the first house, and everything else in the wheel is counted from there. Your rising sign is one of the twelve{' '}
               <a
                 href="/zodiac-signs/"
                 onClick={(e) => {
@@ -166,10 +182,10 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 zodiac signs
               </a>
-              . What is my rising sign? It is the sign that was rising at your birth time — and what is your rising sign is the same question asked about anyone. The ascendant sign is the first house of your chart: it sets the shape of the whole chart, because the houses are counted from it. What is ascendant sign, exactly? The ascendant is the degree of the zodiac rising in the east at the moment of birth, and your ascendant sign is the sign that degree falls in.
+              {' '}— and it changes roughly every two hours, which is why the birth time matters so much: without the time there is no ascendant to find, and no houses either. The first question most people ask is what is my rising sign, and the answer is in your birth time — the tool finds it from the time and place you enter. If you are wondering what is my ascendant sign, it is the same answer: the sign that was rising when you were born.
             </p>
             <p className="mt-3">
-              A rising sign calculator works from your birth time and birth place: give the tool your time and place and it finds your ascendant. This page&apos;s sun moon rising sign calculator shows all three at once — your sun sign, your moon sign and your rising sign — and a moon and rising sign calculator view shows the moon and the ascendant side by side. The tool&apos;s sun moon and rising sign view puts all three together on one card. If you want to know how to find ascendant sign, the answer is your birth time: without the time there is no ascendant, because the rising sign changes about every two hours. How to know your rising sign without a tool? You would need an ephemeris and the exact time — easier to use the ascendant calculator above. How to find rising sign on your own chart? Look at the first house: the sign on its cusp is your rising sign. Find my ascendant sign is the most common way people ask, and what is my ascendant sign and my ascendant sign are the same search: the tool answers all of them from your birth details. How to tell someone&apos;s rising sign? You cannot tell it from their face or their sun sign — you need their birth time. In ascendant astrology, the ascendant describes how you come across and how you meet the world, while the sun describes your core and the moon describes your feelings. A zodiac rising sign reading is the same as an ascendant reading — &ldquo;rising sign&rdquo; and &ldquo;ascendant&rdquo; are two names for the same thing, and an ascendant sign calculator and a rising sign calculator are the same tool.
+              Finding it takes two details: your birth time and your birth place. A rising sign calculator works from both — give the tool your time and place and it finds your ascendant for you, and that is how to find ascendant sign without an ephemeris or a book. Use the ascendant calculator above and it finds your rising sign from the same two details. The tool shows all three together on one card — the sun moon rising sign calculator view, with your sun sign, your moon sign and your rising sign in one place — and a moon and rising sign calculator view shows the moon and the ascendant side by side. To find my ascendant sign you need the birth time, not the birth date, and that is the one detail people most often get wrong. How to know your rising sign on your own chart? Look at the first house: the sign on its cusp is the rising sign. How to tell someone&apos;s rising sign? You cannot tell it from their face or their sun sign — you need their birth time. Every zodiac rising sign changes about every two hours, so a time that is off by an hour can move the whole wheel. In ascendant astrology, the rising sign describes how you come across and how you meet the world, while the sun describes your core and the moon your feelings.
             </p>
           </section>
 
@@ -178,10 +194,10 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               How to Make a Birth Chart
             </h2>
             <p>
-              How to make a birth chart? You need three things: your date of birth, your time of birth and your place of birth. Enter them in the tool above and the calculator draws your chart — that is how to read a birth chart too, because the reading starts from the same three details. Pick your date from the birth calendar on the tool — the date of birth calendar fixes your sun and moon signs — then add the time, which fixes your ascendant and your houses, and the place, which fixes the horizon for your location. Your date of birth chart is ready in seconds.
+              To create a birth chart, enter three things: your date of birth, your time of birth and your place of birth. Create birth chart in three steps — date, time, place — and the calculator does the rest. Pick your date from the date of birth calendar in the tool — the calendar sets your sun and moon signs — then add the time, which sets your ascendant and your houses, and the place, which sets the horizon for your location. That is how to make a birth chart, and the same three details are where the reading starts. Your date of birth chart is ready in seconds.
             </p>
             <p className="mt-3">
-              A birth chart by date of birth alone — without the time — still gives you your sun sign, your moon sign and the planetary positions, but not your ascendant or your houses. If you know the time, always add it: the time is what turns a generic chart into your chart. How to read a birth chart starts with the big three — sun, moon, rising — then the planets by sign and house, then the divisional charts below. The tool&apos;s reading walks you through it in that order, so you do not need to know astrology to follow it.
+              A birth chart by date of birth alone — without the time — still gives you the sun sign, the moon sign and the planetary positions, but not the ascendant or the houses. If you know the time, always add it: the time is what turns a generic chart into your chart. Enter the time as exactly as you know it — the best astrology birth chart is the one drawn from the right time, and a rough guess can shift the ascendant by a whole sign. Learning how to read a birth chart starts with the big three — sun, moon, rising — then the planets by sign and house, then the smaller wheels below. The tool&apos;s reading walks you through it in that order, so you do not need to know astrology to follow it.
             </p>
           </section>
 
@@ -190,7 +206,7 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Lagna Chart
             </h2>
             <p>
-              A lagna chart is the Vedic name for the chart drawn from your ascendant: &ldquo;lagna&rdquo; means ascendant, so a lagna chart is your ascendant chart. The astrology lagna chart is the first chart any Vedic astrologer draws, and a lagna chart calculator makes it from your birth time and place. The lagna chart houses are the 12 houses counted from the ascendant — the first house is you, the second is money, the seventh is marriage, the tenth is career — and the houses chart is the same 12-house wheel drawn from the lagna. How to read lagna chart? Start with the lagna itself: the sign in the first house and the planet ruling it. Then read the planets house by house. A lagna chart online view and a lagna chart generator both draw the same wheel; this tool gives you the lagna chart with the planets placed and the houses labelled. Your lagna chart is fixed at birth — it is not a today lagna chart that changes every day. The lagna in your birth chart stays the same for your whole life; what changes day to day is the transit, not the birth chart.
+              The ascendant has a Vedic name — lagna — and the lagna chart is the wheel drawn from it: the first chart any Vedic astrologer draws. The astrology lagna chart is read house by house, and the twelve houses are counted from the lagna — the first house is you, the second is money, the seventh is marriage, the tenth is career — so the lagna chart houses are the frame the whole reading hangs on. A lagna chart calculator makes it from your birth time and place, and the tool draws your lagna chart online with the planets placed and the houses labelled. Learning how to read lagna chart follows the same order — lagna first, then the houses — so start with the sign in the first house and the planet ruling it, then read the planets house by house. Your lagna is fixed at birth, so there is no separate today lagna chart that changes each morning; what shifts day to day is the transit of the planets, not the wheel you were born with.
             </p>
           </section>
 
@@ -199,22 +215,36 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Navamsa Chart and the D9 Chart
             </h2>
             <p>
-              What is navamsa chart? The navamsa chart is the ninth divisional chart of Vedic astrology, and it is so important that it has its own name: the D9 chart. Navamsa chart means the chart of the ninth division — each sign is divided into nine parts, and the navamsa chart meaning is the deeper strength of the planets: a planet that is strong in both the main chart and the navamsa is strong in reality. What is D9 chart? It is the same navamsa chart — D9 is the number, navamsa is the name — and a D9 chart calculator draws it from your birth details. A navamsa chart calculator and a d9 chart calculator are the same tool, and this page&apos;s tool draws both the main chart and the D9 chart together.
+              After the main wheel, Vedic astrologers turn to a second wheel. Each sign is split into nine equal parts, and the wheel drawn from those parts shows how strong each planet really is — a planet that looks strong in the main chart but weak here is weaker than it first appears, and one that gains strength here carries more weight than the main wheel suggests. That second wheel — the navamsa chart — is the one astrologers reach for when the main wheel leaves a question open. The tool draws both wheels together — the main chart and the d9 chart — so you can compare them side by side, and a d9 chart calculator draws the second wheel from the same birth details you entered for the main chart. What is d9 chart for? It checks whether the strengths in the main wheel hold up when the chart is divided finer.
             </p>
             <p className="mt-3">
-              A navamsa chart analysis looks at the planets in the D9: which planets are exalted, which are in their own sign, and whether the lagna lord is strong. A d9 chart analysis is the same reading. Navamsa chart predictions are traditionally read for marriage and for the second half of life — a free navamsa chart prediction on this page covers the marriage reading, and a free navamsa chart prediction for marriage looks specifically at the seventh house of the D9 and the position of Venus and Jupiter. How to read D9 chart? Check the lagna of the D9 first, then the seventh house, then whether the planets that look weak in the main chart gain strength here. A D9 navamsa chart is read side by side with the main chart, never alone. The navamsa calculator on this page also finds your pushkar navamsa — a pushkar navamsa calculator check that marks the especially auspicious degrees in the navamsa — and the D9 chart in astrology is the standard second chart of every Vedic reading, after the main chart. Navamsa, on its own, is the word for the ninth part — and the d9 chart meaning is the same as the navamsa chart meaning: the hidden strength behind the main chart.
+              The marriage reading is where this wheel earns its reputation. Navamsa chart predictions are traditionally read for marriage and for the second half of life, and the free navamsa chart prediction on this page covers the marriage reading — the seventh house of the D9, and the positions of Venus and Jupiter there. A free navamsa chart prediction for marriage looks at the same three things in closer detail. A navamsa chart analysis looks at the planets in the D9: which are exalted, which sit in their own sign, and whether the lagna lord is strong — and the d9 chart analysis on this page reads those same placements beside the main chart, so you can see where the two wheels agree. Learning how to read d9 chart starts with the lagna of the D9, then the seventh house, then whether the planets that look weak in the main chart gain strength here. Read the d9 navamsa chart beside the main wheel, never on its own, and in a Vedic reading the d9 chart in astrology comes second only to the main wheel. The navamsa chart calculator on this page also flags your pushkar navamsa degrees, and a pushkar navamsa calculator check marks the especially auspicious ones in the ninth-division wheel.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={birthChartCandlelightImage}
+              alt="A person studying a large birth chart by candlelight"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              Reading a birth chart takes time: the wheel is studied placement by placement, not skimmed.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               Divisional Charts: D1 to D60
             </h2>
             <p>
-              The main chart is the D1 chart — the rasi chart — and a D1 chart calculator draws it from your birth details. A d1 chart in astrology is the foundation: every other chart is a division of it. The D1 and D9 chart calculator view on this page shows both together — the main chart and the navamsa side by side — because the D9 is the most-read divisional chart after the D1.
+              Start with the main wheel, the D1 chart — the rasi chart — and every other wheel in Vedic astrology is a division of it. Splitting the same birth moment into finer parts lets one area of life be read at a time: the D1 shows the whole picture, and each division zooms in on one part of it. A d1 chart calculator draws the main wheel from your birth details, and the result lets you switch between the main chart and the navamsa, because the D9 is the division astrologers check first after the D1. In practice, the d1 chart in astrology is the foundation every other wheel is divided from, and the result on this page includes the other divisions the tool calculates.
             </p>
             <p className="mt-3">
-              The tool also draws the other divisional charts. A D10 chart calculator draws the D10 chart, the chart of career and status; a free D10 chart calculator check is included in the same result. A D60 chart calculator draws the D60 chart, the chart of past-life karma, and a D60 chart analysis reads the planets there for karmic strengths. A D7 chart calculator draws the D7 chart, the chart of children. A D2 chart calculator draws the D2 chart, the chart of wealth. A D3 chart calculator draws the D3 chart, the chart of siblings and courage, and a D4 chart calculator draws the D4 chart, the chart of property and fortune. A D5 chart calculator draws the D5 chart, the chart of creativity and children, and a D6 chart calculator draws the D6 chart, the chart of health and obstacles. A D8 chart calculator draws the D8 chart, the chart of longevity. A D11 chart calculator draws the D11 chart, the chart of gains, and a D12 chart calculator draws the D12 chart, the chart of parents. A D16 chart calculator draws the D16 chart, the chart of comforts and vehicles — a d16 chart in astrology is read for the comforts of life. A D20 chart calculator draws the D20 chart, the chart of spiritual progress, and a D27 chart calculator draws the D27 chart — a d27 chart in astrology is read for strengths and weaknesses. A D30 chart calculator draws the D30 chart, the chart of evils and misfortunes. Each chart has its own reading, and the tool shows the one you ask for with the same birth details — one birth time, every divisional chart.
+              The tool calculates ten divisions in all. Wealth is read from the D2, the hora chart, and a d2 chart calculator splits the wheel in two to show it. The D3 drekkana covers siblings and courage, the D4 chaturthamsa covers property and fortune, and the D7 saptamsa covers children — the d3 chart calculator, d4 chart calculator and d7 chart calculator views all draw from the same birth details. Career and status belong to the D10, the dasamsa, and the d10 chart calculator is the one to open when a job question is on your mind; a free d10 chart calculator check is included in the same result. Parents are read from the D12, comforts and vehicles from the D16 — in the d16 chart in astrology, a strong placement is read as ease in daily life — and past-life karma from the D60, the shashtiamsa: the d12 chart calculator, d16 chart calculator and d60 chart calculator readings sit beside them in the result, with a d60 chart analysis that reads the planets there for karmic strengths. The tradition divides the wheel further still — a d5 chart calculator for creativity, a d6 chart calculator for health, a d8 chart calculator for longevity, a d11 chart calculator for gains, a d20 chart calculator for spiritual progress, the d27 chart in astrology for strengths and weaknesses, and a d30 chart calculator for the harder side of life — but the result on this page covers the ten divisions above, which are the ones astrologers reach for first.
             </p>
           </section>
 
@@ -223,10 +253,10 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Vedic, Western, Indian and South Indian Charts
             </h2>
             <p>
-              A vedic astrology birth chart is drawn on the sidereal zodiac — the fixed stars — while a western birth chart is drawn on the tropical zodiac, the seasons. The two zodiacs differ by about 24 degrees, so your vedic birth chart and your Western chart can put the same planet in different signs. A vedic birth chart calculator draws the sidereal chart, and a free vedic birth chart from the tool above comes with the Vedic reading: lagna, navamsa and divisional charts included.
+              Two zodiacs are in use, and they differ by about 24 degrees. The vedic astrology birth chart on this page is drawn on the sidereal zodiac — the fixed stars — while a western birth chart is drawn on the tropical zodiac, the seasons, so the same planet can fall in a different sign depending on which zodiac you use. A vedic birth chart calculator draws the sidereal chart, and the free vedic birth chart with interpretation on this page comes with the Vedic reading: lagna, navamsa and divisional charts included, not just the wheel.
             </p>
             <p className="mt-3">
-              An indian birth chart is the Vedic chart as drawn in India, and a birth chart calculator indian search usually means the same Vedic chart with the Indian chart style. A south indian birth chart uses the South Indian square format — the signs stay fixed in the squares and the planets move — while the North Indian format keeps the houses fixed and moves the signs. A birth chart calculator south indian result from this tool draws the South Indian format when you choose it. A bengali astrology birth chart follows the Bengali tradition of Vedic astrology, and a kp astrology birth chart follows KP astrology — the Krishnamurti system, which reads the chart through sub-lords. This tool draws the standard Vedic chart and the Western wheel; the reading notes where KP and regional styles differ.
+              An indian birth chart is the Vedic chart as it is drawn in India, and the tool gives you the Indian drawing styles to match: the North Indian diamond, where the houses stay fixed and the signs move, or the South Indian square, where the signs stay fixed in their squares and the planets move. If you came looking for a birth chart calculator indian style, this is it — the Vedic chart with the North Indian diamond or the South Indian square as the drawing. Choose the South Indian style and you get a birth chart calculator south indian layout, the square format readers in the south recognise at once, and that is the layout a south indian birth chart is drawn in. The Bengali tradition draws the same Vedic chart with its own house layout — a bengali astrology birth chart follows the same sidereal rules, with the Bengali chart style. KP astrology works differently again: a kp astrology birth chart is read through sub-lords, the small divisions of each star, rather than whole signs. This page draws the standard Vedic chart, so if you follow KP, use the planetary positions here and apply the sub-lord rules yourself.
             </p>
           </section>
 
@@ -235,10 +265,10 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Houses, Planets and Shadbala
             </h2>
             <p>
-              Your houses chart — the 12 houses — is where the reading happens. Each house rules one area of life: the first is you, the second is money, the fourth is home, the fifth is children and creativity, the seventh is marriage, the tenth is career. The planets in each house colour that area: Jupiter in the tenth is read for career luck, Venus in the seventh for marriage. A birth chart analysis weighs the houses together with the signs and the divisional charts, and a free birth chart analysis from the tool gives you that whole reading.
+              The twelve houses are where the reading happens. Each house rules one area of life: the first is you, the second is money, the fourth is home, the fifth is children and creativity, the seventh is marriage, the tenth is career. A planet colours the house it sits in — Jupiter in the tenth is read for career luck, Venus in the seventh for marriage — and the tool lays out your houses chart with each area labelled, so you can see which parts of life the planets are touching. A birth chart analysis weighs the houses together with the signs and the divisional wheels, and the free birth chart analysis on this page gives you that whole reading.
             </p>
             <p className="mt-3">
-              Shadbala is the measure of a planet&apos;s strength. A shadbala calculator works out six kinds of strength for each planet and adds them into one score. What is shadbala? Shadbala means &ldquo;sixfold strength&rdquo;, and shadbala in astrology is the standard way to say whether a planet can deliver its results: a planet with high shadbala is strong, one with low shadbala is weak even if it sits in a good sign. Shadbala meaning is simply that sixfold strength, and the tool shows the shadbala score beside each planet in your chart.
+              Every planet also carries a strength score. A shadbala calculator works out six kinds of strength for each planet and adds them into one number, and the tool shows that score beside each planet in your chart — a planet with a high score can deliver its results, while one with a low score stays weak even in a good sign. Astrologers check shadbala in astrology before trusting a placement, because a weak planet in a good sign still struggles to deliver.
             </p>
           </section>
 
@@ -247,7 +277,7 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Birth Chart Compatibility and Love
             </h2>
             <p>
-              A birth chart compatibility check compares two charts — yours and your partner&apos;s — and a natal chart compatibility reading looks at how the two charts fit: sun to sun, moon to moon, and Venus to Mars. Natal chart love compatibility is the love version of the same comparison: it asks whether the two charts support a relationship, and which areas need care. This site&apos;s{' '}
+              Two charts side by side tell you more than one chart alone. A birth chart compatibility check compares your wheel with your partner&apos;s, and a natal chart compatibility reading looks at the same two wheels for fit — sun to sun, moon to moon, Venus to Mars — and asks where they support each other and where they need care. When the question is love, the comparison becomes natal chart love compatibility, and the focus shifts to Venus, Mars and the two moons. This site&apos;s{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {
@@ -257,8 +287,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 kundali matching
-              </a>{' '}
-              page does the full Vedic version of this check with the 8-koota system, and the Porutham page does the Tamil 10-porutham version —{' '}
+              </a>
+              {' '}page does the full Vedic version with the 8-koota system, and the{' '}
               <a
                 href="/porutham/"
                 onClick={(e) => {
@@ -268,8 +298,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 thirumana porutham
-              </a>{' '}
-              — and both of them start from the two birth charts this calculator draws. Once the charts say you fit, the{' '}
+              </a>
+              {' '}page does the Tamil 10-porutham version — both start from the two birth charts this calculator draws. Once the charts say you fit, the{' '}
               <a
                 href="/love-language-test/"
                 onClick={(e) => {
@@ -279,8 +309,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 love language test
-              </a>{' '}
-              shows how the two of you express love day to day. If you want the love reading first, the{' '}
+              </a>
+              {' '}shows how the two of you express love day to day, and the{' '}
               <a
                 href="/"
                 onClick={(e) => {
@@ -290,8 +320,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 love calculator
-              </a>{' '}
-              on the home page gives you a quick compatibility score from your names and birth dates.
+              </a>
+              {' '}on the home page gives a quick compatibility score from your names and birth dates if you want the love reading first.
             </p>
           </section>
 
@@ -300,7 +330,7 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Numerology Birth Chart
             </h2>
             <p>
-              A numerology birth chart is the number version of your chart: it reads your birth date as numbers instead of planets. A numerology birth chart calculator works out your{' '}
+              Numbers tell the same story another way. A numerology birth chart reads your birth date as numbers instead of planets, and a numerology birth chart calculator works out your life path number and your destiny number from the same date of birth this calculator uses. The{' '}
               <a
                 href="/life-path-calculator/"
                 onClick={(e) => {
@@ -310,8 +340,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 life path calculator
-              </a>{' '}
-              number, your destiny number and your lucky numbers from the same date of birth this calculator uses. The{' '}
+              </a>
+              {' '}number is the one most people start with, and the{' '}
               <a
                 href="/numerology-calculator/"
                 onClick={(e) => {
@@ -321,8 +351,8 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
                 className="text-indigo-600 hover:underline font-semibold"
               >
                 numerology calculator
-              </a>{' '}
-              page on this site does that reading in full — enter the same date of birth there and compare the number reading with the planet reading here. The two systems agree more often than people expect: a strong chart and a strong life path number usually show up together.
+              </a>
+              {' '}page does that reading in full — enter the same date of birth there and compare the number reading with the planet reading here. The two systems agree more often than people expect: a strong chart and a strong life path number usually show up together.
             </p>
           </section>
         </article>

@@ -24,6 +24,8 @@ import {
   Star,
   Users,
 } from 'lucide-react';
+import kundaliMatchingGunaMilanImage from '../assets/images/kundali-matching-guna-milan-chart.webp';
+import kundaliMatchingTwoChartsImage from '../assets/images/kundali-matching-two-birth-charts.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -123,7 +125,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'How to check compatibility for marriage?',
       answer:
-        'Compare the two kundalis: match the 36 gunas (gun milan), then check for Manglik dosha and Nadi dosha. Enter both partners\' names and dates of birth in the tool above and you get the guna score, the koota table and the dosha flags in one report. A marriage calculator by date of birth and a marriage calculator by name run the same check from different inputs. You can read our detailed guide on love compatibility by date of birth to understand how birth numbers and cosmic alignments interact.',
+        'Compare the two kundalis: match the 36 gunas (gun milan), then check for Manglik dosha and Nadi dosha. Enter both partners\' names and dates of birth in the tool above and you get the guna score, the koota table and the dosha flags in one report. A marriage calculator by date of birth and a marriage calculator by name both score the same two charts — they just start from different inputs. You can read our detailed guide on love compatibility by date of birth to understand how birth numbers and cosmic alignments interact.',
     },
     {
       question: 'How to check horoscope for marriage?',
@@ -153,12 +155,12 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'What is kundali milan?',
       answer:
-        'Kundali milan is kundali matching — "milan" means matching. Janam kundli milan is the same check: the milan of two janam kundalis (birth charts) for marriage.',
+        'Kundali milan is kundali matching — "milan" means matching. Janam kundli milan is the milan of two janam kundalis (birth charts) for marriage.',
     },
     {
       question: 'How to calculate marriage date?',
       answer:
-        'The marriage date is calculated from the birth chart\'s 7th house and Dasha periods — that is a prediction, not a matching score. See the "When Will My Marriage Happen?" section above and our When Will I Get Married page (coming soon). A marriage calculator in this group means the matching calculator above; the date calculation belongs to the prediction page.',
+        'The marriage date is calculated from the birth chart\'s 7th house and Dasha periods — that is a prediction, not a matching score. See the "When Will My Marriage Happen?" section above and our When Will I Get Married page. A marriage calculator in this group means the matching calculator above; the date calculation belongs to the prediction page.',
     },
   ];
 
@@ -455,7 +457,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
         <article className="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-8">
           <section>
             <p className="text-base sm:text-lg leading-relaxed">
-              Kundali matching, also called kundli matching, kundali milan and horoscope matching, is the traditional way of checking whether two people are compatible for marriage. This free kundali matching tool compares both birth charts, counts the matching gunas and shows you the score — in seconds, with no app and no sign-up. Whether you call it kundali matching, kundli matching, kundali milan, kundli milan, gun milan, horoscope matching or patrika matching, the check is the same: two charts, 36 gunas, one clear answer. It is{' '}
+              Before a marriage is fixed, most Indian families want one thing first: a clear answer on whether the two people will get along. For generations that answer has come from kundali matching — laying the two birth charts side by side and scoring how they fit. This page does the whole comparison in seconds. Enter two names and two dates of birth in the tool above and you get a score out of 36, a breakdown of where the match is strong, and a flag for anything that needs a closer look — no app, no sign-up, nothing to pay. The tool runs the horoscope matching for you: two charts in, one score out. Most people write it kundli matching, with an i instead of an a, and the spelling changes nothing about the method. Done online, the comparison takes seconds: online kundali matching runs the traditional scoring in your browser instead of by hand. That is what kundali matching for marriage is for: a clear answer before the date is fixed. It is{' '}
               <a
                 href="/astrology/"
                 onClick={(e) => {
@@ -466,19 +468,33 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 astrology
               </a>{' '}
-              kundali matching done the quick way: kundali milan online and online kundali milan, with the same 36-guna result as a manual check. It is the oldest form of matching making for marriage in India, and this page does the whole check online — online kundali matching, online horoscope matching and online kundli milan in one place.
+              applied to the one question that matters most before a wedding: will these two live well together?
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={kundaliMatchingGunaMilanImage}
+              alt="A traditional Vedic kundali chart with planet symbols, drawn on aged paper with marigold flowers"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              A Vedic kundali chart — the twelve houses of the birth chart that kundali matching compares.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               What Is Kundali Matching?
             </h2>
             <p>
-              Kundali matching is the comparison of two birth charts (kundalis) before marriage. In Vedic astrology, the moon&apos;s position at birth — the Janma Rashi and the Nakshatra (birth star) — decides how two people get along, so a kundali matching report compares the two charts point by point instead of guessing from names alone. That is why it is also called Vedic kundali matching and Indian astrology marriage compatibility: it is the Vedic, Indian method of checking a marriage, built on the same rules as Hindu astrology. A marriage kundali matching report is a Hindu astrology marriage compatibility check — marriage compatibility astrology, done the traditional way. An indian marriage matching horoscope, indian vedic astrology marriage compatibility and marriage compatibility hindu astrology all describe this same Vedic check.
+              Two birth charts go in, and a score comes out — that is the whole idea. For each partner the chart is drawn from the date, time and place of birth, and the scoring follows vedic kundali matching: the moon&apos;s position at birth — the Janma Rashi, or moon sign, and the Nakshatra, or birth star — is what the comparison turns on. The tool scores the two charts against each other on 36 gunas and hands you the total, the koota-by-koota breakdown and any dosha flags, so you can see where the match is strong and where it needs attention.
             </p>
             <p className="mt-3">
-              &ldquo;Marriage kundali matching&rdquo;, &ldquo;janam kundali matching&rdquo;, &ldquo;janma kundali matching&rdquo; and &ldquo;janam kundali milan&rdquo; all describe this same report. &ldquo;Milan&rdquo; simply means matching, &ldquo;vivah&rdquo; means marriage, so you will also see it written as vivah kundli milan or vivah kundali milan, and in the north as var vadhu kundli milan — the matching of the var (groom) and the vadhu (bride). A horoscope kundali matching or horoscope kundli matching report is the same thing again: the{' '}
+              In Hindi the comparison is usually called kundali milan — milan is the word for matching — and you will see it spelled kundli milan just as often. What you get at the end is a marriage kundali matching report: the score out of 36, the koota table, and any dosha flags, all in one place. The{' '}
               <a
                 href="/kundali/"
                 onClick={(e) => {
@@ -489,10 +505,10 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 kundali
               </a>{' '}
-              is the horoscope, so horoscope matching and kundali matching are two names for one check.
+              itself is the birth chart, so the report is only as good as the birth details behind it — add the birth time when you know it, and the chart gets sharper.
             </p>
             <p className="mt-3">
-              Families have used kundali matching for generations before fixing a marriage, and today most people do the same check online first. It does not decide your marriage for you — it is a traditional guide, and the final decision is always yours. What it does give you is a clear, structured answer: a score out of 36, which areas match well, and which areas need attention. The best kundli matching is the full one — name plus date of birth plus birth time — because it uses the complete charts, and that is the default mode of the tool above.
+              Families have run kundli matching for marriage before fixing a date for generations, and today most people start with the online version. It does not decide the marriage for you — it is a traditional guide, and the final decision is always yours. What it gives you is structure: a number, the reasons behind it, and the weak spots named plainly, so the conversation that follows is about real things instead of a vague feeling. The best kundli matching is the full one — name plus date of birth plus birth time — because the complete charts give the most detailed report, and that is the default mode of the tool above.
             </p>
           </section>
 
@@ -501,13 +517,13 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Kundali Matching by Name
             </h2>
             <p>
-              Kundali milan by name is the simplest way to check a match — you only need the two names. It works from the moon sign (Rashi) found from the first letter of each name, which is why so many people search for kundali matching by name, kundli milan by name and gun milan by name. Whether you call it kundali matching by name, kundli matching by name, marriage matching by name, horoscope matching by name or gun milan by name, the method is the same: the tool finds the Rashi from each name — rashi ke naam se gun milan, as it is asked in Hindi — and compares them.
+              When you only have two names, the name-only mode is the way in. Each name&apos;s first letter fixes a moon sign — the Rashi — and the tool compares those two signs on the 36-point scale. That is how kundali milan by name works: no birth dates, no birth times, just the names. It takes seconds, which is why people reach for it first, before they have the full birth details to hand.
             </p>
             <p className="mt-3">
-              Use kundali milan by name when you do not know the birth time, or when you want a quick first check before doing the full matching by date of birth. Kundli milan by name only and marriage kundli milan by name only are the same quick mode: enter both names in the tool above and choose &ldquo;by name only&rdquo;. A kundali milan name se or kundli milan name se check — matching by name, as it is phrased in Hindi — needs nothing more than the two names.
+              Use it as marriage matching by name when the birth details are not known yet, or when you want a quick first read before the full check. The score it produces is a gun milan by name — the 36-point scoring, run from moon signs alone. That also sets its limit: with names alone the tool can compare moon signs, not the full planetary positions, so treat the result as a first impression rather than a final word. If the name match looks good, confirm it with the full mode — name plus date of birth — and if you know even the date of birth, add it, because the Nakshatra it fixes makes the result noticeably more precise.
             </p>
             <p className="mt-3">
-              Name-only matching is a good starting point, but it is less detailed than a full matching: with names alone the tool can compare moon signs, not the full planetary positions. If the name match looks good, confirm it with the full kundali matching by name and date of birth. If you know even the date of birth, use that too — it makes the result more accurate. And if you only have names in Hindi, the same mode covers kundali matching by name in Hindi and kundali milan by name in Hindi, including kundli milan in Hindi by name — the names work in English letters either way. A name kundali milan is the same mode, and online kundali matching by name, kundali matching for marriage by name and kundli matching for marriage by name all run on this same name-only check. Janmakshar matching for marriage is the same name check too: &ldquo;janmakshar&rdquo; is the birth letter (akshar) the Rashi is found from.
+              Names in Hindi work the same way, typed in English letters: the first letter still fixes the Rashi, so kundali matching by name covers Hindi names without any extra step. The mechanism has a Hindi shorthand of its own — rashi ke naam se gun milan, the gun milan from the name&apos;s rashi — and it works the same way whatever language the names come from.
             </p>
           </section>
 
@@ -516,10 +532,13 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Kundali Matching by Date of Birth
             </h2>
             <p>
-              Kundali matching by date of birth is the standard, most accurate check. The date of birth fixes the moon&apos;s Nakshatra (birth star), and the Nakshatra is what the guna matching is calculated from — so kundali matching by date of birth, kundli matching by date of birth and marriage matching by date of birth are all the same standard check.
+              The date of birth is what makes the check precise, so kundali matching by date of birth is the standard mode on this page — and the default of the tool above. A date fixes the moon&apos;s Nakshatra, and the Nakshatra is what the gun milan by date of birth is calculated from, so two dates are enough to run the full 36-point comparison. That is also why marriage matching by date of birth is more accurate than matching by name alone: the Nakshatras decide most of the guna points, and a name can only fix the moon sign.
             </p>
             <p className="mt-3">
-              To match by date of birth you need each partner&apos;s date of birth. Birth time makes the result more precise because it fixes the ascendant (Lagna), but the tool also works without it. Kundali matching by date of birth only, kundli matching by date of birth only and kundali matching by date of birth only without time are all supported: choose &ldquo;by date of birth only&rdquo; and the matching is done from the date alone. Kundali matching without birth time, kundali matching without time, kundli matching without time and kundali matching without time of birth mean the same thing — no birth time needed. Even kundali matching by name and date of birth without time works: names plus dates, no clock time. A marriage compatibility calculator by date of birth and a marriage matching calculator by name and date of birth do exactly this calculation, and a date of birth matching for marriage calculator is the same tool under another name. Also compare your bond on our{' '}
+              Birth time is optional. Kundali matching by date of birth only works because the gunas are calculated from the Nakshatra, and the date alone fixes the Nakshatra — so kundali matching without birth time still gives the full guna score. When you do have the birth time, add it: kundali matching by date of birth and time reads the ascendant as well, and the ascendant, called the Lagna, sharpens the report. The fullest version combines both inputs — kundali matching by name and date of birth, names for the moon sign and dates for the Nakshatra, with the birth time on top when you know it. You will also see the date-only mode shortened to kundali matching by dob — dob is short for date of birth.
+            </p>
+            <p className="mt-3">
+              The tool above works as a marriage compatibility calculator by date of birth — enter the two dates and it returns the score, the koota table and the dosha flags in one report. Also compare your bond on our{' '}
               <a
                 href="/love-calculator-by-date-of-birth/"
                 onClick={(e) => {
@@ -532,12 +551,6 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               </a>
               .
             </p>
-            <p className="mt-3">
-              The full check — kundali matching by name and date of birth, kundli matching by name and date of birth, kundali milan by name and date of birth, kundli milan by name and date of birth, gun milan by name and date of birth and marriage matching by name and date of birth — combines both: names for the moon sign and the date of birth for the Nakshatra. Marriage compatibility by name and date of birth and name compatibility with date of birth for marriage are the same combined check, and so is kundali matching by date of birth and time when you do have the time. That combined mode is the default of the tool above, and it is the most accurate kundali matching you can do online. Kundali milan by date of birth and horoscope matching by date of birth are the same standard check, and gun milan by date of birth is the guna score from that check. Marriage compatibility by date of birth without time, marriage compatibility by dob and kundali matching by dob are the same date-only mode — dob is simply short for date of birth — and indian marriage compatibility by date of birth only is that same mode named for the Indian method. It is free too: marriage compatibility by date of birth free uses this same tool at no cost.
-            </p>
-            <p className="mt-3">
-              One more detail from the birth chart: the Lagna, or ascendant. Lagna kundali matching, lagn kundali milan and lagna patrika matching use the ascendant from the birth time, which is why adding the birth time improves the report. If you know the time, add it; if you do not, the date-only match still gives you the full guna score.
-            </p>
           </section>
 
           <section>
@@ -545,7 +558,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Gun Milan: The 36 Gunas Explained
             </h2>
             <p>
-              Gun milan is the scoring heart of kundali matching. &ldquo;Guna&rdquo; means quality, and the match is scored on 36 gunas, grouped into 8 kootas based on the partners&apos;{' '}
+              Every point in the score comes from gun milan — eight kootas, each worth a fixed number of points. Guna means quality, and the eight kootas are eight qualities of a marriage, scored one by one. They are read from the partners&apos;{' '}
               <a
                 href="/zodiac-signs/"
                 onClick={(e) => {
@@ -556,7 +569,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 zodiac signs
               </a>{' '}
-              — so gun milan, guna milan, 36 gun milan and kundali gun milan are all the same score. Each koota is worth a fixed number of points:
+              — the moon sign and the birth star decide most of the points — and the tool above shows your points for each koota, so you can see exactly where the match is strong and where it is weak, instead of getting a single unexplained number. Add the eight together and you have the guna milan score out of 36.
             </p>
 
             <div className="my-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
@@ -619,23 +632,37 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
             </div>
 
             <p>
-              The tool above shows your score for each koota, so you can see exactly where the match is strong and where it is weak — not just a single number. Guna milan by name is the same table calculated from names only, and online gun milan or gun milan online is simply this table done on the website instead of by hand. Kundli gun milan, gun milan kundali and kundali gun milan are the same score written different ways, and a marriage points calculator, a marriage match score or kundali matching points all read from this same table: points for marriage, marriage matching points and marriage points are just the guna total. Shadi ke gun milan — the gun milan for a shadi (wedding), as it is asked in Hindi — is the same check, and so is guna matching for marriage. Gun milan for marriage is the full name of this score: the gun milan done for a marriage.
+              The full 36 gun milan table is what the tool shows you after the calculation, koota by koota, and in Hindi the same table is often called shadi ke gun milan, the gun milan for a wedding. Run from names alone, the eight kootas still apply — a guna milan by name, with the moon signs deciding the points, so the score is rougher than the full check. Done on this page, the table is calculated in seconds — online gun milan, scored on the same eight kootas an astrologer would use by hand. All eight are scored for one purpose — a gun milan for marriage, read before the date is fixed.
             </p>
 
             <h3 className="text-xl font-bold text-slate-900 mt-6 mb-2">
               How many gunas should match for a successful marriage?
             </h3>
             <p>
-              18 gunas out of 36 is the commonly accepted minimum for marriage. The usual reading is: 32–36 is an excellent match, 24–31 is very good, 18–23 is acceptable, and below 18 is not recommended. A score above 18 with no serious dosha is traditionally considered workable; a higher score simply means an easier, more harmonious match. The number alone is not the whole story — a 20-point match with clean Nadi and Bhakoot can be better than a 28-point match with a Nadi dosha, which is why the tool shows the koota breakdown and the dosha flags together. If you are asking how many points should match for marriage, that is the answer: 18 at least, 24 or more for a good match.
+              Eighteen out of 36 is the commonly accepted minimum for marriage. The usual reading is: 32–36 is an excellent match, 24–31 is very good, 18–23 is acceptable, and below 18 is not recommended. Think of the total as points for marriage: a score above 18 with no serious dosha is traditionally considered workable, and a higher score means an easier, more harmonious match. The number alone is not the whole story — a 20-point match with clean Nadi and Bhakoot can be better than a 28-point match with a Nadi dosha, which is why the tool shows the koota breakdown and the dosha flags together.
             </p>
           </section>
+
+          <figure className="my-8">
+            <img
+              src={kundaliMatchingTwoChartsImage}
+              alt="Two circular Vedic birth charts side by side, joined by a golden thread, with marigold flowers and a brass lamp"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              Two birth charts, compared side by side — the heart of kundali matching.
+            </figcaption>
+          </figure>
 
           <section>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display mt-8 mb-4">
               Marriage Compatibility: What the Score Means
             </h2>
             <p>
-              Marriage compatibility is what the guna score is really measuring — how two people will live together day to day. Marriage compatibility, birthdate compatibility for marriage and marriage compatibility by name are all read from the same scorecard: the total out of 36, plus the points in each koota. The tool above is a marriage compatibility calculator and a marriage compatibility test in one — run the marriage compatibility check and you get the score, the chart and the verdict together. A marriage compatibility chart is simply that scorecard written out, and a marriage compatibility calculator by date of birth is the same calculator run from birth dates. Try also our{' '}
+              The score is really a measure of marriage compatibility — how two people will live together day to day, not just how they look on paper. The tool above does the work of a marriage compatibility calculator: enter the two charts and it returns the score, the koota table and the verdict together. What comes back is a scorecard — the marriage compatibility chart, with each koota&apos;s points laid out and the total at the bottom. Run from names alone, the same scorecard reads marriage compatibility by name, moon signs only, so rougher than the full check. Try also our{' '}
               <a
                 href="/love-or-arranged-marriage-calculator/"
                 onClick={(e) => {
@@ -651,18 +678,18 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
 
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Mental match (Graha Maitri, Gana):</strong> do you think alike and get along as friends, not just as partners. Gana matching for marriage and ganalu matching for marriage are this part of the score.
+                <strong>Mental match (Graha Maitri, Gana):</strong> do you think alike, and do you get along as friends — not just as partners?
               </li>
               <li>
-                <strong>Emotional and physical match (Yoni, Vashya, Tara):</strong> attraction, closeness and well-being together.
+                <strong>Emotional and physical match (Yoni, Vashya, Tara):</strong> attraction, closeness, and how well you look after each other.
               </li>
               <li>
-                <strong>Family match (Bhakoot, Nadi):</strong> how the marriage affects the wider family and future children.
+                <strong>Family match (Bhakoot, Nadi):</strong> how the marriage sits with the wider family, and what it means for future children.
               </li>
             </ul>
 
             <p className="mt-3">
-              Marriage compatibility by Nakshatra — also called star matching for marriage — is the same check seen from the birth star: the two Nakshatras decide most of the guna points, which is why matching by date of birth (which fixes the Nakshatra) is more accurate than matching by name alone. Star matching, a star matching calculator for marriage, nakshatra matching for marriage, a nakshatra matching chart for marriage and a nakshatra marriage compatibility chart are all this Nakshatra check. Marriage matching by rashi and nakshatra, marriage matching with rasi and nakshatra and horoscope matching by rashi and nakshatra add the moon sign (Rashi) to the same comparison, and horoscope matching by star is the same check in short. If your Nakshatras match well, most of the score follows. You can also test your daily romantic vibe with our{' '}
+              Most of the points come from the Nakshatras. The two birth stars decide the bulk of the guna score, which is why matching by date of birth — which fixes the Nakshatra — is more accurate than matching by name alone, and why the comparison is often done star by star: star matching for marriage, with the two birth stars compared koota by koota. Because the birth stars decide most of the points, the score is at heart a marriage compatibility by nakshatra — read the birth stars and you have read most of the match. If your Nakshatras match well, most of the score follows, and that is why nakshatra matching for marriage is the part families look at first. You can also test your daily romantic vibe with our{' '}
               <a
                 href="/"
                 onClick={(e) => {
@@ -677,7 +704,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
             </p>
 
             <p className="mt-3">
-              Numerology reads the same question in numbers. Numerology marriage compatibility, numerology marriage matching and a marriage numerology compatibility calculator look at the partners&apos; numbers instead of their charts — 4 and 8 marriage compatibility and 4 and 9 marriage compatibility are two of the most checked number pairs. Zodiac marriage compatibility and zodiac sign compatibility for marriage read it from the sun signs instead. All three are real ways people check a match; this page uses the Vedic chart method, and our{' '}
+              Numerology reads the question in numbers instead. A numerology marriage compatibility check looks at the partners&apos; numbers instead of their charts — 4 and 8 marriage compatibility and 4 and 9 marriage compatibility are two of the most checked number pairs. Zodiac marriage compatibility reads it from the sun signs instead. All three are real ways people check a match; this page uses the Vedic chart method, and our{' '}
               <a
                 href="/numerology-calculator/"
                 onClick={(e) => {
@@ -688,7 +715,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 numerology calculator
               </a>{' '}
-              and Love Compatibility by Zodiac Sign pages (coming soon) cover the other two.
+              and Love Compatibility by Zodiac Sign pages cover the other two.
             </p>
           </section>
 
@@ -697,7 +724,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Horoscope Matching for Marriage
             </h2>
             <p>
-              Horoscope matching for marriage is the full process, step by step. Horoscope matching, marriage matching, marriage horoscope matching and online horoscope matching all mean this process, and marriage matching astrology is the same process under its astrology name:
+              Four steps make up horoscope matching for marriage, and the tool above runs them in order. Marriage matching starts with the charts and ends with a verdict — and each step answers a different question.
             </p>
 
             <ol className="list-decimal pl-5 space-y-2 mt-3">
@@ -716,7 +743,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
                 makes the chart; this matching tool then compares the two.
               </li>
               <li>
-                <strong>Match the gunas</strong> — the 36-point gun milan above. This is the main score. A marriage horoscope by date of birth is read from the same two charts, and a marriage horoscope by name is the same report started from names only.
+                <strong>Match the gunas</strong> — the 36-point gun milan above. This is the main score, and it carries most of the verdict&apos;s weight.
               </li>
               <li>
                 <strong>Check the doshas</strong> — Manglik dosha and Nadi dosha especially (see below). A dosha does not automatically cancel a match, but it must be checked.
@@ -727,7 +754,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
             </ol>
 
             <p className="mt-3">
-              Patrika matching is the same process under its North Indian name — &ldquo;patrika&rdquo; is the birth chart itself — so patrika matching, patrika matching for marriage, online patrika matching and lagna patrika matching are all this same four-step check. Whether you call it kundali matching, horoscope matching, marriage matching or patrika matching, the check is identical: two charts, 36 gunas, dosha check, verdict. Horoscope matching for marriage, horoscope matching online and online horoscope matching for marriage are the same check done on the website, and a marriage horoscope — the marriage horoscope of the couple — is what the report describes. Jataka matching for marriage is the same again: &ldquo;jataka&rdquo; is the birth chart, so a jataka match is a chart match.
+              In North India the birth chart is called a patrika, so the four-step process is usually called patrika matching there. Jataka is another word for the birth chart, and jataka matching for marriage follows the same four steps. What comes out at the end is the couple&apos;s marriage horoscope: the two charts, the score and the verdict, written out. Done online, the four steps take seconds — online horoscope matching, with the same four steps an astrologer would follow by hand.
             </p>
           </section>
 
@@ -736,7 +763,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Dosha Checks in Kundali Matching
             </h2>
             <p>
-              A good kundali matching report also checks for doshas — combinations in the charts that need attention. A manglik marriage calculator checks the best-known one, and the tool above flags doshas automatically next to your guna score. In traditional{' '}
+              A good report checks for doshas as well as gunas — combinations in the charts that need attention. The tool above flags them automatically next to your guna score, so you see them beside the number instead of discovering them later. In traditional{' '}
               <a
                 href="/astrology/"
                 onClick={(e) => {
@@ -747,12 +774,12 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 astrology
               </a>
-              , analyzing dosha positions ensures complete peace of mind:
+              , a dosha is read as something to look at closely, not as a verdict on its own:
             </p>
 
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong>Manglik dosha (Mangal dosha):</strong> Mars placed in certain houses in one partner&apos;s chart. If one partner is Manglik and the other is not, traditional astrology recommends checking this carefully before marriage. A manglik match is the comparison of Manglik status between the two charts.
+                <strong>Manglik dosha (Mangal dosha):</strong> Mars placed in certain houses in one partner&apos;s chart. If one partner is Manglik and the other is not, traditional astrology recommends checking this carefully before marriage.
               </li>
               <li>
                 <strong>Nadi dosha:</strong> both partners have the same Nadi (0 out of 8 points in the Nadi koota). It is the most heavily weighted single koota, so the tool flags it clearly.
@@ -763,7 +790,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
             </ul>
 
             <p className="mt-3">
-              Other dosha checks people look for — a pitra dosha calculator, a kala sarpa dosha calculator (also written kalasarpa dosha check), a rahu ketu dosha calculator, a naga dosha calculator, a sarpa dosha calculator, a rahu dosha calculator and a death time dosha calculator — all run on the same birth details as the matching itself. A dosha is a flag to look closer, not a final &ldquo;no&rdquo; — many matches with a dosha are still considered workable with the traditional remedies, and that is a decision for the couple and their families. The marriage line on the palm is a different check altogether (palmistry), not kundali matching — this page covers the chart-based match.
+              A dosha is a flag to look closer, not a final &ldquo;no&rdquo; — many matches with a dosha are still considered workable with the traditional remedies, and that is a decision for the couple and their families. The marriage line on the palm is a different check altogether (palmistry), not kundali matching — this page covers the chart-based match.
             </p>
           </section>
 
@@ -772,18 +799,18 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Kundali Matching in Hindi, Telugu, Tamil, Marathi and Malayalam
             </h2>
             <p>
-              Kundali matching is searched in every major Indian language, and the check is the same in all of them — only the words change. Kundali matching in English is this page; the same tool serves every language below, because the matching rules do not change with language.
+              The check is the same in every Indian language — only the words change, because the matching rules do not change with language. One tool serves every language below.
             </p>
 
             <div className="space-y-3 mt-4 text-sm sm:text-base">
               <p>
-                <strong>Hindi.</strong> Kundali matching Hindi, kundli milan Hindi, kundali milan in Hindi and kundli milan Hindi mein are the most searched Hindi variants, with kundali matching by name in Hindi, kundali milan by name in Hindi, kundli milan in Hindi by name, kundli milan for marriage in Hindi, kundali matching for marriage in Hindi and kundli matching for marriage in Hindi close behind, and kundali milan for marriage in Hindi is the same phrase again. In Hindi the check is also called shadi matching and shadi kundali milan, and a shadi yog calculator in Hindi looks for the marriage yogas in the same charts. People also search in Hinglish — date of birth se kundali milan — and the answer is the same: enter the date of birth and the tool matches the charts.
+                <strong>Hindi.</strong> Hindi is the language most families ask in. The tool takes names in English letters, so a Hindi name works exactly as an English one does — the first letter still fixes the Rashi. People usually ask for it as kundali matching hindi, or for the shorter kundli milan hindi, and both lead to the same tool above. Shadi is the Hindi word for wedding, and shadi matching is how many families phrase the request.
               </p>
               <p>
-                <strong>Telugu.</strong> Telugu marriage matching, horoscope matching for marriage in Telugu, marriage compatibility Telugu and horoscope matching Telugu are the big Telugu variants, with marriage matching by name in Telugu, online marriage matching Telugu and star matching for marriage Telugu alongside them. Online jyotish Telugu marriage matching and online jyotish marriage matching Telugu are the same check through a jyotish (astrology) site, and a marriage compatibility chart Telugu is the scorecard in Telugu. Marriage matching by date of birth Telugu and a marriage horoscope in Telugu are the same checks in Telugu.
+                <strong>Telugu.</strong> In Andhra Pradesh and Telangana the check runs on the same Vedic rules, asked for in Telugu — telugu marriage matching is the usual phrase, and marriage compatibility telugu the other common one. The tool does not change with the language: the same two charts, the same 36 gunas.
               </p>
               <p>
-                <strong>Tamil.</strong> Tamil horoscope matching, also known as{' '}
+                <strong>Tamil.</strong> Tamil families have their own version of the check — tamil horoscope matching, which scores ten poruthams instead of eight kootas. It is the same idea — two charts, scored for marriage — worked out in the Tamil way, and our{' '}
                 <a
                   href="/porutham/"
                   onClick={(e) => {
@@ -793,19 +820,19 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
                   className="text-rose-600 hover:underline font-semibold"
                 >
                   thirumana porutham
-                </a>
-                , horoscope matching Tamil, horoscope matching in Tamil and marriage matching Tamil lead the Tamil variants, with star matching for marriage in Tamil, star matching Tamil, online horoscope matching Tamil, horoscope compatibility for marriage Tamil, marriage horoscope matching Tamil and marriage matching astrology in Tamil alongside them. Marriage matching by date of birth Tamil, marriage matching by date of birth in Tamil and date of birth marriage matching in Tamil are the Tamil date-of-birth check — same rules, same tool.
+                </a>{' '}
+                page covers the ten poruthams in detail.
               </p>
               <p>
-                <strong>Marathi.</strong> Kundali matching Marathi, marathi kundali matching, kundali matching in Marathi, kundali milan Marathi, gun milan Marathi and gun milan in Marathi are the main Marathi variants, with kundali matching marathi free, free kundali matching in Marathi, kundali matching in Marathi by birth date, lagn kundali milan Marathi and patrika matching Marathi alongside them. Online kundali matching Marathi and online kundli matching Marathi are the same check done on the website.
+                <strong>Marathi.</strong> In Maharashtra the check is usually asked for as kundali matching marathi, and the score itself is often called gun milan marathi — the Marathi name for the same 36-point table.
               </p>
               <p>
-                <strong>Malayalam.</strong> Horoscope matching Malayalam, horoscope matching Malayalam free and star matching Malayalam are the Malayalam variants, and kerala kundali matching and horoscope matching Kerala are the same check named for the state. Gujarati and Bengali are covered the same way — kundli matching in Gujarati and kundali matching in Gujarati, kundali matching in Bengali and bengali kundli matching — one tool, every language, because the matching rules are the same.
+                <strong>Malayalam.</strong> In Kerala families ask for horoscope matching malayalam, and the check runs on the same Vedic rules as everywhere else — the language changes, the scoring does not.
               </p>
             </div>
 
             <p className="mt-4">
-              There is no separate page per language — one matching tool serves every language variant, and this section answers the Hindi, Telugu, Tamil, Marathi, Malayalam, Gujarati and Bengali queries in one place.
+              Gujarati and Bengali families use the same tool too. There is no separate page per language — one matching tool serves every language above, and the scoring stays the same throughout.
             </p>
           </section>
 
@@ -814,10 +841,10 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Is Kundali Matching Free?
             </h2>
             <p>
-              Yes. Online kundali matching on this site is free — free kundali matching, free kundli milan, free kundli matching, free kundali milan, kundali matching free and kundli matching free all use the same free tool above. Free kundali matching for marriage, free kundli matching for marriage, free kundli milan for marriage, kundli matching for marriage free, free online kundli matching for marriage, online kundli matching free for marriage and free horoscope matching for marriage are the same free check with &ldquo;for marriage&rdquo; added — there is no paid version and no marriage matching app to buy. Kundali milan for marriage is the full check itself, free here. Online free kundli matching, kundli matching online free, kundali matching online free, kundali matching online free for marriage, online kundali matching for marriage and free online horoscope matching are the same free check written different ways — and so is online jyotish kundali matching, the same check through a jyotish site. People type it many ways — kundli matching free kundli milan for marriage — and every version leads to this same free tool. Free gun milan, kundali milan free, free horoscope matching and free marriage matching are the same: the full 36-guna score, free.
+              Yes — free kundali matching, with nothing held back: the full 36-guna score, the koota table and the dosha flags. There is no paid version and no sign-up. Nothing here asks for payment. Open the page, enter the two names and dates of birth, and the score appears in seconds — kundali matching free, with the full report, not a sample. What you get is kundali milan for marriage — the full check, from the two charts to the verdict — and here it costs nothing.
             </p>
             <p className="mt-3">
-              You also do not need a kundali milan app, a kundli milan app, a kundali matching app, a kundli matching app, a kundali matching app for marriage, a kundli matching app for marriage or the best kundli matching app — and you do not need kundali milan software or kundli milan software either. The tool runs in your browser: open the page, enter the two names and dates of birth, and get the guna score and the full koota table immediately. The online check gives you the same 36-guna score as a manual matching, in seconds.
+              You do not need an app — no kundali milan app, no download, no sign-up. The tool runs in your browser: open the page, enter the two names and dates of birth, and the guna score and the full koota table appear immediately. The online check gives you the same 36-guna score as a manual matching, in seconds, at no cost.
             </p>
           </section>
 
@@ -826,7 +853,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               When Will My Marriage Happen?
             </h2>
             <p>
-              Kundali matching tells you whether a match is compatible, not when the marriage will happen. If you are asking when my marriage will happen or when will be my marriage, that is a timing question, answered by marriage prediction from the birth chart — see our When Will I Get Married page (coming soon) for that check. A marriage date calculator, a marriage date calculator by date of birth, a marriage date prediction, a marriage date by date of birth, my marriage date, a marriage year calculator, a marriage year prediction, a marriage time prediction and a timing of marriage calculator all ask the same timing question, and they belong to that prediction page, not to matching. Possibility of love marriage by date of birth, marriage by date of birth and marriage by name are the same timing question in short. Already married? A wedding anniversary calculator counts the years since your wedding — a different tool from matching, for after the marriage has happened.
+              Kundali matching tells you whether a match is compatible, not when the marriage will happen. The marriage calculator above answers whether, not when. If you are asking when my marriage will happen, or when will be my marriage, that is a timing question, answered by marriage prediction from the birth chart — see our When Will I Get Married page for that check. A marriage date calculator, a marriage year calculator or a marriage time prediction is a timing tool — it belongs to the prediction page, not to matching. Already married? A wedding anniversary calculator counts the years since your wedding — a different tool from matching, for after the marriage has happened.
             </p>
           </section>
 
@@ -835,7 +862,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               What Is the Perfect Age for Marriage?
             </h2>
             <p>
-              There is no single perfect age — the perfect age for marriage, the best age for marriage and the ideal age for marriage are the same question, and the honest answer is that it depends on the person. Traditionally, the right age is read from the chart (the timing of marriage comes from the 7th house and the Dasha periods) and from personal readiness — education, work and family. If you are asking what is the perfect age for marriage or which age is best for marriage, use the timing check above rather than the matching score: matching tells you who matches, prediction tells you when.
+              People ask which age is best for marriage, and the honest answer is that there is no single perfect age for marriage — it depends on the person. Traditionally, the right age is read from the chart: the timing of marriage comes from the 7th house and the Dasha periods. Personal readiness matters just as much — education, work and family. The best age for marriage is the one where the chart and the person agree, and the timing check on the prediction page reads the chart side of it. Matching tells you who matches; prediction tells you when.
             </p>
           </section>
 
@@ -844,7 +871,7 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               Questions to Ask Before Marriage
             </h2>
             <p>
-              Matching the charts is one half of the decision; the other half is talking. These are the questions to ask your significant other before marriage and the questions to ask prior to marriage that couples most often search for:
+              Matching the charts is one half of the decision; the other half is talking. These are the questions to ask your significant other before marriage — the ones couples most often bring up before fixing a date:
             </p>
 
             <ul className="list-disc pl-5 space-y-2 mt-3">

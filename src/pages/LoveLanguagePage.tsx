@@ -4,6 +4,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedTools } from '../components/RelatedTools';
 import { FAQSection, FAQItem } from '../components/FAQSection';
 import { LoveLanguageTool } from '../components/LoveLanguageTool';
+import loveLanguageFiveImage from '../assets/images/love-language-test-five-languages.webp';
+import loveLanguageTeaImage from '../assets/images/love-language-test-quiet-moment-tea.webp';
 import {
   Heart,
   Sparkles,
@@ -28,12 +30,12 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
     {
       question: 'What are the 5 love languages?',
       answer:
-        'Words of affirmation, acts of service, receiving gifts, quality time and physical touch — the five from The 5 Love Languages by Gary Chapman. What are the five love languages, what are love languages, and what are all the love languages are the same question, and the answer is the same list.',
+        'Words of affirmation, acts of service, receiving gifts, quality time and physical touch — the five from The 5 Love Languages by Gary Chapman. That is the full list, and the guide below explains each one with examples.',
     },
     {
       question: 'What is love language?',
       answer:
-        'The way you most want to be loved. What is love language, what does love language mean, what is your love language meaning, and what is love languages mean are the same question — and the test above gives you your answer in five minutes.',
+        'The way you most want to be loved — and the way you most naturally show love back. Take the test above and you will have your answer in about five minutes.',
     },
     {
       question: "What's my love language quiz?",
@@ -120,7 +122,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A love language test tells you how you most want to be loved, and how your partner most wants to be loved. Just as our{' '}
+            This love language test tells you how you most want to be loved — and, if you take it with a partner, how they most want to be loved too. Just as our{' '}
             <button
               type="button"
               onClick={() => onNavigate('/')}
@@ -128,7 +130,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
             >
               love calculator
             </button>{' '}
-            measures chemistry between two names, this page is the love language test for this site: a 5 love languages quiz, free, with your result on the page the moment you finish. If you are here with your partner, take the five love languages test for couples version below — you each answer, then compare. If you are a teenager, use the shorter teen version. And if you are a parent, the children's love language quiz is the version to do together with your child.
+            measures chemistry between two names, this test measures something quieter: the way love actually lands for you. It is free, it takes about five minutes, and your result appears on the page the moment you finish. Couples can each answer and compare charts; teenagers get a shorter set of questions; and parents can sit with a younger child and work through the parent-guided version together.
           </p>
 
           <hr className="my-8 border-slate-100" />
@@ -139,20 +141,34 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            What is love language? It is the way you most naturally give love, and the way you most feel loved when someone gives it back. What does love language mean, in plain words, is this: two people can love each other deeply and still miss each other, because one shows love with words and the other hears love only in actions. What is your love language meaning is the answer to that mismatch — it names the one of the five that lands hardest for you.
+            Most people first hear the phrase from a friend and look up what is love language before they ever take a test. The idea is easy to hold in one sentence: two people can love each other deeply and still keep missing each other, because one of them shows love with words while the other only feels it when something gets done. Your own language is the channel love has to travel through before it reaches you — the one way of being loved that lands hardest, while the others feel pleasant but faint.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            What is love languages mean as a question is the same one, asked in the plural: what is love language in a relationship is the version couples ask, and what does love language mean in a relationship is the same question again — in a relationship, your love language is the channel your partner's love has to travel through to reach you. What does love language means in a relationship, asked with the extra "s", is the same idea. And whats love language, without the apostrophe, is the same short question people type when they first hear the term. What is love language, what is your love language, and what does your love language mean are all the same door: take the test, get your top language, and the rest of the page shows you what to do with it.
+            In a relationship, the idea earns its keep when two people compare results. One partner's top language might be words; the other's might be acts of service. Neither is wrong — they are different channels, and knowing that stops a lot of arguments that were never really about the dishes or the unanswered text. People often ask what does love language mean once they have a result in hand; in practice, it means the one way of being loved that you notice first and miss most. Take the test, get your top language, and the rest of the page shows you what to do with it.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Is love language receiving or giving? Both. Is your love language giving or receiving is the question people ask when their result surprises them — you give love in one language and receive it in another, and the test scores how you receive it, because that is the part your partner needs to know. Is love language what you give or receive, and is your love language what you give or receive, are the same question. Love languages giving and receiving, and giving and receiving love language, are the same pair: most people have one language they give easily and one they want to receive, and they are not always the same. Love language giving is the side you offer without thinking; receiving love language is the side you wait for. Is love language given or received, asked one more way, has the same answer: it is both, and the test measures the receiving side first.
+            The answer is both. You give love in one language and receive it in another — most people do. You might fill a partner's day with small favours without thinking, yet feel most loved when they sit and talk with you properly. The test scores the receiving side, because that is the half your partner needs to know. The giving side is the language you offer without thinking, and it is usually the first clue to what you hope to receive.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            How do love languages work? Each language is a habit, not a horoscope. How to know your love language is the practical question — and how do you know what your love language is, and how to figure out my love language, are the same question in different words. The honest answer is: notice what you ask for most, what hurts most when it is missing, and what you do for the people you love without being asked. The test below does that noticing for you, in about five minutes. How to figure out someone's love language is the partner version of the same question — watch what they complain about, watch what they do for you, and ask them to take the test too. How to determine someone's love language is the same skill, and the couples version of the test makes it a conversation instead of a guess.
+            Each language is a habit, not a horoscope — something you do without thinking, and something you wait for without realising it. If you are wondering how to know your love language without a test, notice three things: what you ask for most, what hurts most when it is missing, and what you do for the people you love without being asked. Those three clues usually point at the same language. The test does that noticing for you in about five minutes, and reading someone else's language works the same way — watch what they complain about, watch what they do for you, and ask them to take the test too.
           </p>
+
+          <figure className="my-8">
+            <img
+              src={loveLanguageFiveImage}
+              alt="Illustration of the five love languages: a gift, a helping hand, shared time, a kind gesture and an embrace"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              The five love languages, side by side — words, service, gifts, time and touch.
+            </figcaption>
+          </figure>
 
           {/* ─── Section: What Are the 5 Love Languages? ─── */}
           <h2 className="text-2xl font-bold text-slate-900 font-display mt-10 mb-4">
@@ -160,23 +176,23 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            What are the 5 love languages? They are the five ways of showing love in <em>The 5 Love Languages</em> by Gary Chapman: words of affirmation, acts of service, receiving gifts, quality time, and physical touch. What are the five love languages is the same question spelled out, and what are love languages is the short form of it. What are all the love languages is the same list, asked as a complete set — and all love languages list is the same list again, as a list. What are the different love languages, and type of love languages, and types love languages, are the same question about the set: there are five, and they are the five below.
+            They come from Gary Chapman's book <em>The 5 Love Languages</em>: words of affirmation, acts of service, receiving gifts, quality time and physical touch. Most people recognise their own within seconds of reading the names — the one that makes them think "yes, that one" is usually the answer. If you arrived here asking what are the 5 love languages, those five names are the whole answer, and the test tells you which one leads for you. It ranks all five rather than naming only one, because a close second often matters as much as the winner. The five names double as the 5 love languages categories the test scores — one score per language, shown on your chart.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The 5 love languages categories are the five names themselves — the categories the test scores. The 5 love languages by Gary Chapman is the source of the list, and the five love languages Gary Chapman wrote about are the same five: the book came first, the test came from the book. The five love languages by Gary Chapman PDF is the book in PDF form, which people search for — this page is not the book, and it does not give you the book's PDF; it gives you the test and the guide, free. The 5 love languages PDF, the five love languages PDF, the five love languages Gary Chapman PDF, the five love languages by Gary Chapman PDF, the 5 love languages PDF free, the five love languages PDF free, and PDF the five love languages are all searches for that book as a file — if you want the book itself, buy it or borrow it; if you want to know your language, the test above is the free way in.
+            The book came first and the test came from it. The five names come from the 5 love languages by Gary Chapman, and the test on this page scores them in five groups, one per language. The book itself is not on this page: some people arrive looking for a 5 love languages pdf of it, and there is none here. If you want to read it properly, buy it or borrow it from a library; if you want to know your language, the test above is the free way in.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The 5 love languages quiz is the test built on those five, and a quiz for five love languages is exactly what this page is — the same test, with the same five languages. The five love languages quiz free version is this page: a 5 love languages quiz free, with 5 love languages quiz free results on the page. Love languages quiz free and free love language quiz are the same promise — free, with results, no payment. Love language free quiz, five love languages quiz free, the five love languages quiz free, 5 love languages free test, the five love language test, online five love languages test, five love languages test online, love language test free online, love language test free no sign up, free love language test no email, free love language test with free results, love languages free results, free love language results, and love language quiz free online are all the same request in different words: a test that costs nothing and shows the result. This page is that test. The best love language test, and the best free love language test, is the one you actually finish and talk about with your partner — this one takes five minutes and ends with one concrete thing to ask for.
+            The 5 love languages quiz on this page is the short forced-choice version: each question gives you two ways of being loved and asks which fits better, and your answers build a score for each of the five. A quiz for five love languages only works if it scores all five, and this one does. It costs nothing and asks for nothing — no sign-up, no email, and the result stays on the page. Finish it and your 5 love languages quiz free results are waiting on the same page: a chart, your top language, and one thing to ask your partner for this week. Search results will offer you a love languages quiz free with results, a paid one and a dozen in between; this one is the free kind, and the test that matters most is the conversation it starts afterwards.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The official love languages quiz is different from this one: it is the quiz on the book's own website, and it is paid. If you searched for the official love languages quiz, this free test uses the same five languages and the same kind of questions, but it is not the official one — and it does not pretend to be. The Gary Chapman love language test, the Gary Chapman 5 love languages quiz, the 5 love languages Gary Chapman test, the love language test Gary Chapman, the love languages Gary Chapman quiz, and the 5 love languages Gary Chapman quiz are all searches for a test tied to Chapman's name. This test is based on his five languages, and the guide below names him as the source — that is the honest link between the two.
+            The official love languages quiz lives on the book's own site and charges for it — this is not it, and it does not pretend to be. This test is built on the same five languages and the same kind of forced-choice questions, but it is free and it lives here. If the official badge matters to you, take the paid one; if you want your answer in five minutes, this one will do. Either way, the names and the idea come from Chapman, and the guide names him as the source.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A love language assessment is the same thing as the test, in more formal language — a love language assessment PDF is the paper version of one, and a love language assessment is what a counsellor calls it. This page's test is an assessment in the everyday sense: answer, score, result.
+            A counsellor would call this a love language assessment — a short set of questions, a score for each language, and a result you can act on. That is all the test on this page is: answer, score, result, and one concrete thing to ask for this week.
           </p>
 
           {/* ─── The 5 Love Languages, One by One ─── */}
@@ -190,7 +206,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
                 1. Words of Affirmation
               </h4>
               <p className="text-sm text-slate-700 leading-relaxed m-0">
-                Love language words of affirmation is the language of saying it: "I love you", "I am proud of you", "thank you for doing that". Love languages words of affirmation ideas are the small sentences that carry it — a note in a lunchbox, a text in the middle of the day, a compliment said out loud in front of other people. Affirmation love language, love language affirmation, love language affirmations, and words of affirmation love language for him are the same language, aimed at different people — for him, for her, for a child. What are words of affirmation love language is the question people ask when this one is their result: it means words are the proof, and silence feels like distance. Is words of affirmation a love language? Yes — it is the first of the five.
+                Some people need to hear it. "I love you", "I am proud of you", "thank you for sorting that" — said out loud, in a text in the middle of the day, or on a note tucked into a lunchbox. People whose top result is love language words of affirmation usually know it before the test finishes: they keep choosing the answer with the compliment in it. For this language, silence reads as distance, and a compliment said in front of other people counts double.
               </p>
             </div>
 
@@ -199,7 +215,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
                 2. Acts of Service
               </h4>
               <p className="text-sm text-slate-700 leading-relaxed m-0">
-                Acts of service love language examples are the doing kind: making coffee before your partner wakes up, fixing the thing that has been broken for a month, taking a chore off their list without being asked. Examples of acts of service love language are the same list, and love languages acts of service examples is the same list again. What are acts of service love language, acts of service love language meaning, love language acts of service meaning, and acts of service love languages are the same question about this language: it means love is a verb, and the proof is in the doing. Acts of service love language examples for a busy week are the small ones — the dishwasher emptied, the car filled with petrol, the call made that your partner was dreading. Thoughtful gestures love language is the same idea in softer words.
+                Coffee made before your partner wakes up. The thing that has been broken for a month, finally fixed. A chore taken off their list without being asked. The acts of service love language examples that land best are rarely grand — they are the small jobs done before anyone asks, and on a busy week they shrink to the smallest version of themselves: the dishwasher emptied, the car filled, the call made that your partner was dreading.
               </p>
             </div>
 
@@ -208,7 +224,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
                 3. Receiving Gifts
               </h4>
               <p className="text-sm text-slate-700 leading-relaxed m-0">
-                Receiving gifts is the language of the thought made visible: not the price, the noticing. 5 love languages receiving gifts is this language in the five-language list. A gift in this language is a small thing that says "I saw this and thought of you" — a snack from the shop, a flower from the garden, a book you mentioned once. It is the most misunderstood of the five, because it looks material; it is not about money, it is about being remembered.
+                Receiving gifts is the language of the thought made visible: not the price, the noticing. A gift here is a small thing that says "I saw this and thought of you" — a snack from the shop, a flower from the garden, a book you mentioned once. It is the most misunderstood of the five, because it looks material; it is not about money, it is about being remembered.
               </p>
             </div>
 
@@ -217,7 +233,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
                 4. Quality Time
               </h4>
               <p className="text-sm text-slate-700 leading-relaxed m-0">
-                Quality time 5 love languages is the language of undivided attention: a walk with no phone, a meal with no television, an hour that belongs to the two of you. Love languages quality time, what is quality time love language, quality of time love language, love language of quality time, and love languages quality time are the same language, asked five ways. It is not about the amount of time — it is about the attention inside it. Ten minutes of real listening beats a whole evening in the same room on different phones.
+                This one is about undivided attention, not hours on a clock. A walk with no phone, a meal with no television, an hour that belongs to the two of you. The quality time 5 love languages result surprises people who think they want more hours together — what they usually want is fewer distractions inside the hours they already have. Ten minutes of real listening beats a whole evening in the same room on different phones.
               </p>
             </div>
 
@@ -226,7 +242,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
                 5. Physical Touch
               </h4>
               <p className="text-sm text-slate-700 leading-relaxed m-0">
-                Physical touch is the language of closeness: a hand held, a hug on the way in the door, a shoulder touched as you pass. Five love languages physical touch, love languages physical touch, love language touching, physical love language, and love languages touch are the same language. For some people, touch is the first proof of love and its absence is the first sign something is wrong; for others it matters less, and that is why the test ranks all five instead of naming only one.
+                Physical touch is the language of closeness: a hand held, a hug on the way in the door, a shoulder touched as you pass. For some people, touch is the first proof of love and its absence is the first sign something is wrong; for others it matters less, and that is why the test ranks all five instead of naming only one.
               </p>
             </div>
           </div>
@@ -237,7 +253,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h3>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A love language chart is the picture of your result: five bars, one per language, tallest first. Your love language chart on the result page shows your scores in order, so you can see not only your top language but the gap between first and second — and a close second matters, because many people have two languages that run nearly level. The love language chart in the guide below is the same five, in the same order, so you can compare your result with the list.
+            Your result comes back as a love language chart: five bars, one per language, tallest first. The order matters more than any single score — and the gap between first and second matters too, because plenty of people have two languages running nearly level. Read the top two together and you usually get a fuller picture than the winner alone.
           </p>
 
           {/* ─── Are There 10 or 18 Love Languages? ─── */}
@@ -246,7 +262,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h3>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            10 love languages and 18 love languages list are searches people make when they have heard of more than five. The honest answer: Chapman named five. Other writers have proposed more — 7 love languages, 8 love languages, and a 7 love language list, and a chart 7 love languages — usually by splitting one of the five (for example, splitting quality time into "time together" and "shared activities", or splitting physical touch into "touch" and "presence"). Three love languages is the opposite search — people asking whether the list can be shorter. The test on this page scores the five, because those are the five the book, the quiz and the research behind it use. If your result feels incomplete, read the two closest languages together — that is usually where the extra language people are looking for already lives. The love language that matters most, and what your love language means for your relationship, is not the number of languages — it is the top one on your chart, and what you do with it this week.
+            You may have seen claims of 10 love languages, or an 18 love languages list, from writers who split the five into smaller pieces — quality time into "time together" and "shared activities", say, or physical touch into "touch" and "presence". Chapman named five, and the test on this page scores five, because those are the five the book and the quiz behind it use. If your result feels incomplete, read your two closest languages together — that is usually where the extra language you were looking for already lives. The number of languages is not what matters; the top one on your chart, and what you do with it this week, is.
           </p>
 
           {/* ─── Section: Love Languages Examples ─── */}
@@ -255,11 +271,11 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Love languages examples are the fastest way to recognise your own. Love languages examples for words of affirmation: a partner who says "I noticed what you did today, thank you". For acts of service: a partner who does the school run so you can sleep. For receiving gifts: a partner who brings home the snack you like without being asked. For quality time: a partner who puts the phone away at dinner. For physical touch: a partner who reaches for your hand first. Giving love language is the side you do without thinking — the examples above are usually the ones you give, too. Love language for men, love languages for men, guys love language, five love languages for men, and love language for men are the same question: men have the same five languages, in different proportions, and the test works the same way for them. Love languages for friends, 5 love languages for friends, and friends love language are the same idea beyond couples: friends have love languages too, and a friend who shows up is speaking acts of service, while a friend who texts first is speaking words of affirmation. Five love languages for singles and 5 love languages for singles are the same point: you do not need a partner to have a love language, and knowing yours before a relationship starts is the best time to learn it.
+            The love languages examples below are deliberately ordinary — a school run, a text, a hand held — because ordinary days are where a language shows up. Words: a partner who says "I noticed what you did today, thank you." Service: a partner who does the school run so you can sleep. Gifts: the snack you like, brought home without being asked. Time: a phone put away at dinner. Touch: a hand reached for first. The side you give without thinking is usually the same side you want to receive. The five work the same way for men, for friends and for single people — a friend who shows up is speaking service, a friend who texts first is speaking words — and knowing yours before a relationship starts is the best time to learn it.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            My love language is the sentence people say after the test — "my love language is quality time" — and my love language meaning is what follows: it means I feel loved when we spend real time together. What is ur love language, what is your love language means, what is your love language mean, what's my love language mean, what's my love language free, what does what's your love language mean, and what does your love language mean are all the same question after the result: what does it mean, and what do I do with it? The answer is in the next section. Love language compatibility is the couples question that follows: two people with different top languages are not incompatible — they are the normal case, and the couples test exists so you can see both charts side by side. Scorpio love language, scorpio man love language, taurus love language, taurus man love language, cancer love language, and cancer woman love language are searches that mix love languages with zodiac signs — the two systems are different, and this page does not assign a love language by star sign. If you want the zodiac side, the{' '}
+            After the test, most people say the same sentence — "my love language is quality time" — and then wonder what is your love language meaning in practice. The practical answer is one small request: ask your partner for the thing your top language names, this week. Two different top languages in a couple is the normal case, not a mismatch, and the couples version exists so you can see both charts side by side. Love languages and star signs are two different systems, and this page does not hand you a language based on your birthday. If you want the zodiac side, the{' '}
             <button
               type="button"
               onClick={() => onNavigate('/zodiac-signs/')}
@@ -310,17 +326,31 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
             guidance.
           </p>
 
+          <figure className="my-8">
+            <img
+              src={loveLanguageTeaImage}
+              alt="A couple sharing a quiet moment over tea after taking the love language test"
+              width="1200"
+              height="800"
+              loading="lazy"
+              className="w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-xs text-slate-500">
+              Quality time can be as small as a cup of tea together, with nowhere else to be.
+            </figcaption>
+          </figure>
+
           {/* ─── Section: How to Know Your Love Language ─── */}
           <h2 className="text-2xl font-bold text-slate-900 font-display mt-10 mb-4">
             How to Know Your Love Language
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            How to know your love language, how do you know what your love language is, and how to figure out my love language are the same question, and the test is the short answer. The longer answer is three questions to ask yourself: what do you ask your partner for most often? What hurts most when it is missing? What do you do for the people you love without thinking? If you ask for words, miss words, and give words — that is your language. Love language questions are the questions inside the test itself: each one makes you choose between two ways of being loved, and the pattern of your choices is your result. Love language test results are the scores the test gives you — your top language, then the other four in order. The five love languages questions, the 5 love language questionnaire, and the 5 love language quiz free version all ask the same kind of questions; the questionnaire on this page is the short form, about five minutes, and the result is on the page.
+            Three questions answer how to know your love language without taking the test at all: what do you ask your partner for most often? What hurts most when it is missing? What do you do for the people you love without thinking? If you ask for words, miss words and give words, that is your language. The test is the short version of the same noticing — each question makes you choose between two ways of being loved, and the pattern of your choices is your result. Your scores come back top first, then the other four in order, so you can see the whole shape of it, not just the winner.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A short love language test and a love language test short version are the same request: fewer questions, same five languages. The quick love language test is the same idea — this test is the short one, and it still scores all five. If you want a longer check, take it again with your partner and compare: the couples version is the same questions, answered twice, and the comparison is where the useful conversation starts. For number-based insights, check out our{' '}
+            This one is already the short version — fewer questions, the same five languages, about five minutes, and it still scores all five. If you want a longer check, take it again with your partner and compare the two charts: the comparison is where the useful conversation starts. For number-based insights, check out our{' '}
             <button
               type="button"
               onClick={() => onNavigate('/numerology-calculator/')}
@@ -352,7 +382,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Five love languages test for couples is the version to take together: you each answer, then look at both charts. Five love languages test for couples works best when you talk about one difference at a time — "your top language is acts of service and mine is words of affirmation, so what is one thing I can do this week, and one thing I can say?" If you are comparing your chemistry as a couple, pair this with our{' '}
+            The five love languages test for couples works best when you take it together and talk about one difference at a time — "your top language is acts of service and mine is words of affirmation, so what is one thing I can do this week, and one thing I can say?" You each answer, then look at both charts side by side. If you are comparing your chemistry as a couple, pair this with our{' '}
             <button
               type="button"
               onClick={() => onNavigate('/name-compatibility/')}
@@ -372,11 +402,11 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Love languages quiz for teens, love language test for teens, 5 love languages test for teens, five love languages test for teens, 5 love languages quiz for teens, five love languages for teens quiz, five love languages quiz for teens, and love language quiz for teens are the same version for teenagers: shorter questions, simpler words, same five languages. Teenage love language quiz is the same one, and 5 love languages for teens quiz is the same again. Children's love language quiz is the version for younger children, done with a parent — the parent reads the questions, the child picks, and the result is a starting point for a conversation, not a label. Love language quiz for adults and love language quiz for men are the main adult version of the same test.
+            Teenagers get a shorter set with simpler wording — the love language quiz for teens covers the same five languages with fewer questions. The love language test for teens is the one to hand a teenager who has outgrown the children's version but finds the adult wording heavy. For younger children, the children's love language quiz is done with a parent: the parent reads the questions, the child picks, and the result is a starting point for a conversation, not a label. Adults take the main version.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Work love language quiz, workplace love language quiz, workplace love languages quiz, and love language quiz for adults in a work setting are the same idea at work: colleagues have languages too, and the useful version at work is the giving side — noticing how a colleague likes to be thanked, with words or with help. 5 love languages games and 5 love languages worksheet are the practice versions: a game is a set of cards with one language per card, picked in turn; a worksheet is the result written down with one action per language. Five love languages worksheets, love languages worksheet, love language worksheet, 5 love languages worksheet, five love languages handout, and 5 love languages handout are the same paper tools — and the printable result from this test is the simplest worksheet of all: your chart, your top language, and one thing to do this week.
+            Languages show up at work too — a colleague who likes to be thanked with words, another who would rather you took a task off their plate. Noticing that is the useful version of the test at work, and the giving side is the one that counts there. Cards with one language each make a decent game for a family evening, and writing your result down with one action per language turns it into a worksheet you can actually use. The printable result from this test is the simplest version of that: your chart, your top language, and one thing to do this week.
           </p>
 
           {/* ─── Section: Printable, PDF and Free Results ─── */}
@@ -385,7 +415,7 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Love language quiz PDF, love language test PDF, five love languages test PDF, 5 love languages test PDF, 5 love languages quiz PDF, five love languages quiz PDF, love languages quiz PDF, love language quiz printable, printable love language test, printable love language quiz, love language test printable, five love languages quiz printable, love languages quiz printable, free printable 5 love languages quiz, 5 love languages quiz free printable, five love languages printable test, five love languages test printable, printable 5 love languages quiz, printable 5 love languages quiz PDF, 5 love languages pdf quiz, love language pdf, love language assessment PDF, free love language test and results PDF, 5 love language test PDF, love languages test PDF, and the 5 love languages PDF are all the same request: a version you can print or keep. This page does not sell a PDF of the book, and it does not pretend the test is a PDF file. What it does give you is a printable result: finish the test, press print, and you have your chart and your top language on paper — a love language quiz printable in the everyday sense, and a printable love language test result you can stick on the fridge or hand to your partner. A love language test PDF search that lands here gets the same thing by a different route: the result, printed, free. The 5 love languages quiz free printable version is that printed result, and the free printable 5 love languages quiz is the same page, printed.
+            If you arrived looking for a love language quiz pdf, there is no file to download here — the test lives on this page, and it is free. People also search for a love language test pdf when they want the questions on paper; the questions stay on the page, but your answers and your chart print out fine. Finish the test, press print, and you have your chart and your top language on paper — ready to stick on the fridge or hand to your partner. What prints is, in effect, the 5 love languages quiz free printable version: your chart, your top language, and one thing to do this week. This page does not sell a PDF of the book, and it does not pretend the test is a PDF file.
           </p>
         </article>
 
