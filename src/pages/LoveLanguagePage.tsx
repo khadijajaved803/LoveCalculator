@@ -123,13 +123,16 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             This love language test tells you how you most want to be loved — and, if you take it with a partner, how they most want to be loved too. Just as our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/')}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               love calculator
-            </button>{' '}
+            </a>{' '}
             measures chemistry between two names, this test measures something quieter: the way love actually lands for you. It is free, it takes about five minutes, and your result appears on the page the moment you finish. Couples can each answer and compare charts; teenagers get a shorter set of questions; and parents can sit with a younger child and work through the parent-guided version together.
           </p>
 
@@ -153,7 +156,18 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Each language is a habit, not a horoscope — something you do without thinking, and something you wait for without realising it. If you are wondering how to know your love language without a test, notice three things: what you ask for most, what hurts most when it is missing, and what you do for the people you love without being asked. Those three clues usually point at the same language. The test does that noticing for you in about five minutes, and reading someone else's language works the same way — watch what they complain about, watch what they do for you, and ask them to take the test too.
+            Each language is a habit, not a{' '}
+            <a
+              href="/love-horoscope/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-horoscope/');
+              }}
+              className="text-rose-600 hover:underline font-semibold"
+            >
+              horoscope
+            </a>
+            {' '}— something you do without thinking, and something you wait for without realising it. If you are wondering how to know your love language without a test, notice three things: what you ask for most, what hurts most when it is missing, and what you do for the people you love without being asked. Those three clues usually point at the same language. The test does that noticing for you in about five minutes, and reading someone else's language works the same way — watch what they complain about, watch what they do for you, and ask them to take the test too.
           </p>
 
           <figure className="my-8">
@@ -276,53 +290,71 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             After the test, most people say the same sentence — "my love language is quality time" — and then wonder what is your love language meaning in practice. The practical answer is one small request: ask your partner for the thing your top language names, this week. Two different top languages in a couple is the normal case, not a mismatch, and the couples version exists so you can see both charts side by side. Love languages and star signs are two different systems, and this page does not hand you a language based on your birthday. If you want the zodiac side, the{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/zodiac-signs/')}
+            <a
+              href="/zodiac-signs/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/zodiac-signs/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               zodiac signs
-            </button>{' '}
+            </a>{' '}
             page has your sign; your love language comes from the test, not from your birthday. You can also explore Vedic insight with our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/birth-chart-calculator/')}
+            <a
+              href="/birth-chart-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/birth-chart-calculator/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               birth chart calculator
-            </button>
+            </a>
             ,{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali/')}
+            <a
+              href="/kundali/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               kundali
-            </button>{' '}
+            </a>{' '}
             and{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali-matching/')}
+            <a
+              href="/kundali-matching/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali-matching/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               kundali matching
-            </button>{' '}
+            </a>{' '}
             tools, explore South Indian matching with{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/porutham/')}
+            <a
+              href="/porutham/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/porutham/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               thirumana porutham
-            </button>
+            </a>
             , or read your daily{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/rashifal-today/')}
+            <a
+              href="/rashifal-today/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/rashifal-today/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               rashifal today
-            </button>{' '}
+            </a>{' '}
             guidance.
           </p>
 
@@ -350,30 +382,50 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            This one is already the short version — fewer questions, the same five languages, about five minutes, and it still scores all five. If you want a longer check, take it again with your partner and compare the two charts: the comparison is where the useful conversation starts. For number-based insights, check out our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/numerology-calculator/')}
+            This one is already the short version — fewer questions, the same five languages, about five minutes, and it still scores all five. If you want a longer check, take it again with your partner and compare the two charts: the comparison is where the useful conversation starts. For{' '}
+            <a
+              href="/life-path-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/life-path-calculator/');
+              }}
+              className="text-rose-600 hover:underline font-semibold"
+            >
+              number-based insights
+            </a>
+            {' '}, check out our{' '}
+            <a
+              href="/numerology-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/numerology-calculator/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               numerology calculator
-            </button>{' '}
+            </a>{' '}
             tools or calculate your compatibility via{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+            <a
+              href="/love-calculator-by-date-of-birth/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-calculator-by-date-of-birth/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               love calculator by date of birth
-            </button>{' '}
+            </a>{' '}
             and read our in-depth article on{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/blog/love-compatibility-by-date-of-birth/')}
+            <a
+              href="/blog/love-compatibility-by-date-of-birth/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/blog/love-compatibility-by-date-of-birth/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               love compatibility by date of birth
-            </button>.
+            </a>.
           </p>
 
           {/* ─── Section: The Test for Couples, Teens and Children ─── */}
@@ -382,23 +434,51 @@ export const LoveLanguagePage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The five love languages test for couples works best when you take it together and talk about one difference at a time — "your top language is acts of service and mine is words of affirmation, so what is one thing I can do this week, and one thing I can say?" You each answer, then look at both charts side by side. If you are comparing your chemistry as a couple, pair this with our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/name-compatibility/')}
+            The five love languages test for couples works best when you take it together and talk about one difference at a time — "your top language is acts of service and mine is words of affirmation, so what is one thing I can do this week, and one thing I can say?" You each answer, then look at both charts side by side. If you are{' '}
+            <a
+              href="/love-compatibility-by-zodiac-sign/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-compatibility-by-zodiac-sign/');
+              }}
+              className="text-rose-600 hover:underline font-semibold"
+            >
+              comparing your chemistry as a couple
+            </a>
+            {' '}, pair this with our{' '}
+            <a
+              href="/name-compatibility/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/name-compatibility/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               name compatibility
-            </button>{' '}
+            </a>{' '}
             tool and explore western{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/astrology/')}
+            <a
+              href="/astrology/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/astrology/');
+              }}
               className="text-rose-600 font-semibold hover:underline"
             >
               astrology
-            </button>{' '}
-            insights.
+            </a>{' '}
+            insights. If the question is when the wedding itself will happen, see our{' '}
+            <a
+              href="/when-will-i-get-married/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/when-will-i-get-married/');
+              }}
+              className="text-rose-600 hover:underline font-semibold"
+            >
+              When Will I Get Married
+            </a>
+            {' '}page.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">

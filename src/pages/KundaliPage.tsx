@@ -590,7 +590,18 @@ export const KundaliPage: React.FC<Props> = ({ onNavigate }) => {
                 <strong>Career:</strong> the tenth house, its lord and the planets in it describe your career — the kind of work that suits you, and when career changes are likely. Start with the tenth house, then look at its lord, then at the planets sitting in it; a strong tenth house usually means a steady career, and a weak one means the work will take longer to settle. People looking for kundali for career usually want one thing: the tenth house, its lord and the planets in it, read in that order. A career kundli reading starts in the same place — the tenth house — and follows the same order.
               </li>
               <li>
-                <strong>Marriage and love:</strong> the seventh house describes marriage and partnership, and Venus describes love — read them together and you get the timing of marriage and the shape of the partnership. Love marriage in kundli is read from the seventh house and from Venus — the house for partnership, the planet for love — and the chart can show whether the marriage is likely to be love or arranged. For a full match between two people, use the{' '}
+                <strong>Marriage and love:</strong> the seventh house describes marriage and partnership, and Venus describes love — read them together and you get{' '}
+                <a
+                  href="/when-will-i-get-married/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/when-will-i-get-married/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  the timing of marriage
+                </a>
+                {' '}and the shape of the partnership. Love marriage in kundli is read from the seventh house and from Venus — the house for partnership, the planet for love — and the chart can show whether the marriage is likely to be love or arranged. For a full match between two people, use the{' '}
                 <a
                   href="/kundali-matching/"
                   onClick={(e) => {

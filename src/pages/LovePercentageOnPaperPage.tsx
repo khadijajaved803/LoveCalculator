@@ -137,14 +137,17 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             Skip manual notebook math! Enter your name and partner&apos;s name to calculate true love percentage, phonetic sound harmony, and download your free couple certificate.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => onNavigate('/love-calculator/')}
+        <a
+          href="/love-calculator/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('/love-calculator/');
+          }}
           className="shrink-0 px-6 py-3.5 rounded-xl bg-white text-rose-600 font-bold text-xs sm:text-sm shadow-md hover:bg-rose-50 transition-colors inline-flex items-center gap-2"
         >
           <span>Open Online Calculator</span>
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </a>
       </div>
 
       {/* Step by Step Paper Guide Section */}
@@ -253,9 +256,9 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
           </p>
           <p>
             When a love tester on paper gives a surprisingly low score, the first thing to check is the letter counts — one missed letter changes every row below it. Anyone wondering how to do a love test on paper only needs the four steps above — write the names, count the letters, add the pairs, and read the two digits that remain. The same counting also serves as a true love compatibility test on paper — the final two digits are read as compatibility between the two names, and the comparison table below shows what the online engine adds that paper cannot. To see what the number means, read{' '}
-            <button type="button" onClick={() => onNavigate('/blog/what-does-love-percentage-mean/')} className="text-rose-600 font-semibold underline hover:text-rose-700">what your love percentage means</button>{' '}
+            <a href="/blog/what-does-love-percentage-mean/" onClick={(e) => { e.preventDefault(); onNavigate('/blog/what-does-love-percentage-mean/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">what your love percentage means</a>{' '}
             or check the same names on the{' '}
-            <button type="button" onClick={() => onNavigate('/love-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">online love calculator</button>{' '}
+            <a href="/love-calculator/" onClick={(e) => { e.preventDefault(); onNavigate('/love-calculator/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">online love calculator</a>{' '}
             to compare the paper score with a phonetic reading.
           </p>
         </div>
@@ -353,7 +356,7 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
               This method became iconic in school notebooks because it gave couples a standard 8-letter framework every time, regardless of whether names were short or long.
             </p>
             <p className="text-xs text-amber-800 leading-relaxed">
-              If you want an even more traditional game, try our dedicated <button type="button" onClick={() => onNavigate('/flames-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">FLAMES Calculator</button>, which uses letter cancellation to reveal friendship, love, affection, marriage, enemy, or sibling status.
+              If you want an even more traditional game, try our dedicated <a href="/flames-calculator/" onClick={(e) => { e.preventDefault(); onNavigate('/flames-calculator/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">FLAMES Calculator</a>, which uses letter cancellation to reveal friendship, love, affection, marriage, enemy, or sibling status.
             </p>
           </div>
         </div>
@@ -377,14 +380,14 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             </p>
             <p>
               The same counting shows how to find friendship percentage on paper — write two friends' names instead of a couple's, run the same rounds, and read the result as friendship rather than romance. It also works as a name compatibility game on paper: two names go in, the adding rounds do the work, and the final two digits are read as how well the names fit together — you can check the same pair on the{' '}
-              <button type="button" onClick={() => onNavigate('/name-compatibility/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name compatibility calculator</button>{' '}
+              <a href="/name-compatibility/" onClick={(e) => { e.preventDefault(); onNavigate('/name-compatibility/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">name compatibility calculator</a>{' '}
               or test the friendship on the{' '}
-              <button type="button" onClick={() => onNavigate('/friendship-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">friendship calculator</button>{' '}
+              <a href="/friendship-calculator/" onClick={(e) => { e.preventDefault(); onNavigate('/friendship-calculator/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">friendship calculator</a>{' '}
               instead.
             </p>
             <p>
               FLAMES is another game you can play entirely on paper: cross out the matching letters in two names, count what is left, and strike through the word FLAMES until one letter remains. This is how to calculate flames on paper: count the leftover letters first — the count decides how many letters of FLAMES get struck through on each pass — and the{' '}
-              <button type="button" onClick={() => onNavigate('/flames-calculator/')} className="text-rose-600 font-semibold underline hover:text-rose-700">FLAMES Calculator</button>{' '}
+              <a href="/flames-calculator/" onClick={(e) => { e.preventDefault(); onNavigate('/flames-calculator/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">FLAMES Calculator</a>{' '}
               does the same striking online when you want it done instantly.
             </p>
           </div>
@@ -473,9 +476,12 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
           CalculateLove offers specialized compatibility calculators designed for every stage of your relationship journey:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator/')}
+          <a
+            href="/love-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-rose-200 text-left hover:border-rose-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-rose-600 group-hover:text-rose-700 block mb-1">
@@ -484,11 +490,14 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Test true love percentage between two names with 4-pillar dimensional insights.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/flames-calculator/')}
+          <a
+            href="/flames-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/flames-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-rose-200 text-left hover:border-rose-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-rose-600 group-hover:text-rose-700 block mb-1">
@@ -497,11 +506,14 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               The classic school game that determines Friends, Lovers, Affection, Marriage, Enemies, or Siblings.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+          <a
+            href="/love-calculator-by-date-of-birth/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator-by-date-of-birth/');
+            }}
             className="p-4 rounded-2xl bg-white border border-rose-200 text-left hover:border-rose-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-rose-600 group-hover:text-rose-700 block mb-1">
@@ -510,7 +522,7 @@ export const LovePercentageOnPaperPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Calculate Life Path number harmony (1-9) using both partners&apos; dates of birth.
             </p>
-          </button>
+          </a>
         </div>
       </section>
 

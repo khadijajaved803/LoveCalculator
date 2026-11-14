@@ -154,6 +154,18 @@ export const ContactPage: React.FC<Props> = ({ onNavigate }) => {
           </div>
         )}
       </div>
+      <p className="text-center text-xs text-slate-500 mt-8">
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('/');
+          }}
+          className="text-rose-600 font-semibold hover:underline"
+        >
+          ← Return to the home page
+        </a>
+      </p>
     </div>
   );
 };

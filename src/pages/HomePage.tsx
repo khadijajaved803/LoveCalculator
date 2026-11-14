@@ -220,17 +220,6 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebSite',
-        'name': 'Calculate Love',
-        'url': 'https://calculatelove.online/',
-        'description': 'Free Love Calculator, FLAMES game, and relationship compatibility platform with authentic card sharing for India.',
-        'potentialAction': {
-          '@type': 'SearchAction',
-          'target': 'https://calculatelove.online/blog/?q={search_term_string}',
-          'query-input': 'required name=search_term_string',
-        },
-      },
-      {
         '@type': 'FAQPage',
         'mainEntity': highVolumeFaqs.map((faq) => ({
           '@type': 'Question',
@@ -273,32 +262,41 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
 
         {/* Action Buttons - 3 horizontal buttons on tablet/desktop, stacked on small mobile */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-2xl mx-auto">
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator/')}
+          <a
+            href="/love-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator/');
+            }}
             className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 active:scale-[0.99] text-white font-bold text-sm shadow-md shadow-rose-600/15 transition-all flex items-center justify-center gap-2 min-h-[46px]"
           >
             <Heart className="w-4 h-4 fill-white" />
             <span>Test Love Calculator</span>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/name-compatibility/')}
+          <a
+            href="/name-compatibility/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/name-compatibility/');
+            }}
             className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white hover:bg-rose-50/50 border border-rose-200 text-rose-700 font-bold text-sm transition-all flex items-center justify-center gap-2 min-h-[46px] shadow-2xs"
           >
             <Users className="w-4 h-4 text-rose-600" />
             <span>Name Compatibility</span>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/flames-calculator/')}
+          <a
+            href="/flames-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/flames-calculator/');
+            }}
             className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 font-bold text-sm transition-all flex items-center justify-center gap-2 min-h-[46px] shadow-2xs"
           >
             <Flame className="w-4 h-4 text-amber-500" />
             <span>Play FLAMES Online</span>
-          </button>
+          </a>
         </div>
       </section>
 
@@ -561,12 +559,13 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
           {secondaryTools.map((tool) => {
             const Icon = tool.icon;
             return (
-              <div
+              <a
                 key={tool.path}
-                onClick={() => onNavigate(tool.path)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onNavigate(tool.path)}
+                href={tool.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(tool.path);
+                }}
                 className="p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-rose-300 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
               >
                 <div>
@@ -589,7 +588,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                   <span>Start Test</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
@@ -648,22 +647,28 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 Prefer the old-school way? Our paper guide shows how to calculate love percentage with names using only a pen — count the letters, cancel the common ones, and add the pairs until one number is left. That is the classic love test paper game, and it is also how to find love percentage when you have no phone in hand.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/love-calculator/')}
+                <a
+                  href="/love-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-calculator/');
+                  }}
                   className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
                 >
                   <span>Try the Love Calculator</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/how-to-calculate-love-percentage/')}
+                </a>
+                <a
+                  href="/how-to-calculate-love-percentage/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/how-to-calculate-love-percentage/');
+                  }}
                   className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
                 >
                   <span>Read the Paper Guide</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -741,14 +746,17 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                 If you were looking for a true love calculator, you are in the right place — the meter on this page is the calculator. Check your love meter by name with the tool at the top of this page, and remember: the meter reads relationship compatibility, not fate. Two people with a 70 can build something wonderful, and two people with a 95 still have to do the work.
               </p>
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-calculator/')}
+              <a
+                href="/love-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-calculator/');
+                }}
                 className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
               >
                 <span>Take the Love Meter Test</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -785,22 +793,28 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mt-4">
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/crush-calculator/')}
+                <a
+                  href="/crush-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/crush-calculator/');
+                  }}
                   className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-rose-200"
                 >
                   <Heart className="w-3.5 h-3.5 text-rose-600" />
                   <span>Crush Calculator</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/flames-calculator/')}
+                </a>
+                <a
+                  href="/flames-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/flames-calculator/');
+                  }}
                   className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
                 >
                   <Flame className="w-3.5 h-3.5 text-amber-500" />
                   <span>Play FLAMES</span>
-                </button>
+                </a>
               </div>
             </div>
 
@@ -824,22 +838,28 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 mt-4">
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/love-language-test/')}
+                <a
+                  href="/love-language-test/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-language-test/');
+                  }}
                   className="px-4 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-purple-200"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-purple-600" />
                   <span>Love Language Test</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/life-path-calculator/')}
+                </a>
+                <a
+                  href="/life-path-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/life-path-calculator/');
+                  }}
                   className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-slate-600" />
                   <span>Life Path Calculator</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -850,30 +870,39 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Check today&apos;s love reading in the love horoscope — your daily romance horoscope, updated every morning — see your love match by date of birth, or read a love prediction about when you might marry. The DOB tool is also the love percentage calculator by date of birth: same page, same calculation, a different lens on the same two people.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-horoscope/')}
+              <a
+                href="/love-horoscope/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-horoscope/');
+                }}
                 className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
               >
                 <Sparkles className="w-3.5 h-3.5 text-white" />
                 <span>Today&apos;s Love Horoscope</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+              </a>
+              <a
+                href="/love-calculator-by-date-of-birth/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-calculator-by-date-of-birth/');
+                }}
                 className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-amber-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
               >
                 <Calendar className="w-3.5 h-3.5 text-slate-600" />
                 <span>Love Match by Date of Birth</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => onNavigate('/when-will-i-get-married/')}
+              </a>
+              <a
+                href="/when-will-i-get-married/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/when-will-i-get-married/');
+                }}
                 className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-amber-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
               >
                 <Gem className="w-3.5 h-3.5 text-purple-600" />
                 <span>When Will I Marry?</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -907,14 +936,17 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                   <span><strong>Instant Certificate Card:</strong> Direct WhatsApp & Facebook photo card share karne ki suvidha.</span>
                 </li>
               </ul>
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-calculator-by-name/')}
+              <a
+                href="/love-calculator-by-name/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-calculator-by-name/');
+                }}
                 className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
               >
                 <span>Calculate Love by Name Now</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
 
             <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl border border-rose-200">
@@ -1038,14 +1070,17 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                   <span>Calculate Love & Get Certificate Now</span>
                 </button>
 
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/love-calculator/')}
+                <a
+                  href="/love-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-calculator/');
+                  }}
                   className="px-5 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold text-xs sm:text-sm inline-flex items-center gap-2 min-h-[44px]"
                 >
                   <span>Explore Master Love Calculator</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -1113,14 +1148,17 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 <div className="p-2.5 rounded-xl bg-white border border-amber-200">E = Enemies (Nok-Jhok)</div>
                 <div className="p-2.5 rounded-xl bg-white border border-amber-200">S = Siblings (Raksha)</div>
               </div>
-              <button
-                type="button"
-                onClick={() => onNavigate('/flames-calculator/')}
+              <a
+                href="/flames-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/flames-calculator/');
+                }}
                 className="px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
               >
                 <Flame className="w-3.5 h-3.5 fill-white" />
                 <span>Play FLAMES Game Now</span>
-              </button>
+              </a>
             </div>
 
             <div className="p-5 rounded-2xl bg-white border border-amber-200 shadow-2xs space-y-3">
@@ -1157,41 +1195,53 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => onNavigate('/kundali-matching/')}
+              <a
+                href="/kundali-matching/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/kundali-matching/');
+                }}
                 className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-rose-200"
               >
                 <Gem className="w-3.5 h-3.5 text-rose-600" />
                 <span>Kundli Matching (36 Guna)</span>
-              </button>
+              </a>
 
-              <button
-                type="button"
-                onClick={() => onNavigate('/name-compatibility/')}
+              <a
+                href="/name-compatibility/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/name-compatibility/');
+                }}
                 className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-rose-200"
               >
                 <Users className="w-3.5 h-3.5 text-rose-600" />
                 <span>Name Compatibility Test</span>
-              </button>
+              </a>
 
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+              <a
+                href="/love-calculator-by-date-of-birth/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-calculator-by-date-of-birth/');
+                }}
                 className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
               >
                 <Calendar className="w-3.5 h-3.5 text-slate-600" />
                 <span>Life Path Birth Date Test</span>
-              </button>
+              </a>
 
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-or-arranged-marriage-calculator/')}
+              <a
+                href="/love-or-arranged-marriage-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-or-arranged-marriage-calculator/');
+                }}
                 className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
               >
                 <Gem className="w-3.5 h-3.5 text-purple-600" />
                 <span>Marriage Preference Check</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -1302,23 +1352,27 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               Read editorial breakdowns on how our Love Calculator works, dating advice, and compatibility.
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => onNavigate('/blog/')}
+          <a
+            href="/blog/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/blog/');
+            }}
             className="text-xs font-semibold text-rose-600 hover:underline"
           >
             View all guides →
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {BLOG_POSTS.slice(0, 3).map((post) => (
-            <article
+            <a
               key={post.slug}
-              onClick={() => onNavigate(`/blog/${post.slug}/`)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onNavigate(`/blog/${post.slug}/`)}
+              href={`/blog/${post.slug}/`}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(`/blog/${post.slug}/`);
+              }}
               className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-rose-300 hover:shadow-sm transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -1339,7 +1393,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
                 <span>Read Guide</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -1360,11 +1414,12 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div
-              onClick={() => onNavigate('/name-compatibility/')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/name-compatibility/')}
+            <a
+              href="/name-compatibility/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/name-compatibility/');
+              }}
               className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 hover:border-rose-200 transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -1378,13 +1433,14 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs text-rose-600 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                 Check Name Match →
               </span>
-            </div>
+            </a>
 
-            <div
-              onClick={() => onNavigate('/crush-calculator/')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/crush-calculator/')}
+            <a
+              href="/crush-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/crush-calculator/');
+              }}
               className="p-4 rounded-2xl bg-pink-50/40 border border-pink-100 hover:border-pink-200 transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -1398,13 +1454,14 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs text-pink-600 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                 Calculate Crush Score →
               </span>
-            </div>
+            </a>
 
-            <div
-              onClick={() => onNavigate('/numerology/name-numerology/')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/numerology/name-numerology/')}
+            <a
+              href="/numerology/name-numerology/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/numerology/name-numerology/');
+              }}
               className="p-4 rounded-2xl bg-purple-50/40 border border-purple-100 hover:border-purple-200 transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -1418,13 +1475,14 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs text-purple-600 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                 Calculate Name Numbers →
               </span>
-            </div>
+            </a>
 
-            <div
-              onClick={() => onNavigate('/love-percentage-on-paper/')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onNavigate('/love-percentage-on-paper/')}
+            <a
+              href="/love-percentage-on-paper/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-percentage-on-paper/');
+              }}
               className="p-4 rounded-2xl bg-amber-50/40 border border-amber-100 hover:border-amber-200 transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div>
@@ -1438,7 +1496,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <span className="text-xs text-amber-700 font-semibold mt-3 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                 Read Paper Guide →
               </span>
-            </div>
+            </a>
           </div>
         </div>
       </section>

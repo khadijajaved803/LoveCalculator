@@ -119,14 +119,17 @@ export const AstrologyPage: React.FC<Props> = ({ onNavigate }) => {
               Astrological compatibility evaluates how your core elemental energies interact. Fire fuels Air, Earth stabilizes Water, and complementary balances foster emotional growth.
             </p>
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+              <a
+                href="/love-calculator-by-date-of-birth/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-calculator-by-date-of-birth/');
+                }}
                 className="px-4 py-2.5 rounded-xl bg-white text-slate-900 font-semibold text-xs hover:bg-slate-100 transition-colors inline-flex items-center gap-2"
               >
                 <span>Try Date of Birth Tool</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
           <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-800">

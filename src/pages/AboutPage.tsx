@@ -77,13 +77,16 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
           <p className="text-xs text-slate-600 leading-relaxed mb-3">
             Our articles and tools are crafted by relationship writers, cultural researchers, and software engineers. We celebrate the rich tapestry of modern Indian relationships—from campus crushes and deep best-friend bonds to contemporary marriages that honor family blessings.
           </p>
-          <button
-            type="button"
-            onClick={() => onNavigate('/contact/')}
+          <a
+            href="/contact/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/contact/');
+            }}
             className="text-xs text-rose-600 font-semibold hover:underline"
           >
             Have feedback or suggestions? Contact our team →
-          </button>
+          </a>
         </section>
       </div>
     </div>

@@ -715,7 +715,18 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 numerology calculator
               </a>{' '}
-              and Love Compatibility by Zodiac Sign pages cover the other two.
+              and{' '}
+              <a
+                href="/love-compatibility-by-zodiac-sign/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-compatibility-by-zodiac-sign/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                Love Compatibility by Zodiac Sign
+              </a>
+              {' '}pages cover the other two.
             </p>
           </section>
 
@@ -853,7 +864,18 @@ export const KundaliMatchingPage: React.FC<Props> = ({ onNavigate }) => {
               When Will My Marriage Happen?
             </h2>
             <p>
-              Kundali matching tells you whether a match is compatible, not when the marriage will happen. The marriage calculator above answers whether, not when. If you are asking when my marriage will happen, or when will be my marriage, that is a timing question, answered by marriage prediction from the birth chart — see our When Will I Get Married page for that check. A marriage date calculator, a marriage year calculator or a marriage time prediction is a timing tool — it belongs to the prediction page, not to matching. Already married? A wedding anniversary calculator counts the years since your wedding — a different tool from matching, for after the marriage has happened.
+              Kundali matching tells you whether a match is compatible, not when the marriage will happen. The marriage calculator above answers whether, not when. If you are asking when my marriage will happen, or when will be my marriage, that is a timing question, answered by marriage prediction from the birth chart — see our{' '}
+              <a
+                href="/when-will-i-get-married/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/when-will-i-get-married/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                When Will I Get Married
+              </a>
+              {' '}page for that check. A marriage date calculator, a marriage year calculator or a marriage time prediction is a timing tool — it belongs to the prediction page, not to matching. Already married? A wedding anniversary calculator counts the years since your wedding — a different tool from matching, for after the marriage has happened.
             </p>
           </section>
 

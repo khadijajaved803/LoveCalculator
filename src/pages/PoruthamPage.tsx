@@ -110,13 +110,16 @@ export const PoruthamPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Before a Tamil wedding is fixed, most families run a porutham matching check on the two birth charts — the bride's and the groom's — and read the answer before they read anything else. The tool above runs a porutham online check in seconds: it takes the two stars, runs all 10 poruthams, and shows you which ones match and which do not, with the verdict written plainly. There is nothing to install and nothing to pay for — the whole thing runs on this page, in your browser, and it gives you the same full table an astrologer would work out by hand. Alongside our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/')}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               love calculator
-            </button>, it is the quickest way to see whether a match is worth taking further, and because it works as a thirumana porutham calculator, you do not need a separate app for it.
+            </a>, it is the quickest way to see whether a match is worth taking further, and because it works as a thirumana porutham calculator, you do not need a separate app for it.
           </p>
 
           <hr className="my-8 border-slate-100" />
@@ -128,13 +131,16 @@ export const PoruthamPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             In Tamil{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/astrology/')}
+            <a
+              href="/astrology/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/astrology/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               astrology
-            </button>, the moon's place at birth carries the most weight in a marriage reading. Your birth star and your moon sign — the natchathiram and the rasi — are read first, and the match is judged porutham by porutham, not from names or sun signs alone. That is why the report on this page looks the way it does: ten separate checks, each one scored on its own, so you can see exactly where two charts agree. The practice comes out of Tamil jothidam, the Tamil astrological tradition, and it has been the first step before fixing a wedding for generations.
+            </a>, the moon's place at birth carries the most weight in a marriage reading. Your birth star and your moon sign — the natchathiram and the rasi — are read first, and the match is judged porutham by porutham, not from names or sun signs alone. That is why the report on this page looks the way it does: ten separate checks, each one scored on its own, so you can see exactly where two charts agree. The practice comes out of Tamil jothidam, the Tamil astrological tradition, and it has been the first step before fixing a wedding for generations.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -308,13 +314,16 @@ export const PoruthamPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed mt-4">
             Two related checks people ask about are not among the 10 poruthams, and the tool says so plainly. If you came here looking for the nadi porutham meaning in tamil, it belongs to the North Indian system: Nadi is one of the 8 kootas in{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali-matching/')}
+            <a
+              href="/kundali-matching/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali-matching/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               kundali matching
-            </button>{' '}
+            </a>{' '}
             (36 gunas), not one of the 10 Tamil poruthams — see our Kundali Matching page for the Nadi koota. Lagna is the ascendant, fixed by the birth time, and it is used in the full jathagam reading rather than in the 10-porutham table — so a question about lagna porutham in tamil is really a question about the full chart, not about the ten poruthams. Both are real checks; neither belongs in the table above.
           </p>
 
@@ -415,53 +424,82 @@ export const PoruthamPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Thirumana porutham is the Tamil check. Two other checks answer the marriage question in different systems, and they live on this site alongside it.{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali-matching/')}
+            <a
+              href="/kundali-matching/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali-matching/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               Kundali matching
-            </button>{' '}
+            </a>{' '}
             is the North Indian check — the marriage question scored on 36 gunas instead of 10 poruthams — and our Kundali Matching page runs it. If you want the North Indian reading of the same couple, run both and compare: a couple can pass the 10 poruthams and still want to see their guna score, and the two systems are traditionally read together in many families.{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali/')}
+            <a
+              href="/kundali/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               Kundali
-            </button>{' '}
+            </a>{' '}
             and our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/birth-chart-calculator/')}
+            <a
+              href="/birth-chart-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/birth-chart-calculator/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               birth chart calculator
-            </button>{' '}
+            </a>{' '}
             — the birth chart behind both checks — are available on this site, and the{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/zodiac-signs/')}
+            <a
+              href="/zodiac-signs/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/zodiac-signs/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               zodiac signs
-            </button>{' '}
-            page covers the sun-sign reading of the same match. Numerology reads the marriage question in numbers: our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/numerology-calculator/')}
+            </a>{' '}
+            page covers the{' '}
+            <a
+              href="/love-compatibility-by-zodiac-sign/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-compatibility-by-zodiac-sign/');
+              }}
+              className="text-amber-700 hover:underline font-semibold"
+            >
+              sun-sign reading
+            </a>
+            {' '}of the same match. Numerology reads the marriage question in numbers: our{' '}
+            <a
+              href="/numerology-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/numerology-calculator/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               numerology calculator
-            </button>{' '}
+            </a>{' '}
             looks at the partners' numbers instead of their stars. And once the matching is done, the{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/love-language-test/')}
+            <a
+              href="/love-language-test/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-language-test/');
+              }}
               className="text-amber-700 font-semibold hover:underline"
             >
               love language test
-            </button>{' '}
+            </a>{' '}
             helps the couple understand each other — matching tells you whether the stars agree, and the love languages tell you how the two of you actually talk to each other.
           </p>
 
@@ -471,7 +509,18 @@ export const PoruthamPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Thirumana porutham tells you whether a match is compatible, not when the marriage will happen. If you are asking when my marriage will happen or when will be my marriage, that is a timing question, answered by marriage prediction from the birth chart. If you want a marriage date prediction, a marriage year prediction or a timing of marriage reading, those belong to a future prediction tool, not to matching. Matching tells you who matches; prediction tells you when.
+            Thirumana porutham tells you whether a match is compatible, not when the marriage will happen. If you are asking{' '}
+            <a
+              href="/when-will-i-get-married/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/when-will-i-get-married/');
+              }}
+              className="text-amber-700 hover:underline font-semibold"
+            >
+              when my marriage will happen
+            </a>
+            {' '}or when will be my marriage, that is a timing question, answered by marriage prediction from the birth chart. If you want a marriage date prediction, a marriage year prediction or a timing of marriage reading, those belong to a future prediction tool, not to matching. Matching tells you who matches; prediction tells you when.
           </p>
         </article>
 

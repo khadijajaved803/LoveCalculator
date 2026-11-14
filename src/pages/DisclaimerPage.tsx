@@ -66,6 +66,18 @@ export const DisclaimerPage: React.FC<Props> = ({ onNavigate }) => {
             Users are encouraged to treat all calculator outputs with a lighthearted spirit and constructive humor. CalculateLove accepts no liability for decisions made regarding personal relationships, dating, or marriage based on site content.
           </p>
         </section>
+        <p className="text-center text-xs text-slate-500 mt-8">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/');
+            }}
+            className="text-rose-600 font-semibold hover:underline"
+          >
+            ← Return to the home page
+          </a>
+        </p>
       </div>
     </div>
   );

@@ -190,14 +190,17 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
               Every date of birth contains a numerical signature. By reducing birthdays to single root digits (1 to 9), numerology reveals emotional temperament, instinctive communication styles, and natural romantic chemistry.
             </p>
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+              <a
+                href="/love-calculator-by-date-of-birth/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-calculator-by-date-of-birth/');
+                }}
                 className="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs transition-colors inline-flex items-center gap-2 shadow-sm"
               >
                 <span>Calculate Your Life Path Match</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
           </div>
           <div className="h-64 md:h-full aspect-4/3 overflow-hidden bg-slate-950 flex items-center justify-center">
@@ -226,14 +229,17 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             Convert both partners&apos; names into vibrational destiny numbers (1-9). Discover expression harmony, soul numbers, and download your couple certificate.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => onNavigate('/numerology/name-numerology/')}
+        <a
+          href="/numerology/name-numerology/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('/numerology/name-numerology/');
+          }}
           className="w-full sm:w-auto px-5 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 active:scale-[0.99] text-white font-semibold text-xs transition-colors shrink-0 flex items-center justify-center gap-2 shadow-sm"
         >
           <span>Try Name Numerology Tool</span>
           <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        </a>
       </div>
 
       {/* Hero Action Card */}
@@ -250,14 +256,17 @@ export const NumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             Enter your birthday and your partner&apos;s birthday to compute your Life Path numbers, check mutual elemental harmony, and download your personalized compatibility certificate.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+        <a
+          href="/love-calculator-by-date-of-birth/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('/love-calculator-by-date-of-birth/');
+          }}
           className="w-full sm:w-auto px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.99] text-white font-semibold text-xs transition-colors shrink-0 flex items-center justify-center gap-2 shadow-sm"
         >
           <span>Calculate Birth Numbers</span>
           <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        </a>
       </div>
 
       {/* How to Find Your Numerology Number */}

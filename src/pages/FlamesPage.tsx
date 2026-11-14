@@ -846,14 +846,17 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
                 Check Pythagorean Life Path alignment and cosmic harmony alongside your <strong>flames calculator</strong> result.
               </p>
             </div>
-            <button
-              type="button"
-              onClick={() => onNavigate(dobToolPath)}
+            <a
+              href={dobToolPath}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(dobToolPath);
+              }}
               className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-rose-600 text-white font-bold text-xs hover:from-amber-700 hover:to-rose-700 transition-all flex items-center gap-1.5 shrink-0 shadow-sm"
             >
               <span>Test DOB Love Calculator</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
         </section>
 

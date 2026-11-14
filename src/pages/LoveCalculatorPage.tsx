@@ -391,7 +391,18 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
               Calculate Love by Name: How Name-Based Compatibility Works
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              When you calculate love with our love calculator, testing traces back through Pythagorean numerology, phonetic acoustics, and sound vibration theory. When two names are pronounced together, their rhythmic synergy forms an audible and emotional cadence.
+              When you calculate love with our love calculator, testing traces back through{' '}
+              <a
+                href="/numerology/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/numerology/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                Pythagorean numerology
+              </a>
+              {' '}, phonetic acoustics, and sound vibration theory. When two names are pronounced together, their rhythmic synergy forms an audible and emotional cadence.
             </p>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700 mb-6">
               <li className="flex items-start gap-2">
@@ -600,7 +611,7 @@ export const LoveCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
               <h3 className="text-xs font-bold text-rose-300 uppercase tracking-wider">
-                Infatuation (Crush / Attraction)
+                Infatuation (<a href="/crush-calculator/" onClick={(e) => { e.preventDefault(); onNavigate('/crush-calculator/'); }} className="text-rose-300 hover:underline font-semibold">Crush</a> / Attraction)
               </h3>
               <ul className="text-[11px] text-slate-300 space-y-1.5 list-disc list-inside">
                 <li>Obsession with an idealized version of the person</li>

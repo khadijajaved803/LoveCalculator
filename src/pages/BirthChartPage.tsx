@@ -137,7 +137,29 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               What Is a Birth Chart?
             </h2>
             <p>
-              Picture the sky at the exact minute you were born — where the sun stood, where the moon stood, where each planet stood — and imagine that sky drawn as a wheel. That wheel is what astrologers read, and the tool above draws it for you from your birth details. The natal chart reading the tool gives you walks through the wheel in order: the three signs that shape you most, the planets by sign and house, and the smaller wheels that sit underneath the main one. What are birth charts used for, in practice? They are read for personality, for relationships, and for timing — which years favour a move, a marriage, a change of direction. A birth chart analysis weighs the whole wheel together instead of reading one placement at a time, and the free birth chart analysis on this page is included with every chart. The timing part of the reading — the free birth chart prediction for the year ahead — comes at the end, and it is written as an indication, not a guarantee. Your horoscope comes from the same wheel: a horoscope birth chart reading is your own chart read for the year ahead, not a generic sun-sign column. In birth chart astrology, the wheel is the source and everything else — the horoscope, the compatibility check, the timing — is read from it. In Vedic astrology the wheel has its own name —{' '}
+              Picture the sky at the exact minute you were born — where the sun stood, where the moon stood, where each planet stood — and imagine that sky drawn as a wheel. That wheel is what astrologers read, and the tool above draws it for you from your birth details. The natal chart reading the tool gives you walks through the wheel in order: the three signs that shape you most, the planets by sign and house, and the smaller wheels that sit underneath the main one. What are birth charts used for, in practice? They are read for personality, for relationships, and for timing — which years favour a move,{' '}
+              <a
+                href="/when-will-i-get-married/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/when-will-i-get-married/');
+                }}
+                className="text-indigo-600 hover:underline font-semibold"
+              >
+                a marriage
+              </a>
+              {' '}, a change of direction. A birth chart analysis weighs the whole wheel together instead of reading one placement at a time, and the free birth chart analysis on this page is included with every chart. The timing part of the reading — the free birth chart prediction for the year ahead — comes at the end, and it is written as an indication, not a guarantee. Your{' '}
+              <a
+              href="/love-horoscope/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-horoscope/');
+              }}
+              className="text-indigo-600 hover:underline font-semibold"
+              >
+              horoscope
+              </a>
+              {' '}comes from the same wheel: a horoscope birth chart reading is your own chart read for the year ahead, not a generic sun-sign column. In birth chart astrology, the wheel is the source and everything else — the horoscope, the compatibility check, the timing — is read from it. In Vedic astrology the wheel has its own name —{' '}
               <a
                 href="/kundali/"
                 onClick={(e) => {
@@ -277,7 +299,18 @@ export const BirthChartPage: React.FC<Props> = ({ onNavigate }) => {
               Birth Chart Compatibility and Love
             </h2>
             <p>
-              Two charts side by side tell you more than one chart alone. A birth chart compatibility check compares your wheel with your partner&apos;s, and a natal chart compatibility reading looks at the same two wheels for fit — sun to sun, moon to moon, Venus to Mars — and asks where they support each other and where they need care. When the question is love, the comparison becomes natal chart love compatibility, and the focus shifts to Venus, Mars and the two moons. This site&apos;s{' '}
+              Two charts side by side tell you more than one chart alone. A{' '}
+              <a
+                href="/love-compatibility-by-zodiac-sign/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-compatibility-by-zodiac-sign/');
+                }}
+                className="text-indigo-600 hover:underline font-semibold"
+              >
+                birth chart compatibility check
+              </a>
+              {' '}compares your wheel with your partner&apos;s, and a natal chart compatibility reading looks at the same two wheels for fit — sun to sun, moon to moon, Venus to Mars — and asks where they support each other and where they need care. When the question is love, the comparison becomes natal chart love compatibility, and the focus shifts to Venus, Mars and the two moons. This site&apos;s{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {

@@ -752,9 +752,12 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           Explore our other free relationship tools to test deeper compatibility:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator/')}
+          <a
+            href="/love-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-pink-200 text-left hover:border-pink-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-pink-600 group-hover:text-pink-700 block mb-1">
@@ -763,11 +766,14 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Evaluate 4-pillar compatibility including communication, emotional security, and longevity.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/flames-calculator/')}
+          <a
+            href="/flames-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/flames-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-pink-200 text-left hover:border-pink-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-pink-600 group-hover:text-pink-700 block mb-1">
@@ -776,11 +782,14 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Play letter-cancellation to see if your crush is meant for Friends, Lovers, or Marriage.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-percentage-on-paper/')}
+          <a
+            href="/love-percentage-on-paper/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-percentage-on-paper/');
+            }}
             className="p-4 rounded-2xl bg-white border border-pink-200 text-left hover:border-pink-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-pink-600 group-hover:text-pink-700 block mb-1">
@@ -789,7 +798,7 @@ export const CrushCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Step-by-step notebook guide to calculating love percentage using pen and paper.
             </p>
-          </button>
+          </a>
         </div>
       </section>
 

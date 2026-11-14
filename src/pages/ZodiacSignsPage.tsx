@@ -675,7 +675,7 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 rashifal today
               </a>
-{' '}for the daily version, or run your numbers through our{' '}
+              {' '}for the daily version, or run your numbers through our{' '}
               <a
                 href="/numerology-calculator/"
                 onClick={(e) => {
@@ -689,7 +689,18 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               .
             </p>
             <p className="mt-3">
-              Rashi is also how two people are matched in India. Rashi matching for marriage compares two rashis before a wedding, looking at whether the two Moon signs sit well together. In Tamil families the comparison is often called rasi matching for marriage. It adds the Nakshatras to the reading: rashi nakshatra matching for marriage compares both the rashis and the Nakshatras, and rasi nakshatra matching looks at the same two things from the Tamil side. Rasi matching is used the same way in Tamil families. Couples in the West usually ask about zodiac matching for marriage instead — two sun signs, read for how they get along. A zodiac signs match for marriage is judged by the same elements and rulers: fire with air, earth with water, and signs of the same element understanding each other best. The fullest version of that reading is on our{' '}
+              Rashi is also how two people are matched in India.{' '}
+              <a
+                href="/when-will-i-get-married/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/when-will-i-get-married/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                Rashi matching for marriage
+              </a>
+              {' '}compares two rashis before a wedding, looking at whether the two Moon signs sit well together. In Tamil families the comparison is often called rasi matching for marriage. It adds the Nakshatras to the reading: rashi nakshatra matching for marriage compares both the rashis and the Nakshatras, and rasi nakshatra matching looks at the same two things from the Tamil side. Rasi matching is used the same way in Tamil families. Couples in the West usually ask about zodiac matching for marriage instead — two sun signs, read for how they get along. A zodiac signs match for marriage is judged by the same elements and rulers: fire with air, earth with water, and signs of the same element understanding each other best. The fullest version of that reading is on our{' '}
               <a
                 href="/kundali-matching/"
                 onClick={(e) => {
@@ -700,7 +711,7 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 kundali matching
               </a>
-{' '}page, which compares two charts guna by guna, and on our{' '}
+              {' '}page, which compares two charts guna by guna, and on our{' '}
               <a
                 href="/porutham/"
                 onClick={(e) => {
@@ -723,7 +734,18 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               The Moon moves fast — it spends about two and a half days in each sign — so the sign it was in on your birthday says something different from your sun sign. The tool above finds it when you add your birth time, and what is my moon sign is the question the DOB + Time tab answers. People usually ask what is a moon sign when they see it beside their sun sign — it is the Moon&apos;s sign on the day you were born, and the tool reads it from your birth time. A moon sign calculator reads the Moon&apos;s position from your date of birth and time, and a moon sign calculator by date of birth works from the date alone — the answer is usually right, because the Moon stays in one sign for about two and a half days. It is a free moon sign calculator, and it stays free: the result is on the page, not behind a paywall. Run it as an online moon sign calculator or a vedic moon sign calculator and the reading comes back the Vedic way. You can calculate moon sign free in the tool above, from your birth date and time, and find moon sign by date of birth in the same place. How to calculate moon sign comes down to one thing: the Moon&apos;s position at your birth, which the tool reads from your birth time. The tool is a moon calculator in the simplest sense: birth time in, moon sign out. If you want a moon on my birthday calculator, the DOB + Time tab does exactly that — it shows the Moon&apos;s sign on the day you were born. A moon chart calculator draws the Moon&apos;s place in the wheel, and the tool above gives it with your sun sign.
             </p>
             <p className="mt-3">
-              People care most about the moon sign meaning — the Moon rules your feelings, your habits and your inner life, while the Sun rules your outer nature. Read a moon sign horoscope and you get the forecast for your inner life, not your outer day. The moon sign dates change every two and a half days, so the Moon&apos;s sign is different for people born a week apart. In India the moon sign is the moon sign rashi, and most families just say moon rashi. A moon sign chart draws the Moon&apos;s place in the wheel, and the study of it is moon astrology.
+              People care most about the moon sign meaning — the Moon rules your feelings, your habits and your inner life, while the Sun rules your outer nature. Read a{' '}
+              <a
+                href="/love-horoscope/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-horoscope/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                moon sign horoscope
+              </a>
+              {' '}and you get the forecast for your inner life, not your outer day. The moon sign dates change every two and a half days, so the Moon&apos;s sign is different for people born a week apart. In India the moon sign is the moon sign rashi, and most families just say moon rashi. A moon sign chart draws the Moon&apos;s place in the wheel, and the study of it is moon astrology.
             </p>
             <p className="mt-3">
               To find your moon sign, add your birth time to the tool above — that is how to find moon sign, how to know moon sign and how to know your moon sign in one step. If you only have the date, the tool still gives a moon sign by date of birth, because the Moon stays in one sign for about two and a half days — it is just less precise at the edges. People also ask how to know my moon sign, how to find out moon sign and how to find your moon sign; all three are answered by the same step, with your birth time added. And my moon is the shortest way to ask for it — your own moon sign, from your birth time. Use the tool above to find moon sign from your birth date and time.
@@ -738,7 +760,29 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               Your sun sign comes from your date of birth alone — the sign the Sun was in on the day you were born. A sun sign calculator finds it from the date, and a sun sign by date of birth is the reading the tool above gives first. If you are wondering what is my sun sign, the tool answers it from the date alone. Ask what&apos;s my sun sign and the tool answers from the date you enter. How to know sun sign comes down to the birth date: enter it, read the sign. Use the tool above as a sun sign finder — one date in, one sign out. The sun sign list is the twelve signs in order, in the cards above, and there are 12 sun signs in the wheel. The sun sign months run January to December, two signs to a month, and the sunsign months are listed the same way in the month section below. Drawn as a circle, the twelve make a sun sign chart — the wheel with the dates marked on it. A sun sign by name is read from the first letter of your name, in the Indian system.
             </p>
             <p className="mt-3">
-              Read together, the two signs describe you better than either alone: the sun sign is your outer nature, the moon sign is your inner nature, and the gap between them is where most of the interesting stuff lives. The DOB + Time tab gives you both at once. That is the sun and moon signs reading, and the sun sign moon sign is the pair the tool returns together. The zodiac sun and moon signs are the two lists the cards above hold, and the zodiac sun signs and the zodiac moon sign are the two halves of that pair — the sun signs by date, the moon signs by birth time. Ask it what is my sun sign and moon sign, or what is my sun and moon sign, and it answers both from one birth date and time. The DOB + Time tab works as a sun and moon sign calculator: one birth date and time in, both signs out. Sun sign compatibility — how well two sun signs get along — is covered in full on our Love Compatibility by Zodiac Sign page.
+              Read together, the two signs describe you better than either alone: the sun sign is your outer nature, the moon sign is your inner nature, and the gap between them is where most of the interesting stuff lives. The DOB + Time tab gives you both at once. That is the sun and moon signs reading, and the sun sign moon sign is the pair the tool returns together. The zodiac sun and moon signs are the two lists the cards above hold, and the zodiac sun signs and the zodiac moon sign are the two halves of that pair — the sun signs by date, the moon signs by birth time. Ask it what is my sun sign and moon sign, or what is my sun and moon sign, and it answers both from one birth date and time. The DOB + Time tab works as a sun and moon sign calculator: one birth date and time in, both signs out. Sun sign compatibility — how well two sun signs get along — is covered in full on our{' '}
+              <a
+                href="/love-compatibility-by-zodiac-sign/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-compatibility-by-zodiac-sign/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                {' '}
+                <a
+                  href="/love-compatibility-by-zodiac-sign/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('/love-compatibility-by-zodiac-sign/');
+                  }}
+                  className="text-rose-600 hover:underline font-semibold"
+                >
+                  Love Compatibility by Zodiac Sign
+                </a>
+                {' '}
+              </a>
+              {' '}page.
             </p>
             <p className="mt-3">
               The third layer is the rising sign — the sign that was climbing over the eastern horizon at the exact moment you were born. It needs your birth time and your birth place, because the horizon turns fast: a few hours can change it. The rising sign is sometimes written as the rising sun sign. A sun moon rising calculator finds all three at once — sun sign, moon sign and rising sign. Sun moon rising is the three-sign reading the birth chart is built on, and for the full chart with houses and planets, use our{' '}
@@ -752,7 +796,7 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 birth chart calculator
               </a>
-{' '}or{' '}
+              {' '}or{' '}
               <a
                 href="/kundali/"
                 onClick={(e) => {
@@ -763,7 +807,7 @@ export const ZodiacSignsPage: React.FC<Props> = ({ onNavigate }) => {
               >
                 kundali
               </a>
-{' '}page, which builds the whole birth chart from your birth details. You can also explore our{' '}
+              {' '}page, which builds the whole birth chart from your birth details. You can also explore our{' '}
               <a
                 href="/numerology/"
                 onClick={(e) => {

@@ -864,9 +864,12 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
           While Name Numerology evaluates active communication, your Date of Birth reveals your lifelong Life Path number triad (1-9):
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+          <a
+            href="/love-calculator-by-date-of-birth/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator-by-date-of-birth/');
+            }}
             className="p-4 rounded-2xl bg-white border border-purple-200 text-left hover:border-purple-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-purple-600 group-hover:text-purple-700 block mb-1">
@@ -875,11 +878,14 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Compute your Life Path number and check Pythagorean triad compatibility.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/numerology/')}
+          <a
+            href="/numerology/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/numerology/');
+            }}
             className="p-4 rounded-2xl bg-white border border-purple-200 text-left hover:border-purple-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-purple-600 group-hover:text-purple-700 block mb-1">
@@ -888,11 +894,14 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Read in-depth guides on numbers 1-9 archetypes and Master Numbers (11, 22, 33).
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator/')}
+          <a
+            href="/love-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-purple-200 text-left hover:border-purple-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-purple-600 group-hover:text-purple-700 block mb-1">
@@ -901,7 +910,7 @@ export const NameNumerologyPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Our 4-pillar true love percentage tool with downloadable certificate.
             </p>
-          </button>
+          </a>
         </div>
       </section>
 

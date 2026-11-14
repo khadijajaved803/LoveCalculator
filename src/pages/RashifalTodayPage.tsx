@@ -431,7 +431,18 @@ export const RashifalTodayPage: React.FC<Props> = ({ onNavigate }) => {
               Today&apos;s Rashifal — All 12 Signs
             </h2>
             <p className="mb-6">
-              All twelve signs sit on this one page, so there is no need to open a new page for each sign. Read your own sign first — the love line, then the day line — and the tool above gives you today&apos;s actual lines to go with it. Each card below explains what that sign&apos;s daily reading usually points at and what to watch for, and the reading itself changes every day, so the card stays useful while the line stays fresh. The signs run in the usual order, starting with Mesh, and you can jump to any sign from the buttons above. For the full story of each sign — dates, element, and best matches — open the{' '}
+              All twelve signs sit on this one page, so there is no need to open a new page for each sign. Read your own sign first — the love line, then the day line — and the tool above gives you today&apos;s actual lines to go with it. Each card below explains what that sign&apos;s daily reading usually points at and what to watch for, and the reading itself changes every day, so the card stays useful while the line stays fresh. The signs run in the usual order, starting with Mesh, and you can jump to any sign from the buttons above. For the full story of each sign — dates, element, and{' '}
+              <a
+                href="/love-compatibility-by-zodiac-sign/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/love-compatibility-by-zodiac-sign/');
+                }}
+                className="text-rose-600 hover:underline font-semibold"
+              >
+                best matches
+              </a>
+              {' '}— open the{' '}
               <a
                 href="/zodiac-signs/"
                 onClick={(e) => {
@@ -634,7 +645,18 @@ export const RashifalTodayPage: React.FC<Props> = ({ onNavigate }) => {
               on the home page scores two names for you. The love line itself never pretends to be more than it is: one short read on love for your sign today, to take as a nudge, not a verdict.
             </p>
             <p className="mt-3">
-              What the love line actually gives you is one thing to carry into the day: a good moment to talk, a warning to wait, or a small thing to do for the person you love. Read it in the morning, hold it lightly, and let the rest of the day — the work line, the mood line, the lucky number — fill in around it.
+              What the love line actually gives you is one thing to carry into the day: a good moment to talk, a warning to wait, or a small thing to do for the person you love. Read it in the morning, hold it lightly, and let the rest of the day — the work line, the mood line, the lucky number — fill in around it. If the question is when the marriage itself will happen, see our{' '}
+              <a
+              href="/when-will-i-get-married/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/when-will-i-get-married/');
+              }}
+              className="text-rose-600 hover:underline font-semibold"
+              >
+              When Will I Get Married
+              </a>
+              {' '}page.
             </p>
           </section>
 

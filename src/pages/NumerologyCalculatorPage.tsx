@@ -126,21 +126,27 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Behind every result on this page sits a very old idea: a name or a date of birth can be turned into numbers, and each number from 1 to 9 carries a meaning of its own. The tool above does the turning for you — use the numerology calculator online, free, with your result on the page the moment you finish and nothing to sign up for. It is a free numerology calculator in the plainest sense: no account, no email, no payment, and the result appears on the page, not in your inbox. Alongside our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/')}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               love calculator
-            </button>{' '}
+            </a>{' '}
             and the newly added{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/love-language-test/')}
+            <a
+              href="/love-language-test/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-language-test/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               love language test
-            </button>, this calculator covers the personal side of the site: not how two people match, but what your own numbers say. Start with the date of birth if that is all you have — the numerology calculator by date of birth mode needs only the day, month and year — or with the name alone, in the numerology calculator name mode. When you have both, use them together, because the numerology calculator name and date of birth mode gives you both at once, and that combined reading is the fullest one this page gives.
+            </a>, this calculator covers the personal side of the site: not how two people match, but what your own numbers say. Start with the date of birth if that is all you have — the numerology calculator by date of birth mode needs only the day, month and year — or with the name alone, in the numerology calculator name mode. When you have both, use them together, because the numerology calculator name and date of birth mode gives you both at once, and that combined reading is the fullest one this page gives.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -156,13 +162,16 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             The obvious question is how does a numerology calculator work, and the answer is less mysterious than the name suggests: every letter gets a value from the table you have picked, the values are added, and the total is reduced by adding its digits together until one number is left. A date works the same way — the day, month and year are added and reduced to one number — and that is the whole method. The tool above does the adding for you, while this guide explains what the numbers are said to mean once you have them. If you are new to the subject, the wider{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/numerology/')}
+            <a
+              href="/numerology/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/numerology/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               numerology
-            </button>{' '}
+            </a>{' '}
             hub is the place to start, and this page is the calculator that belongs to it.
           </p>
 
@@ -253,7 +262,18 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Most people arrive with one question — what is my lucky number — and the tool answers it in seconds from the date of birth alone. Some arrive with astrology in the question — what is my lucky number astrology — expecting a horoscope; here the answer comes from the numbers, not the planets, and the page says so plainly. When two numbers are on the table, which is the lucky number is decided by the date: whichever number your birth date reduces to is yours.
+            Most people arrive with one question — what is my lucky number — and the tool answers it in seconds from the date of birth alone. Some arrive with astrology in the question — what is my lucky number astrology — expecting a{' '}
+            <a
+              href="/love-horoscope/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-horoscope/');
+              }}
+              className="text-purple-600 hover:underline font-semibold"
+            >
+              horoscope
+            </a>
+            {' '}; here the answer comes from the numbers, not the planets, and the page says so plainly. When two numbers are on the table, which is the lucky number is decided by the date: whichever number your birth date reduces to is yours.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -278,73 +298,119 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             You can also explore our Vedic{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/birth-chart-calculator/')}
+            <a
+              href="/birth-chart-calculator/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/birth-chart-calculator/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               birth chart calculator
-            </button>
+            </a>
             ,{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali/')}
+            <a
+              href="/kundali/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               kundali
-            </button>{' '}
+            </a>{' '}
             and{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/kundali-matching/')}
+            <a
+              href="/kundali-matching/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/kundali-matching/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               kundali matching
-            </button>{' '}
+            </a>{' '}
             tools, South Indian{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/porutham/')}
+            <a
+              href="/porutham/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/porutham/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               thirumana porutham
-            </button>{' '}
+            </a>{' '}
             matching, or explore your sign on our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/zodiac-signs/')}
+            <a
+              href="/zodiac-signs/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/zodiac-signs/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               zodiac signs
-            </button>{' '}
+            </a>{' '}
             and daily{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/rashifal-today/')}
+            <a
+              href="/rashifal-today/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/rashifal-today/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               rashifal today
-            </button>{' '}
+            </a>{' '}
             pages.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             For couples matching, try our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+            <a
+              href="/love-calculator-by-date-of-birth/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-calculator-by-date-of-birth/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               love calculator by date of birth
-            </button>{' '}
+            </a>{' '}
             or read the complete guide to{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/blog/love-compatibility-by-date-of-birth/')}
+            <a
+              href="/blog/love-compatibility-by-date-of-birth/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/blog/love-compatibility-by-date-of-birth/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               love compatibility by date of birth
-            </button>.
+            </a>. If the question is when the marriage itself will happen, see our{' '}
+            <a
+              href="/when-will-i-get-married/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/when-will-i-get-married/');
+              }}
+              className="text-purple-600 hover:underline font-semibold"
+            >
+              When Will I Get Married
+            </a>
+            {' '}page. For a match read from the zodiac signs instead of the numbers, see our{' '}
+            <a
+              href="/love-compatibility-by-zodiac-sign/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/love-compatibility-by-zodiac-sign/');
+              }}
+              className="text-purple-600 hover:underline font-semibold"
+            >
+              Love Compatibility by Zodiac Sign
+            </a>
+            {' '}page.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -388,13 +454,16 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             A business name is read the way a person&apos;s name is read: the letters add up, the total is reduced, and the number is read for what it is said to mean for a business — growth, stability, visibility, or caution. That is the work of a business numerology calculator, and the tool&apos;s business mode does it in the same place as the name mode. The Chaldean side is the one most business searches ask for, because it is the system Indian business owners use most often — so pick the Chaldean mode for a business name, and read the business number beside your own, because the pairing matters: if the two get on, the tradition calls them friendly. To explore personal and baby names in depth, visit our dedicated{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/numerology/name-numerology/')}
+            <a
+              href="/numerology/name-numerology/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/numerology/name-numerology/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               name numerology
-            </button>{' '}
+            </a>{' '}
             calculator.
           </p>
 
@@ -417,7 +486,18 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
               className="w-full rounded-2xl object-cover"
             />
             <figcaption className="mt-2 text-center text-xs text-slate-500">
-              One number at a time: your chart is a path, not a single step.
+              One number at a time:{' '}
+              <a
+                href="/life-path-calculator/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate('/life-path-calculator/');
+                }}
+                className="text-purple-600 hover:underline font-semibold"
+              >
+                your chart is a path
+              </a>
+              {' '}, not a single step.
             </figcaption>
           </figure>
 
@@ -428,13 +508,16 @@ export const NumerologyCalculatorPage: React.FC<Props> = ({ onNavigate }) => {
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Numerology is searched for in many languages, and the calculator is the same in all of them. The numbers don&apos;t change when the language changes — only the words around them do — so a Tamil, Telugu or Hindi search lands on the same tool, explained in the terms those searches use. Indian lucky number, unlucky numbers in India, and the weekday numbers by Indian tradition are covered in the chart section, because the Indian tradition is the one most of this page&apos;s searches come from. Explore our wider{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/astrology/')}
+            <a
+              href="/astrology/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/astrology/');
+              }}
               className="text-purple-600 font-semibold hover:underline"
             >
               astrology
-            </button>{' '}
+            </a>{' '}
             hub for complementary Vedic and Western planetary interpretations.
           </p>
 

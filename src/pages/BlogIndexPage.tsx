@@ -92,12 +92,13 @@ export const BlogIndexPage: React.FC<Props> = ({ onNavigate }) => {
       {/* Articles Grid - 3 guides in a row on desktop/tablet */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
         {filteredPosts.map((post) => (
-          <article
+          <a
             key={post.slug}
-            onClick={() => onNavigate(`/blog/${post.slug}/`)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && onNavigate(`/blog/${post.slug}/`)}
+            href={`/blog/${post.slug}/`}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate(`/blog/${post.slug}/`);
+            }}
             className="p-6 rounded-3xl bg-white border border-slate-200/90 hover:border-rose-300 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
           >
             <div>
@@ -123,7 +124,7 @@ export const BlogIndexPage: React.FC<Props> = ({ onNavigate }) => {
                 Read Article <ArrowRight className="w-3.5 h-3.5" />
               </span>
             </div>
-          </article>
+          </a>
         ))}
       </div>
 

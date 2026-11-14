@@ -485,7 +485,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
               </li>
             </ul>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
-              Want to calculate your exact numerological expression number? Try our dedicated <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button> to see your Pythagorean and Chaldean number values.
+              Want to calculate your exact numerological expression number? Try our dedicated <a href="/numerology/name-numerology/" onClick={(e) => { e.preventDefault(); onNavigate('/numerology/name-numerology/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</a> to see your Pythagorean and Chaldean number values.
             </p>
           </div>
 
@@ -497,7 +497,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
               Before modern digital tools, students and couples loved doing the name compatibility test on paper using the famous pen-and-paper letter crossing method. In that traditional technique, you write both names, tally letter occurrences with the word "LOVE", and sum adjacent digits until a two-digit percentage remains.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Our digital compatibility check by name automates these phonetic formulas with instantaneous mathematical precision, giving you both detailed linguistic breakdowns and an instant printable match certificate. If you enjoy the nostalgia of hand calculations, explore our step-by-step <button type="button" onClick={() => onNavigate('/love-percentage-on-paper/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper guide</button>.
+              Our digital compatibility check by name automates these phonetic formulas with instantaneous mathematical precision, giving you both detailed linguistic breakdowns and an instant printable match certificate. If you enjoy the nostalgia of hand calculations, explore our step-by-step <a href="/love-percentage-on-paper/" onClick={(e) => { e.preventDefault(); onNavigate('/love-percentage-on-paper/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper guide</a>.
             </p>
           </div>
         </div>
@@ -546,10 +546,10 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
               Name matching for marriage is the oldest use of this kind of check: before a proposal goes ahead, families want to know whether the two names sit well together. The tool above works as a name matching for marriage calculator — type both first names, and the score reflects how the sounds blend, which is the part of the match a family actually hears every day when the names are spoken at home.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Adding a birth date sharpens the read. A name matching for marriage with date of birth check pairs the sound of the names with the numbers behind the birth date, so the result speaks to both how the names sound and how the birth numbers get along. If you want that fuller reading, try the <button type="button" onClick={() => onNavigate('/love-calculator-by-date-of-birth/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love calculator by date of birth</button> page, which runs the same idea with both birth dates instead of just names.
+              Adding a birth date sharpens the read. A name matching for marriage with date of birth check pairs the sound of the names with the numbers behind the birth date, so the result speaks to both how the names sound and how the birth numbers get along. If you want that fuller reading, try the <a href="/love-calculator-by-date-of-birth/" onClick={(e) => { e.preventDefault(); onNavigate('/love-calculator-by-date-of-birth/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">love calculator by date of birth</a> page, which runs the same idea with both birth dates instead of just names.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Name matching for marriage in Tamil Nadu often sits beside the older star-based checks, not instead of them. The name read says how the couple will sound together day to day, while porutham matching reads the stars — so many families run both and weigh them together. Our <button type="button" onClick={() => onNavigate('/porutham/')} className="text-rose-600 font-semibold underline hover:text-rose-700">Thirumana Porutham</button> page explains the ten poruthams, and the <button type="button" onClick={() => onNavigate('/kundali-matching/')} className="text-rose-600 font-semibold underline hover:text-rose-700">Kundali Matching</button> page covers the full guna milan check for couples who want the Vedic reading too.
+              Name matching for marriage in Tamil Nadu often sits beside the older star-based checks, not instead of them. The name read says how the couple will sound together day to day, while porutham matching reads the stars — so many families run both and weigh them together. Our <a href="/porutham/" onClick={(e) => { e.preventDefault(); onNavigate('/porutham/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">Thirumana Porutham</a> page explains the ten poruthams, and the <a href="/kundali-matching/" onClick={(e) => { e.preventDefault(); onNavigate('/kundali-matching/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">Kundali Matching</a> page covers the full guna milan check for couples who want the Vedic reading too.
             </p>
           </div>
 
@@ -561,13 +561,13 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
               Names are only half the story for many couples. A name and date of birth compatibility reading adds the birth date to the sound of the names, so two people who share a birthday — or whose birthdays fall on friendly numbers — read as more in tune. The same two names can score differently once the birth dates join the calculation, because the numbers behind the dates change the balance — which is why couples who check compatibility by birthdate often run both versions and compare.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              The tool on this page reads names only, so if you want the birth-date half as well, run a dob compatibility check with both birth dates — the <button type="button" onClick={() => onNavigate('/love-calculator-by-date-of-birth/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love calculator by date of birth</button> page does exactly that. Birth compatibility works the same way in reverse: two people born days apart often share a rhythm in how they talk and plan, and a compatible birthday reading simply puts that feeling into a number.
+              The tool on this page reads names only, so if you want the birth-date half as well, run a dob compatibility check with both birth dates — the <a href="/love-calculator-by-date-of-birth/" onClick={(e) => { e.preventDefault(); onNavigate('/love-calculator-by-date-of-birth/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">love calculator by date of birth</a> page does exactly that. Birth compatibility works the same way in reverse: two people born days apart often share a rhythm in how they talk and plan, and a compatible birthday reading simply puts that feeling into a number.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Astrology reads the question from the sky instead of the alphabet. A nakshatra compatibility calculator looks at the Moon's nakshatra for each partner — the lunar mansion each person was born under — and compares them the way guna milan compares whole charts. It is a narrower read than a full <button type="button" onClick={() => onNavigate('/kundali-matching/')} className="text-rose-600 font-semibold underline hover:text-rose-700">Kundali Matching</button> check, but for couples who already know their birth stars it answers the question fast. Name matching astrology works the same way in reverse: it starts from the names and checks them against the chart, which is why an astrology love compatibility reading and a name-based one can disagree — they are measuring different things, and a compatibility test astrology fans trust will usually show its working so you can see which half carried the score.
+              Astrology reads the question from the sky instead of the alphabet. A nakshatra compatibility calculator looks at the Moon's nakshatra for each partner — the lunar mansion each person was born under — and compares them the way guna milan compares whole charts. It is a narrower read than a full <a href="/kundali-matching/" onClick={(e) => { e.preventDefault(); onNavigate('/kundali-matching/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">Kundali Matching</a> check, but for couples who already know their birth stars it answers the question fast. Name matching astrology works the same way in reverse: it starts from the names and checks them against the chart, which is why an astrology love compatibility reading and a name-based one can disagree — they are measuring different things, and a compatibility test astrology fans trust will usually show its working so you can see which half carried the score.
             </p>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Numerology reads the pair through numbers instead of stars. In name matching numerology, each letter becomes a number, the two names reduce to two root numbers, and the pair is read for how those numbers work together — you can work out your own root numbers on the <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button> page. The numerology 4 and 7 love compatibility pairing is the one people search for most, so it sits first in the number compatibility chart below — steady 4 beside questioning 7. Read the pair that matches your two numbers and see whether the description fits how the two of you actually talk, plan and argue.
+              Numerology reads the pair through numbers instead of stars. In name matching numerology, each letter becomes a number, the two names reduce to two root numbers, and the pair is read for how those numbers work together — you can work out your own root numbers on the <a href="/numerology/name-numerology/" onClick={(e) => { e.preventDefault(); onNavigate('/numerology/name-numerology/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</a> page. The numerology 4 and 7 love compatibility pairing is the one people search for most, so it sits first in the number compatibility chart below — steady 4 beside questioning 7. Read the pair that matches your two numbers and see whether the description fits how the two of you actually talk, plan and argue.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
               <div className="rounded-2xl bg-slate-50 border border-slate-200/80 overflow-hidden">
@@ -611,7 +611,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
         <div className="pt-6 border-t border-rose-100 text-xs text-slate-600 leading-relaxed">
           <h4 className="font-bold text-slate-900 mb-2">Check Love Compatibility by Name: Practical Tips</h4>
           <p>
-            When performing a compatibility check by name, consider both formal legal names and everyday nicknames. Looking for a traditional pen-and-paper experience? You can also try our classic <button type="button" onClick={() => onNavigate('/love-percentage-on-paper/')} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper method</button> or explore numerical vibration through our <button type="button" onClick={() => onNavigate('/numerology/name-numerology/')} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</button>.
+            When performing a compatibility check by name, consider both formal legal names and everyday nicknames. Looking for a traditional pen-and-paper experience? You can also try our classic <a href="/love-percentage-on-paper/" onClick={(e) => { e.preventDefault(); onNavigate('/love-percentage-on-paper/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">love percentage on paper method</a> or explore numerical vibration through our <a href="/numerology/name-numerology/" onClick={(e) => { e.preventDefault(); onNavigate('/numerology/name-numerology/'); }} className="text-rose-600 font-semibold underline hover:text-rose-700">name numerology calculator</a>.
           </p>
         </div>
       </section>
@@ -622,9 +622,12 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
           Explore Other Popular Love &amp; Compatibility Tests
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-calculator/')}
+          <a
+            href="/love-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-rose-200 text-left hover:border-rose-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-rose-600 group-hover:text-rose-700 block mb-1">
@@ -633,11 +636,14 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Our complete 4-pillar true love percentage tool with downloadable certificate.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/crush-calculator/')}
+          <a
+            href="/crush-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/crush-calculator/');
+            }}
             className="p-4 rounded-2xl bg-white border border-rose-200 text-left hover:border-rose-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-rose-600 group-hover:text-rose-700 block mb-1">
@@ -646,11 +652,14 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Test secret crush chemistry and confession readiness between you and your crush.
             </p>
-          </button>
+          </a>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/love-percentage-on-paper/')}
+          <a
+            href="/love-percentage-on-paper/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/love-percentage-on-paper/');
+            }}
             className="p-4 rounded-2xl bg-white border border-rose-200 text-left hover:border-rose-300 transition-colors shadow-2xs group"
           >
             <span className="text-xs font-bold text-rose-600 group-hover:text-rose-700 block mb-1">
@@ -659,7 +668,7 @@ export const NameCompatibilityPage: React.FC<Props> = ({ onNavigate }) => {
             <p className="text-[11px] text-slate-500 leading-relaxed">
               Learn how to calculate love percentage on paper with step-by-step instructions.
             </p>
-          </button>
+          </a>
         </div>
       </section>
 
