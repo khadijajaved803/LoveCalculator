@@ -249,7 +249,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
 
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-4 border border-rose-200/80 shadow-2xs">
           <Sparkles className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-          <span>India&apos;s #1 Platform to Calculate Love Online</span>
+          <span>Free Love, Astrology &amp; Numerology Calculators</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight font-display mb-4 text-balance">
