@@ -27,6 +27,9 @@ import {
   Download,
 } from 'lucide-react';
 import loveCertificateImage from '../assets/images/love_certificate_showcase_1792223212819.jpg';
+import homeHowToImage from '../assets/images/home-how-to-calculate-love-percentage.webp';
+import homeLoveMeterImage from '../assets/images/home-love-meter-score.webp';
+import homeFiveLanguagesImage from '../assets/images/home-five-love-languages.webp';
 
 interface Props {
   onNavigate: (path: string) => void;
@@ -136,6 +139,54 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
       icon: Sparkles,
       color: 'text-amber-600 bg-amber-50 border-amber-200',
     },
+    {
+      title: 'Kundali Matching',
+      sub: '36 Guna Milan Check',
+      path: '/kundali-matching/',
+      desc: 'Check 36-guna Kundli Milan, dosha matching and marriage compatibility the traditional Vedic way.',
+      icon: Gem,
+      color: 'text-purple-600 bg-purple-50 border-purple-200',
+    },
+    {
+      title: 'Love Horoscope',
+      sub: 'Daily Love Reading',
+      path: '/love-horoscope/',
+      desc: 'Read your daily love horoscope for your zodiac sign, for singles and couples, in English or Hindi.',
+      icon: Sparkles,
+      color: 'text-pink-600 bg-pink-50 border-pink-200',
+    },
+    {
+      title: 'When Will I Get Married',
+      sub: 'Marriage Age Prediction',
+      path: '/when-will-i-get-married/',
+      desc: 'Find your likely marriage age window from your birth date using Vedic planetary sub-periods.',
+      icon: Calendar,
+      color: 'text-rose-600 bg-rose-50 border-rose-200',
+    },
+    {
+      title: 'Life Path Calculator',
+      sub: 'Numerology Life Path',
+      path: '/life-path-calculator/',
+      desc: 'Calculate your Life Path number from your birth date and see how two life paths match.',
+      icon: Percent,
+      color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
+    },
+    {
+      title: 'Birth Chart Calculator',
+      sub: 'Natal Chart Reading',
+      path: '/birth-chart-calculator/',
+      desc: 'Draw your full birth chart and read the planetary placements shaping your love life.',
+      icon: Compass,
+      color: 'text-amber-600 bg-amber-50 border-amber-200',
+    },
+    {
+      title: 'Zodiac Signs',
+      sub: 'All 12 Sun Signs',
+      path: '/zodiac-signs/',
+      desc: 'Explore all 12 zodiac signs and check love compatibility between any two signs.',
+      icon: Heart,
+      color: 'text-amber-600 bg-amber-50 border-amber-200',
+    },
   ];
 
   const highVolumeFaqs = [
@@ -167,22 +218,37 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
 
   const schemaJson = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    'name': 'Calculate Love',
-    'url': 'https://calculatelove.online/',
-    'description': 'Free Love Calculator, FLAMES game, and relationship compatibility platform with authentic card sharing for India.',
-    'potentialAction': {
-      '@type': 'SearchAction',
-      'target': 'https://calculatelove.online/blog/?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        'name': 'Calculate Love',
+        'url': 'https://calculatelove.online/',
+        'description': 'Free Love Calculator, FLAMES game, and relationship compatibility platform with authentic card sharing for India.',
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': 'https://calculatelove.online/blog/?q={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        'mainEntity': highVolumeFaqs.map((faq) => ({
+          '@type': 'Question',
+          'name': faq.q,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': faq.a,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <div className="w-full overflow-x-hidden">
       <SEOHead
         title="Calculate Love - Real Love Calculator by Name"
-        description="Free online Love Calculator to calculate love percentage by name. Use our accurate Real Love Calculator for instant compatibility, FLAMES, and couple analysis."
+        description="Free Love Calculator to calculate love percentage by name. Real love meter, love tester, FLAMES and love quizzes — instant compatibility, no sign-up."
         canonicalPath="/"
         schemaJson={schemaJson}
       />
@@ -202,7 +268,7 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-8 text-balance">
-          Looking to calculate love and discover your true love percentage? Use our deterministic Real Love Calculator, check your name compatibility test, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
+          Looking to calculate love and discover your true love percentage? Our deterministic Real Love Calculator works as a love meter and love tester — check your name compatibility, test mutual chemistry with age and couple vibes, play authentic FLAMES, and download high-resolution shareable cards.
         </p>
 
         {/* Action Buttons - 3 horizontal buttons on tablet/desktop, stacked on small mobile */}
@@ -487,11 +553,11 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             Popular Relationship &amp; Love Calculator Tools
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Each tool is specifically calibrated to calculate love, evaluate friendship loyalty, and explore relationship compatibility stages.
+            Each tool is specifically calibrated to calculate love, check your love match by name, evaluate friendship loyalty, and explore relationship compatibility stages.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {secondaryTools.map((tool) => {
             const Icon = tool.icon;
             return (
@@ -526,6 +592,290 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* NEW SEO Section: How to Calculate Love Percentage */}
+      <section className="px-4 sm:px-6 max-w-6xl mx-auto mb-16 sm:mb-20">
+        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <span className="inline-block px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-3 border border-rose-100">
+                Step-by-Step Guide
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
+                How to Calculate Love Percentage in 3 Simple Steps
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                If you have ever wondered how to do love percentage maths — on paper or online — here is the simple version. This love percentage calculator by name works in three steps, and you can calculate love percentage by name in under a minute, with no sign-up and no download. Our relationship calculator does the same sum in seconds, and the steps below show exactly what happens behind the score.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs shrink-0">
+                    01
+                  </div>
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900">Enter both names</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Type both names into the love calculator name boxes above to find your true love name match. This is a name love calculator at heart: the sound, letters and rhythm of the two names decide the base score, so spell them the way you actually say them.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs shrink-0">
+                    02
+                  </div>
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900">Add age and vibe</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Age and couple vibe fine-tune the result. Two people at the same stage of life, with a shared vibe, read differently from a brand-new crush — that is why the same names can score differently when the details change.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <div className="w-7 h-7 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs shrink-0">
+                    03
+                  </div>
+                  <div>
+                    <h3 className="text-xs sm:text-sm font-bold text-slate-900">Read your love score</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      You get a love score from 0 to 100, a short reading of what it means, and a certificate card to share. Think of it as a love estimator: it estimates chemistry from names and details, the way a forecast estimates rain. Use this love score calculator as a fun check, not a verdict — the percentage of love between you and your partner is a starting point for a conversation, not a final answer. That is the whole name love test: three steps, one number, and a card to share.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                Prefer the old-school way? Our paper guide shows how to calculate love percentage with names using only a pen — count the letters, cancel the common ones, and add the pairs until one number is left. That is the classic love test paper game, and it is also how to find love percentage when you have no phone in hand.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={() => onNavigate('/love-calculator/')}
+                  className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
+                >
+                  <span>Try the Love Calculator</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('/how-to-calculate-love-percentage/')}
+                  className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
+                >
+                  <span>Read the Paper Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <img
+                src={homeHowToImage}
+                alt="How to calculate love percentage in three steps with the CalculateLove love calculator"
+                className="w-full h-auto rounded-2xl border border-slate-200 shadow-sm"
+                loading="lazy"
+              />
+              <p className="text-center text-[11px] text-slate-500 mt-2 font-medium italic">
+                Three steps: names, details, and your love score
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SEO Section: Love Meter & Love Tester */}
+      <section className="px-4 sm:px-6 max-w-6xl mx-auto mb-16 sm:mb-20">
+        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <img
+                src={homeLoveMeterImage}
+                alt="Love meter showing a love score from 0 to 100 on the CalculateLove love tester"
+                className="w-full h-auto rounded-2xl border border-slate-200 shadow-sm"
+                loading="lazy"
+              />
+              <p className="text-center text-[11px] text-slate-500 mt-2 font-medium italic">
+                Your love meter score, from 0 to 100
+              </p>
+            </div>
+
+            <div>
+              <span className="inline-block px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-bold mb-3 border border-rose-100">
+                Love Meter &amp; Tester
+              </span>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-4">
+                Love Meter: How Our Love Tester Reads Your Score
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                A love meter — love metre in British spelling — is the 0 to 100 scale behind the percentage. When people search for a love tester, a love checker or a real love test, they are all looking for the same thing: a quick, honest number for how two people match. You can take the love test online in under a minute, and our love test calculator gives you that number. Here is what the number actually means.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
+                  <div className="font-bold text-rose-600 flex justify-between">
+                    <span>90 – 100</span>
+                    <span>Rab Ne Bana Di Jodi</span>
+                  </div>
+                  <p className="text-slate-600 mt-1 text-xs">The names line up on almost every dimension — communication, warmth, passion and longevity all read high.</p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
+                  <div className="font-bold text-pink-600 flex justify-between">
+                    <span>78 – 89</span>
+                    <span>Deep Connection &amp; Sukoon</span>
+                  </div>
+                  <p className="text-slate-600 mt-1 text-xs">Strong, steady chemistry with room to grow closer.</p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
+                  <div className="font-bold text-amber-600 flex justify-between">
+                    <span>65 – 77</span>
+                    <span>Masaledaar Chemistry</span>
+                  </div>
+                  <p className="text-slate-600 mt-1 text-xs">Plenty of spark and playful energy; the bond deepens with time together.</p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
+                  <div className="font-bold text-slate-600 flex justify-between">
+                    <span>Below 65</span>
+                    <span>Growing Bond</span>
+                  </div>
+                  <p className="text-slate-600 mt-1 text-xs">A new or still-forming connection. The score is a starting point, not a limit.</p>
+                </div>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                If you were looking for a true love calculator, you are in the right place — the meter on this page is the calculator. Check your love meter by name with the tool at the top of this page, and remember: the meter reads relationship compatibility, not fate. Two people with a 70 can build something wonderful, and two people with a 95 still have to do the work.
+              </p>
+              <button
+                type="button"
+                onClick={() => onNavigate('/love-calculator/')}
+                className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs inline-flex items-center gap-2 min-h-[40px]"
+              >
+                <span>Take the Love Meter Test</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SEO Section: Love Quizzes, 36 Questions & Five Love Languages */}
+      <section className="px-4 sm:px-6 max-w-6xl mx-auto mb-16 sm:mb-20">
+        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-sm">
+          <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block mb-2">
+            Quizzes, Questions &amp; Languages
+          </span>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 font-display mb-3">
+            Love Quizzes, the 36 Questions, and the Five Love Languages
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 max-w-3xl">
+            Not every question about love has a percentage. Sometimes you want a quiz, sometimes you want the right questions to ask, and sometimes you want to understand how your partner actually feels loved. Here is how each of those works on this site.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+            <div className="p-5 rounded-2xl bg-rose-50/40 border border-rose-100 flex flex-col justify-between">
+              <div>
+                <h3 className="text-xs sm:text-sm font-bold text-slate-900 mb-2">Love quizzes and test questions</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  A love quiz is a set of questions with a scored answer. Our crush calculator works like a short love test quiz, and relationship quizzes like these are the fastest way to learn something real about a match. Good love test questions ask about real behaviour — how you argue, how you apologise, what you do on a bad day — not just favourite colours. In short, quizzes are for testing love with questions, while the calculator tests it with names. That is relationship testing at its simplest: questions, not guesses.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  The most famous set is the Dr Arthur Aron 36 questions — the 36 questions to fall in love, first published in the New York Times. What are the 36 questions to fall in love? They are 36 questions that lead to love by getting two people to share something personal, in three rounds that get gradually deeper. People call them the 36 love questions for short. We don&apos;t have a 36-question tool on this site, but the questions themselves are worth trying on a long walk: they are questions to ask your boyfriend to test his love, or your girlfriend, or a friend you are getting to know.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  If you are searching for a does my boyfriend love me quiz, start with the crush calculator instead — it measures the same chemistry honestly, and no quiz can answer that question for you.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  And if you want something lighter, FLAMES is the love game most of us grew up playing on the back page of a notebook — the classic love calculator game, now with the maths done for you. It doubles as a love tester game for friends, crushes and couples.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <button
+                  type="button"
+                  onClick={() => onNavigate('/crush-calculator/')}
+                  className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-rose-200"
+                >
+                  <Heart className="w-3.5 h-3.5 text-rose-600" />
+                  <span>Crush Calculator</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('/flames-calculator/')}
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
+                >
+                  <Flame className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Play FLAMES</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-purple-50/40 border border-purple-100 flex flex-col justify-between">
+              <div>
+                <img
+                  src={homeFiveLanguagesImage}
+                  alt="Five love languages: words of affirmation, quality time, receiving gifts, acts of service and physical touch"
+                  className="w-full h-auto rounded-2xl border border-purple-100 shadow-2xs mb-4"
+                  loading="lazy"
+                />
+                <h3 className="text-xs sm:text-sm font-bold text-slate-900 mb-2">The five love languages</h3>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  What are the five languages of love? They are five ways to show love — words of affirmation, quality time, receiving gifts, acts of service and physical touch. The idea is simple: people feel loved in different languages, and most arguments about &ldquo;you don&apos;t love me&rdquo; are really arguments about speaking the wrong one. In practice, the five languages show up as 5 kinds of love — five different ways partners ask to be cared for.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                  Take the 5 languages of love test to find your own language, or try the 5 languages of love assessment together and compare results.
+                </p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Numerology readers also look at your love numbers — the numbers that mean love when they come from your birth date. That is why the same idea links to the Life Path calculator.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <button
+                  type="button"
+                  onClick={() => onNavigate('/love-language-test/')}
+                  className="px-4 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-purple-200"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-purple-600" />
+                  <span>Love Language Test</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('/life-path-calculator/')}
+                  className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-slate-600" />
+                  <span>Life Path Calculator</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-amber-50/70 border border-amber-200">
+            <h3 className="text-xs sm:text-sm font-bold text-slate-900 mb-2">Today&apos;s love, every day</h3>
+            <p className="text-xs text-slate-600 leading-relaxed mb-4">
+              Check today&apos;s love reading in the love horoscope — your daily romance horoscope, updated every morning — see your love match by date of birth, or read a love prediction about when you might marry. The DOB tool is also the love percentage calculator by date of birth: same page, same calculation, a different lens on the same two people.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => onNavigate('/love-horoscope/')}
+                className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-white" />
+                <span>Today&apos;s Love Horoscope</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => onNavigate('/love-calculator-by-date-of-birth/')}
+                className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-amber-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
+              >
+                <Calendar className="w-3.5 h-3.5 text-slate-600" />
+                <span>Love Match by Date of Birth</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => onNavigate('/when-will-i-get-married/')}
+                className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-amber-200 text-slate-800 font-bold text-xs flex items-center gap-1.5 min-h-[38px]"
+              >
+                <Gem className="w-3.5 h-3.5 text-purple-600" />
+                <span>When Will I Marry?</span>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -572,24 +922,31 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
               <div className="space-y-3 text-xs">
                 <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
                   <div className="font-bold text-rose-600 flex justify-between">
-                    <span>88% – 98%</span>
+                    <span>90% – 100%</span>
                     <span>Rab Ne Bana Di Jodi</span>
                   </div>
                   <p className="text-slate-600 mt-1">Natural chemistry, deep mutual laughter, and comfort in silence.</p>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
                   <div className="font-bold text-pink-600 flex justify-between">
-                    <span>75% – 87%</span>
-                    <span>Solid Sukoon & Care</span>
+                    <span>78% – 89%</span>
+                    <span>Deep Connection &amp; Sukoon</span>
                   </div>
                   <p className="text-slate-600 mt-1">Mutual respect, protective affection, and uplifting support.</p>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
                   <div className="font-bold text-amber-600 flex justify-between">
-                    <span>60% – 74%</span>
-                    <span>Opposites Attract</span>
+                    <span>65% – 77%</span>
+                    <span>Masaledaar Chemistry</span>
                   </div>
                   <p className="text-slate-600 mt-1">Playful banter, complementary styles, and exciting discoveries.</p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs">
+                  <div className="font-bold text-slate-600 flex justify-between">
+                    <span>Below 65%</span>
+                    <span>Growing Bond</span>
+                  </div>
+                  <p className="text-slate-600 mt-1">A new or still-forming connection — the score is a starting point, not a limit.</p>
                 </div>
               </div>
             </div>
@@ -800,6 +1157,15 @@ export const HomePage: React.FC<Props> = ({ onNavigate }) => {
             </p>
 
             <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => onNavigate('/kundali-matching/')}
+                className="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 min-h-[38px] border border-rose-200"
+              >
+                <Gem className="w-3.5 h-3.5 text-rose-600" />
+                <span>Kundli Matching (36 Guna)</span>
+              </button>
+
               <button
                 type="button"
                 onClick={() => onNavigate('/name-compatibility/')}
