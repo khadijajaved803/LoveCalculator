@@ -13,8 +13,11 @@
  *
  * Honesty: everything is an astrological indication ("the chart favours…"),
  * never a guaranteed day. A date-only reading gives an age RANGE only.
- * The marriage window is the first favourable dasha period at or after age 18
- * that is still ahead of the person's current age.
+ * The marriage window is the first favourable ANTARDASHA (sub-period) at or
+ * after age 18 that is still ahead of the person's current age. A mahadasha
+ * can run 16–20 years, so waiting for a favourable mahadasha could push the
+ * window decades out; the sub-periods inside the current mahadasha are what
+ * a real reading looks at for timing, and they give the nearer window.
  */
 
 import { generateBirthChart, calculateAscendant } from './birthChartEngine';
@@ -68,6 +71,7 @@ export interface MarriageWorking {
   seventhLord: string;
   venusSign: string;
   jupiterSign: string;
+  /** The antardasha (sub-period) that sets the marriage window, and its ages. */
   dashaAtMarriage: string;
   dashaStartAge: number;
   dashaEndAge: number;
@@ -145,6 +149,31 @@ function buildDashaTimeline(nakshatraId: number, moonPada: number): DashaPeriod[
 }
 
 const FAVOURABLE_DASHA_LORDS = ['Venus', 'Jupiter', 'Moon'];
+
+/**
+ * Antardashas (sub-periods) inside one mahadasha. They follow the same
+ * Vimshottari order, starting with the mahadasha lord itself; a sub-period
+ * of lord A inside mahadasha M lasts (M years × A years) / 120. Durations
+ * are scaled to the period's actual length, so the partial birth dasha
+ * tiles exactly; full periods use the classical lengths. The last
+ * sub-period is clamped to the mahadasha's end to absorb float drift.
+ */
+function buildAntardashas(maha: DashaPeriod): DashaPeriod[] {
+  const mYears = DASHA_YEARS[maha.lord];
+  const periodYears = maha.endAge - maha.startAge;
+  const scale = mYears > 0 ? periodYears / mYears : 0;
+  const startIdx = DASHA_ORDER.indexOf(maha.lord);
+  const out: DashaPeriod[] = [];
+  let age = maha.startAge;
+  for (let i = 0; i < DASHA_ORDER.length; i++) {
+    const lord = DASHA_ORDER[(startIdx + i) % DASHA_ORDER.length];
+    const years = ((mYears * DASHA_YEARS[lord]) / 120) * scale;
+    const endAge = i === DASHA_ORDER.length - 1 ? maha.endAge : age + years;
+    out.push({ lord, startAge: age, endAge });
+    age = endAge;
+  }
+  return out;
+}
 
 export function predictMarriage(
   dob: string,
@@ -265,17 +294,33 @@ export function predictMarriage(
   const favourable = (lord: string) =>
     FAVOURABLE_DASHA_LORDS.includes(lord) || lord === seventhLord;
 
+  // Marriage window: the first favourable ANTARDASHA (sub-period) ending
+  // after age 18 and after the person's current age. Scanning sub-periods
+  // instead of whole mahadashas is what keeps the window near: a mahadasha
+  // can run 16–20 years, so the next favourable mahadasha alone could sit
+  // decades ahead, while a favourable sub-period turns up within a few
+  // years inside the dasha already running.
+  const earliest = Math.max(18, currentAge);
   let windowPeriod: DashaPeriod | undefined;
-  for (const p of timeline) {
-    if (!favourable(p.lord)) continue;
-    if (p.endAge <= Math.max(18, currentAge)) continue;
-    windowPeriod = p;
-    break;
+  outer: for (const maha of timeline) {
+    if (maha.endAge <= earliest) continue;
+    for (const antara of buildAntardashas(maha)) {
+      if (!favourable(antara.lord)) continue;
+      if (antara.endAge <= earliest) continue;
+      windowPeriod = antara;
+      break outer;
+    }
   }
-  if (!windowPeriod) windowPeriod = timeline[timeline.length - 1];
+  if (!windowPeriod) {
+    const lastMaha = timeline[timeline.length - 1];
+    windowPeriod = buildAntardashas(lastMaha).pop() as DashaPeriod;
+  }
 
-  const rangeStart = Math.max(18, currentAge, Math.ceil(windowPeriod.startAge));
+  const rangeStart = Math.max(18, currentAge, Math.floor(windowPeriod.startAge));
   // Always a range of at least two years (e.g. 27–28), never a single year.
+  // floor (not ceil) on the start so a short sub-period still overlaps the
+  // window it sets — ceil could push the window past a sub-period shorter
+  // than a year.
   const rangeEnd = Math.max(rangeStart + 1, Math.min(Math.floor(windowPeriod.endAge), rangeStart + 2));
   const marriageAgeRange: [number, number] = [rangeStart, rangeEnd];
 
