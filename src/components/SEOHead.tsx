@@ -56,6 +56,28 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
     const ogType = document.querySelector('meta[property="og:type"]');
     if (ogType) ogType.setAttribute('content', type);
 
+    // 4b. OpenGraph + Twitter Image (single branded site-wide card)
+    const ogImage =
+      document.querySelector('meta[property="og:image"]') ||
+      document.createElement('meta');
+    ogImage.setAttribute('property', 'og:image');
+    ogImage.setAttribute('content', 'https://calculatelove.online/og-image.jpg');
+    if (!ogImage.parentElement) document.head.appendChild(ogImage);
+
+    const twitterImage =
+      document.querySelector('meta[name="twitter:image"]') ||
+      document.createElement('meta');
+    twitterImage.setAttribute('name', 'twitter:image');
+    twitterImage.setAttribute('content', 'https://calculatelove.online/og-image.jpg');
+    if (!twitterImage.parentElement) document.head.appendChild(twitterImage);
+
+    const twitterCard =
+      document.querySelector('meta[name="twitter:card"]') ||
+      document.createElement('meta');
+    twitterCard.setAttribute('name', 'twitter:card');
+    twitterCard.setAttribute('content', 'summary_large_image');
+    if (!twitterCard.parentElement) document.head.appendChild(twitterCard);
+
     // 5. Inject Structured Data if provided
     let scriptTag = document.getElementById('page-structured-data');
     if (schemaJson) {
