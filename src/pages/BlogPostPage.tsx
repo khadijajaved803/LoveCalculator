@@ -58,13 +58,16 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
         <p className="text-sm text-slate-600 mb-6">
           The guide you are looking for may have been moved or updated.
         </p>
-        <button
-          type="button"
-          onClick={() => onNavigate('/blog/')}
+        <a
+          href="/blog/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('/blog/');
+          }}
           className="px-5 py-2.5 rounded-xl bg-rose-600 text-white font-semibold text-xs"
         >
           Return to Blog Index
-        </button>
+        </a>
       </div>
     );
   }
@@ -145,14 +148,17 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onNavigate }) => {
             Want to test this directly? Calculate your score with our free tool.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => onNavigate(post.relatedCalculatorUrl)}
+        <a
+          href={post.relatedCalculatorUrl}
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate(post.relatedCalculatorUrl);
+          }}
           className="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-[0.99] text-white font-semibold text-xs transition-colors shrink-0 flex items-center gap-1.5"
         >
           <span>Open Calculator</span>
           <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        </a>
       </div>
 
       {/* Article Body */}
