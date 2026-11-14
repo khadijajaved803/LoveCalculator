@@ -370,14 +370,14 @@ export const KundaliDisplayCard: React.FC<KundaliDisplayCardProps> = ({
                   <Heart className="w-4 h-4 text-rose-600" />
                   <span>Marriage, Romance &amp; Spouse (7th House)</span>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('/kundali-matching/')}
+                <a
+                  href="/kundali-matching/"
+                  onClick={(e) => { e.preventDefault(); onNavigate('/kundali-matching/'); }}
                   className="text-xs text-rose-600 hover:text-rose-700 font-bold flex items-center gap-1"
                 >
                   <span>Match Kundali (36 Gunas)</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
               <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
                 {report.predictions.marriage}
@@ -432,14 +432,14 @@ export const KundaliDisplayCard: React.FC<KundaliDisplayCardProps> = ({
             <span className="hidden sm:inline">Print / Save Report</span>
           </button>
 
-          <button
-            type="button"
-            onClick={() => onNavigate('/kundali-matching/')}
+          <a
+            href="/kundali-matching/"
+            onClick={(e) => { e.preventDefault(); onNavigate('/kundali-matching/'); }}
             className="py-3 px-4 rounded-xl text-xs font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 border border-amber-300 transition-all flex items-center justify-center gap-1.5"
           >
             <Heart className="w-4 h-4 text-rose-600" />
             <span>Kundali Matching</span>
-          </button>
+          </a>
 
           <button
             type="button"

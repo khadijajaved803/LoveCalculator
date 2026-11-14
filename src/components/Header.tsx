@@ -153,10 +153,11 @@ const DesktopDropdown: React.FC<{
             {dropdown.items.map((item) => {
               const isActive = currentPath === item.path;
               return (
-                <button
+                <a
                   key={item.path}
-                  type="button"
-                  onClick={() => {
+                  href={item.path}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onNavigate(item.path);
                     setOpen(false);
                   }}
@@ -169,7 +170,7 @@ const DesktopDropdown: React.FC<{
                   {item.icon && <span className="shrink-0">{item.icon}</span>}
                   <span className="font-medium">{item.label}</span>
                   {isActive && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />}
-                </button>
+                </a>
               );
             })}
           </div>
@@ -233,10 +234,13 @@ const MobileAccordion: React.FC<{
           {dropdown.items.map((item) => {
             const isActive = currentPath === item.path;
             return (
-              <button
+              <a
                 key={item.path}
-                type="button"
-                onClick={() => onNavigate(item.path)}
+                href={item.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavigate(item.path);
+                }}
                 className={`w-full text-left pl-5 pr-3 py-3 min-h-[48px] flex items-center gap-3 rounded-xl transition-all active:scale-[0.98] ${
                   isActive
                     ? 'bg-rose-50 text-rose-700 shadow-sm'
@@ -265,7 +269,7 @@ const MobileAccordion: React.FC<{
                 ) : (
                   <ChevronRight className="ml-auto w-3.5 h-3.5 text-slate-300 shrink-0" />
                 )}
-              </button>
+              </a>
             );
           })}
         </div>
@@ -330,16 +334,19 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 h-14 sm:h-16 flex items-center gap-2">
           {/* Brand Logo — single instance, wordmark hidden on mobile via CSS */}
-          <button
-            type="button"
-            onClick={() => handleLinkClick('/')}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLinkClick('/');
+            }}
             className="flex items-center gap-2 text-left group min-w-0 shrink-0"
           >
             <CalculateLoveLogo
               size={36}
               showWordmark={true}
             />
-          </button>
+          </a>
 
           {/* ─── Desktop Navigation — centred ─────────────────────────────── */}
           <nav className="hidden lg:flex flex-1 items-center justify-center gap-0.5 xl:gap-1 text-xs font-semibold text-slate-600">
@@ -348,10 +355,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 const { link } = item;
                 const isActive = currentPath === link.path;
                 return (
-                  <button
+                  <a
                     key={link.path}
-                    type="button"
-                    onClick={() => handleLinkClick(link.path)}
+                    href={link.path}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinkClick(link.path);
+                    }}
                     className={`px-3 py-2 rounded-xl transition-all whitespace-nowrap ${
                       isActive
                         ? 'bg-rose-50 text-rose-700 font-bold'
@@ -359,7 +369,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                     }`}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 );
               } else {
                 return (
@@ -375,14 +385,17 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           </nav>
 
           {/* ─── Calculate Love CTA (desktop, far right) ──────────────────── */}
-          <button
-            type="button"
-            onClick={() => handleLinkClick('/love-calculator/')}
+          <a
+            href="/love-calculator/"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLinkClick('/love-calculator/');
+            }}
             className="hidden lg:flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-700 hover:to-pink-700 transition-all shadow-md active:scale-[0.98] whitespace-nowrap shrink-0"
           >
             <Heart className="w-4 h-4 fill-white/90" />
             <span>Calculate Love</span>
-          </button>
+          </a>
 
           {/* ─── Mobile Menu Toggle ─────────────────────────────────────── */}
           <button
@@ -426,10 +439,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 {topLevelLinks.map((link) => {
                   const isActive = currentPath === link.path;
                   return (
-                    <button
+                    <a
                       key={link.path}
-                      type="button"
-                      onClick={() => handleLinkClick(link.path)}
+                      href={link.path}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleLinkClick(link.path);
+                      }}
                       className={`w-full text-left px-4 py-3.5 min-h-[56px] flex items-center gap-3 rounded-2xl transition-all active:scale-[0.98] ${
                         isActive
                           ? 'bg-gradient-to-r from-rose-50 to-pink-50 text-rose-700 shadow-sm border border-rose-100'
@@ -458,7 +474,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                       ) : (
                         <ChevronRight className="ml-auto w-4 h-4 text-slate-300 shrink-0" />
                       )}
-                    </button>
+                    </a>
                   );
                 })}
               </div>
@@ -490,15 +506,18 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
 
               {/* ─── Quick Access CTA ─── */}
               <div className="mt-6 px-1">
-                <button
-                  type="button"
-                  onClick={() => handleLinkClick('/love-calculator/')}
+                <a
+                  href="/love-calculator/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick('/love-calculator/');
+                  }}
                   className="w-full py-3.5 px-5 rounded-2xl text-center text-[15px] font-bold text-white bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-700 hover:to-pink-700 transition-all shadow-md active:scale-[0.98] min-h-[52px] flex items-center justify-center gap-2.5"
                 >
                   <Heart className="w-5 h-5 fill-white/90" />
                   <span>Calculate Love</span>
                   <Sparkles className="w-4 h-4 fill-white/60 text-white/80" />
-                </button>
+                </a>
                 <p className="text-center text-[11px] text-slate-400 mt-2">
                   Free love calculator — try it now!
                 </p>

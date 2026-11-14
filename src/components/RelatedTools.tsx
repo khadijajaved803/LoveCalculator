@@ -30,12 +30,13 @@ export const RelatedTools: React.FC<RelatedToolsProps> = ({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((tool) => (
-          <div
+          <a
             key={tool.id}
-            onClick={() => onNavigate(tool.path)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && onNavigate(tool.path)}
+            href={tool.path}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate(tool.path);
+            }}
             className="p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-rose-300 hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
           >
             <div>
@@ -61,7 +62,7 @@ export const RelatedTools: React.FC<RelatedToolsProps> = ({
               <span>Try Tool</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
