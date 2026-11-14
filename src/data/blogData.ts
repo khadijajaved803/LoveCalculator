@@ -4,6 +4,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'how-love-calculator-works',
     title: 'How Online Love Calculators Work: Formulas, Names & Compatibility',
+    seoTitle: 'How Online Love Calculators Work',
     description: 'Understand the mathematics behind name-based love calculators, character hashing, and why deterministic matching offers fun relationship insights.',
     date: '2026-03-15',
     updated: '2026-09-28',
@@ -29,6 +30,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'what-does-love-percentage-mean',
     title: 'What Does Your Love Percentage Score Really Mean? A Complete Guide',
+    seoTitle: 'What Your Love Percentage Score Means',
     description: 'Received a 75% or 95% love score? Discover how compatibility percentages translate to communication, emotional security, and shared goals.',
     date: '2026-03-20',
     updated: '2026-11-14',
@@ -37,7 +39,7 @@ export const BLOG_POSTS: BlogPost[] = [
     primaryKeyword: 'love percentage',
     secondaryKeywords: ['love score calculator', 'love percentage meaning', 'relationship compatibility test'],
     readTime: '6 min read',
-    relatedCalculatorUrl: '/love-percentage-calculator/',
+    relatedCalculatorUrl: '/love-calculator/',
     content: [
       `When you test your relationship on a love percentage calculator, seeing a high number feels exhilarating. But what do the numbers actually signify, and how should a couple interpret scores across different bands?`,
       `### Understanding Compatibility Tiers`,
@@ -69,6 +71,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'love-vs-arranged-marriage',
     title: 'Love Marriage vs. Arranged Marriage: Compatibility in Modern India',
+    seoTitle: 'Love Marriage vs. Arranged Marriage',
     description: 'Explore the modern evolution of Indian matrimonial partnerships, blending romance with family blessing, and testing your relationship alignment.',
     date: '2026-04-02',
     updated: '2026-09-25',
@@ -94,6 +97,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'how-flames-calculator-works',
     title: 'How FLAMES Works: The Mathematical Guide to the Classic Nostalgic Game',
+    seoTitle: 'How FLAMES Works: The Classic Game',
     description: 'Learn the exact rules of the FLAMES test: letter cancellation, count elimination, and the nostalgic history of India’s favourite school pastime.',
     date: '2026-04-10',
     updated: '2026-09-27',
@@ -126,6 +130,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'love-compatibility-by-date-of-birth',
     title: 'Date of Birth Love Compatibility: Life Paths & Numerology Explained',
+    seoTitle: 'Date of Birth Love Compatibility',
     description: 'Discover how birth dates reveal personality vibrations, Life Path harmony, and why birth numbers offer a grounded framework for mutual understanding.',
     date: '2026-04-18',
     updated: '2026-11-14',
@@ -167,6 +172,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'what-is-a-soulmate',
     title: 'What Is a Soulmate? Myths, Science & Signs of Genuine Connection',
+    seoTitle: 'What Is a Soulmate? Myths & Signs',
     description: 'Debunking fairy tale myths about soulmates: understand real emotional safety, somatic calm, and the psychology of lasting romantic resonance.',
     date: '2026-04-25',
     updated: '2026-11-14',
@@ -175,7 +181,7 @@ export const BLOG_POSTS: BlogPost[] = [
     primaryKeyword: 'soulmate',
     secondaryKeywords: ['what is a soulmate', 'true love signs', 'soulmate compatibility'],
     readTime: '5 min read',
-    relatedCalculatorUrl: '/true-love-calculator/',
+    relatedCalculatorUrl: '/love-calculator/',
     content: [
       `Pop culture often portrays a soulmate as a magical lightning bolt—a stranger you bump into on a train who instantly solves every problem in your life. But experienced relationship psychologists suggest a far more grounding definition.`,
       `### The Myth of the "Finished Product"`,
@@ -220,6 +226,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'friendship-compatibility-guide',
     title: 'Friendship Compatibility Guide: What Makes Best Friends Last Decades?',
+    seoTitle: 'Friendship Compatibility Guide',
     description: 'Why do certain friendships withstand time, relocation, and life stages? The psychology of platonic chemistry, shared humor, and loyalty.',
     date: '2026-05-02',
     updated: '2026-09-25',
