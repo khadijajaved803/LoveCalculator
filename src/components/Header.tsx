@@ -401,7 +401,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center transition-all active:scale-95 shrink-0 ${
+            className={`lg:hidden ml-auto p-2 rounded-xl min-h-[44px] min-w-[44px] flex items-center justify-center transition-all active:scale-95 shrink-0 ${
               mobileMenuOpen
                 ? 'bg-rose-50 text-rose-600 border border-rose-200'
                 : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100 border border-slate-200/60'
