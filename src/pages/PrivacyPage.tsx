@@ -64,13 +64,16 @@ export const PrivacyPage: React.FC<Props> = ({ onNavigate }) => {
           <h2 className="text-base font-bold text-slate-900 mb-2">4. Contact Concerning Privacy</h2>
           <p>
             If you have questions regarding this privacy policy, please reach out via our{' '}
-            <button
-              type="button"
-              onClick={() => onNavigate('/contact/')}
+            <a
+              href="/contact/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/contact/');
+              }}
               className="text-rose-600 underline font-medium"
             >
               Contact page
-            </button>.
+            </a>.
           </p>
         </section>
       </div>

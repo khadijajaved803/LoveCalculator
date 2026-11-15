@@ -71,6 +71,7 @@ export interface FlamesResult {
 
 export interface BlogPost {
   title: string;
+  seoTitle?: string;
   description: string;
   slug: string;
   date: string;

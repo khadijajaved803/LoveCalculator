@@ -11,7 +11,7 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 text-slate-700">
       <SEOHead
-        title="About Calculate Love - India's Trusted Relationship Tools Platform"
+        title="About Calculate Love | Relationship Tools Platform"
         description="Learn about CalculateLove, our commitment to privacy, deterministic algorithms, and positive relationship reflections for couples and friends across India."
         canonicalPath="/about/"
       />
@@ -77,13 +77,16 @@ export const AboutPage: React.FC<Props> = ({ onNavigate }) => {
           <p className="text-xs text-slate-600 leading-relaxed mb-3">
             Our articles and tools are crafted by relationship writers, cultural researchers, and software engineers. We celebrate the rich tapestry of modern Indian relationships—from campus crushes and deep best-friend bonds to contemporary marriages that honor family blessings.
           </p>
-          <button
-            type="button"
-            onClick={() => onNavigate('/contact/')}
+          <a
+            href="/contact/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/contact/');
+            }}
             className="text-xs text-rose-600 font-semibold hover:underline"
           >
             Have feedback or suggestions? Contact our team →
-          </button>
+          </a>
         </section>
       </div>
     </div>

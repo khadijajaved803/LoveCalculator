@@ -25,23 +25,27 @@ export const RelatedArticles: React.FC<RelatedArticlesProps> = ({
         <h2 className="text-base font-bold text-slate-900 font-display">
           Helpful Relationship Guides
         </h2>
-        <button
-          type="button"
-          onClick={() => onNavigate('/blog/')}
+        <a
+          href="/blog/"
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate('/blog/');
+          }}
           className="text-xs font-medium text-rose-600 hover:text-rose-700 transition-colors"
         >
           View all articles
-        </button>
+        </a>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {displayPosts.map((post) => (
-          <article
+          <a
             key={post.slug}
-            onClick={() => onNavigate(`/blog/${post.slug}/`)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && onNavigate(`/blog/${post.slug}/`)}
+            href={`/blog/${post.slug}/`}
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate(`/blog/${post.slug}/`);
+            }}
             className="p-4 rounded-2xl bg-white border border-slate-200/80 hover:border-rose-300 hover:shadow-sm transition-all cursor-pointer group flex flex-col justify-between"
           >
             <div>
@@ -62,7 +66,7 @@ export const RelatedArticles: React.FC<RelatedArticlesProps> = ({
               <span>Read Guide</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </section>
