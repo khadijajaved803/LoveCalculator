@@ -76,6 +76,7 @@ const { Component: LifePathPage, preload: loadLifePathPage } = createPage(() => 
 const { Component: LoveHoroscopePage, preload: loadLoveHoroscopePage } = createPage(() => import('./pages/LoveHoroscopePage'), (m) => m.LoveHoroscopePage);
 const { Component: WhenWillIGetMarriedPage, preload: loadWhenWillIGetMarriedPage } = createPage(() => import('./pages/WhenWillIGetMarriedPage'), (m) => m.WhenWillIGetMarriedPage);
 const { Component: LoveCompatibilityZodiacPage, preload: loadLoveCompatibilityZodiacPage } = createPage(() => import('./pages/LoveCompatibilityZodiacPage'), (m) => m.LoveCompatibilityZodiacPage);
+const { Component: AngelNumbersPage, preload: loadAngelNumbersPage } = createPage(() => import('./pages/AngelNumbersPage'), (m) => m.AngelNumbersPage);
 const { Component: BlogIndexPage, preload: loadBlogIndexPage } = createPage(() => import('./pages/BlogIndexPage'), (m) => m.BlogIndexPage);
 const { Component: BlogPostPage, preload: loadBlogPostPage } = createPage(() => import('./pages/BlogPostPage'), (m) => m.BlogPostPage);
 const { Component: AboutPage, preload: loadAboutPage } = createPage(() => import('./pages/AboutPage'), (m) => m.AboutPage);
@@ -112,6 +113,7 @@ const allPageLoaders = [
   loadLoveHoroscopePage,
   loadWhenWillIGetMarriedPage,
   loadLoveCompatibilityZodiacPage,
+  loadAngelNumbersPage,
   loadBlogIndexPage,
   loadBlogPostPage,
   loadAboutPage,
@@ -214,6 +216,8 @@ export function preloadPageForPath(path: string): Promise<unknown> {
       return loadWhenWillIGetMarriedPage();
     case '/love-compatibility-by-zodiac-sign/':
       return loadLoveCompatibilityZodiacPage();
+    case '/angel-numbers/':
+      return loadAngelNumbersPage();
     case '/blog/':
       return loadBlogIndexPage();
     case '/about/':
@@ -343,6 +347,8 @@ export default function App() {
         return <WhenWillIGetMarriedPage onNavigate={handleNavigate} />;
       case '/love-compatibility-by-zodiac-sign/':
         return <LoveCompatibilityZodiacPage onNavigate={handleNavigate} />;
+      case '/angel-numbers/':
+        return <AngelNumbersPage onNavigate={handleNavigate} />;
       case '/blog/':
         return <BlogIndexPage onNavigate={handleNavigate} />;
       case '/about/':

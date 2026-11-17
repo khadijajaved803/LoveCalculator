@@ -5,7 +5,7 @@
  */
 
 export interface CardRenderOptions {
-  type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage' | 'crush' | 'name-compatibility' | 'numerology' | 'kundali' | 'love-language' | 'porutham' | 'birth-chart' | 'life-path' | 'love-horoscope';
+  type: 'love' | 'flames' | 'friendship' | 'dob' | 'marriage' | 'crush' | 'name-compatibility' | 'numerology' | 'kundali' | 'love-language' | 'porutham' | 'birth-chart' | 'life-path' | 'love-horoscope' | 'angel-numbers';
   names: { person1: string; person2: string };
   score?: number;
   maxScore?: number;
@@ -46,7 +46,7 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     bgGrad.addColorStop(0.3, '#ffffff');
     bgGrad.addColorStop(0.7, '#fff1f2');
     bgGrad.addColorStop(1, '#fce7f3');
-  } else if (options.type === 'numerology' || options.type === 'life-path') {
+  } else if (options.type === 'numerology' || options.type === 'life-path' || options.type === 'angel-numbers') {
     bgGrad.addColorStop(0, '#faf5ff');
     bgGrad.addColorStop(0.3, '#ffffff');
     bgGrad.addColorStop(0.7, '#f3e8ff');
@@ -77,7 +77,7 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
 
   // 2. Decorative Outer Border & Card Frame
   ctx.save();
-  ctx.strokeStyle = options.type === 'flames' ? '#f97316' : options.type === 'porutham' ? '#ea580c' : options.type === 'life-path' ? '#9333ea' : options.type === 'love-horoscope' ? '#e11d48' : '#e11d48';
+  ctx.strokeStyle = options.type === 'flames' ? '#f97316' : options.type === 'porutham' ? '#ea580c' : options.type === 'life-path' || options.type === 'angel-numbers' ? '#9333ea' : options.type === 'love-horoscope' ? '#e11d48' : '#e11d48';
   ctx.lineWidth = 14;
   ctx.strokeRect(30, 30, width - 60, height - 60);
 
@@ -92,15 +92,15 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
 
   // Decorative top banner bar
   const bannerGrad = ctx.createLinearGradient(60, 60, width - 60, 60);
-  bannerGrad.addColorStop(0, options.type === 'porutham' ? '#ea580c' : options.type === 'life-path' ? '#7c3aed' : options.type === 'love-horoscope' ? '#e11d48' : '#e11d48');
-  bannerGrad.addColorStop(0.5, options.type === 'life-path' ? '#9333ea' : '#f43f5e');
-  bannerGrad.addColorStop(1, options.type === 'life-path' ? '#c084fc' : '#f59e0b');
+  bannerGrad.addColorStop(0, options.type === 'porutham' ? '#ea580c' : options.type === 'life-path' || options.type === 'angel-numbers' ? '#7c3aed' : options.type === 'love-horoscope' ? '#e11d48' : '#e11d48');
+  bannerGrad.addColorStop(0.5, options.type === 'life-path' || options.type === 'angel-numbers' ? '#9333ea' : '#f43f5e');
+  bannerGrad.addColorStop(1, options.type === 'life-path' || options.type === 'angel-numbers' ? '#c084fc' : '#f59e0b');
   ctx.fillStyle = bannerGrad;
   roundRectTop(ctx, 60, 60, width - 120, 24, 48);
   ctx.fill();
 
   // 3. Header: Brand & Certificate Badge
-  ctx.fillStyle = options.type === 'porutham' ? '#c2410c' : options.type === 'life-path' ? '#7c3aed' : '#e11d48';
+  ctx.fillStyle = options.type === 'porutham' ? '#c2410c' : options.type === 'life-path' || options.type === 'angel-numbers' ? '#7c3aed' : '#e11d48';
   ctx.font = 'bold 36px "Outfit", system-ui, sans-serif';
   ctx.textAlign = 'left';
   ctx.fillText('♥ calculatelove.online', 100, 140);
@@ -116,6 +116,8 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ? 'OFFICIAL NATAL BIRTH CHART'
     : options.type === 'life-path'
     ? 'LIFE PATH NUMBER REPORT'
+    : options.type === 'angel-numbers'
+    ? 'ANGEL NUMBER REPORT'
     : options.type === 'love-horoscope'
     ? 'DAILY LOVE HOROSCOPE'
     : options.type === 'marriage' && options.word
@@ -226,7 +228,7 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ctx.fillStyle = '#0f172a';
     ctx.font = 'bold 44px "Outfit", system-ui, sans-serif';
     ctx.fillText(options.word || 'Love Horoscope', width / 2, boxY + boxSize + 60);
-  } else if (options.type === 'life-path') {
+  } else if (options.type === 'life-path' || options.type === 'angel-numbers') {
     const centerX = width / 2;
     const centerY = 450;
     const radius = 130;
@@ -247,7 +249,7 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
 
     ctx.fillStyle = '#7c3aed';
     ctx.font = 'bold 22px system-ui, sans-serif';
-    ctx.fillText('LIFE PATH NUMBER', centerX, centerY + 65);
+    ctx.fillText(options.type === 'angel-numbers' ? 'YOUR ANGEL NUMBER' : 'LIFE PATH NUMBER', centerX, centerY + 65);
   } else if (options.type === 'marriage' && options.word) {
     // Marriage prediction: big age range, never a misleading % gauge.
     // (MarriageCalculatorPage passes no `word`, so it still uses the % gauge below.)
@@ -361,6 +363,8 @@ export async function generateCardImageBlob(options: CardRenderOptions): Promise
     ? '💡 Your Weekly Action · How To Be Loved'
     : options.type === 'life-path'
     ? '✨ Life Path Insight · Numerology Reading'
+    : options.type === 'angel-numbers'
+    ? '✨ Angel Number Insight · What It Means'
     : options.type === 'love-horoscope'
     ? '✨ Today’s Love Horoscope · What the Day Favours'
     : '✨ Dil Ki Baat · Relationship Advice';
