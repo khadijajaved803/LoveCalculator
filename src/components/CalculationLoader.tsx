@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Heart, Flame, Users, Gem, Sparkles, Wand2 } from 'lucide-react';
 import { CalculateLoveLogo } from './CalculateLoveLogo';
 
-export type CalculatorType = 'love' | 'flames' | 'friendship' | 'marriage' | 'dob';
+export type CalculatorType = 'love' | 'flames' | 'friendship' | 'marriage' | 'dob' | 'angel';
 
 interface CalculationLoaderProps {
   name1: string;
@@ -54,6 +54,13 @@ const PHRASES: Record<CalculatorType, string[]> = {
     'Evaluating solar-lunar synchronization & elemental blend...',
     'Synthesizing deep date-of-birth compatibility matrix...',
     'Cosmic connection aligned! Preparing your Life Path report...',
+  ],
+  angel: [
+    'Adding the digits of your birth date...',
+    'Reducing the total to a single digit...',
+    'Reading what your number is said to mean...',
+    'Checking the love meaning of your number...',
+    'Almost ready! Preparing your Angel Number report...',
   ],
 };
 
@@ -107,6 +114,14 @@ const THEMES: Record<
     badgeBg: 'bg-indigo-50 border-indigo-200',
     badgeText: 'text-indigo-700',
     title: 'Calculating Life Path Harmony',
+  },
+  angel: {
+    icon: Sparkles,
+    accentColor: 'text-purple-500',
+    gradient: 'from-purple-500 via-indigo-500 to-amber-500',
+    badgeBg: 'bg-purple-50 border-purple-200',
+    badgeText: 'text-purple-700',
+    title: 'Finding Your Angel Number',
   },
 };
 
