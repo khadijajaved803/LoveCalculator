@@ -2,81 +2,87 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
-// Pages — lazy-loaded so each route ships its own chunk instead of one
-// ~1.6 MB bundle. Every page is a named export, so each dynamic import
-// maps it to `default` for React.lazy. The prerender still renders every
-// route fully: the worker imports the bundle in Node, where these dynamic
-// imports resolve to the chunk files on disk.
+// Pages — code-split so each route ships its own chunk instead of one
+// ~1.6 MB bundle. Every page is a named export.
 //
-// Each page also has a named loader (loadXPage) shared by its lazy()
-// wrapper AND by preloadPageForPath() below: main.tsx awaits the current
-// route's loader BEFORE React mounts, so the first render never suspends
-// on it and the "Loading…" fallback never flashes over the prerendered
-// HTML. The fallback still shows for in-app navigation to a page whose
-// chunk hasn't loaded yet — that's the correct behaviour there.
-const loadHomePage = () => import('./pages/HomePage');
-const loadLoveCalculatorPage = () => import('./pages/LoveCalculatorPage');
-const loadFlamesPage = () => import('./pages/FlamesPage');
-const loadFriendshipPage = () => import('./pages/FriendshipPage');
-const loadDobCalculatorPage = () => import('./pages/DobCalculatorPage');
-const loadMarriageCalculatorPage = () => import('./pages/MarriageCalculatorPage');
-const loadAstrologyPage = () => import('./pages/AstrologyPage');
-const loadNumerologyPage = () => import('./pages/NumerologyPage');
-const loadLovePercentageOnPaperPage = () => import('./pages/LovePercentageOnPaperPage');
-const loadCrushCalculatorPage = () => import('./pages/CrushCalculatorPage');
-const loadNameCompatibilityPage = () => import('./pages/NameCompatibilityPage');
-const loadNameNumerologyPage = () => import('./pages/NameNumerologyPage');
-const loadKundaliMatchingPage = () => import('./pages/KundaliMatchingPage');
-const loadKundaliPage = () => import('./pages/KundaliPage');
-const loadZodiacSignsPage = () => import('./pages/ZodiacSignsPage');
-const loadRashifalTodayPage = () => import('./pages/RashifalTodayPage');
-const loadLoveLanguagePage = () => import('./pages/LoveLanguagePage');
-const loadNumerologyCalculatorPage = () => import('./pages/NumerologyCalculatorPage');
-const loadPoruthamPage = () => import('./pages/PoruthamPage');
-const loadBirthChartPage = () => import('./pages/BirthChartPage');
-const loadLifePathPage = () => import('./pages/LifePathPage');
-const loadLoveHoroscopePage = () => import('./pages/LoveHoroscopePage');
-const loadWhenWillIGetMarriedPage = () => import('./pages/WhenWillIGetMarriedPage');
-const loadLoveCompatibilityZodiacPage = () => import('./pages/LoveCompatibilityZodiacPage');
-const loadBlogIndexPage = () => import('./pages/BlogIndexPage');
-const loadBlogPostPage = () => import('./pages/BlogPostPage');
-const loadAboutPage = () => import('./pages/AboutPage');
-const loadContactPage = () => import('./pages/ContactPage');
-const loadPrivacyPage = () => import('./pages/PrivacyPage');
-const loadTermsPage = () => import('./pages/TermsPage');
-const loadDisclaimerPage = () => import('./pages/DisclaimerPage');
+// WHY NOT React.lazy: lazy() ALWAYS suspends on first render — even when
+// the chunk was preloaded, its .then() chain is still pending for a
+// microtask, so the Suspense "Loading…" fallback flashes. Preloading a
+// lazy chunk therefore cannot remove the flash (verified live: the flash
+// stayed ~1s). Instead each page is built with createPage(): the chunk is
+// loaded once, the resolved component is cached, and the rendered
+// component returns it SYNCHRONOUSLY when cached — no suspension, no
+// fallback, no flash. React.lazy is only the fallback path, used when the
+// chunk was never preloaded (e.g. a click in the first seconds, or a
+// failed preload). The prerender still renders every route fully: the
+// worker imports the bundle in Node, where these dynamic imports resolve
+// to the chunk files on disk.
+type PageComponent = React.ComponentType<any>;
 
-const HomePage = lazy(() => loadHomePage().then((m) => ({ default: m.HomePage })));
-const LoveCalculatorPage = lazy(() => loadLoveCalculatorPage().then((m) => ({ default: m.LoveCalculatorPage })));
-const FlamesPage = lazy(() => loadFlamesPage().then((m) => ({ default: m.FlamesPage })));
-const FriendshipPage = lazy(() => loadFriendshipPage().then((m) => ({ default: m.FriendshipPage })));
-const DobCalculatorPage = lazy(() => loadDobCalculatorPage().then((m) => ({ default: m.DobCalculatorPage })));
-const MarriageCalculatorPage = lazy(() => loadMarriageCalculatorPage().then((m) => ({ default: m.MarriageCalculatorPage })));
-const AstrologyPage = lazy(() => loadAstrologyPage().then((m) => ({ default: m.AstrologyPage })));
-const NumerologyPage = lazy(() => loadNumerologyPage().then((m) => ({ default: m.NumerologyPage })));
-const LovePercentageOnPaperPage = lazy(() => loadLovePercentageOnPaperPage().then((m) => ({ default: m.LovePercentageOnPaperPage })));
-const CrushCalculatorPage = lazy(() => loadCrushCalculatorPage().then((m) => ({ default: m.CrushCalculatorPage })));
-const NameCompatibilityPage = lazy(() => loadNameCompatibilityPage().then((m) => ({ default: m.NameCompatibilityPage })));
-const NameNumerologyPage = lazy(() => loadNameNumerologyPage().then((m) => ({ default: m.NameNumerologyPage })));
-const KundaliMatchingPage = lazy(() => loadKundaliMatchingPage().then((m) => ({ default: m.KundaliMatchingPage })));
-const KundaliPage = lazy(() => loadKundaliPage().then((m) => ({ default: m.KundaliPage })));
-const ZodiacSignsPage = lazy(() => loadZodiacSignsPage().then((m) => ({ default: m.ZodiacSignsPage })));
-const RashifalTodayPage = lazy(() => loadRashifalTodayPage().then((m) => ({ default: m.RashifalTodayPage })));
-const LoveLanguagePage = lazy(() => loadLoveLanguagePage().then((m) => ({ default: m.LoveLanguagePage })));
-const NumerologyCalculatorPage = lazy(() => loadNumerologyCalculatorPage().then((m) => ({ default: m.NumerologyCalculatorPage })));
-const PoruthamPage = lazy(() => loadPoruthamPage().then((m) => ({ default: m.PoruthamPage })));
-const BirthChartPage = lazy(() => loadBirthChartPage().then((m) => ({ default: m.BirthChartPage })));
-const LifePathPage = lazy(() => loadLifePathPage().then((m) => ({ default: m.LifePathPage })));
-const LoveHoroscopePage = lazy(() => loadLoveHoroscopePage().then((m) => ({ default: m.LoveHoroscopePage })));
-const WhenWillIGetMarriedPage = lazy(() => loadWhenWillIGetMarriedPage().then((m) => ({ default: m.WhenWillIGetMarriedPage })));
-const LoveCompatibilityZodiacPage = lazy(() => loadLoveCompatibilityZodiacPage().then((m) => ({ default: m.LoveCompatibilityZodiacPage })));
-const BlogIndexPage = lazy(() => loadBlogIndexPage().then((m) => ({ default: m.BlogIndexPage })));
-const BlogPostPage = lazy(() => loadBlogPostPage().then((m) => ({ default: m.BlogPostPage })));
-const AboutPage = lazy(() => loadAboutPage().then((m) => ({ default: m.AboutPage })));
-const ContactPage = lazy(() => loadContactPage().then((m) => ({ default: m.ContactPage })));
-const PrivacyPage = lazy(() => loadPrivacyPage().then((m) => ({ default: m.PrivacyPage })));
-const TermsPage = lazy(() => loadTermsPage().then((m) => ({ default: m.TermsPage })));
-const DisclaimerPage = lazy(() => loadDisclaimerPage().then((m) => ({ default: m.DisclaimerPage })));
+function createPage<T extends Record<string, unknown>>(
+  load: () => Promise<T>,
+  pick: (m: T) => PageComponent,
+): { Component: React.FC<any>; preload: () => Promise<void> } {
+  let cached: PageComponent | null = null;
+  let promise: Promise<void> | null = null;
+  const preload = (): Promise<void> => {
+    if (!promise) {
+      promise = load()
+        .then((m) => {
+          cached = pick(m);
+        })
+        .catch((err) => {
+          // Let a later call retry instead of caching the failure.
+          promise = null;
+          throw err;
+        });
+    }
+    return promise;
+  };
+  const LazyComp = lazy(() =>
+    preload().then(() => ({ default: cached as PageComponent })),
+  );
+  const Component: React.FC<any> = (props) => {
+    if (cached) {
+      const C = cached;
+      return <C {...props} />;
+    }
+    return <LazyComp {...props} />;
+  };
+  return { Component, preload };
+}
+
+const { Component: HomePage, preload: loadHomePage } = createPage(() => import('./pages/HomePage'), (m) => m.HomePage);
+const { Component: LoveCalculatorPage, preload: loadLoveCalculatorPage } = createPage(() => import('./pages/LoveCalculatorPage'), (m) => m.LoveCalculatorPage);
+const { Component: FlamesPage, preload: loadFlamesPage } = createPage(() => import('./pages/FlamesPage'), (m) => m.FlamesPage);
+const { Component: FriendshipPage, preload: loadFriendshipPage } = createPage(() => import('./pages/FriendshipPage'), (m) => m.FriendshipPage);
+const { Component: DobCalculatorPage, preload: loadDobCalculatorPage } = createPage(() => import('./pages/DobCalculatorPage'), (m) => m.DobCalculatorPage);
+const { Component: MarriageCalculatorPage, preload: loadMarriageCalculatorPage } = createPage(() => import('./pages/MarriageCalculatorPage'), (m) => m.MarriageCalculatorPage);
+const { Component: AstrologyPage, preload: loadAstrologyPage } = createPage(() => import('./pages/AstrologyPage'), (m) => m.AstrologyPage);
+const { Component: NumerologyPage, preload: loadNumerologyPage } = createPage(() => import('./pages/NumerologyPage'), (m) => m.NumerologyPage);
+const { Component: LovePercentageOnPaperPage, preload: loadLovePercentageOnPaperPage } = createPage(() => import('./pages/LovePercentageOnPaperPage'), (m) => m.LovePercentageOnPaperPage);
+const { Component: CrushCalculatorPage, preload: loadCrushCalculatorPage } = createPage(() => import('./pages/CrushCalculatorPage'), (m) => m.CrushCalculatorPage);
+const { Component: NameCompatibilityPage, preload: loadNameCompatibilityPage } = createPage(() => import('./pages/NameCompatibilityPage'), (m) => m.NameCompatibilityPage);
+const { Component: NameNumerologyPage, preload: loadNameNumerologyPage } = createPage(() => import('./pages/NameNumerologyPage'), (m) => m.NameNumerologyPage);
+const { Component: KundaliMatchingPage, preload: loadKundaliMatchingPage } = createPage(() => import('./pages/KundaliMatchingPage'), (m) => m.KundaliMatchingPage);
+const { Component: KundaliPage, preload: loadKundaliPage } = createPage(() => import('./pages/KundaliPage'), (m) => m.KundaliPage);
+const { Component: ZodiacSignsPage, preload: loadZodiacSignsPage } = createPage(() => import('./pages/ZodiacSignsPage'), (m) => m.ZodiacSignsPage);
+const { Component: RashifalTodayPage, preload: loadRashifalTodayPage } = createPage(() => import('./pages/RashifalTodayPage'), (m) => m.RashifalTodayPage);
+const { Component: LoveLanguagePage, preload: loadLoveLanguagePage } = createPage(() => import('./pages/LoveLanguagePage'), (m) => m.LoveLanguagePage);
+const { Component: NumerologyCalculatorPage, preload: loadNumerologyCalculatorPage } = createPage(() => import('./pages/NumerologyCalculatorPage'), (m) => m.NumerologyCalculatorPage);
+const { Component: PoruthamPage, preload: loadPoruthamPage } = createPage(() => import('./pages/PoruthamPage'), (m) => m.PoruthamPage);
+const { Component: BirthChartPage, preload: loadBirthChartPage } = createPage(() => import('./pages/BirthChartPage'), (m) => m.BirthChartPage);
+const { Component: LifePathPage, preload: loadLifePathPage } = createPage(() => import('./pages/LifePathPage'), (m) => m.LifePathPage);
+const { Component: LoveHoroscopePage, preload: loadLoveHoroscopePage } = createPage(() => import('./pages/LoveHoroscopePage'), (m) => m.LoveHoroscopePage);
+const { Component: WhenWillIGetMarriedPage, preload: loadWhenWillIGetMarriedPage } = createPage(() => import('./pages/WhenWillIGetMarriedPage'), (m) => m.WhenWillIGetMarriedPage);
+const { Component: LoveCompatibilityZodiacPage, preload: loadLoveCompatibilityZodiacPage } = createPage(() => import('./pages/LoveCompatibilityZodiacPage'), (m) => m.LoveCompatibilityZodiacPage);
+const { Component: BlogIndexPage, preload: loadBlogIndexPage } = createPage(() => import('./pages/BlogIndexPage'), (m) => m.BlogIndexPage);
+const { Component: BlogPostPage, preload: loadBlogPostPage } = createPage(() => import('./pages/BlogPostPage'), (m) => m.BlogPostPage);
+const { Component: AboutPage, preload: loadAboutPage } = createPage(() => import('./pages/AboutPage'), (m) => m.AboutPage);
+const { Component: ContactPage, preload: loadContactPage } = createPage(() => import('./pages/ContactPage'), (m) => m.ContactPage);
+const { Component: PrivacyPage, preload: loadPrivacyPage } = createPage(() => import('./pages/PrivacyPage'), (m) => m.PrivacyPage);
+const { Component: TermsPage, preload: loadTermsPage } = createPage(() => import('./pages/TermsPage'), (m) => m.TermsPage);
+const { Component: DisclaimerPage, preload: loadDisclaimerPage } = createPage(() => import('./pages/DisclaimerPage'), (m) => m.DisclaimerPage);
 
 // All page loaders, for idle preloading after mount (see the App effect
 // below). Warming every chunk once the app is interactive makes in-app
