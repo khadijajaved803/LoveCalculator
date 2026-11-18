@@ -71,6 +71,7 @@ const numerologyDropdown: NavDropdown = {
     { label: 'Numerology', path: '/numerology/', icon: <Hash className="w-4 h-4 text-emerald-500" />, description: 'Numerology hub' },
     { label: 'Numerology Calculator', path: '/numerology-calculator/', icon: <Calculator className="w-4 h-4 text-emerald-600" />, description: 'Chaldean & Pythagorean' },
     { label: 'Life Path Calculator', path: '/life-path-calculator/', icon: <Calculator className="w-4 h-4 text-emerald-600" />, description: 'Life path, mulank & destiny number' },
+    { label: 'Angel Numbers', path: '/angel-numbers/', icon: <Sparkles className="w-4 h-4 text-amber-500" />, description: 'Angel number meanings & calculator' },
     { label: 'Name Numerology', path: '/numerology/name-numerology/', icon: <Calculator className="w-4 h-4 text-teal-500" />, description: 'Name number analysis' },
   ],
 };
