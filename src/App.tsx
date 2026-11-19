@@ -77,6 +77,7 @@ const { Component: LoveHoroscopePage, preload: loadLoveHoroscopePage } = createP
 const { Component: WhenWillIGetMarriedPage, preload: loadWhenWillIGetMarriedPage } = createPage(() => import('./pages/WhenWillIGetMarriedPage'), (m) => m.WhenWillIGetMarriedPage);
 const { Component: LoveCompatibilityZodiacPage, preload: loadLoveCompatibilityZodiacPage } = createPage(() => import('./pages/LoveCompatibilityZodiacPage'), (m) => m.LoveCompatibilityZodiacPage);
 const { Component: AngelNumbersPage, preload: loadAngelNumbersPage } = createPage(() => import('./pages/AngelNumbersPage'), (m) => m.AngelNumbersPage);
+const { Component: GamesForCouplesPage, preload: loadGamesForCouplesPage } = createPage(() => import('./pages/GamesForCouplesPage'), (m) => m.GamesForCouplesPage);
 const { Component: BlogIndexPage, preload: loadBlogIndexPage } = createPage(() => import('./pages/BlogIndexPage'), (m) => m.BlogIndexPage);
 const { Component: BlogPostPage, preload: loadBlogPostPage } = createPage(() => import('./pages/BlogPostPage'), (m) => m.BlogPostPage);
 const { Component: AboutPage, preload: loadAboutPage } = createPage(() => import('./pages/AboutPage'), (m) => m.AboutPage);
@@ -114,6 +115,7 @@ const allPageLoaders = [
   loadWhenWillIGetMarriedPage,
   loadLoveCompatibilityZodiacPage,
   loadAngelNumbersPage,
+  loadGamesForCouplesPage,
   loadBlogIndexPage,
   loadBlogPostPage,
   loadAboutPage,
@@ -218,6 +220,8 @@ export function preloadPageForPath(path: string): Promise<unknown> {
       return loadLoveCompatibilityZodiacPage();
     case '/angel-numbers/':
       return loadAngelNumbersPage();
+    case '/games-for-couples/':
+      return loadGamesForCouplesPage();
     case '/blog/':
       return loadBlogIndexPage();
     case '/about/':
@@ -349,6 +353,8 @@ export default function App() {
         return <LoveCompatibilityZodiacPage onNavigate={handleNavigate} />;
       case '/angel-numbers/':
         return <AngelNumbersPage onNavigate={handleNavigate} />;
+      case '/games-for-couples/':
+        return <GamesForCouplesPage onNavigate={handleNavigate} />;
       case '/blog/':
         return <BlogIndexPage onNavigate={handleNavigate} />;
       case '/about/':
