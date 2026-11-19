@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Menu, X, ChevronDown, Star, Heart, Flame, Calculator, Users, Sparkles, BookHeart, Calendar, Hash, ChevronRight, Compass, Moon } from 'lucide-react';
+import { Menu, X, ChevronDown, Star, Heart, Flame, Calculator, Users, Sparkles, BookHeart, Calendar, Hash, ChevronRight, Compass, Moon, Gamepad2 } from 'lucide-react';
 import { CalculateLoveLogo } from './CalculateLoveLogo';
 
 interface HeaderProps {
@@ -54,6 +54,7 @@ const loveToolsDropdown: NavDropdown = {
   items: [
     { label: 'Love Language Test', path: '/love-language-test/', icon: <Heart className="w-4 h-4 text-rose-500" />, description: '5 love languages quiz' },
     { label: 'FLAMES Calculator', path: '/flames-calculator/', icon: <Flame className="w-4 h-4 text-amber-500" />, description: 'Classic FLAMES game' },
+    { label: 'Games for Couples', path: '/games-for-couples/', icon: <Gamepad2 className="w-4 h-4 text-rose-500" />, description: 'Date night & game night picks' },
     { label: 'Love % on Paper', path: '/love-percentage-on-paper/', icon: <BookHeart className="w-4 h-4 text-pink-500" />, description: 'Paper method' },
     { label: 'Crush Calculator', path: '/crush-calculator/', icon: <Heart className="w-4 h-4 text-rose-400" />, description: 'Crush compatibility' },
     { label: 'Friendship Calculator', path: '/friendship-calculator/', icon: <Users className="w-4 h-4 text-sky-500" />, description: 'Friendship score' },
