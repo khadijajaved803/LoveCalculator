@@ -64,7 +64,7 @@ export const AngelNumbersTool: React.FC = () => {
         type: 'angel-numbers',
         names: { person1: `Angel Number ${result.number}`, person2: '' },
         score: result.number,
-        tagline: `Angel Number ${result.number} — ${meaning.title}`,
+        tagline: `Angel Number ${result.number}: ${meaning.title}`,
         suggestion: meaning.description,
         tip: meaning.love,
         details: result.steps.join(' · '),
@@ -125,7 +125,7 @@ export const AngelNumbersTool: React.FC = () => {
                 Your Angel Number is {result.number}
               </p>
               <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-medium mt-2 max-w-xl mx-auto">
-                {meaning.title} — {meaning.description}
+                {meaning.title}: {meaning.description}
               </p>
             </div>
           </div>
@@ -168,7 +168,7 @@ export const AngelNumbersTool: React.FC = () => {
             </div>
 
             <p className="text-[11px] text-slate-400 leading-relaxed mt-6 text-center">
-              Angel numbers are a popular modern belief — a traditional reading, not
+              Angel numbers are a popular modern belief, a traditional reading, not
               a prediction. Your choices still decide your life.
             </p>
 
@@ -220,7 +220,7 @@ export const AngelNumbersTool: React.FC = () => {
               </p>
 
               <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-medium">
-                Find your angel number free by date of birth — the angel number calculator free to use adds up your birth date and shows your number with its meaning. No sign-up.
+                Find your angel number free by date of birth. The angel number calculator adds up your birth date and shows your number with its meaning. No sign-up.
               </p>
             </div>
           </div>
