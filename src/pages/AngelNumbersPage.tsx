@@ -20,7 +20,7 @@ interface Props {
   onNavigate: (path: string) => void;
 }
 
-const MEANING_ORDER = [
+const TRIPLE_MEANINGS = [
   '111',
   '222',
   '333',
@@ -31,9 +31,28 @@ const MEANING_ORDER = [
   '888',
   '999',
   '000',
-  '11:11',
-  '1212',
 ];
+
+const MIRROR_MEANINGS = ['11:11', '1212'];
+
+const MeaningCard = ({ num }: { num: string }) => {
+  const m = REPEATED_MEANINGS[num];
+  return (
+    <div className="rounded-2xl border border-purple-100 bg-purple-50/40 p-5">
+      <div className="text-3xl font-extrabold text-purple-700 font-display">
+        {num}
+      </div>
+      <p className="text-sm font-bold text-slate-900 mt-1">{m.title}</p>
+      <p className="text-xs text-slate-600 leading-relaxed mt-2">
+        {m.meaning}
+      </p>
+      <p className="text-xs text-slate-600 leading-relaxed mt-2">
+        <span className="font-semibold text-rose-600">In love: </span>
+        {m.love}
+      </p>
+    </div>
+  );
+};
 
 export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
   const faqs: FAQItem[] = [
@@ -139,6 +158,14 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
             The angel numbers meaning is not a prediction and not a warning. It is a traditional reading: each repeated number is given a meaning — new beginnings, partnership, change, completion — and the reading is a prompt to think about what is going on in your life, not a message from somewhere else deciding it for you. This page gives you both halves honestly: the calculator that finds your number, and the number meanings as the tradition reads them, so you can decide for yourself what, if anything, they mean to you.
           </p>
 
+          <blockquote className="my-8 rounded-r-2xl border-l-4 border-purple-500 bg-purple-50/70 px-5 py-4">
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong>Quick answer: </strong>Your <strong>angel number</strong>{' '}
+              is the digit your date of birth adds up to. Add every digit together, then reduce the total until one digit from 1 to 9 is left. A number you keep noticing, like <strong>111</strong> or{' '}
+              <strong>11:11</strong>, carries a traditional meaning — a prompt for reflection, not a prediction.
+            </p>
+          </blockquote>
+
           <figure className="my-8">
             <img
               src={angelNumbersSky}
@@ -159,7 +186,7 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            An angel number is a repeated number — usually three or four of the same digit, or a mirrored time like 11:11 — that you notice more than once. People see them on clocks, on receipts, on number plates, on phone numbers and on page numbers. The number itself is ordinary; what makes it an angel number is that you keep noticing it, and the noticing is what the tradition reads.
+            An <strong>angel number</strong> is a repeated number — usually three or four of the same digit, or a mirrored time like 11:11 — that you notice more than once. People see them on clocks, on receipts, on number plates, on phone numbers and on page numbers. The number itself is ordinary; what makes it an angel number is that you keep noticing it, and the noticing is what the tradition reads.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -199,13 +226,25 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
             How to Calculate Your Angel Number
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The angel number calculation is simple addition, and it is the same method the calculator above uses. If you searched for how to calculate angel number, the answer is the addition below — to calculate angel number from a birth date, add every digit together, then keep adding the digits of the total until one digit from 1 to 9 is left. That digit is your angel number. To calculate your angel number by hand, take 29 July 1998: 2 + 9 + 0 + 7 + 1 + 9 + 9 + 8 = 45, then 4 + 5 = 9, so the angel number is 9. The tool above shows the same steps, so you can check the adding yourself.
-          </p>
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            By Your Date of Birth
+          </h3>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A birth year on its own works the same way, which is why people look up a year they were born in. Take 1977: 1 + 9 + 7 + 7 = 24, then 2 + 4 = 6, so the 1977 angel number is 6 — the angel number 1977 works out to care, home and responsibility, the number of looking after people. An angel number based on birthday is worked out from the full date, not just the year, so the year example is a shortcut, not the full reading: your real number comes from the day, the month and the year together. That is what an angel number birthday calculator does — it takes the whole date and reduces it — and the calculator at the top of this page is exactly that: a free angel number calculator that works from your date of birth, with no sign-up and no payment.
+            The <strong>angel number</strong> calculation is simple addition, and it is the same method the calculator above uses. If you searched for how to calculate angel number, the answer is the addition below — to calculate angel number from a birth date, add every digit together, then keep adding the digits of the total until one digit from 1 to 9 is left. That digit is your angel number. To calculate your angel number by hand, take 29 July 1998: 2 + 9 + 0 + 7 + 1 + 9 + 9 + 8 = 45, then 4 + 5 = 9, so the angel number is 9. The free angel number calculator on this page shows the same steps, so you can check the adding yourself.
           </p>
+
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            By Your Birth Year
+          </h3>
+
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            A birth year on its own works the same way, which is why people look up a year they were born in. Take 1977: 1 + 9 + 7 + 7 = 24, then 2 + 4 = 6, so the 1977 angel number is 6 — the angel number 1977 works out to care, home and responsibility, the number of looking after people. An angel number based on birthday is worked out from the full date, not just the year, so the year example is a shortcut, not the full reading: your real number comes from the day, the month and the year together. That is what an angel number birthday calculator does — it takes the whole date and reduces it — and the free angel number calculator on this page is exactly that: it works from your date of birth, with no sign-up and no payment.
+          </p>
+
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            By Your Name
+          </h3>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Some tools work from a name instead of a date: an angel number calculator by name turns your letters into numbers and adds those, the same way a numerology name reading does. If that is what you were looking for, the method is the same — letters become numbers, numbers are added and reduced — but this page&apos;s calculator uses your date of birth, because the birth date is the one input everyone has and everyone can check. Either way, what you get back is a starting point, not a verdict: an angel number finder does one job, which is to find the number, and the meaning beside it is the tradition&apos;s reading of that number. And if you want the plainest description of the tool, it is an angel number generator in the honest sense: it generates your number from the date you enter — it derives it, it does not invent one, and the working is shown so you can follow it.
@@ -219,40 +258,36 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The number meanings below are the traditional readings — what each repeated number is said to mean, and what it is said to mean in love. Read them as prompts, not as predictions: the number that fits your situation is the one that makes you stop and think, and the rest can wait.
+            The <strong>angel number meanings</strong> below are the traditional readings — what each repeated number is said to mean, and what it is said to mean in love. Read them as prompts, not as predictions: the number that fits your situation is the one that makes you stop and think, and the rest can wait.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 not-prose">
-            {MEANING_ORDER.map((num) => {
-              const m = REPEATED_MEANINGS[num];
-              return (
-                <div
-                  key={num}
-                  className="rounded-2xl border border-purple-100 bg-purple-50/40 p-5"
-                >
-                  <div className="text-3xl font-extrabold text-purple-700 font-display">
-                    {num}
-                  </div>
-                  <p className="text-sm font-bold text-slate-900 mt-1">{m.title}</p>
-                  <p className="text-xs text-slate-600 leading-relaxed mt-2">
-                    {m.meaning}
-                  </p>
-                  <p className="text-xs text-slate-600 leading-relaxed mt-2">
-                    <span className="font-semibold text-rose-600">In love: </span>
-                    {m.love}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3 flex items-center gap-2">
-            <Clock className="w-5 h-5 text-purple-600" />
-            Why 11:11 Gets Noticed Most
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            Triple Numbers: 111 to 999 and 000
           </h3>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 not-prose">
+            {TRIPLE_MEANINGS.map((num) => (
+              <MeaningCard key={num} num={num} />
+            ))}
+          </div>
+
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            Mirror Numbers: 11:11 and 1212
+          </h3>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 not-prose">
+            {MIRROR_MEANINGS.map((num) => (
+              <MeaningCard key={num} num={num} />
+            ))}
+          </div>
+
+          <h4 className="text-base font-bold text-slate-900 font-display mt-8 mb-3 flex items-center gap-2">
+            <Clock className="w-5 h-5 text-purple-600" />
+            Why 11:11 Gets Noticed Most
+          </h4>
+
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Of all the numbers on this page, 11:11 is the one people search for most — and the reason is simple: it is the easiest to catch. A clock shows 11:11 twice a day, and the four identical digits are impossible to miss once you have seen them. The 11:11 meaning in the tradition is alignment and new beginnings: your thoughts and your direction lining up, and a beginning opening. It is also the number with the most folklore around it — make a wish at 11:11 — which is why it spreads: one person tells another, and the next time both of them look at a clock, they look at 11:11. That does not make the reading less useful. If 11:11 keeps catching your eye while the same question is on your mind, the useful question is not what the number means — it is what the question means.
+            Of all the numbers on this page, <strong>11:11</strong> is the one people search for most — and the reason is simple: it is the easiest to catch. A clock shows 11:11 twice a day, and the four identical digits are impossible to miss once you have seen them. The 11:11 meaning in the tradition is alignment and new beginnings: your thoughts and your direction lining up, and a beginning opening. It is also the number with the most folklore around it — make a wish at 11:11 — which is why it spreads: one person tells another, and the next time both of them look at a clock, they look at 11:11. That does not make the reading less useful. If 11:11 keeps catching your eye while the same question is on your mind, the useful question is not what the number means — it is what the question means.
           </p>
 
           <hr className="my-8 border-slate-100" />
@@ -263,12 +298,20 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Angel numbers and love go together in most searches for a reason: the question behind the number is usually about a person. An angel number for love is a repeated number you notice while you are thinking about a relationship — a crush, a partner, a marriage — and an angel number love reading is about that relationship, not about the number in the abstract.
+            Angel numbers and love go together in most searches for a reason: the question behind the number is usually about a person. An <strong>angel number for love</strong> is a repeated number you notice while you are thinking about a relationship — a crush, a partner, a marriage — and an angel number love reading is about that relationship, not about the number in the abstract.
           </p>
 
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            222, 1111 and 777: The Numbers for Love
+          </h3>
+
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            So what angel number means love? The short answer is 222. The angel number of love, as the tradition reads it, is 222: partnership, balance, and two people moving at the same pace. When people ask what are the angel numbers for love, the answer is a small set, not a long list: the angel numbers of love are 222 for partnership, 1111 for a new love arriving, and 777 for a deep connection. The best angel number for love is 222 if the question is about a relationship finding its footing — and the best angel numbers for love, taken together, are 222, 1111 and 777, each for a different question: 222 for partnership, 1111 for a new beginning, 777 for depth. A love angel number is not a guarantee and not a test — it is a way of naming what you already feel about the relationship, and the number that keeps appearing is usually the one that names it best.
+            So what angel number means love? The short answer is <strong>222</strong>. The angel number of love, as the tradition reads it, is 222: partnership, balance, and two people moving at the same pace. When people ask what are the angel numbers for love, the answer is a small set, not a long list: the angel numbers of love are 222 for partnership, 1111 for a new love arriving, and 777 for a deep connection. The best angel number for love is 222 if the question is about a relationship finding its footing — and the best angel numbers for love, taken together, are 222, 1111 and 777, each for a different question: 222 for partnership, 1111 for a new beginning, 777 for depth. A love angel number is not a guarantee and not a test — it is a way of naming what you already feel about the relationship, and the number that keeps appearing is usually the one that names it best.
           </p>
+
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            Angel Numbers for Love Marriage
+          </h3>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             For a marriage question, the numbers people look for are 222 and 1111 together: 222 for the partnership finding its footing, and 1111 for the new beginning the marriage represents. That is the reading behind an angel number for love marriage — not a date, and not a yes or no, but a way of asking whether the partnership is steady enough to build on. If the question is about marriage in the Vedic tradition rather than a number, our{' '}
@@ -318,11 +361,11 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The 2026 angel number is 1. Add the digits of the year: 2 + 0 + 2 + 6 = 10, then 1 + 0 = 1. One is read as new beginnings — the first step, the new idea, the decision only you can make — so 2026 is read as a year for starting things: a new project, a new relationship, a new direction. That is the whole calculation, and it is worth doing yourself, because the method is the point: any year can be reduced the same way, and the number it lands on is the year&apos;s reading in this tradition.
+            The <strong>2026 angel number</strong> is 1. Add the digits of the year: 2 + 0 + 2 + 6 = 10, then 1 + 0 = 1. One is read as new beginnings — the first step, the new idea, the decision only you can make — so 2026 is read as a year for starting things: a new project, a new relationship, a new direction. That is the whole calculation, and it is worth doing yourself, because the method is the point: any year can be reduced the same way, and the number it lands on is the year&apos;s reading in this tradition.
           </p>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            A year number is a general reading, not a personal one. It describes the year, not you — your own angel number comes from your date of birth, and the two can point in different directions. If 2026 is a 1 year for starting and your own number is a 4, the reading is not a contradiction: the year opens the door, and your number says build it properly once you walk through. Treat the year number as background, and your own number as the foreground.
+            A year number is a general reading, not a personal one. It describes the year, not you — your own angel number comes from your date of birth, and the two can point in different directions. If 2026 is a 1 year for starting and your own angel number is a 4, the reading is not a contradiction: the year opens the door, and your number says build it properly once you walk through. Treat the year number as background, and your own number as the foreground.
           </p>
 
           <hr className="my-8 border-slate-100" />
@@ -332,9 +375,17 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
             What to Do When You Keep Seeing the Same Number
           </h2>
 
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            Three Small Steps
+          </h3>
+
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            The useful response to a repeated number is small and practical. First, notice the moment: what were you thinking about when you saw it? The question on your mind is usually the point — the number is just what caught your attention while you were thinking it. Second, write it down: the number, the date, and the question. A pattern you can see on paper is worth more than a feeling you half-remember. Third, look up the meaning on this page and ask whether it fits the question — not whether it is true, but whether it helps you think about the question more clearly.
+            The useful response to a repeated <strong>angel number</strong> is small and practical. First, notice the moment: what were you thinking about when you saw it? The question on your mind is usually the point — the number is just what caught your attention while you were thinking it. Second, write it down: the number, the date, and the question. A pattern you can see on paper is worth more than a feeling you half-remember. Third, look up the meaning on this page and ask whether it fits the question — not whether it is true, but whether it helps you think about the question more clearly.
           </p>
+
+          <h3 className="text-lg font-bold text-slate-900 font-display mt-8 mb-3">
+            What Not to Do
+          </h3>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             What not to do matters more. Do not chase the number: checking the clock every hour to catch 11:11 turns a noticing into a habit, and a habit into anxiety. Do not treat it as a deadline: no number means something will happen on a certain day, and no reading on this page gives you a date. And do not let a number make a decision for you — especially not a big one, like ending a relationship or quitting a job. If a number keeps appearing and the question behind it is about love, the honest next step is a conversation with the person, not another look at the clock. If the question is about today rather than a number, our{' '}
