@@ -103,7 +103,9 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
     '@graph': [
       {
         '@type': 'WebApplication',
-        'name': 'Angel Numbers',
+        'name': 'Angel Number Calculator',
+        'description':
+          'Free angel number calculator: find your number by date of birth, with meanings for 111, 222, 333, 11:11 and 1212, plus angel numbers for love.',
         'applicationCategory': 'LifestyleApplication',
         'operatingSystem': 'Web browser',
         'offers': {
@@ -118,8 +120,8 @@ export const AngelNumbersPage: React.FC<Props> = ({ onNavigate }) => {
   return (
     <div className="bg-slate-50 min-h-screen py-6 sm:py-10">
       <SEOHead
-        title="Angel Numbers: Meanings of 111, 222, 333, 11:11 & More"
-        description="Angel numbers explained: what 111, 222, 333, 11:11 and 1212 mean, angel numbers for love, and a free calculator to find your angel number by date of birth."
+        title="Angel Number Calculator: Free, Meanings of 111, 222 & 11:11"
+        description="Free angel number calculator: find your number by date of birth, with meanings for 111, 222, 333, 11:11 and 1212, plus angel numbers for love."
         canonicalPath="/angel-numbers/"
         schemaJson={schemaJson}
       />
