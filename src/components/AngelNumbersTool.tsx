@@ -121,9 +121,9 @@ export const AngelNumbersTool: React.FC = () => {
                 <Sparkles className="w-3.5 h-3.5 fill-white text-white" />
                 <span>Your Angel Number · Born on a {result.dayOfWeek}</span>
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">
+              <p className="text-2xl sm:text-3xl font-extrabold tracking-tight font-display">
                 Your Angel Number is {result.number}
-              </h2>
+              </p>
               <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-medium mt-2 max-w-xl mx-auto">
                 {meaning.title} — {meaning.description}
               </p>
@@ -215,9 +215,9 @@ export const AngelNumbersTool: React.FC = () => {
                 <span>Free Angel Number Calculator · 100% Free Results</span>
               </span>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight font-display mb-2">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight font-display mb-2">
                 Angel Number Calculator
-              </h2>
+              </p>
 
               <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-medium">
                 Find your angel number free by date of birth — the angel number calculator free to use adds up your birth date and shows your number with its meaning. No sign-up.
