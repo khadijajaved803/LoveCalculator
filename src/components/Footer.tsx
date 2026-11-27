@@ -358,6 +358,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Disclaimer
             </a>
 
+            <a
+              href="https://www.shareloveletters.com/"
+              target="_blank"
+              rel="noopener"
+              className="hover:text-slate-800 transition-colors"
+              title="Write a love letter at ShareLoveLetters"
+            >
+              ShareLoveLetters
+            </a>
+
             <button
               type="button"
               onClick={scrollToTop}
