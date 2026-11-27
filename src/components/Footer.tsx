@@ -383,7 +383,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               className="hover:text-slate-800 transition-colors"
               title="Write a love letter at ShareLoveLetters"
             >
-              ShareLoveLetters
+              love letter website
             </a>
 
             <button
