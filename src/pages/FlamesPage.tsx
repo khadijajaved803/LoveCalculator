@@ -180,48 +180,83 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
     }
   };
 
+  // FLAMES result by leftover-letter count, N = 1 to 30.
+  // Verified against the calculator's own elimination (Josephus step N on F-L-A-M-E-S).
+  const flamesCountChart: Array<{ count: number; letter: string; word: string }> = [
+    { count: 1, letter: 'S', word: 'Siblings' },
+    { count: 2, letter: 'E', word: 'Enemies' },
+    { count: 3, letter: 'F', word: 'Friends' },
+    { count: 4, letter: 'E', word: 'Enemies' },
+    { count: 5, letter: 'F', word: 'Friends' },
+    { count: 6, letter: 'M', word: 'Marriage' },
+    { count: 7, letter: 'E', word: 'Enemies' },
+    { count: 8, letter: 'A', word: 'Affection' },
+    { count: 9, letter: 'E', word: 'Enemies' },
+    { count: 10, letter: 'L', word: 'Lovers' },
+    { count: 11, letter: 'M', word: 'Marriage' },
+    { count: 12, letter: 'A', word: 'Affection' },
+    { count: 13, letter: 'A', word: 'Affection' },
+    { count: 14, letter: 'F', word: 'Friends' },
+    { count: 15, letter: 'M', word: 'Marriage' },
+    { count: 16, letter: 'F', word: 'Friends' },
+    { count: 17, letter: 'A', word: 'Affection' },
+    { count: 18, letter: 'F', word: 'Friends' },
+    { count: 19, letter: 'L', word: 'Lovers' },
+    { count: 20, letter: 'E', word: 'Enemies' },
+    { count: 21, letter: 'F', word: 'Friends' },
+    { count: 22, letter: 'E', word: 'Enemies' },
+    { count: 23, letter: 'F', word: 'Friends' },
+    { count: 24, letter: 'E', word: 'Enemies' },
+    { count: 25, letter: 'E', word: 'Enemies' },
+    { count: 26, letter: 'M', word: 'Marriage' },
+    { count: 27, letter: 'S', word: 'Siblings' },
+    { count: 28, letter: 'A', word: 'Affection' },
+    { count: 29, letter: 'S', word: 'Siblings' },
+    { count: 30, letter: 'A', word: 'Affection' },
+  ];
+
   const faqs = [
     {
       question: 'What is the FLAMES full form and flames name game meaning?',
       answer:
-        'The FLAMES full form stands for Friends, Lovers, Affectionate, Marriage, Enemies, and Siblings. In this classic flames name game, each letter carries a distinctive flames name game meaning that symbolizes the romantic or social destiny between two people based on letter compatibility.',
+        'FLAMES stands for Friends, Lovers, Affection, Marriage, Enemies and Siblings. Each letter names one relationship the game can land on. The full form is the whole point of the game: the count decides which of the six words describes the pair, and the calculator shows the meaning beside the letter so the result is never just an initial.',
     },
     {
       question: 'How does the FLAMES calculator calculate the flames love calculator percentage?',
       answer:
-        'The flames love calculator percentage is the affinity reading the result card gives you — the letter’s meaning, suggestion and tip — rather than a separate number. Our flames calculator counts the uncancelled letters from both names and applies cyclic elimination across F-L-A-M-E-S, then shows the full working: every cancelled letter, the remaining count and each elimination round, so you can see exactly how the result was reached.',
+        'There is no percentage number. The flames calculator percentage people ask about is the affinity reading the result card gives you: the letter\'s meaning, suggestion and tip. The calculator counts the uncancelled letters from both names, applies cyclic elimination across F-L-A-M-E-S, then shows the full working, every cancelled letter, the remaining count and each elimination round, so you can see exactly how the result was reached.',
     },
     {
       question: 'Should I enter my flames real name or a nickname in the FLAMES calculator?',
       answer:
-        'For the most authentic flames name matching, entering your flames real name (legal or commonly used first name) provides genuine phonetic balance. However, the flames name game is also fun to test with pet nicknames and affectionate abbreviations to see if your flames name compatibility outcome shifts!',
+        'Use the name people actually call you by. A legal first name and a nickname can give different counts, and both are fair to try, because the game runs on whatever names you type. The game has no official rulebook, so the name you actually go by is the honest choice, and a nickname is a fair second test. Neither is more correct than the other.',
     },
     {
       question: 'How does letter cancellation work in the FLAMES name calculator?',
       answer:
-        'In the FLAMES name calculator, common letters between both names are struck out on a strict 1-to-1 basis. For example, if one name has two "A"s and the other has one "A", only one "A" is cancelled from each name. The total count of remaining uncancelled letters (N) is then used in modular countdown elimination across the acronym.',
+        'Common letters between the two names are struck out on a strict 1-to-1 basis. If one name has two As and the other has one A, only one A is cancelled from each name. The letters left over are counted together, and that total, N, is used in the modular countdown across the six letters.',
     },
     {
       question: 'Can you calculate love flames by date of birth?',
       answer:
-        'While the original FLAMES game is strictly a flames name matching method based on characters, you can easily evaluate love flames by date of birth using our companion Date of Birth Love Calculator. Comparing your flames name game result with your Pythagorean Life Path numbers gives you both name-based and astrological date-of-birth compatibility.',
+        'The original FLAMES game is strictly a name game: it counts letters, never birth dates. To check love flames by date of birth, use the companion Date of Birth Love Calculator, which reads the two birth dates instead. Comparing the FLAMES letter with a birth-date reading gives you two different lenses on the same pair, one from the names and one from the dates.',
     },
     {
       question: 'What does flames name compatibility say about "Enemies" or "Siblings"?',
       answer:
-        'FLAMES is a nostalgic, lighthearted relationship game. An "Enemies" result often represents spirited banter, playful friction, or stubborn pride that frequently masks intense unspoken flames name love chemistry. A "Siblings" result simply reflects fierce protective loyalty and unconditional familial support.',
+        'FLAMES is a lighthearted game, and neither word means what it sounds like. An Enemies result usually means spirited banter, playful friction or stubborn pride, the kind of friction that keeps two people talking. A Siblings result means fierce protective loyalty and unconditional support, the way family looks out for each other. Neither is a warning about the real relationship.',
     },
     {
       question: 'Why is CalculateLove’s online FLAMES calculator better than other sites?',
       answer:
-        'Unlike basic websites that display arbitrary letters without proof, CalculateLove is an authentic flames name game calculator that provides a transparent, step-by-step breakdown of every cancelled character, remaining count, and elimination round, along with a high-definition shareable certificate card.',
+        'Most FLAMES sites show you a letter and stop there. This calculator shows the whole working: every cancelled letter, the remaining count and each elimination round, so you can check the result yourself. It also gives you a shareable certificate card with the meaning, suggestion and tip, and a result chart that lets you look up any count from 1 to 30 without counting at all.',
     },
   ];
 
   const schemaJson = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    'name': 'FLAMES Calculator – FLAMES Game Online',
+    'name': 'FLAMES Calculator: FLAMES Game Online',
     'url': 'https://calculatelove.online/flames-calculator/',
     'description': 'Play the authentic FLAMES calculator and FLAMES game online. Free flames name game with step-by-step letter elimination, flames love calculator percentage, and downloadable certificate cards.',
     'applicationCategory': 'EntertainmentApplication',
@@ -252,10 +287,17 @@ export const FlamesPage: React.FC<Props> = ({ onNavigate }) => {
           <span>Nostalgic FLAMES Calculator &amp; FLAMES Game Online</span>
         </div>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3 text-balance">
-          FLAMES Calculator – Free FLAMES Game &amp; Name Matching Online
+          FLAMES Calculator: Free FLAMES Game &amp; Name Matching Online
         </h1>
+        <blockquote className="my-6 rounded-r-2xl border-l-4 border-rose-500 bg-rose-50/70 px-5 py-4 text-left">
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+            <strong>Quick answer: </strong>A <strong>FLAMES calculator</strong>{' '}
+            turns two names into one of six results: Friends, Lovers, Affection, Marriage, Enemies or Siblings. It cancels the letters the two names share, one for one, counts what is left, then counts that number around{' '}
+            <strong>F-L-A-M-E-S</strong> until one letter stands. It is a game, not a prediction.
+          </p>
+        </blockquote>
         <p className="text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-FLAMES is a classic name game that turns two names into one of six outcomes — Friends, Lovers, Affectionate, Marriage, Enemies or Siblings. Enter both names and the calculator cancels the letters the two names share, one for one, then counts the letters left over and eliminates letters from F-L-A-M-E-S until one remains. The surviving letter is your result, a lighthearted read on the pair that you can download as a shareable card.
+          FLAMES is a classic name game that turns two names into one of six outcomes: Friends, Lovers, Affection, Marriage, Enemies or Siblings. Type both names and the calculator cancels the letters the two names share, one for one, then counts what is left and eliminates letters from F-L-A-M-E-S until one remains. The surviving letter is your result, a lighthearted read on the pair that you can download as a shareable card.
         </p>
       </div>
 
@@ -281,9 +323,9 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 {/* Left Column: Names, Ages, Submit */}
                 <div className="lg:col-span-7 space-y-4">
                   <div className="border-b border-slate-100 pb-3">
-                    <h2 className="text-base font-extrabold text-slate-900 font-display">
+                    <p className="text-base font-extrabold text-slate-900 font-display">
                       Enter Names for FLAMES Calculator
-                    </h2>
+                    </p>
                     <p className="text-xs text-slate-500">
                       Automated 1-to-1 letter strikeout for accurate flames name matching &amp; compatibility
                     </p>
@@ -368,9 +410,9 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 {/* Right Column: FLAMES Legend */}
                 <div className="lg:col-span-5 bg-amber-50/50 p-4 sm:p-5 rounded-2xl border border-amber-200 space-y-3">
                   <div className="border-b border-amber-200/80 pb-2">
-                    <h3 className="text-xs font-bold text-amber-950 uppercase tracking-wider">
+                    <p className="text-xs font-bold text-amber-950 uppercase tracking-wider">
                       FLAMES Full Form &amp; Meaning Guide
-                    </h3>
+                    </p>
                     <p className="text-[11px] text-amber-800">
                       Discover the authentic flames name game meaning behind each letter
                     </p>
@@ -561,7 +603,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
       </div>
 
       {/* Unique In-Depth Editorial Showcase & Guide Section */}
-      <div className="mt-12 space-y-12">
+      <div className="mt-12 space-y-12 [&_p]:text-justify">
         {/* Featured Editorial Banner with Generated Image */}
         <div className="rounded-3xl overflow-hidden border border-amber-200 bg-slate-900 text-white shadow-lg relative">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center">
@@ -574,7 +616,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 FLAMES Calculator &amp; FLAMES Game Online: Relive School Romance
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Remember tearing out the last page of your rough notebook during boring math lectures to test your crush&apos;s name? The <strong>FLAMES game</strong> and <strong>flames name game</strong> have entertained generations of students across India, turning simple letter cancellation into an exciting rite of passage and playful playground suspense to discover your <strong>flames love</strong> connection.
+                Remember tearing out the last page of your rough notebook during boring math lectures to test your crush&apos;s name? The <strong>FLAMES game</strong> has entertained generations of students across India, turning simple letter cancellation into a rite of passage and a playground suspense: what will the two names turn out to be?
               </p>
               <div className="pt-2 flex flex-wrap gap-2 text-xs">
                 <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-200 border border-amber-400/30">
@@ -611,7 +653,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               FLAMES Full Form: What Each Letter in F-L-A-M-E-S Truly Signifies
             </h2>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-              Wondering about the <strong>FLAMES full form</strong> and authentic <strong>flames name game meaning</strong>? Every remaining letter in the cyclic elimination carries a unique symbolic dynamic between two personalities, revealing your true <strong>flames name compatibility</strong>:
+              Each letter in the <strong>FLAMES full form</strong> stands for one relationship. F is Friends, L is Lovers, A is Affection, M is Marriage, E is Enemies and S is Siblings. The game hands you one of these six, depending on how many letters survive the name matching. Some classrooms read A as Admiration and S as Sisters, which are local variants, and the calculator on this page uses the Affection and Siblings reading. The full form sits beside your result, so the letter you land on never stays a mystery.
             </p>
           </div>
 
@@ -662,7 +704,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 <h3 className="font-bold text-sm text-slate-900">Enemies (Nok-Jhok)</h3>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Fiery banter and clashing egos! While it sounds dramatic, enemy friction in Indian pop culture is frequently the thin line masking unspoken <strong>flames name love</strong> chemistry.
+                Fiery banter and clashing egos. It sounds dramatic, but in this game Enemies usually means spirited teasing and stubborn pride, the kind of friction that keeps two people talking.
               </p>
             </div>
 
@@ -688,7 +730,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               How the FLAMES Calculator Works: Combinatorial Circular Elimination &amp; Name Matching
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              Behind the classroom entertainment lies an authentic combinatorial elimination principle closely related to the famous mathematical Josephus Problem. Here is how our <strong>flames name calculator</strong> and <strong>flames name game calculator</strong> executes exact <strong>flames name matching</strong>:
+              Behind the classroom fun sits a real piece of mathematics: a counting-out elimination closely related to the famous <strong>Josephus Problem</strong>. Here is how the calculator turns two names into one letter, and the section below tells the story of the 1st-century historian the problem is named after.
             </p>
           </div>
 
@@ -697,7 +739,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">Step 1: Clean &amp; Sanitize</span>
               <h3 className="font-bold text-base text-white">Character Normalization</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                All spaces, special symbols, and capitalization are stripped away. Names are converted to lowercase ASCII characters to ensure symmetric <strong>flames name matching</strong>.
+                All spaces, special symbols, and capital letters are stripped away. Both names are converted to lowercase letters, so the matching treats both names the same way.
               </p>
             </div>
 
@@ -705,7 +747,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               <span className="text-xs font-bold text-rose-300 uppercase tracking-wider block">Step 2: 1-on-1 Cancellation</span>
               <h3 className="font-bold text-base text-white">Symmetric Strike-Out</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                If Name 1 has two &apos;a&apos;s and Name 2 has one &apos;a&apos;, only one &apos;a&apos; from each is cancelled. The remaining uncancelled letters are counted together in the <strong>flames name game calculator</strong> as count <strong>N</strong>.
+                If Name 1 has two &apos;a&apos;s and Name 2 has one &apos;a&apos;, only one &apos;a&apos; from each is cancelled. The letters left over are counted together, and that total is the count, <strong>N</strong>, the number the whole game turns on.
               </p>
             </div>
 
@@ -713,13 +755,13 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               <span className="text-xs font-bold text-purple-300 uppercase tracking-wider block">Step 3: Cyclic Countdown</span>
               <h3 className="font-bold text-base text-white">Modular Elimination</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Starting from index 0 of &apos;FLAMES&apos;, the countdown advances by <strong>N</strong>. The letter hit on the Nth count is removed, and counting resumes from the next letter until 1 survivor remains to reveal your <strong>flames name meaning</strong>.
+                Starting from F, the count advances by <strong>N</strong>. The letter landed on is removed, and counting resumes from the next letter, until one survivor remains. That survivor is your result.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Section 2b: Worked Example — How to Calculate FLAMES */}
+        {/* Section 2b: Worked Example: How to Calculate FLAMES */}
         <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
           <div className="rounded-2xl overflow-hidden border border-slate-200">
             <img
@@ -740,7 +782,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               How to Calculate FLAMES Between Two Names
             </h2>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-              The love calculator flames game is the paper-and-pen cousin of a{' '}
+              The FLAMES game is the paper-and-pen cousin of a{' '}
               <a
                 href="/"
                 onClick={(e) => {
@@ -751,20 +793,20 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               >
                 love calculator
               </a>
-              {' '}— it asks whether two names go together, but it answers with a letter instead of a number. Checking love flames by name takes about a minute and needs nothing but the two first names: no birth dates, no signs, and no flames calculator app to install.
+              {' '}, and it asks whether two names go together, but it answers with a letter instead of a number. Checking love flames by name takes about a minute and needs nothing but the two first names: no birth dates, no signs, and no flames calculator app to install.
             </p>
             <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              Here is how to calculate love flames on paper. Write the two names side by side and cross out the letters they share, one for one — that is how to find flames between two names without any tool — then count what is left. Take Liam and Emma. The letter A appears in both names, so one A is crossed out from each; the letter M appears once in Liam and twice in Emma, so one M is crossed out from each. Four letters stay behind — L and I from Liam, E and M from Emma — and that count, 4, is the number the whole game turns on.
+              Here is how to calculate love flames on paper. Write the two names side by side and cross out the letters they share, one for one, then count what is left. Take Liam and Emma. The letter A appears in both names, so one A is crossed out from each; the letter M appears once in Liam and twice in Emma, so one M is crossed out from each. Four letters stay behind, L and I from Liam, E and M from Emma, and that count, 4, is the number the whole game turns on.
             </p>
             <div className="mt-4 p-4 bg-slate-50 rounded-xl font-mono text-xs text-slate-700 leading-relaxed space-y-1 border border-slate-100">
               <div>Liam + Emma</div>
               <div>Shared letters crossed out, one for one: <span className="font-bold text-rose-600">A, M</span></div>
-              <div>Letters left: L, I, E, M — count N = <span className="font-bold text-amber-700">4</span></div>
+              <div>Letters left: L, I, E, M, count N = <span className="font-bold text-amber-700">4</span></div>
               <div>Count 4 around F-L-A-M-E-S: M out, then L, F, A, S</div>
-              <div>Letter left standing: <span className="font-bold text-rose-600">E — Enemies</span></div>
+              <div>Letter left standing: <span className="font-bold text-rose-600">E, Enemies</span></div>
             </div>
             <p className="text-sm text-slate-600 mt-4 leading-relaxed">
-              Counting 4 around the letters strikes out M first, then L, F, A and S, and E is the letter left standing — so Liam and Emma land on Enemies. That sounds harsher than it is: in this game Enemies usually means spirited banter and stubborn pride, the kind of friction that keeps two people talking, and the FAQ below explains why it is rarely a real warning. If the letter had come out Lovers instead, the{' '}
+              Counting 4 around the letters strikes out M first, then L, F, A and S, and E is the letter left standing, so Liam and Emma land on Enemies. That sounds harsher than it is: in this game Enemies usually means spirited banter and stubborn pride, the kind of friction that keeps two people talking, and the FAQ below explains why it is rarely a real warning. If the letter had come out Lovers instead, the{' '}
               <a
                 href="/crush-calculator/"
                 onClick={(e) => {
@@ -778,10 +820,10 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
               {' '}is the next playful check, reading the same two names for crush chemistry rather than letter counts.
             </p>
             <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              The flames calculator percentage people ask about is the affinity reading that comes with the letter — the meaning, the suggestion and the tip on the result card — not a second score hiding behind it. There is no separate flames percentage to chase: the game gives you one letter and the count that produced it, so the strength of the match is visible in the working rather than in a number. No flames percentage calculator will give you a second score, because the game has only one number: the count. That is also what makes a flames calculator love test different from a flames love meter: the game measures how two names line up on paper, not how two people actually feel.
+              The flames calculator percentage people ask about is the affinity reading that comes with the letter: the meaning, the suggestion and the tip on the result card, not a second score hiding behind it. There is no separate flames percentage to chase. The game gives you one letter and the count that produced it, so the strength of the match is visible in the working rather than in a number. No flames percentage calculator can give you a second score, because the game has only one number: the count. That is also what makes a flames calculator love test different from a flames love meter: the game measures how two names line up on paper, not how two people actually feel.
             </p>
             <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              Think of it as a flames love test, not a verdict — and a real flames calculator shows its working, the cancelled letters, the count and every round, so you can check the result yourself instead of taking it on trust. The flames game calculator above is a flames generator in the practical sense: type two names and it generates the letter, the working and the shareable card in one go, and it is a flames love game online in the simplest sense — free, in the browser, no sign-up. Use it as a flames relationship calculator whenever you want a quick, playful read on two names — or try{' '}
+              Think of it as a flames love test, not a verdict. A real flames calculator shows its working, the cancelled letters, the count and every round, so you can check the result yourself instead of taking it on trust. The calculator above generates the letter, the working and the shareable card in one go, free, in the browser, no sign-up. Use it whenever you want a quick, playful read on two names, or try{' '}
               <a
                 href="/name-compatibility/"
                 onClick={(e) => {
@@ -797,6 +839,76 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
           </div>
         </section>
 
+        {/* Section 2c: FLAMES Result Chart (count to result) */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold mb-3 border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Look It Up</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              The FLAMES Result Chart: Which Count Gives Which Letter
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              The <strong>flames calculator</strong> does the counting for you, but you can also look the answer up. The result depends on one number only: how many letters are left after the shared ones are crossed out. Count your leftover letters, find the number below, and you have the result without counting around the word at all.
+            </p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full max-w-2xl text-sm border border-slate-200 rounded-2xl overflow-hidden">
+              <caption className="sr-only">Letters left after cancellation, and the FLAMES result each count gives</caption>
+              <thead>
+                <tr className="bg-slate-900 text-white">
+                  <th scope="col" className="px-4 py-2.5 text-left font-bold">Letters left</th>
+                  <th scope="col" className="px-4 py-2.5 text-left font-bold">Letter</th>
+                  <th scope="col" className="px-4 py-2.5 text-left font-bold">Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                {flamesCountChart.map((row) => (
+                  <tr key={row.count} className="border-t border-slate-100 odd:bg-white even:bg-slate-50/60">
+                    <td className="px-4 py-2 font-mono text-slate-700">{row.count}</td>
+                    <td className="px-4 py-2 font-bold text-rose-600">{row.letter}</td>
+                    <td className="px-4 py-2 text-slate-700">{row.word}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="max-w-3xl space-y-4">
+            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-display">
+              What the Chart Shows
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Count the table and one pattern jumps out. Enemies turns up 8 times in the first 30 counts, more than any other letter, and Lovers turns up only twice. Friends turns up 7 times, Affection 6, Marriage 4, and Siblings 3. That is not a judgment on your names. It is just how the counting falls: the elimination lands on some letters more often than others.
+            </p>
+            <h4 className="text-base sm:text-lg font-extrabold text-slate-900 font-display">
+              The Pattern Repeats Every 60 Counts
+            </h4>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Here is the part no other FLAMES page tells you. The pattern does not run on forever. It repeats every 60 counts: count 61 gives the same letter as count 1, count 62 the same as count 2, and so on. The reason is simple arithmetic. As the letters are struck out, the circle shrinks through 6, 5, 4, 3 and 2 letters, and 60 is the smallest number that divides evenly by all of them. Add 60 to any count and every round lands on the same letter, so the whole game, for any two names, lives inside one 60-count cycle.
+            </p>
+          </div>
+        </section>
+
+        {/* Section 2d: FLAMES and the Josephus Problem */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Two Thousand Years Old</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              FLAMES and the Josephus Problem: A Counting Game From the 1st Century
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              FLAMES is not the first counting-out game. It is the newest version of one. The method, count around a circle and strike out every Nth item until one is left, is called the <strong>Josephus Problem</strong>, and it is named after Flavius Josephus, a Jewish historian of the 1st century. In his account of the siege of Yodfat in 67 CE, Josephus wrote that he and 40 soldiers were trapped in a cave by Roman troops and agreed to draw lots rather than be captured. They stood in a circle and counted, and Josephus and one other man were the last two left. The two surrendered. The story is told in Book 3 of his history, The Jewish War.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              The circle-and-count idea did not stay in that cave. In 1612, the French mathematician Claude Gaspard Bachet described the same counting game with 41 men and a step of three, and worked out that the safe places were the 16th and the 31st. It became a puzzle mathematicians still teach, and the counting rhyme children use to pick who is it, eeny, meeny, miny, moe, works the same way: count around, strike one out, keep going. FLAMES is that game with six letters instead of 41 men. The count is the leftover letters, the circle is F-L-A-M-E-S, and the last letter standing is the survivor. The game in your notebook is two thousand years old, even if the letters are new.
+            </p>
+          </div>
+        </section>
+
         {/* Section 3: FLAMES Real Name vs Nicknames & Name Generator */}
         <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold text-rose-700 uppercase tracking-wider">
@@ -807,19 +919,19 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
             FLAMES Real Name vs. Nicknames: How to Play the FLAMES Name Game
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Should you enter your <strong>flames real name</strong> or a playful nickname into the <strong>flames calculator</strong>? In Indian school classrooms and college canteens, friends frequently tested both formal names and pet nicknames to compare <strong>flames name compatibility</strong> and see if their <strong>flames love</strong> destiny changed. You can use our interactive tool as a <strong>flames name generator</strong> to test multiple spelling variations and see which combination yields your desired relationship outcome.
+            Should you enter your real name or a playful nickname into the <strong>flames calculator</strong>? In Indian school classrooms and college canteens, friends tested both, formal names and pet nicknames, to see if the result changed. It can, because a nickname changes the letters, and the letters decide the count. Try both and compare, but treat the full name as the main result and the nickname as the fun second test.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
             <div className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100 space-y-1.5">
               <h3 className="text-xs font-bold text-rose-950 uppercase tracking-wide">Using Your FLAMES Real Name</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Entering full, official names ensures stable, symmetrical letter frequencies. This is recommended when you want standard, reproducible <strong>flames name matching</strong>.
+                Entering full, official names gives a stable, reproducible result. This is the one to use when you want the standard answer, the one you would have written in the notebook.
               </p>
             </div>
             <div className="p-4 rounded-2xl bg-amber-50/40 border border-amber-100 space-y-1.5">
               <h3 className="text-xs font-bold text-amber-950 uppercase tracking-wide">Testing Pet Names &amp; Nicknames</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Shortened nicknames (like Sonu, Chintu, or Priya) change the uncancelled letter count N, offering fun, diverse results for couples playing the <strong>flames name game</strong> together.
+                Shortened nicknames (like Sonu, Chintu, or Priya) change the uncancelled letter count N, so the result can come out different. That is the fun of it, not a flaw: a nickname is a different pair of names.
               </p>
             </div>
           </div>
@@ -835,7 +947,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
             Love FLAMES by Date of Birth vs. FLAMES Calculator by Name
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Many users frequently search for <strong>love flames by date of birth</strong>. While the traditional <strong>FLAMES game</strong> is strictly a <strong>flames name matching</strong> formula based on character cancellation, you can combine name harmonics with birth date numerology to get a 360-degree relationship assessment.
+            Many people look for <strong>love flames by date of birth</strong>. The traditional FLAMES game is strictly a name game, a formula based on character cancellation, and it never looks at a birth date. If you want a birth-date reading as well, the Date of Birth Love Calculator reads the two birth dates, and the two results together give you a fuller picture than either one alone.
           </p>
           <div className="p-4 rounded-2xl bg-white border border-amber-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="space-y-1">
@@ -843,7 +955,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 Want to calculate compatibility by birth dates?
               </h3>
               <p className="text-xs text-slate-500">
-                Check Pythagorean Life Path alignment and cosmic harmony alongside your <strong>flames calculator</strong> result.
+                Check birth-date harmony alongside your <strong>flames calculator</strong> result.
               </p>
             </div>
             <a
@@ -872,10 +984,10 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 Twin Flame Calculator vs the FLAMES Game
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Twin flames are described as two halves of one soul, split apart and looking for each other across lifetimes — and a twin flame calculator claims to tell you whether two people fit that story, usually from their birth dates. That is a different kind of check from the FLAMES game, which only counts the letters in two names and never looks at a birth date. The two ideas share the word flame and almost nothing else, so a twin flame result and a FLAMES result cannot be compared with each other.
+                Twin flames are described as two halves of one soul, split apart and looking for each other across lifetimes, and a twin flame calculator claims to tell you whether two people fit that story, usually from their birth dates. That is a different kind of check from the FLAMES game, which only counts the letters in two names and never looks at a birth date. The two ideas share the word flame and almost nothing else, so a twin flame result and a FLAMES result cannot be compared with each other.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Most twin flame calculator pages call themselves free, and they ask for two birth dates before they answer. A free twin flame calculator usually returns a yes-or-no verdict, sometimes with a percentage, and the ones that go further ask for full birth details: a twin flame birthday calculator works from the two birthdays alone, while a twin flame birth chart calculator compares the two full charts. The ones that go furthest lay two birth charts side by side instead of just comparing birthdays — that comparison is what a twin flame synastry chart calculator promises.
+                Most twin flame calculator pages call themselves free, and they ask for two birth dates before they answer. A free twin flame calculator usually returns a yes-or-no verdict, sometimes with a percentage, and the ones that go further ask for full birth details: a twin flame birthday calculator works from the two birthdays alone, while a twin flame birth chart calculator compares the two full charts. The ones that go furthest lay two birth charts side by side instead of just comparing birthdays, and that comparison is what a twin flame synastry chart calculator promises.
               </p>
               <p className="text-sm text-slate-600 leading-relaxed">
                 If what you actually want is a birth-date reading, this site has better tools for it than a twin flame verdict. The{' '}
@@ -911,7 +1023,7 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
                 >
                   soulmate guide
                 </a>
-                {' '}explains what a soulmate is supposed to be and how people claim to recognise one. None of those is a twin flame calculator either — they are the closest honest checks this site offers for two people wondering how they fit.
+                {' '}explains what a soulmate is supposed to be and how people claim to recognise one. None of those is a twin flame calculator either. They are the closest honest checks this site offers for two people wondering how they fit.
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden border border-slate-200 h-72 md:h-full min-h-[18rem]">
@@ -937,8 +1049,27 @@ FLAMES is a classic name game that turns two names into one of six outcomes — 
             The School Notebook Legacy: India&apos;s Favorite FLAMES Game
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            In an era before smartphones, dating apps, and social media reels, the <strong>FLAMES calculator</strong> was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling uncontrollably whenever a classmate’s crush ended on &apos;M&apos; (Marriage) or teasing them endlessly when it landed on &apos;S&apos; (Siblings). CalculateLove honors that innocent nostalgia with authentic transparent mechanics, a deterministic <strong>FLAMES letter result</strong>, and instant shareable status cards.
+            In an era before smartphones, dating apps, and social media reels, the <strong>FLAMES calculator</strong> was the ultimate playground icebreaker. Friends would crowd around wooden school benches during tiffin breaks, giggling whenever a classmate&apos;s crush ended on M (Marriage) or teasing them endlessly when it landed on S (Siblings). The game needed nothing but a notebook and two names, and that is why it travelled so far. Any classroom could play it, and it never needed a battery.
           </p>
+        </section>
+
+        {/* Section 6: FLAMES on Screen */}
+        <section className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10 space-y-4">
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>On Screen</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-display tracking-tight">
+              FLAMES on Screen: The TV Show Named After the Game
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              The game is famous enough to have a television show named after it. Flames, a Hindi coming-of-age series from The Viral Fever (TVF), premiered on 5 January 2018 and follows Rajat, a studious teenager, and Ishita, the new girl at his tuition centre in west Delhi. The tagline is Padhai aur Pyaar, studies and love, and the title is a direct nod to the notebook game: first love, worked out the way schoolchildren always have.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              The show ran for four seasons, the last in 2023, and streams on Amazon Prime Video. Its leads, Ritvik Sahore and Tanya Maniktala, play two students whose friendship turns into a first love in the middle of tuition classes and board exam pressure. If the game feels like your school days, that is the point. The show is the game, stretched into a love story.
+            </p>
+          </div>
         </section>
       </div>
 
